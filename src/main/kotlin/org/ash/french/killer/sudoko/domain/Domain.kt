@@ -7,7 +7,7 @@ data class Cell(val x: Int, val y: Int) {
     }
 }
 
-data class Row(val y: Int, val cells: Set<Cell>): CellSet(cells) {
+data class Row(val y: Int, override val cells: Set<Cell>): House(cells) {
 
     override fun validate(cells: Set<Cell>): Result<Boolean> {
         return try {
@@ -21,7 +21,7 @@ data class Row(val y: Int, val cells: Set<Cell>): CellSet(cells) {
     }
 }
 
-data class Column(val x: Int, val cells: Set<Cell>): CellSet(cells) {
+data class Column(val x: Int, override val cells: Set<Cell>): House(cells) {
 
     override fun validate(cells: Set<Cell>): Result<Boolean> {
         return try {
@@ -37,7 +37,7 @@ data class Column(val x: Int, val cells: Set<Cell>): CellSet(cells) {
 
 }
 
-data class Nonet(val cells: Set<Cell>): CellSet(cells) {
+data class Nonet(override val cells: Set<Cell>): House(cells) {
 
     override fun validate(cells: Set<Cell>): Result<Boolean> {
         return try {
@@ -56,7 +56,10 @@ data class Nonet(val cells: Set<Cell>): CellSet(cells) {
 
 }
 
-data class Cage(val sum: Int, val cells: Set<Cell>): CellSet(cells) {
+sealed class House(open val sum: Int, open val cells: Set<Cell>): CellSet(cells) {
+
+    constructor(cells: Set<Cell>): this(45, cells)
+
     override fun validate(cells: Set<Cell>): Result<Boolean> {
         return try {
             require(cells.count() in 1..9) { "Number of cells in a cage must be between 1 and 9" }
@@ -66,6 +69,14 @@ data class Cage(val sum: Int, val cells: Set<Cell>): CellSet(cells) {
         }
         
     }
+}
+
+data class Cage(override val sum: Int, override val cells: Set<Cell>): House(cells) {
+
+    override fun validate(cells: Set<Cell>): Result<Boolean> {
+        return super.validate(cells)
+    }
+
 }
 
 sealed class CellSet(private val cells: Set<Cell>): Set<Cell> by cells {
@@ -86,6 +97,6 @@ sealed class CellSet(private val cells: Set<Cell>): Set<Cell> by cells {
 
 }
 
-typealias Validation = Result<Boolean>
-fun validationFailure(t: Throwable): Validation = Result.failure(t)
-fun valid(): Validation = Result.success(true)
+typealias SudokuValidation = Result<Boolean>
+fun validationFailure(t: Throwable): SudokuValidation = Result.failure(t)
+fun valid(): SudokuValidation = Result.success(true)
