@@ -68,6 +68,12 @@ data class Nonet(val cells: Set<Cell>): CellSet(cells) {
 
 }
 
+data class Cage(val sum: Int, val cells: Set<Cell>): CellSet(cells) {
+    override fun validate(cells: Set<Cell>): Result<Boolean> {
+        return super.validate(cells)
+    }
+}
+
 sealed class CellSet(private val cells: Set<Cell>): Set<Cell> by cells {
     open fun validate(cells: Set<Cell>): Result<Boolean> {
         return if (cells == this.cells) {
