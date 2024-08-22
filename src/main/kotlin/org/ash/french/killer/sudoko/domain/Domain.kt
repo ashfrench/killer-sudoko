@@ -84,7 +84,7 @@ sealed class CellSet(private val cells: Set<Cell>): Set<Cell> by cells {
     }
 
     //Private Constructor to hide visibility
-    private constructor(): this(emptySet())
+    constructor(): this(emptySet())
 
     init {
         this.validate(cells)
