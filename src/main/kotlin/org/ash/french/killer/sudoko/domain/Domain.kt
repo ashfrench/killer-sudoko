@@ -9,12 +9,6 @@ data class Cell(val x: Int, val y: Int) {
 
 data class Row(val y: Int, val cells: Set<Cell>): CellSet(cells) {
 
-    init {
-        require(y in (1..9)) { "Y must be a positive Integer between 1 and 9" }
-        require(cells.any { it.y == y }) { "All Cells must be in the Row $y" }
-        require(cells.distinct().count() == 9) { "All Cells must be in the Row $y" }
-    }
-
     override fun validate(cells: Set<Cell>): Result<Boolean> {
         return try {
             require(y in (1..9)) { "Y must be a positive Integer between 1 and 9" }
@@ -22,18 +16,12 @@ data class Row(val y: Int, val cells: Set<Cell>): CellSet(cells) {
             require(cells.distinct().count() == 9) { "All Cells must be in the Row $y" }
             Result.success(true)
         } catch (e: Throwable) {
-            Result.failure(e)
+            valid()
         }
     }
 }
 
 data class Column(val x: Int, val cells: Set<Cell>): CellSet(cells) {
-
-    init {
-        require(x in (1..9)) { "X must be a positive Integer between 1 and 9" }
-        require(cells.any { it.x == x }) { "All Cells must be in the Row $x" }
-        require(cells.distinct().count() == 9) { "All Cells must be in the Row $x" }
-    }
 
     override fun validate(cells: Set<Cell>): Result<Boolean> {
         return try {
@@ -41,9 +29,9 @@ data class Column(val x: Int, val cells: Set<Cell>): CellSet(cells) {
             require(cells.any { it.x == x }) { "All Cells must be in the Row $x" }
             require(cells.distinct().count() == 9) { "All Cells must be in the Row $x" }
 
-            Result.success(true)
+            valid()
         } catch (e: Throwable) {
-            Result.failure(e)
+            validationFailure(e)
         }
     }
 
@@ -60,9 +48,9 @@ data class Nonet(val cells: Set<Cell>): CellSet(cells) {
             require(groupByX.all { it.value.count() == 3 }) { "All groups of X cells should only have 3" }
             require(groupByY.all { it.value.count() == 3 }) { "All groups of Y cells should only have 3" }
 
-            Result.success(true)
+            valid()
         } catch (e: Throwable) {
-            Result.failure(e)
+            validationFailure(e)
         }
     }
 
@@ -70,16 +58,22 @@ data class Nonet(val cells: Set<Cell>): CellSet(cells) {
 
 data class Cage(val sum: Int, val cells: Set<Cell>): CellSet(cells) {
     override fun validate(cells: Set<Cell>): Result<Boolean> {
-        return super.validate(cells)
+        return try {
+            require(cells.count() in 1..9) { "Number of cells in a cage must be between 1 and 9" }
+            valid()
+        } catch (e : Throwable) {
+            validationFailure(e)
+        }
+        
     }
 }
 
 sealed class CellSet(private val cells: Set<Cell>): Set<Cell> by cells {
     open fun validate(cells: Set<Cell>): Result<Boolean> {
         return if (cells == this.cells) {
-            Result.success(true)
+            valid()
         } else {
-            Result.failure(RuntimeException("Unexpected Cells: $cells"))
+            validationFailure(RuntimeException("Unexpected Cells: $cells"))
         }
     }
 
@@ -91,3 +85,7 @@ sealed class CellSet(private val cells: Set<Cell>): Set<Cell> by cells {
     }
 
 }
+
+typealias Validation = Result<Boolean>
+fun validationFailure(t: Throwable): Validation = Result.failure(t)
+fun valid(): Validation = Result.success(true)
