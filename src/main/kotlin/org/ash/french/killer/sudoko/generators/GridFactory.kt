@@ -15,8 +15,8 @@ data class SudokuGrid(val cells: Set<Cell>) {
     val columns: Set<Column> = TODO()
     val nonets: Set<Nonet> = TODO()
 
-    private val cellValues: MutableMap<Cell, Int?> = cells.associateWith { null }.toMutableMap()
-    fun updateCell(cell: Cell, value: Int?): CellUpdate = TODO()
+    private val cellValues: MutableMap<Cell, UByte?> = cells.associateWith { null }.toMutableMap()
+    fun updateCell(cell: Cell, value: UByte?): CellUpdate = TODO()
 
 }
 

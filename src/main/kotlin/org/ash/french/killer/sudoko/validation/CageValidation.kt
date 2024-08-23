@@ -10,7 +10,7 @@ fun validateCage(cage: Cage): SudokuValidation {
 }
 
 
-fun defaultCageSizes(): Map<Int, Map<Int, CellSet>>{
+fun defaultCageSizes(): Map<UByte, Map<UByte, CellSet>>{
 
     val availableSums = (1..45)
     val availableCageSizes = (1..9)
@@ -29,21 +29,58 @@ fun defaultCageSizes(): Map<Int, Map<Int, CellSet>>{
     return TODO()
 }
 
-fun getCageValues(cageSize: Int, cageSum: Int): Set<CellSet> {
+fun getCageValues(cageSize: UByte, cageSum: UByte): Result<Set<CellSet>> {
 
-    return when (cageSize) {
-        1 -> emptySet()
-        2 -> emptySet()
-        3 -> emptySet()
-        4 -> emptySet()
-        5 -> emptySet()
-        6 -> emptySet()
-        7 -> emptySet()
-        8 -> emptySet()
-        9 -> emptySet()
+    return when (cageSize.toInt()) {
+        1 -> calculateCellSetCageSizeOne(cageSum)
+        2 -> calculateCellSetCageSizeTwo(cageSum)
+        3 -> calculateCellSetCageSizeThree(cageSum)
+        4 -> calculateCellSetCageSizeFour(cageSum)
+        5 -> calculateCellSetCageSizeFive(cageSum)
+        6 -> calculateCellSetCageSizeSix(cageSum)
+        7 -> calculateCellSetCageSizeSeven(cageSum)
+        8 -> calculateCellSetCageSizeEight(cageSum)
+        9 -> calculateCellSetCageSizeNine(cageSum)
         else -> throw RuntimeException("Unexpected Cage Size")
     }
 }
+
+fun calculateCellSetCageSizeOne(cageSum: UByte): Result<Set<CellSet>> {
+    TODO("Not yet implemented")
+}
+
+fun calculateCellSetCageSizeTwo(cageSum: UByte): Result<Set<CellSet>> {
+    TODO("Not yet implemented")
+}
+
+fun calculateCellSetCageSizeThree(cageSum: UByte): Result<Set<CellSet>> {
+    TODO("Not yet implemented")
+}
+
+fun calculateCellSetCageSizeFour(cageSum: UByte): Result<Set<CellSet>> {
+    TODO("Not yet implemented")
+}
+
+fun calculateCellSetCageSizeFive(cageSum: UByte): Result<Set<CellSet>> {
+    TODO("Not yet implemented")
+}
+
+fun calculateCellSetCageSizeSix(cageSum: UByte): Result<Set<CellSet>> {
+    TODO("Not yet implemented")
+}
+
+fun calculateCellSetCageSizeSeven(cageSum: UByte): Result<Set<CellSet>> {
+    TODO("Not yet implemented")
+}
+
+fun calculateCellSetCageSizeEight(cageSum: UByte): Result<Set<CellSet>> {
+    TODO("Not yet implemented")
+}
+
+fun calculateCellSetCageSizeNine(cageSum: UByte): Result<Set<CellSet>> {
+    TODO("Not yet implemented")
+}
+
 
 fun main() {
 
