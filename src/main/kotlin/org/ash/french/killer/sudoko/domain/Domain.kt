@@ -2,8 +2,8 @@ package org.ash.french.killer.sudoko.domain
 
 data class Cell(val x: UByte, val y: UByte) {
     init {
-        require(x in (1..9)) { "X must be a positive Integer between 1 and 9" }
-        require(y in (1..9)) { "Y must be a positive Integer between 1 and 9" }
+        require(x in (1u..9u)) { "X must be a positive Integer between 1 and 9" }
+        require(y in (1u..9u)) { "Y must be a positive Integer between 1 and 9" }
     }
 }
 
@@ -12,7 +12,7 @@ data class Row(val y: UByte, override val cells: Set<Cell>): Region(cells) {
     override fun validate(): SudokuValidation {
         return try {
 
-            require(y in (1..9)) { "Y must be a positive Integer between 1 and 9" }
+            require(y in (1u..9u)) { "Y must be a positive Integer between 1 and 9" }
             require(cells.any { it.y == y }) { "All Cells must be in the Row $y" }
             require(cells.distinct().count() == 9) { "All Cells must be in the Row $y" }
 
@@ -27,7 +27,7 @@ data class Column(val x: UByte, override val cells: Set<Cell>): Region(cells) {
 
     override fun validate(): Result<Boolean> {
         return try {
-            require(x in (1..9)) { "X must be a positive Integer between 1 and 9" }
+            require(x in (1u..9u)) { "X must be a positive Integer between 1 and 9" }
             require(cells.any { it.x == x }) { "All Cells must be in the Row $x" }
             require(cells.distinct().count() == 9) { "All Cells must be in the Row $x" }
 
@@ -59,7 +59,7 @@ data class Nonet(override val cells: Set<Cell>): Region(cells) {
 
 sealed class Region(open val sum: UByte, open val cells: Set<Cell>): CellSet(cells) {
 
-    constructor(cells: Set<Cell>): this(45, cells)
+    constructor(cells: Set<Cell>): this(45u, cells)
 
     override fun validate(): Result<Boolean> {
         return try {
@@ -76,7 +76,7 @@ sealed class Region(open val sum: UByte, open val cells: Set<Cell>): CellSet(cel
 data class Cage(override val sum: UByte, override val cells: Set<Cell>): Region(sum, cells) {
 
     init {
-        require(sum in 1..45) { "Invalid Sum for Cage of size ${cells.size}" }
+        require(sum in 1u..45u) { "Invalid Sum for Cage of size ${cells.size}" }
     }
 
     override fun validate(): Result<Boolean> {
