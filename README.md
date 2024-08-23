@@ -8,7 +8,7 @@ The goals of this project is to be able to take any Killer Sudoku Grid and then 
 Classic sudoku has been around for years and can easily be solved through brute force. The aim of this project is to show and demonstrate how to solve example puzzles. Show techniques and provide solutions.
 
 ## Rules of Sudoku
-In classic Sudoku, the objective is to fill a 9 × 9 grid with digits so that each column, each row, and each of the nine 3 × 3 subgrids that compose the grid (nonet) contains all of the digits from 1 to 9. The puzzle setter provides a partially completed grid, which for a well-posed puzzle has a single solution.
+In classic Sudoku, the objective is to fill a 9 × 9 grid with digits so that each column, each row, and each of the nine 3 × 3 subgrids that compose the grid (nonet) contains all of the digits from 1 to 9. The puzzle setter provides a partially completed grid, which for a [well-posed puzzle][1] has a single solution.
 
 ### Examples of Sudoku Grids
 
@@ -51,9 +51,19 @@ In classic Sudoku, the objective is to fill a 9 × 9 grid with digits so that ea
 ## Code Location
 
 ## Tooling
+* [Kotlin][2]
+* [Gradle][3]
+* [JVM][4]
 
 ## How to Build
 
 `./gradlew build`
 
 #### References
+[Well Posed Problem][1]
+
+
+[1]: https://en.wikipedia.org/wiki/Well-posed_problem
+[2]: https://kotlinlang.org/
+[3]: https://gradle.org/
+[4]: https://www.oracle.com/java/technologies/downloads/
