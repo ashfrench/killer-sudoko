@@ -5,18 +5,10 @@ import org.ash.french.killer.sudoko.domain.SudokuValidation
 import org.ash.french.killer.sudoko.domain.valid
 import org.ash.french.killer.sudoko.domain.CellSet as CellSet
 
-class CageValidation {
-
-    fun validateCage(cage: Cage): SudokuValidation {
-
-        return valid()
-    }
-
-
-    companion object {
-        val cageLookup: Map<Int, Map<Int, CellSet>> = emptyMap()
-    }
+fun validateCage(cage: Cage): SudokuValidation {
+    return valid()
 }
+
 
 fun defaultCageSizes(): Map<Int, Map<Int, CellSet>>{
 

@@ -7,23 +7,25 @@ data class Cell(val x: Int, val y: Int) {
     }
 }
 
-data class Row(val y: Int, override val cells: Set<Cell>): House(cells) {
+data class Row(val y: Int, override val cells: Set<Cell>): Region(cells) {
 
-    override fun validate(cells: Set<Cell>): Result<Boolean> {
+    override fun validate(): SudokuValidation {
         return try {
+
             require(y in (1..9)) { "Y must be a positive Integer between 1 and 9" }
             require(cells.any { it.y == y }) { "All Cells must be in the Row $y" }
             require(cells.distinct().count() == 9) { "All Cells must be in the Row $y" }
-            Result.success(true)
-        } catch (e: Throwable) {
+
             valid()
+        } catch (e: Throwable) {
+            validationFailure(e)
         }
     }
 }
 
-data class Column(val x: Int, override val cells: Set<Cell>): House(cells) {
+data class Column(val x: Int, override val cells: Set<Cell>): Region(cells) {
 
-    override fun validate(cells: Set<Cell>): Result<Boolean> {
+    override fun validate(): Result<Boolean> {
         return try {
             require(x in (1..9)) { "X must be a positive Integer between 1 and 9" }
             require(cells.any { it.x == x }) { "All Cells must be in the Row $x" }
@@ -37,11 +39,10 @@ data class Column(val x: Int, override val cells: Set<Cell>): House(cells) {
 
 }
 
-data class Nonet(override val cells: Set<Cell>): House(cells) {
+data class Nonet(override val cells: Set<Cell>): Region(cells) {
 
-    override fun validate(cells: Set<Cell>): Result<Boolean> {
+    override fun validate(): Result<Boolean> {
         return try {
-            require(cells.distinct().count() == 9) { "Nonet must contain 9 cells" }
             val groupByX = cells.groupBy { it.x }
             val groupByY = cells.groupBy { it.y }
 
@@ -56,12 +57,13 @@ data class Nonet(override val cells: Set<Cell>): House(cells) {
 
 }
 
-sealed class House(open val sum: Int, open val cells: Set<Cell>): CellSet(cells) {
+sealed class Region(open val sum: Int, open val cells: Set<Cell>): CellSet(cells) {
 
     constructor(cells: Set<Cell>): this(45, cells)
 
-    override fun validate(cells: Set<Cell>): Result<Boolean> {
+    override fun validate(): Result<Boolean> {
         return try {
+
             require(cells.count() in 1..9) { "Number of cells in a cage must be between 1 and 9" }
             valid()
         } catch (e : Throwable) {
@@ -71,20 +73,25 @@ sealed class House(open val sum: Int, open val cells: Set<Cell>): CellSet(cells)
     }
 }
 
-data class Cage(override val sum: Int, override val cells: Set<Cell>): House(cells) {
+data class Cage(override val sum: Int, override val cells: Set<Cell>): Region(sum, cells) {
 
-    override fun validate(cells: Set<Cell>): Result<Boolean> {
-        return super.validate(cells)
+    init {
+        require(sum in 1..45) { "Invalid Sum for Cage of size ${cells.size}" }
+    }
+
+    override fun validate(): Result<Boolean> {
+        return validate()
     }
 
 }
 
 sealed class CellSet(private val cells: Set<Cell>): Set<Cell> by cells {
-    open fun validate(cells: Set<Cell>): Result<Boolean> {
-        return if (cells == this.cells) {
+    open fun validate(): SudokuValidation {
+        return try {
+            require(cells.size == 9) { "${this.javaClass.canonicalName} must contain 9 cells" }
             valid()
-        } else {
-            validationFailure(RuntimeException("Unexpected Cells: $cells"))
+        } catch (e: Throwable) {
+            validationFailure(e)
         }
     }
 
@@ -92,7 +99,7 @@ sealed class CellSet(private val cells: Set<Cell>): Set<Cell> by cells {
     constructor(): this(emptySet())
 
     init {
-        this.validate(cells)
+        this.validate()
     }
 
 }
