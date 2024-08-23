@@ -4,14 +4,29 @@ import org.ash.french.killer.sudoko.domain.*
 
 interface GridFactory {
 
-    fun defaultSudokuGrid(): SudokuGrid
+    fun defaultSudokuGrid(): SudokuGrid {
+
+        val xRange = 1..9
+        val yRange = 1..9
+
+        val cellSet = xRange.flatMap { x ->
+            yRange.map { y -> Cell(x.toUByte(), y.toUByte())  }
+        }.toSet()
+
+        require(cellSet.size == 45) { "Missing Cells to create a grid" }
+        return SudokuGrid(cellSet)
+    }
+
+
     fun generateKillerSudokuGrid(): SudokuGrid
 
 }
 
 data class SudokuGrid(val cells: Set<Cell>) {
 
-    val rows: Set<Row> = TODO()
+
+    val rows = cells.groupBy { it.y }.mapValues() { Row(it.key, it.value.toSet()) }
+
     val columns: Set<Column> = TODO()
     val nonets: Set<Nonet> = TODO()
 
