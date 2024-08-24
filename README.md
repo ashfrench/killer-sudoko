@@ -24,7 +24,7 @@ In [classic Sudoku](#Classic-Sudoko), the objective is to fill a 9 × 9 grid wit
 
 #### Example Killer Sudoku Grids
 
-#### Terminology
+#### [Terminology](https://en.wikipedia.org/wiki/Glossary_of_Sudoku)
 
 ##### Cell
 
