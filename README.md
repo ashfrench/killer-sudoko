@@ -21,9 +21,9 @@ In [classic Sudoku](#classic-sudoku), the objective is to fill a 9 × 9 grid wit
 ### Examples of Sudoku Grids
 
 
-| An Example Sudoku Grid                                                                                              | An Example Hard Sudoku Grid                                                                                                                                                      | Example Grid being Brute Forced                                                                                             |
-|---------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| <img alt="Example Sudoku Grid - Source Wiki" src=".\src\main\resources\images\example-sudoku-grid.png" width="200"> | <img alt="Hard To Brute Force - Source Wiki" src="C:\Users\ashfr\Documents\Code\killer.sudoko\src\main\resources\images\Sudoku_puzzle_hard_for_brute_force.svg.png" width="200"> | <img alt="Example Sudoku Grid - Source Wiki" src=".src/main/resources/images/Sudoku_solved_by_bactracking.gif" width="200"> |
+| An Example Sudoku Grid                                                                                              | An Example Hard Sudoku Grid                                                                                                            | Example Grid being Brute Forced                                                                                              |
+|---------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
+| <img alt="Example Sudoku Grid - Source Wiki" src="./src/main/resources/images/example-sudoku-grid.png" width="250"> | <img alt="Hard To Brute Force - Source Wiki" src="./src/main/resources/images/Sudoku_puzzle_hard_for_brute_force.svg.png" width="250"> | <img alt="Example Sudoku Grid - Source Wiki" src="./src/main/resources/images/Sudoku_solved_by_bactracking.gif" width="250"> |
 
 
 ## Killer Sudoku Grid
