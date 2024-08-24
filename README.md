@@ -1,6 +1,6 @@
 # Killer-Sudoku
 
-> This is a rewrite in kotlin of my Computer Science dissertation project. I Studied `Computer Science with a Year in Industry (2006-2010)` with [IBM](https://www.ibm.com)`(2008-2009)` at [Manchester University](https://www.cs.manchester.ac.uk/). I achieved a 1st class honours for this project and was in the top 10 of the year.
+> This is a rewrite in kotlin of my Computer Science dissertation project. I Studied `Computer Science with a Year in Industry (2006-2010)` with [IBM][7]`(2008-2009)` at [Manchester University][8]. I achieved a 1st class honours for this project and was in the top 10 of the year.
 > 
 > The goals of this project is to be able to take any Killer Sudoku Grid and then be able to solve them from said grid.
 > 
@@ -13,6 +13,8 @@
 > Classic sudoku has been around for years and can easily be solved through brute force. The aim of this project is to show and demonstrate how to solve example puzzles. Show techniques and provide solutions.
 > 
 > A simple brute force algorithm will be provided to show how to solve a [well-posed puzzle][1]
+> 
+> Further algorithms will be provided with a [human style UX][6] to help the user learn how to solve the puzzles
 
 ## Rules of Sudoku
 
@@ -20,10 +22,11 @@
 
 ### Examples of Sudoku Grids
 
+The below sample grids are taken from https://en.wikipedia.org/wiki/Sudoku
 
-| An Example Sudoku Grid                                                                                              | An Example Hard Sudoku Grid                                                                                                            | Example Grid being Brute Forced                                                                                              |
-|---------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
-| <img alt="Example Sudoku Grid - Source Wiki" src="./src/main/resources/images/example-sudoku-grid.png" width="250"> | <img alt="Hard To Brute Force - Source Wiki" src="./src/main/resources/images/Sudoku_puzzle_hard_for_brute_force.svg.png" width="250"> | <img alt="Example Sudoku Grid - Source Wiki" src="./src/main/resources/images/Sudoku_solved_by_bactracking.gif" width="250"> |
+| An Example Sudoku Grid                                                                                              | An Example Hard Sudoku Grid                                                                                                            | Example Grid being Brute Forced                                                                                                          | Example Solved Sudoku Grid                                                                                           |
+|---------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| <img alt="Example Sudoku Grid - Source Wiki" src="./src/main/resources/images/example-sudoku-grid.png" width="250"> | <img alt="Hard To Brute Force - Source Wiki" src="./src/main/resources/images/Sudoku_puzzle_hard_for_brute_force.svg.png" width="250"> | <img alt="Example Sudoku Grid Brute Force - Source Wiki" src="./src/main/resources/images/Sudoku_solved_by_bactracking.gif" width="250"> | <img alt="Example Solved Sudoku Grid - Source Wiki" src="./src/main/resources/images/solved_puzzle.svg" width="250"> |
 
 
 ## Killer Sudoku Grid
@@ -83,3 +86,6 @@
 [3]: https://gradle.org/
 [4]: https://www.oracle.com/java/technologies/downloads/
 [5]: https://en.wikipedia.org/wiki/Brute-force_search
+[6]: https://en.wikipedia.org/wiki/User_experience
+[7]: https://www.ibm.com
+[8]: https://www.cs.manchester.ac.uk/
