@@ -12,9 +12,11 @@ Classic sudoku has been around for years and can easily be solved through brute 
 A simple brute force algorithm will be provided to show how to solve a [well-posed puzzle][1]
 
 ## Rules of Sudoku
-In [classic Sudoku](#Classic-Sudoko), the objective is to fill a 9 × 9 grid with digits so that each [column](#Column), each [row](#Row), and each of the nine 3 × 3 subgrids that compose the grid ([nonet](#Nonet)) contains all of the digits from 1 to 9. The puzzle setter provides a partially completed grid, which for a [well-posed puzzle][1] has a single solution.
+In [classic Sudoku](#classic-sudoku), the objective is to fill a 9 × 9 grid with digits so that each [column](#Column), each [row](#Row), and each of the nine 3 × 3 subgrids that compose the grid ([nonet](#Nonet)) contains all of the digits from 1 to 9. The puzzle setter provides a partially completed grid, which for a [well-posed puzzle][1] has a single solution.
 
 ### Examples of Sudoku Grids
+
+<img alt="Example Sudoku Grid" src=".\src\main\resources\images\example-sudoku-grid.png" width="200">
 
 ## Killer Sudoku Grid
 
