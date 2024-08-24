@@ -22,37 +22,37 @@ In [classic Sudoku](#Classic-Sudoko), the objective is to fill a 9 × 9 grid wit
 
 ### Examples of Killer Sudoku Grids
 
-#### Example Killer Sudoku Grids
+### [Terminology](https://en.wikipedia.org/wiki/Glossary_of_Sudoku)
 
-#### [Terminology](https://en.wikipedia.org/wiki/Glossary_of_Sudoku)
+Below are examples of the technical names of what we will be describing in the domain space of sudoku.
 
-##### Cell
+#### Cell
 
       A single square that contains one number in the grid
 
-##### Row
+#### Row
 
       A horizontal line of 9 cells
 
-##### Column
+#### Column
 
       A vertical line of 9 cells
 
-##### Nonet
+#### Nonet
 
       A 3×3 grid of cells, as outlined by the bolder lines in the diagram above; also called a box
 
-#####  Cage
+####  Cage
 
       The grouping of cells denoted by a dotted line or by individual colours.
 
-##### House 
+#### House 
 
       Any nonrepeating set of 9 cells: can be used as a general term for "row, column, or nonet" (or, in Killer X variants, "long diagonal")
 
-## Solving Techniques
+### Solving Techniques
 
-## Code Location
+### Code Location
 
 ## Tooling
 * [Kotlin][2]
