@@ -18,7 +18,7 @@ In [classic Sudoku](#Classic-Sudoko), the objective is to fill a 9 × 9 grid wit
 
 ## Killer Sudoku Grid
 
-### Rules of Sudoku
+### Rules of Killer Sudoku
 
 ### Examples of Killer Sudoku Grids
 
