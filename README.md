@@ -85,13 +85,6 @@ The below sample grids are taken from https://en.wikipedia.org/wiki/Sudoku
 
 [Well Posed Problem][1]
 
-[//]: #
-[//]: #
-[//]: #
-[//]: #
-[//]: #
-[//]: #
-[//]: #
 [1]: https://en.wikipedia.org/wiki/Well-posed_problem
 [2]: https://kotlinlang.org/
 [3]: https://gradle.org/
