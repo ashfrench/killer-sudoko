@@ -1,14 +1,16 @@
 # Killer-Sudoku
 
-This is a rewrite in koltin of my Computer Science disertation project. I Studied `Computer Science with a Year in Industry` at `Manchester Univestity`. I achieved a 1st class honours for this project and was in the top 10 of the year.
+This is a rewrite in koltin of my Computer Science disertation project. I Studied `Computer Science with a Year in Industry` with [IBM](https://www.ibm.com) at `Manchester Univestity`. I achieved a 1st class honours for this project and was in the top 10 of the year.
 
 The goals of this project is to be able to take any Killer Sudoku Grid and then be able to solve them from said grid.
 
 ## Classic Sudoku
 Classic sudoku has been around for years and can easily be solved through brute force. The aim of this project is to show and demonstrate how to solve example puzzles. Show techniques and provide solutions.
 
+A simple brute force algorithm will be provided to show how to solve a [well-posed puzzle][1]
+
 ## Rules of Sudoku
-In classic Sudoku, the objective is to fill a 9 × 9 grid with digits so that each column, each row, and each of the nine 3 × 3 subgrids that compose the grid (nonet) contains all of the digits from 1 to 9. The puzzle setter provides a partially completed grid, which for a [well-posed puzzle][1] has a single solution.
+In classic Sudoku, the objective is to fill a 9 × 9 grid with digits so that each [column](#Column), each [row](#Row), and each of the nine 3 × 3 subgrids that compose the grid ([nonet](#Nonet)) contains all of the digits from 1 to 9. The puzzle setter provides a partially completed grid, which for a [well-posed puzzle][1] has a single solution.
 
 ### Examples of Sudoku Grids
 
