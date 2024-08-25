@@ -122,6 +122,7 @@ The below sample grids are taken from https://en.wikipedia.org/wiki/Sudoku
 * [Kotlin][2]
 * [Gradle][3]
 * [JVM][4]
+* [Compose Multi Platform][10]
 
 ## How to Build
 
@@ -140,3 +141,4 @@ The below sample grids are taken from https://en.wikipedia.org/wiki/Sudoku
 [7]: https://www.ibm.com
 [8]: https://www.cs.manchester.ac.uk/
 [9]: https://en.wikipedia.org/wiki/Killer_sudoku#Solving_strategies
+[10]: https://www.jetbrains.com/lp/compose-multiplatform/
