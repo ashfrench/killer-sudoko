@@ -38,23 +38,6 @@ The below sample grids are taken from https://en.wikipedia.org/wiki/Sudoku
     </tr>
   </tbody>
 
-<thead>
-    <tr>
-      <th>Example Solved Grid Via Brute Force</th>
-      <th>Example Solved Grid</th>
-    </tr>
-  </thead>
-
-<tbody>
-    <tr>
-      <td> <img src="./src/main/resources/images/Sudoku_solved_by_bactracking.gif" alt="Example Brute Force Solver" width="250px" height="250px"> </td>
-      <td> <img src="./src/main/resources/images/solved_puzzle.svg" alt="Example Solved Grid" width="250px" height="250px" > </td>
-    </tr>
-  </tbody>
-
-</table>
-
-
 ## Killer Sudoku Grid
 
 ### Rules of Killer Sudoku
