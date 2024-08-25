@@ -4,7 +4,7 @@
 >
 > The goals of this project is to be able to take any Killer Sudoku Grid and then be able to solve them from said grid.
 >
-> I should be able to demonstrate solving by [brute force][5], but also be able to solve using human techniques.
+> I should be able to demonstrate solving by [brute force][5], but also be able to solve using [human techniques][9].
 >
 > The human provided techniques should also be able to graphically display or verbally describe how to solve said Sudoku Grid
 
@@ -58,6 +58,12 @@ The below sample grids are taken from https://en.wikipedia.org/wiki/Sudoku
 ## Killer Sudoku Grid
 
 ### Rules of Killer Sudoku
+
+> The objective is to fill the grid with numbers from 1 to 9 in a way that the following conditions are met:
+>
+> * Each [row](#Row), [column](#Column), and [nonet](#Nonet) contains each number exactly once.
+> * The sum of all numbers in a [cage](#Cage) must match the small number printed in its corner.
+> * No number appears more than once in a [cage](#Cage). (This is the standard rule for killer sudokus, and implies that no [cage](#Cage) can include more than 9 [cells](#Cell).
 
 ### Examples of Killer Sudoku Grids
 
@@ -115,3 +121,4 @@ The below sample grids are taken from https://en.wikipedia.org/wiki/Sudoku
 [6]: https://en.wikipedia.org/wiki/User_experience
 [7]: https://www.ibm.com
 [8]: https://www.cs.manchester.ac.uk/
+[9]: https://en.wikipedia.org/wiki/Killer_sudoku#Solving_strategies
