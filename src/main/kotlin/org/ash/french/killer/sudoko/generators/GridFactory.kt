@@ -36,7 +36,12 @@ data class SudokuGrid(val cells: Set<Cell> = generateSudokuCells()) {
     val rows = cells.groupBy { it.y }.mapValues() { Row(it.key, it.value.toSet()) }
     val columns = cells.groupBy { it.x }.mapValues() { Column(it.key, it.value.toSet()) }
 
-    val nonets: Set<Nonet> = TODO()
+    val nonets = (1..9 step 3).map { x ->
+        val nonetCells = (1..9 step 3).map { y ->
+            Cell(x, y)
+        }.toSet()
+        Nonet(nonetCells)
+    }.toSet()
 
     private val cellValues: MutableMap<Cell, UByte?> = cells.associateWith { null }.toMutableMap()
     fun updateCell(cell: Cell, value: UByte?): CellUpdate = TODO()

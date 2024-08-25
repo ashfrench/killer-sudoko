@@ -104,7 +104,7 @@ sealed class CellSet(private val cells: Set<Cell>): Set<Cell> by cells {
     init {
         this.validate()
     }
-
+    override fun contains(element: Cell) = cells.contains(element)
 }
 
 typealias SudokuValidation = Result<Boolean>
