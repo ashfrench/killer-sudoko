@@ -26,7 +26,7 @@ The below sample grids are taken from https://en.wikipedia.org/wiki/Sudoku
 
 <table>
     <colgroup>
-       <col span="4" style="width: 25%; height: 200px">
+       <col span="4" style="width: 150px; height: 150px">
     </colgroup>
   <thead>
     <tr>
