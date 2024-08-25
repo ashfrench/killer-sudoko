@@ -25,6 +25,9 @@
 The below sample grids are taken from https://en.wikipedia.org/wiki/Sudoku
 
 <table>
+    <colgroup>
+       <col span="4" style="width: 25%; height: 200px">
+    </colgroup>
   <thead>
     <tr>
       <th>Example Sudoku Grid</th>
@@ -42,8 +45,6 @@ The below sample grids are taken from https://en.wikipedia.org/wiki/Sudoku
     </tr>
   </tbody>
 </table>
-
-
 
 
 ## Killer Sudoku Grid
