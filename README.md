@@ -33,8 +33,8 @@ The below sample grids are taken from https://en.wikipedia.org/wiki/Sudoku
   </thead>
   <tbody>
     <tr>
-      <td> <img src="./src/main/resources/images/example-sudoku-grid.png" alt="Example Sudoku Grid" width="250px" height="250px" > </td>
-      <td> <img src="./src/main/resources/images/Sudoku_puzzle_hard_for_brute_force.png" alt="Example Hard Sudoku Grid" width="250px" height="250px"> </td>
+      <td> <img src="./src/main/resources/images/sudoko/example-sudoku-grid.png" alt="Example Sudoku Grid" width="250px" height="250px" > </td>
+      <td> <img src="./src/main/resources/images/sudoko/Sudoku_puzzle_hard_for_brute_force.png" alt="Example Hard Sudoku Grid" width="250px" height="250px"> </td>
     </tr>
   </tbody>
 
@@ -47,8 +47,8 @@ The below sample grids are taken from https://en.wikipedia.org/wiki/Sudoku
 
 <tbody>
     <tr>
-      <td> <img src="./src/main/resources/images/Sudoku_solved_by_bactracking.gif" alt="Example Brute Force Solver" width="250px" height="250px"> </td>
-      <td> <img src="./src/main/resources/images/solved_puzzle.svg" alt="Example Solved Grid" width="250px" height="250px" > </td>
+      <td> <img src="./src/main/resources/images/sudoko/Sudoku_solved_by_bactracking.gif" alt="Example Brute Force Solver" width="250px" height="250px"> </td>
+      <td> <img src="./src/main/resources/images/sudoko/solved_puzzle.svg" alt="Example Solved Grid" width="250px" height="250px" > </td>
     </tr>
   </tbody>
 
@@ -65,6 +65,25 @@ The below sample grids are taken from https://en.wikipedia.org/wiki/Sudoku
 > * No number appears more than once in a [cage](#Cage). (This is the standard rule for killer sudokus, and implies that no [cage](#Cage) can include more than 9 [cells](#Cell).
 
 ### Examples of Killer Sudoku Grids
+
+<table>
+  <thead>
+    <tr>
+      <th>Example Killer Sudoku Grid</th>
+      <th>Example Killer Sudoku Grid With Colour</th>
+      <th>Example Killer Sudoku Grid Solved</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> <img src="./src/main/resources/images/killer-sudoko/Killersudoku_bw.svg.png" alt="Example Killer Sudoku Grid" width="250px" height="250px" > </td>
+      <td> <img src="./src/main/resources/images/killer-sudoko/Killersudoku_color.svg.png" alt="Example Killer Sudoku Grid with Colour" width="250px" height="250px" > </td>
+      <td> <img src="./src/main/resources/images/killer-sudoko/Killersudoku_color_solution.svg.png" alt="Example Killer Sudoku Grid Solved" width="250px" height="250px" > </td>
+    </tr>
+  </tbody>
+
+</table>
+
 
 ### [Terminology](https://en.wikipedia.org/wiki/Glossary_of_Sudoku)
 
