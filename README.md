@@ -38,10 +38,10 @@ The below sample grids are taken from https://en.wikipedia.org/wiki/Sudoku
   </thead>
   <tbody>
     <tr>
-      <td> <img src="./src/main/resources/images/example-sudoku-grid.png" alt="Example Sudoku Grid" width="300" height="300"> </td>
-      <td> <img src="./src/main/resources/images/Sudoku_puzzle_hard_for_brute_force.png" alt="Example Hard Sudoku Grid" width="300" height="300"> </td>
-      <td> <img src="./src/main/resources/images/Sudoku_solved_by_bactracking.gif" alt="Example Brute Force Solver" width="300" height="300"> </td>
-      <td> <img src="./src/main/resources/images/solved_puzzle.svg" alt="Example Solved Grid" width="300" height="300"> </td>
+      <td> <img src="./src/main/resources/images/example-sudoku-grid.png" alt="Example Sudoku Grid"> </td>
+      <td> <img src="./src/main/resources/images/Sudoku_puzzle_hard_for_brute_force.png" alt="Example Hard Sudoku Grid"> </td>
+      <td> <img src="./src/main/resources/images/Sudoku_solved_by_bactracking.gif" alt="Example Brute Force Solver"> </td>
+      <td> <img src="./src/main/resources/images/solved_puzzle.svg" alt="Example Solved Grid"> </td>
     </tr>
   </tbody>
 </table>
