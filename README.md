@@ -76,7 +76,7 @@ The below sample grids are taken from https://en.wikipedia.org/wiki/Sudoku
   </thead>
   <tbody>
     <tr>
-      <td> <img src="./src/main/resources/images/killer-sudoko/Killersudoku_bw.svg.png" alt="Example Killer Sudoku Grid" width="250px" height="250px" > </td>
+      <td> <img src="./src/main/resources/images/killer-sudoko/Killersudoku_bw_bg.png" alt="Example Killer Sudoku Grid" width="250px" height="250px" > </td>
       <td> <img src="./src/main/resources/images/killer-sudoko/Killersudoku_color.svg.png" alt="Example Killer Sudoku Grid with Colour" width="250px" height="250px" > </td>
       <td> <img src="./src/main/resources/images/killer-sudoko/Killersudoku_color_solution.svg.png" alt="Example Killer Sudoku Grid Solved" width="250px" height="250px" > </td>
     </tr>
