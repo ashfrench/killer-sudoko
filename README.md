@@ -123,6 +123,7 @@ The below sample grids are taken from https://en.wikipedia.org/wiki/Sudoku
 * [Gradle][3]
 * [JVM][4]
 * [Compose Multi Platform][10]
+* [JUnit 5 Extension Model][11]
 
 ## How to Build
 
@@ -142,3 +143,4 @@ The below sample grids are taken from https://en.wikipedia.org/wiki/Sudoku
 [8]: https://www.cs.manchester.ac.uk/
 [9]: https://en.wikipedia.org/wiki/Killer_sudoku#Solving_strategies
 [10]: https://www.jetbrains.com/lp/compose-multiplatform/
+[11]: https://junit.org/junit5/docs/current/user-guide/#extensions
