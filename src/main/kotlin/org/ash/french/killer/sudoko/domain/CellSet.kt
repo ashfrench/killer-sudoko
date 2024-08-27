@@ -11,7 +11,7 @@ sealed class CellSet(private val cells: Set<Cell>): Set<Cell> by cells {
     }
 
     //Private Constructor to hide visibility
-    constructor(): this(emptySet())
+    private constructor(): this(emptySet())
 
     init {
         this.validate()
@@ -25,7 +25,6 @@ sealed class Region(open val sum: UByte, open val cells: Set<Cell>): CellSet(cel
 
     override fun validate(): Result<Boolean> {
         return try {
-
             require(cells.count() in 1..9) { "Number of cells in a cage must be between 1 and 9" }
             valid()
         } catch (e : Throwable) {

@@ -18,7 +18,7 @@ data class SudokuGrid(val cells: Set<Cell> = generateSudokuCells()): CellValueFi
             Cell(x, y)
         }.toSet()
         Nonet(nonetCells)
-    }.toSet()
+    }
 
     private val cellValues: MutableMap<Cell, UByte?> = cells.associateWith { null }.toMutableMap()
 
@@ -26,6 +26,10 @@ data class SudokuGrid(val cells: Set<Cell> = generateSudokuCells()): CellValueFi
     override fun getRow(cell: Cell) = rows[cell.y]?: throw RuntimeException("Unexpected Cell: $cell - No row found")
     override fun getColumn(cell: Cell) = columns[cell.x]?: throw RuntimeException("Unexpected Cell: $cell - No Column found")
     override fun getNonet(cell: Cell) = nonets.find { cell in it } ?: throw RuntimeException("No Nonet for Cell $cell")
+    override fun getNonet(nonetPosition: Int): Nonet {
+        require(nonetPosition in 1..9)
+        return nonets[nonetPosition]
+    }
 
     override operator fun contains(cell: Cell) = cells.contains(cell)
 
