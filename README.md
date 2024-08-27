@@ -25,7 +25,12 @@
 The below sample grids are taken from https://en.wikipedia.org/wiki/Sudoku
 
 <table>
-  <thead>
+
+  <colgroup>
+    <col span="1" style="width: 30%;">
+  </colgroup>
+
+<thead>
     <tr>
       <th>Example Sudoku Grid</th>
       <th>Example Hard Sudoku Grid</th>
@@ -33,10 +38,14 @@ The below sample grids are taken from https://en.wikipedia.org/wiki/Sudoku
   </thead>
   <tbody>
     <tr>
-      <td> <img src="./sudoku-solver/src/main/resources/images/sudoko/example-sudoku-grid.png" alt="Example Sudoku Grid" width="250px" height="250px" > </td>
-      <td> <img src="./sudoku-solver/src/main/resources/images/sudoko/Sudoku_puzzle_hard_for_brute_force.png" alt="Example Hard Sudoku Grid" width="250px" height="250px"> </td>
+      <td style="text-align: center; vertical-align: middle;"> <img src="./sudoku-solver/src/main/resources/images/sudoko/example-sudoku-grid.png" alt="Example Sudoku Grid" width="250px" height="250px" > </td>
+      <td style="text-align: center; vertical-align: middle;"> <img src="./sudoku-solver/src/main/resources/images/sudoko/Sudoku_puzzle_hard_for_brute_force.png" alt="Example Hard Sudoku Grid" width="250px" height="250px"> </td>
     </tr>
   </tbody>
+
+  <colgroup>
+    <col span="1" style="width: 30%;">
+  </colgroup>
 
 <thead>
     <tr>
@@ -47,8 +56,8 @@ The below sample grids are taken from https://en.wikipedia.org/wiki/Sudoku
 
 <tbody>
     <tr>
-      <td> <img src="./sudoku-solver/src/main/resources/images/sudoko/Sudoku_solved_by_bactracking.gif" alt="Example Brute Force Solver" width="250px" height="250px"> </td>
-      <td> <img src="./sudoku-solver/src/main/resources/images/sudoko/solved_puzzle.svg" alt="Example Solved Grid" width="250px" height="250px" > </td>
+      <td style="text-align: center; vertical-align: middle;"> <img src="./sudoku-solver/src/main/resources/images/sudoko/Sudoku_solved_by_bactracking.gif" alt="Example Brute Force Solver" width="250px" height="250px"> </td>
+      <td style="text-align: center; vertical-align: middle;"> <img src="./sudoku-solver/src/main/resources/images/sudoko/solved_puzzle.svg" alt="Example Solved Grid" width="250px" height="250px" > </td>
     </tr>
   </tbody>
 
@@ -67,6 +76,10 @@ The below sample grids are taken from https://en.wikipedia.org/wiki/Sudoku
 ### Examples of Killer Sudoku Grids
 
 <table>
+  <colgroup>
+    <col span="3" style="width: 30%;">
+  </colgroup>
+
   <thead>
     <tr>
       <th>Example Killer Sudoku Grid</th>
@@ -76,9 +89,9 @@ The below sample grids are taken from https://en.wikipedia.org/wiki/Sudoku
   </thead>
   <tbody>
     <tr>
-      <td> <img src="./sudoku-solver/src/main/resources/images/killer-sudoko/Killersudoku_bw_with_bg2.png" alt="Example Killer Sudoku Grid" width="250px" height="250px" > </td>
-      <td> <img src="./sudoku-solver/src/main/resources/images/killer-sudoko/Killersudoku_color.svg.png" alt="Example Killer Sudoku Grid with Colour" width="250px" height="250px" > </td>
-      <td> <img src="./sudoku-solver/src/main/resources/images/killer-sudoko/Killersudoku_color_solution.svg.png" alt="Example Killer Sudoku Grid Solved" width="250px" height="250px" > </td>
+      <td style="text-align: center; vertical-align: middle;"> <img src="./sudoku-solver/src/main/resources/images/killer-sudoko/Killersudoku_bw_with_bg.png" alt="Example Killer Sudoku Grid" width="250px" height="250px" > </td>
+      <td style="text-align: center; vertical-align: middle;"> <img src="./sudoku-solver/src/main/resources/images/killer-sudoko/Killersudoku_color.svg.png" alt="Example Killer Sudoku Grid with Colour" width="250px" height="250px" > </td>
+      <td style="text-align: center; vertical-align: middle;"> <img src="./sudoku-solver/src/main/resources/images/killer-sudoko/Killersudoku_color_solution.svg.png" alt="Example Killer Sudoku Grid Solved" width="250px" height="250px" > </td>
     </tr>
   </tbody>
 
@@ -92,6 +105,29 @@ The below sample grids are taken from https://en.wikipedia.org/wiki/Sudoku
 #### Cell
 
 > A single square that contains one number in the grid
+
+<table>
+  <colgroup>
+    <col span="3" style="width: 30%;">
+  </colgroup>
+
+  <thead>
+    <tr>
+      <th>Example Sudoku Grid Cells</th>
+      <th>Example Sudoku Grid Cell Coloured</th>
+      <th>Example Sudoku Grid Cell Coloured With Value Set</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center; vertical-align: middle;"> <img src="./sudoku-solver/src/main/resources/images/killer-sudoko/cell/Killersudoku_bw_with_bg.png" alt="Example Sudoku Grid" width="250px" height="250px" > </td>
+      <td style="text-align: center; vertical-align: middle;"> <img src="./sudoku-solver/src/main/resources/images/killer-sudoko/cell/Killersudoku_cell.png" alt="Example Sudoku Grid Cell" width="250px" height="250px" > </td>
+      <td style="text-align: center; vertical-align: middle;"> <img src="./sudoku-solver/src/main/resources/images/killer-sudoko/cell/Killersudoku_cell_with_value.png" alt="Example Sudoku Grid Cell With Value" width="250px" height="250px" > </td>
+    </tr>
+  </tbody>
+
+</table>
+
 
 #### Row
 
