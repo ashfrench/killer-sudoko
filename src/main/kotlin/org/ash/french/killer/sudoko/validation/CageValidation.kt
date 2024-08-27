@@ -83,8 +83,3 @@ fun calculateCellSetCageSizeEight(cageSum: UByte): Result<Set<CellSet>> {
 fun calculateCellSetCageSizeNine(cageSum: UByte): Result<Set<CellSet>> {
     TODO("Not yet implemented")
 }
-
-
-fun main() {
-
-}
