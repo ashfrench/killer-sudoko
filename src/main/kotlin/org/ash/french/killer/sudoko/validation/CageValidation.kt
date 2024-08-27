@@ -3,7 +3,7 @@ package org.ash.french.killer.sudoko.validation
 import org.ash.french.killer.sudoko.domain.Cage
 import org.ash.french.killer.sudoko.domain.SudokuValidation
 import org.ash.french.killer.sudoko.domain.valid
-import org.ash.french.killer.sudoko.domain.CellSet as CellSet
+import org.ash.french.killer.sudoko.domain.CellSet
 
 fun validateCage(cage: Cage): SudokuValidation {
     return valid()
