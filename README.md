@@ -1,5 +1,7 @@
 # Killer Sudoku Solver
 
+<a href="https://stackoverflow.com/users/6894338/ash"><img src="https://stackoverflow.com/users/flair/6894338.png?theme=dark" width="208" height="58" alt="profile for Ash at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for Ash at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></a>
+
 > This is a rewrite in kotlin of my Computer Science dissertation project. I Studied `Computer Science with a Year in Industry (2006-2010)` with [IBM][7] `(2008-2009)` at [Manchester University][8]. I achieved a 1st class honours for this project and was in the top 10 of the year.
 >
 > The goals of this project is to be able to take any Killer Sudoku Grid and then be able to solve them from said grid.
