@@ -1,4 +1,4 @@
-# Killer-Sudoku
+# Killer Sudoku Solver
 
 > This is a rewrite in kotlin of my Computer Science dissertation project. I Studied `Computer Science with a Year in Industry (2006-2010)` with [IBM][7] `(2008-2009)` at [Manchester University][8]. I achieved a 1st class honours for this project and was in the top 10 of the year.
 >
