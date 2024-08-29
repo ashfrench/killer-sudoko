@@ -47,5 +47,3 @@ data class SudokuGrid(val cells: Set<Cell> = generateSudokuCells()): CellValueFi
         return sudokuGrid
     }
 }
-
-fun EMPTY_SUDOKU_GRID() = SudokuGrid()
