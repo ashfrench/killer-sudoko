@@ -155,6 +155,8 @@ The below sample grids are taken from https://en.wikipedia.org/wiki/Sudoku
 
 ### Code Location
 
+[Sonar Cloud](https://sonarcloud.io/summary/overall?id=ashfrench_killer-sudoko)
+
 ## Tooling
 
 * [Kotlin][2]
