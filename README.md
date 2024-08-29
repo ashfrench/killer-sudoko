@@ -1,7 +1,7 @@
 # Killer Sudoku Solver
 
 
-![Ash at Stack Overflow](https://stackoverflow.com/users/flair/6894338.png?theme=dark)
+[![Ash at Stack Overflow](https://stackoverflow.com/users/flair/6894338.png?theme=dark)](https://stackoverflow.com/users/6894338/ash)
 
 [![Build Workflow Status](https://github.com/ashfrench/killer-sudoko/actions/workflows/ci.yml/badge.svg)](https://github.com/ashfrench/killer-sudoko/actions/workflows/ci.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ashfrench_killer-sudoko&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=ashfrench_killer-sudoko)
