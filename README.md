@@ -13,6 +13,8 @@
 > I should be able to demonstrate solving by [brute force][5], but also be able to solve using [human techniques][9].
 >
 > The human provided techniques should also be able to graphically display or verbally describe how to solve said Sudoku Grid
+> 
+> I will be using https://sudoku.com/ as a source of data to test my algorithms
 
 ## Classic Sudoku
 
