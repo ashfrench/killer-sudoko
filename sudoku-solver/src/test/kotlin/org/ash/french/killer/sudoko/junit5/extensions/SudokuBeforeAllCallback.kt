@@ -2,12 +2,14 @@ package org.ash.french.killer.sudoko.junit5.extensions
 
 import org.junit.jupiter.api.extension.BeforeAllCallback
 import org.junit.jupiter.api.extension.ExtensionContext
+import kotlin.test.assertNotNull
 
-class SudokuBeforeAllCallback : BeforeAllCallback {
+object SudokuBeforeAllCallback : BeforeAllCallback {
 
-    private val namespace = SudokuNamespace.namespace
+    private val sudokuNamespace = SudokuNamespace
 
     override fun beforeAll(context: ExtensionContext?) {
-        val sudokuStore = context?.getStore(namespace)?: throw RuntimeException("Sudoku Namespace not initialised")
+        val sudokuStore = context?.getStore(sudokuNamespace.namespace)?: throw RuntimeException("Sudoku Context Store not initialised")
+        assertNotNull(sudokuStore)
     }
 }
