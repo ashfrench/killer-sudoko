@@ -1,4 +1,4 @@
-package org.ash.french.killer.sudoko.generators
+package org.ash.french.killer.sudoko.junit5.extensions
 
 import org.junit.jupiter.api.extension.BeforeAllCallback
 import org.junit.jupiter.api.extension.ExtensionContext
