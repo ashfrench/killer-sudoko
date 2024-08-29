@@ -1,9 +1,6 @@
 package org.ash.french.killer.sudoko.generators
 
-import org.ash.french.killer.sudoko.domain.Cell
-import org.ash.french.killer.sudoko.domain.Column
-import org.ash.french.killer.sudoko.domain.Nonet
-import org.ash.french.killer.sudoko.domain.Row
+import org.ash.french.killer.sudoko.domain.*
 import org.ash.french.killer.sudoko.solvers.CellValueFinder
 import org.ash.french.killer.sudoko.solvers.ColumnFinder
 import org.ash.french.killer.sudoko.solvers.NonetFinder
@@ -21,6 +18,7 @@ data class SudokuGrid(val cells: Set<Cell> = generateSudokuCells()): CellValueFi
     }
 
     private val cellValues: MutableMap<Cell, UByte?> = cells.associateWith { null }.toMutableMap()
+    private val cageValues: MutableMap<Cage, UByte> = mutableMapOf()
 
     override fun getCellValue(cell: Cell): UByte? = cellValues[cell]
     override fun getRow(cell: Cell) = rows[cell.y]?: throw RuntimeException("Unexpected Cell: $cell - No row found")
@@ -42,8 +40,12 @@ data class SudokuGrid(val cells: Set<Cell> = generateSudokuCells()): CellValueFi
         TODO()
     }
 
-    companion object {
-        val EMPTY_SUDOKU_GRID = SudokuGrid()
-    }
+    fun withCages(cages: Map<Cage, UByte>): SudokuGrid {
+        val sudokuGrid = copy()
+        sudokuGrid.cageValues.putAll(cages)
 
+        return sudokuGrid
+    }
 }
+
+fun EMPTY_SUDOKU_GRID() = SudokuGrid()
