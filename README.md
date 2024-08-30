@@ -27,9 +27,11 @@
 [Sonar Cloud][5]
 
 ## Tooling
+![Kotlin](https://img.shields.io/badge/kotlin-%237F52FF.svg?style=for-the-badge&logo=kotlin&logoColor=white)
+![Gradle](https://img.shields.io/badge/Gradle-02303A.svg?style=for-the-badge&logo=Gradle&logoColor=white)
 
-* [Kotlin][6]
-* [Gradle][7]
+* [Kotlin][6] 
+* [Gradle][7] 
 * [JVM][8]
 * [Compose Multi Platform][9]
 * [JUnit 5 Extension Model][10]
