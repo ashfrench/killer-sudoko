@@ -51,6 +51,8 @@
 
 ## References
 
+[Project Kanban Board][11]
+
 ### Miscellaneous
 
 [![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
@@ -65,3 +67,4 @@
 [8]: https://www.oracle.com/java/technologies/downloads/
 [9]: https://www.jetbrains.com/lp/compose-multiplatform/
 [10]: https://junit.org/junit5/docs/current/user-guide/#extensions
+[11]: https://github.com/users/ashfrench/projects/1/views/1
