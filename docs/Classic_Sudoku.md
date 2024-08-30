@@ -2,6 +2,8 @@
 
 [Back to README.md](../README.md)
 
+[Back to Documentation Index](./Index.md)
+
 > Classic sudoku has been around for years and can easily be solved through brute force. The aim of this project is to show and demonstrate how to solve example puzzles. Show techniques and provide solutions.
 >
 > A simple brute force algorithm will be provided to show how to solve a [well-posed puzzle][1]

@@ -2,6 +2,8 @@
 
 [Back to README.md](../README.md)
 
+[Back to Documentation Index](./Index.md)
+
 ## Rules of Killer Sudoku
 
 > The objective is to fill the grid with numbers from 1 to 9 in a way that the following conditions are met:
