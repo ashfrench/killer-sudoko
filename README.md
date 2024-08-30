@@ -50,6 +50,10 @@
 
 ## References
 
+### Miscellaneous
+
+[![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
 [1]: https://www.ibm.com
 [2]: https://www.cs.manchester.ac.uk/
 [3]: https://en.wikipedia.org/wiki/Brute-force_search
