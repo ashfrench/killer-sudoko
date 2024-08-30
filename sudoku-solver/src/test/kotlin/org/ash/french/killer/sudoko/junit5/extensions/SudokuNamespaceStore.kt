@@ -12,9 +12,9 @@ data class SudokuNamespaceStore(private val context: ExtensionContext) {
         val namespace = sudokuNamespace.namespace
         val sudokuStore = context.getStore(namespace)?: throw RuntimeException("Sudoku Namespace not initialised")
         assertNotNull(sudokuStore)
-        val sudokuNamespaceStore = sudokuStore.getOrComputeIfAbsent(namespace) { this }
+        val sudokuNamespaceStore = sudokuStore.getOrComputeIfAbsent(namespace) { this } as SudokuNamespaceStore
         assertNotNull(sudokuNamespaceStore)
     }
 }
 
-
+fun ExtensionContext.sudokuNamespaceStore() = getStore(SudokuNamespace.namespace)[SudokuNamespace] as SudokuNamespaceStore

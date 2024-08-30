@@ -5,10 +5,8 @@ import org.junit.jupiter.api.extension.ExtensionContext
 import kotlin.test.assertNotNull
 
 object SudokuBeforeEachCallback : BeforeEachCallback {
-
-    private val namespace = SudokuNamespace.namespace
-    override fun beforeEach(context: ExtensionContext?) {
-        val sudokuStore = context?.getStore(namespace)?: throw RuntimeException("Sudoku Context Store not initialised")
-        assertNotNull(sudokuStore)
+    override fun beforeEach(context: ExtensionContext) {
+        val contextStore = context.sudokuNamespaceStore()
+        assertNotNull(contextStore) { "No Sudoku Store Setup" }
     }
 }
