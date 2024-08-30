@@ -8,4 +8,5 @@ object SudokuExtensionCallback : EmptySudokuExtensionCallback,
     AfterAllCallback by SudokuAfterAllCallback,
     AfterEachCallback by SudokuAfterEachCallback,
     TestInstancePostProcessor by SudokuTestInstancePostProcessor,
-    ExecutionCondition by EmptySudokuExecutionCondition
+    ExecutionCondition by EmptySudokuExecutionCondition,
+    ParameterResolver by SudokuParameterResolver
