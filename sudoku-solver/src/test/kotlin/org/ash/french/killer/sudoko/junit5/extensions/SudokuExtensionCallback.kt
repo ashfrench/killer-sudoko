@@ -2,7 +2,7 @@ package org.ash.french.killer.sudoko.junit5.extensions
 
 import org.junit.jupiter.api.extension.*
 
-class SudokuExtensionCallback :
+object SudokuExtensionCallback : EmptySudokuExtensionCallback,
     BeforeEachCallback by SudokuBeforeEachCallback,
     BeforeAllCallback by SudokuBeforeAllCallback,
     AfterAllCallback by SudokuAfterAllCallback,

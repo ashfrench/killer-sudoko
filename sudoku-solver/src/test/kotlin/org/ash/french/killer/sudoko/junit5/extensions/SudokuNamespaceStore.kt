@@ -16,7 +16,7 @@ data class SudokuNamespaceStore(private val context: ExtensionContext): Extensio
     }
 
     override fun close() {
-        TODO("Not yet implemented")
+        return
     }
 }
 
