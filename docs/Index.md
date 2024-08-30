@@ -1,6 +1,8 @@
 # Documentation Index
+[Back to README.md](../README.md)
+
 This is the documentation index. It contains a list of all the documentation pages.
 
-* [Terminology](docs/Terminology.md)
-* [Classic Sudoku](docs/Classic_Sudoku.md)
-* [Killer Sudoku Grid](docs/Killer_Sudoku.md)
+* [Terminology](./Terminology.md)
+* [Classic Sudoku](./Classic_Sudoku.md)
+* [Killer Sudoku Grid](./Killer_Sudoku.md)
