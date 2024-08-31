@@ -1,8 +1,15 @@
 package org.ash.french.killer.sudoko.junit5.extensions
 
-import org.junit.jupiter.api.extension.*
+import org.junit.jupiter.api.extension.AfterAllCallback
+import org.junit.jupiter.api.extension.AfterEachCallback
+import org.junit.jupiter.api.extension.BeforeAllCallback
+import org.junit.jupiter.api.extension.BeforeEachCallback
+import org.junit.jupiter.api.extension.ExecutionCondition
+import org.junit.jupiter.api.extension.ParameterResolver
+import org.junit.jupiter.api.extension.TestInstancePostProcessor
 
-object SudokuExtensionCallback : EmptySudokuExtensionCallback,
+object SudokuExtensionCallback :
+    EmptySudokuExtensionCallback,
     BeforeEachCallback by SudokuBeforeEachCallback,
     BeforeAllCallback by SudokuBeforeAllCallback,
     AfterAllCallback by SudokuAfterAllCallback,

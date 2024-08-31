@@ -5,15 +5,21 @@ import org.junit.jupiter.api.extension.ParameterContext
 import org.junit.jupiter.api.extension.ParameterResolver
 import kotlin.test.assertNotNull
 
-object SudokuParameterResolver: ParameterResolver {
-    override fun supportsParameter(parameterContext: ParameterContext, extensionContext: ExtensionContext): Boolean {
+object SudokuParameterResolver : ParameterResolver {
+    override fun supportsParameter(
+        parameterContext: ParameterContext,
+        extensionContext: ExtensionContext,
+    ): Boolean {
         val store = extensionContext.sudokuNamespaceStore()
         val sudokuContextStore = store[SudokuNamespace.namespace]
         assertNotNull(sudokuContextStore) { "Context Store is Null" }
         return sudokuContextStore is SudokuContextStore
     }
 
-    override fun resolveParameter(parameterContext: ParameterContext, extensionContext: ExtensionContext): Any {
+    override fun resolveParameter(
+        parameterContext: ParameterContext,
+        extensionContext: ExtensionContext,
+    ): Any {
         return if (parameterContext.parameter::class == SudokuContextStore::class) {
             SudokuContextStore
         } else {

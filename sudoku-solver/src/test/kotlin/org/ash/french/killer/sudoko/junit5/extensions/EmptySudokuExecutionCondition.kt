@@ -11,5 +11,4 @@ object EmptySudokuExecutionCondition : ExecutionCondition {
         assertNotNull(store)
         return ConditionEvaluationResult.enabled("Sudoku Store is configured correctly")
     }
-
 }

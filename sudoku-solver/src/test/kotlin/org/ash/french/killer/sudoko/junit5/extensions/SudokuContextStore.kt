@@ -4,8 +4,7 @@ import org.ash.french.killer.sudoko.generators.SudokuGrid
 import org.junit.jupiter.api.extension.ExtensionContext
 import java.util.function.Function
 
-object SudokuContextStore: ExtensionContext.Store, ExtensionContext.Store.CloseableResource {
-
+object SudokuContextStore : ExtensionContext.Store, ExtensionContext.Store.CloseableResource {
     private val sudokuMapStore = mutableMapOf<Any?, Any?>()
     private val grid: SudokuGrid = SudokuGrid()
     override fun get(key: Any?) = sudokuMapStore[key]
@@ -29,7 +28,6 @@ object SudokuContextStore: ExtensionContext.Store, ExtensionContext.Store.Closea
 
     override fun remove(key: Any?) = sudokuMapStore.remove(key)
 
-    @Suppress("UNCHECKED_CAST")
     override fun <V : Any?> remove(key: Any?, requiredType: Class<V>?): V {
         sudokuMapStore.remove(key)
         return key as V
@@ -38,4 +36,5 @@ object SudokuContextStore: ExtensionContext.Store, ExtensionContext.Store.Closea
     override fun close() {
         println("Close Sudoku Context Store")
     }
+
 }

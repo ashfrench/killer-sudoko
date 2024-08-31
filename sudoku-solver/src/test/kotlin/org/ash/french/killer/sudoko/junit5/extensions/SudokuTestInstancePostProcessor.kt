@@ -4,8 +4,11 @@ import org.junit.jupiter.api.extension.ExtensionContext
 import org.junit.jupiter.api.extension.TestInstancePostProcessor
 import kotlin.test.assertNotNull
 
-object SudokuTestInstancePostProcessor: TestInstancePostProcessor {
-    override fun postProcessTestInstance(testInstance: Any, context: ExtensionContext) {
+object SudokuTestInstancePostProcessor : TestInstancePostProcessor {
+    override fun postProcessTestInstance(
+        testInstance: Any,
+        context: ExtensionContext,
+    ) {
         val contextStore = context.sudokuNamespaceStore()
         assertNotNull(contextStore) { "No Sudoku Store Setup" }
 
