@@ -1,10 +1,8 @@
 package org.ash.french.killer.sudoko.domain
 
-data class Row(val y: UByte, override val cells: Set<Cell>): Region(cells) {
-
+data class Row(val y: UByte, override val cells: Set<Cell>) : Region(cells) {
     override fun validate(): SudokuValidation {
         return try {
-
             require(y in (1u..9u)) { "Y must be a positive Integer between 1 and 9" }
             require(cells.any { it.y == y }) { "All Cells must be in the Row $y" }
             require(cells.distinct().count() == 9) { "All Cells must be in the Row $y" }
@@ -16,8 +14,7 @@ data class Row(val y: UByte, override val cells: Set<Cell>): Region(cells) {
     }
 }
 
-data class Column(val x: UByte, override val cells: Set<Cell>): Region(cells) {
-
+data class Column(val x: UByte, override val cells: Set<Cell>) : Region(cells) {
     override fun validate(): Result<Boolean> {
         return try {
             require(x in (1u..9u)) { "X must be a positive Integer between 1 and 9" }
@@ -29,11 +26,9 @@ data class Column(val x: UByte, override val cells: Set<Cell>): Region(cells) {
             validationFailure(e)
         }
     }
-
 }
 
-data class Nonet(override val cells: Set<Cell>): Region(cells) {
-
+data class Nonet(override val cells: Set<Cell>) : Region(cells) {
     override fun validate(): Result<Boolean> {
         return try {
             val groupByX = cells.groupBy { it.x }
@@ -47,11 +42,9 @@ data class Nonet(override val cells: Set<Cell>): Region(cells) {
             validationFailure(e)
         }
     }
-
 }
 
-data class Cage(override val sum: UByte, override val cells: Set<Cell>): Region(sum, cells) {
-
+data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region(sum, cells) {
     init {
         require(sum in 1u..45u) { "Invalid Sum for Cage of size ${cells.size}" }
     }
@@ -59,5 +52,4 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>): Region(
     override fun validate(): Result<Boolean> {
         return validate()
     }
-
 }

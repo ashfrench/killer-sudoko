@@ -10,7 +10,7 @@ fun sudokuGrid(init: SudokuGrid.() -> Unit): SudokuGrid {
     return sudokuGrid
 }
 
-fun SudokuGrid.cellValueBuilder(cellValueMap: Map<Cell, UByte?>){
+fun SudokuGrid.cellValueBuilder(cellValueMap: Map<Cell, UByte?>) {
     cellValueMap
         .filter { (cell, _) -> cell in this }
         .forEach { (cell, value) ->
@@ -19,9 +19,10 @@ fun SudokuGrid.cellValueBuilder(cellValueMap: Map<Cell, UByte?>){
 }
 
 fun SudokuGrid.cageBuilder(cageValueMap: Map<Cage, UByte>): SudokuGrid {
-    val cages = cageValueMap
-        .filterValues { it !in 1u..45u }
-        .filterKeys { it.size in 1..9 }
+    val cages =
+        cageValueMap
+            .filterValues { it !in 1u..45u }
+            .filterKeys { it.size in 1..9 }
 
     return withCages(cages)
 }

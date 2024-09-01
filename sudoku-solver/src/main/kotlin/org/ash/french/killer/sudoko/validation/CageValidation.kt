@@ -1,32 +1,28 @@
+@file:Suppress("UNUSED_VARIABLE", "UNUSED_PARAMETER", "unused")
+
 package org.ash.french.killer.sudoko.validation
 
 import org.ash.french.killer.sudoko.domain.Cage
+import org.ash.french.killer.sudoko.domain.CellSet
 import org.ash.french.killer.sudoko.domain.SudokuValidation
 import org.ash.french.killer.sudoko.domain.valid
-import org.ash.french.killer.sudoko.domain.CellSet
 
 fun validateCage(cage: Cage): SudokuValidation {
     return valid()
 }
 
 
-fun defaultCageSizes(): Map<UByte, Map<UByte, CellSet>>{
+fun defaultCageSizes(): Map<UByte, Map<UByte, CellSet>> {
 
     val availableSums = (1..45)
     val availableCageSizes = (1..9)
     val availableCellValues = (9 downTo 1)
 
-    val lookUpMap = availableCageSizes.flatMap { size ->
-
+    val lookUpMap = availableCageSizes.flatMap { _ ->
         availableSums
-
-
-    //        availableSums
-//            .groupBy({key -> key}, { getCageValues(size, it) })
-//            .mapValues { it.value.flatten().toSet() }
     }
 
-    return TODO()
+    return emptyMap()
 }
 
 fun getCageValues(cageSize: Int, cageSum: Int) =
