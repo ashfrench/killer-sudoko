@@ -11,25 +11,26 @@ fun validateCage(cage: Cage): SudokuValidation {
     return valid()
 }
 
-
 fun defaultCageSizes(): Map<UByte, Map<UByte, CellSet>> {
-
     val availableSums = (1..45)
     val availableCageSizes = (1..9)
     val availableCellValues = (9 downTo 1)
 
-    val lookUpMap = availableCageSizes.flatMap { _ ->
-        availableSums
-    }
+    val lookUpMap =
+        availableCageSizes.flatMap { _ ->
+            availableSums
+        }
 
     return emptyMap()
 }
 
 fun getCageValues(cageSize: Int, cageSum: Int) =
-    getCageValues(cageSize.toUByte(), cageSum.toUByte())
+    getCageValues(
+        cageSize.toUByte(),
+        cageSum.toUByte()
+    )
 
 fun getCageValues(cageSize: UByte, cageSum: UByte): Result<Set<CellSet>> {
-
     return when (cageSize.toInt()) {
         1 -> calculateCellSetCageSizeOne(cageSum)
         2 -> calculateCellSetCageSizeTwo(cageSum)

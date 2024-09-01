@@ -5,5 +5,6 @@ import org.ash.french.killer.sudoko.domain.Nonet
 
 interface NonetFinder {
     fun getNonet(cell: Cell): Nonet
+
     fun getNonet(nonetPosition: Int): Nonet
 }

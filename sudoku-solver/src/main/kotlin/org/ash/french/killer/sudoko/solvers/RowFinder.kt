@@ -9,5 +9,4 @@ interface RowFinder {
     fun getRow(y: UByte) = getRow(Cell(1u, y))
 
     fun getRow(y: Int) = getRow(Cell(1, y))
-
 }
