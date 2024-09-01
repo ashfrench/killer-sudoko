@@ -23,7 +23,8 @@ data class SudokuGrid(val cells: Set<Cell> = generateSudokuCells()) :
                     (1..9 step 3)
                         .map { y -> Cell(x, y) }
                         .toSet()
-                Nonet(nonetCells)}
+                Nonet(nonetCells)
+            }
 
     private val cellValues: MutableMap<Cell, UByte?> = cells.associateWith { null }.toMutableMap()
     private val cageValues: MutableMap<Cage, UByte> = mutableMapOf()
@@ -32,12 +33,13 @@ data class SudokuGrid(val cells: Set<Cell> = generateSudokuCells()) :
 
     override fun getRow(cell: Cell) = rows[cell.y] ?: throw RuntimeException("Unexpected Cell: $cell - No row found")
 
-    override fun getColumn(cell: Cell) =
-        columns[cell.x] ?: throw RuntimeException("Unexpected Cell: $cell - No Column found")
+    override fun getColumn(cell: Cell) = columns[cell.x] ?: throw RuntimeException("Unexpected Cell: $cell - No Column found")
 
     override fun getNonet(cell: Cell) = nonets.find { cell in it } ?: throw RuntimeException("No Nonet for Cell $cell")
+
     override fun getNonet(nonetPosition: Int): Nonet {
         require(nonetPosition in 1..9)
+
         return nonets[nonetPosition]
     }
 
@@ -46,7 +48,7 @@ data class SudokuGrid(val cells: Set<Cell> = generateSudokuCells()) :
     @Suppress("UNUSED")
     fun updateCell(
         cell: Cell,
-        value: UByte?
+        value: UByte?,
     ): CellUpdate {
         if (cell !in this) {
             return CellUpdate.failure(RuntimeException("Cell $cell does not exist in this Grid"))

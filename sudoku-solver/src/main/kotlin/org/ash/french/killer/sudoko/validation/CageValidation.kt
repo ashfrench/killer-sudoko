@@ -24,13 +24,18 @@ fun defaultCageSizes(): Map<UByte, Map<UByte, CellSet>> {
     return emptyMap()
 }
 
-fun getCageValues(cageSize: Int, cageSum: Int) =
-    getCageValues(
-        cageSize.toUByte(),
-        cageSum.toUByte()
-    )
+fun getCageValues(
+    cageSize: Int,
+    cageSum: Int,
+) = getCageValues(
+    cageSize.toUByte(),
+    cageSum.toUByte(),
+)
 
-fun getCageValues(cageSize: UByte, cageSum: UByte): Result<Set<CellSet>> {
+fun getCageValues(
+    cageSize: UByte,
+    cageSum: UByte,
+): Result<Set<CellSet>> {
     return when (cageSize.toInt()) {
         1 -> calculateCellSetCageSizeOne(cageSum)
         2 -> calculateCellSetCageSizeTwo(cageSum)

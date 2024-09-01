@@ -12,34 +12,29 @@ object SudokuContextStore : ExtensionContext.Store, ExtensionContext.Store.Close
 
     private val grid: SudokuGrid = SudokuGrid()
 
-    override fun get(key: Any?) =
-        sudokuMapStore[key]
+    override fun get(key: Any?) = sudokuMapStore[key]
 
     @Suppress("UNCHECKED_CAST")
     override fun <V : Any?> get(
         key: Any?,
-        requiredType: Class<V>?
-    ) =
-        sudokuMapStore[key] as V
-
+        requiredType: Class<V>?,
+    ) = sudokuMapStore[key] as V
 
     override fun <K : Any?, V : Any?> getOrComputeIfAbsent(
         key: K,
-        defaultCreator: Function<K, V>
-    ) =
-        sudokuMapStore.computeIfAbsent(key) { _ -> defaultCreator.apply(key) }
-
+        defaultCreator: Function<K, V>,
+    ) = sudokuMapStore.computeIfAbsent(key) { _ -> defaultCreator.apply(key) }
 
     @Suppress("UNCHECKED_CAST")
     override fun <K : Any?, V : Any?> getOrComputeIfAbsent(
         key: K,
         defaultCreator: Function<K, V>,
-        requiredType: Class<V>
+        requiredType: Class<V>,
     ): V = sudokuMapStore.computeIfAbsent(key) { _ -> defaultCreator.apply(key) } as V
 
     override fun put(
         key: Any?,
-        value: Any?
+        value: Any?,
     ) {
         sudokuMapStore[key] = value
     }
@@ -49,7 +44,7 @@ object SudokuContextStore : ExtensionContext.Store, ExtensionContext.Store.Close
     @Suppress("UNCHECKED_CAST")
     override fun <V : Any?> remove(
         key: Any?,
-        requiredType: Class<V>?
+        requiredType: Class<V>?,
     ): V {
         sudokuMapStore.remove(key)
         return key as V

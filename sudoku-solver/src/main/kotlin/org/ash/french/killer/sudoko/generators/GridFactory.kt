@@ -26,7 +26,7 @@ fun generateEmptySudokuGrid(): SudokuGrid {
         (1..9).flatMap { x ->
             (1..9).map { y -> Cell(x, y) }
         }
-             .toSet()
+            .toSet()
 
     return SudokuGrid(cells)
 }
@@ -35,8 +35,8 @@ fun generateSudokuCells() =
     (1..9)
         .flatMap { x ->
             (1..9)
-                        .map { y -> Cell(x, y) }
-                }
+                .map { y -> Cell(x, y) }
+        }
         .toSet()
 
 typealias CellUpdate = Result<Boolean>
