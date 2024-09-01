@@ -30,7 +30,7 @@
 >
 > Further algorithms will be provided with a [human style UX](#solving-techniques) to help the user learn how to solve the puzzles
 
-![Example Sudoku Grid](./sudoku-solver/src/main/resources/images/sudoko/example-sudoku-grid.png)
+<img src="./sudoku-solver/src/main/resources/images/sudoko/example-sudoku-grid.png" alt="Example Sudoku Grid" width="400px" height="400px" >
 
 ## [Killer Sudoku Grid](docs/Killer_Sudoku.md)
 
@@ -40,7 +40,7 @@
 > * The sum of all numbers in a [cage](docs/Terminology.md#Cage) must match the small number printed in its corner.
 > * No number appears more than once in a [cage](docs/Terminology.md#Cage). (This is the standard rule for killer sudokus, and implies that no [cage](docs/Terminology.md#Cage) can include more than 9 [cells](docs/Terminology.md#Cell).
 
-![Example Killer Sudoku Grid](./sudoku-solver/src/main/resources/images/killer-sudoko/Killersudoku_bw_with_bg.png)
+<img src="./sudoku-solver/src/main/resources/images/killer-sudoko/Killersudoku_bw_with_bg.png" alt="Example Sudoku Grid" width="400px" height="400px" >
 
 ## Solving Techniques
 
