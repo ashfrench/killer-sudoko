@@ -13,7 +13,7 @@ fun defaultSudokuGrid(): SudokuGrid {
             .flatMap { x -> yRange.map { y -> Cell(x.toUByte(), y.toUByte()) } }
             .toSet()
 
-    require(cellSet.size == 45) { "Missing Cells to create a grid" }
+    require(cellSet.size == 81) { "Missing Cells to create a grid" }
     return SudokuGrid(cellSet)
 }
 
