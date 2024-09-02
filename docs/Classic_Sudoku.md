@@ -8,7 +8,7 @@
 >
 > A simple brute force algorithm will be provided to show how to solve a [well-posed puzzle][1]
 >
-> Further algorithms will be provided with a [human style UX](../README.md#solving-techniques) to help the user learn how to solve the puzzles
+> Further algorithms will be provided with a [human style UX][2] to help the user learn how to solve the puzzles
 
 ## Rules of Sudoku
 
@@ -58,3 +58,4 @@ The below sample grids are taken from https://en.wikipedia.org/wiki/Sudoku
 </table>
 
 [1]: https://en.wikipedia.org/wiki/Well-posed_problem
+[2]: https://en.wikipedia.org/wiki/Killer_sudoku#Solving_strategies
