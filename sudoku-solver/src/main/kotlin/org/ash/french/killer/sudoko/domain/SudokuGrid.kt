@@ -1,6 +1,25 @@
 package org.ash.french.killer.sudoko.domain
 
+import org.ash.french.killer.sudoko.solvers.CellUpdate
+import org.ash.french.killer.sudoko.solvers.SolvedSudokuGrid
+
 class SudokuGrid {
+    fun updateCell(
+        cell: Cell,
+        value: UByte,
+    ) {
+        println("Updating cell $cell with value $value")
+    }
+
+    fun isSolved(): Boolean {
+        TODO("Not yet implemented")
+    }
+
+    fun applyUpdates(updates: Collection<CellUpdate>): SolvedSudokuGrid {
+        println(updates)
+        TODO("Not yet implemented")
+    }
+
     private val cells: Set<Cell> =
         (1..9)
             .flatMap { x ->

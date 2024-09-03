@@ -24,6 +24,9 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.jlleitschuh.gradle/ktlint-gradle
     implementation("org.jlleitschuh.gradle:ktlint-gradle:12.1.0")
+
+    // https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-coroutines-core
+    runtimeOnly("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
 }
 
 
