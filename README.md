@@ -2,7 +2,7 @@
 
 ---
 
-<a target="_blank">www.ashfrench.co.uk</a>
+<a href="www.ashfrench.co.uk" target="_blank">www.ashfrench.co.uk</a>
 
 [![Ash at Stack Overflow](https://stackoverflow.com/users/flair/6894338.png?theme=dark)](https://stackoverflow.com/users/6894338/ash)
 
