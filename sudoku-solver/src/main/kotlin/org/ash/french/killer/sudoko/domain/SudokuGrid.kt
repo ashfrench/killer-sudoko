@@ -29,6 +29,8 @@ class SudokuGrid {
                     }
             }.toSet()
 
+    private val cellValueMap: MutableMap<Cell, UByte?> = cells.associateWith { null }.toMutableMap()
+
     private val rows: List<Row> = cells.groupBy { it.y }.map { Row(it.key, it.value.toSet()) }
 
     private val column: List<Column> = cells.groupBy { it.x }.map { Column(it.key, it.value.toSet()) }
