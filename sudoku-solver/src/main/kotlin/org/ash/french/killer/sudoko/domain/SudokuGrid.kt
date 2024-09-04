@@ -1,7 +1,7 @@
 package org.ash.french.killer.sudoko.domain
 
 import org.ash.french.killer.sudoko.solvers.CellUpdate
-import org.ash.french.killer.sudoko.solvers.SolvedSudokuGrid
+import org.ash.french.killer.sudoko.solvers.SolvedSudokuGridStatus
 
 class SudokuGrid {
     fun updateCell(
@@ -15,7 +15,7 @@ class SudokuGrid {
         TODO("Not yet implemented")
     }
 
-    fun applyUpdates(updates: Collection<CellUpdate>): SolvedSudokuGrid {
+    fun applyUpdates(updates: Collection<CellUpdate>): SolvedSudokuGridStatus {
         println(updates)
         TODO("Not yet implemented")
     }

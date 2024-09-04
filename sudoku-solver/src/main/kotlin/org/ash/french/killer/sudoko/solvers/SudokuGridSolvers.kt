@@ -7,7 +7,7 @@ fun interface SudokuGridSolvers {
     fun solve(
         sudokuGrid: SudokuGrid,
         updates: Collection<CellUpdate>,
-    ): SolvedSudokuGrid
+    ): SolvedSudokuGridStatus
 }
 
 fun interface SudokuGridCoroutineSolvers {

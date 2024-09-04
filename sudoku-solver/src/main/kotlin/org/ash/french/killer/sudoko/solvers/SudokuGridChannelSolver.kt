@@ -6,24 +6,34 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withTimeout
 import org.ash.french.killer.sudoko.domain.Cell
 import org.ash.french.killer.sudoko.domain.SudokuGrid
+import java.util.UUID
+import kotlin.time.Duration.Companion.seconds
 
-object SudokuGridChannelSolver : SudokuGridSolvers {
-    fun solveGrid(
-        sudokuGrid: SudokuGrid,
-        solvers: List<SudokuGridCoroutineSolvers>,
-    ) = runBlocking {
-        val channel = Channel<CellUpdate>()
+class SudokuGridChannelSolver(private val sudokuGrid: SudokuGrid) : SudokuGridSolvers {
+    private val gridUpdateChannel = Channel<SudokuGridUpdate>()
 
-        launch {
-            for (update in channel) {
-                sudokuGrid.updateCell(update.cell, update.value)
+    fun solveGrid(solvers: List<SudokuGridCoroutineSolvers>) =
+        runBlocking {
+            val cellUpdateChannel = Channel<CellUpdate>()
+
+            launch {
+                for (update in cellUpdateChannel) {
+                    sudokuGrid.updateCell(update.cell, update.value)
+                }
             }
+            gridUpdates(sudokuGrid, solvers, cellUpdateChannel)
         }
 
-        withTimeout(1300L) {
+    private suspend fun gridUpdates(
+        sudokuGrid: SudokuGrid,
+        solvers: List<SudokuGridCoroutineSolvers>,
+        cellUpdateChannel: Channel<CellUpdate>,
+    ) {
+        // Timeout after 60 seconds
+        withTimeout(60.seconds) {
             solvers.forEach { solver ->
                 launch {
-                    solver.solve(sudokuGrid, channel)
+                    solver.solve(sudokuGrid, cellUpdateChannel)
                 }
             }
         }
@@ -32,12 +42,24 @@ object SudokuGridChannelSolver : SudokuGridSolvers {
     override fun solve(
         sudokuGrid: SudokuGrid,
         updates: Collection<CellUpdate>,
-    ): SolvedSudokuGrid {
+    ): SolvedSudokuGridStatus {
         return sudokuGrid.applyUpdates(updates)
     }
 }
 
+interface UpdateID {
+    val updateID: UUID
+}
+
+data class SudokuGridUpdate(
+    val updates: Collection<CellUpdate>,
+    override val updateID: UUID = UUID.randomUUID(),
+) : UpdateID
+
 data class CellUpdate(
     val cell: Cell,
     val value: UByte,
-)
+    override val updateID: UUID = UUID.randomUUID(),
+) : UpdateID {
+    constructor(cell: Cell, value: Int) : this(cell, value.toUByte())
+}
