@@ -1,5 +1,6 @@
 # Killer Sudoku Solver
 
+---
 
 [![Ash at Stack Overflow](https://stackoverflow.com/users/flair/6894338.png?theme=dark)](https://stackoverflow.com/users/6894338/ash)
 
@@ -11,6 +12,23 @@
 
 [![Kotlin CI with Gradle](https://github.com/ashfrench/killer-sudoko/actions/workflows/gradle.yml/badge.svg)](https://github.com/ashfrench/killer-sudoko/actions/workflows/gradle.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ashfrench_killer-sudoko&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=ashfrench_killer-sudoko)
+
+---
+
+## Table Of Contents
+
+- [Classic Sudoku](#classic-sudoku)
+- [Killer Sudoku](#killer-sudoku-grid)
+- [Solving Techniques](#solving-techniques)
+- [Code Location](#code-location)
+- [Tooling](#tooling)
+- [How to Build](#how-to-build)
+- [References](#references)
+- [Security](#security)
+- [Miscellaneous](#miscellaneous)
+- [Links](#links)
+
+---
 
 > This is a rewrite in kotlin of my Computer Science dissertation project. I Studied `Computer Science with a Year in Industry (2006-2010)` with [IBM][1] `(2008-2009)` at [Manchester University][2]. I achieved a 1st class honours for this project and was in the top 10 of the year.
 >
@@ -67,13 +85,34 @@
 
 ## References
 
-[Project Kanban Board][11]
+> Useful links for the project status and tracking
+> 
+> * [Project Kanban Board][11]
+> * [Qodana Link][16]
 
 ## [Security](SECURITY.md)
 
 ## Miscellaneous
 
 [![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
+### Links
+> 1. https://www.ibm.com
+> 1. https://www.cs.manchester.ac.uk/
+> 1. https://en.wikipedia.org/wiki/Brute-force_search
+> 1. https://en.wikipedia.org/wiki/Killer_sudoku#Solving_strategies
+> 1. https://sonarcloud.io/summary/overall?id=ashfrench_killer-sudoko
+> 1. https://kotlinlang.org/
+> 1. https://gradle.org/
+> 1. https://www.oracle.com/java/technologies/downloads/
+> 1. https://www.jetbrains.com/lp/compose-multiplatform/
+> 1. https://junit.org/junit5/docs/current/user-guide/#extensions
+> 1. https://github.com/users/ashfrench/projects/1/views/1
+> 1. https://html.com/html5/
+> 1. https://www.markdownguide.org/cheat-sheet/
+> 1. https://junit.org/junit5/docs/current/user-guide/
+> 1. https://en.wikipedia.org/wiki/Well-posed_problem
+> 1. https://qodana.cloud/projects/3dBJ8/reports/RwegE
 
 [1]: https://www.ibm.com
 [2]: https://www.cs.manchester.ac.uk/
@@ -90,3 +129,4 @@
 [13]: https://www.markdownguide.org/cheat-sheet/
 [14]: https://junit.org/junit5/docs/current/user-guide/
 [15]: https://en.wikipedia.org/wiki/Well-posed_problem
+[16]: https://qodana.cloud/projects/3dBJ8/reports/RwegE
