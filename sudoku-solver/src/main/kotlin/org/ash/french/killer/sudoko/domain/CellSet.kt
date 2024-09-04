@@ -1,6 +1,6 @@
 package org.ash.french.killer.sudoko.domain
 
-sealed class CellSet(private val cells: Set<Cell>) : Set<Cell> by cells {
+sealed class CellSet(private val cells: Set<Cell> = emptySet()) : Set<Cell> by cells {
     open fun validate(): SudokuValidation {
         return try {
             require(cells.size == 9) { "${this.javaClass.canonicalName} must contain 9 cells" }
@@ -9,9 +9,6 @@ sealed class CellSet(private val cells: Set<Cell>) : Set<Cell> by cells {
             validationFailure(e)
         }
     }
-
-    // Private Constructor to hide visibility
-    private constructor() : this(emptySet())
 
     init {
         this.validate()
