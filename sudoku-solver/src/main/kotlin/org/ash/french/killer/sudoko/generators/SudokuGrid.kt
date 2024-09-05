@@ -10,7 +10,7 @@ import org.ash.french.killer.sudoko.solvers.ColumnFinder
 import org.ash.french.killer.sudoko.solvers.NonetFinder
 import org.ash.french.killer.sudoko.solvers.RowFinder
 
-data class SudokuGrid(val cells: Set<Cell> = generateSudokuCells()) :
+data class SudokuGrid(val cells: Set<Cell> = GridFactory.cells) :
     CellValueFinder, RowFinder, ColumnFinder, NonetFinder {
     private val rows = cells.groupBy { it.y }.mapValues { Row(it.key, it.value.toSet()) }
 
@@ -65,3 +65,5 @@ data class SudokuGrid(val cells: Set<Cell> = generateSudokuCells()) :
         return sudokuGrid
     }
 }
+
+typealias CellUpdate = Result<Boolean>
