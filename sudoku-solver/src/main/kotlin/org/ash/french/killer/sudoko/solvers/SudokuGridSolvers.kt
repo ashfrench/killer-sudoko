@@ -3,16 +3,24 @@ package org.ash.french.killer.sudoko.solvers
 import kotlinx.coroutines.channels.Channel
 import org.ash.french.killer.sudoko.domain.SudokuGrid
 
-fun interface SudokuGridSolvers {
+interface SudokuGridSolvers {
+    fun solve(
+        sudokuGrid: SudokuGrid,
+    ): Collection<CellUpdate>
+
     fun solve(
         sudokuGrid: SudokuGrid,
         updates: Collection<CellUpdate>,
     ): SolvedSudokuGridStatus
 }
 
-fun interface SudokuGridCoroutineSolvers {
-    fun solve(
+abstract class SudokuGridCoroutineSolvers: SudokuGridSolvers {
+
+    val outputChannel = Channel<SudokuGridUpdate>()
+
+    abstract fun solve(
         sudokuGrid: SudokuGrid,
         channel: Channel<CellUpdate>,
     )
+
 }
