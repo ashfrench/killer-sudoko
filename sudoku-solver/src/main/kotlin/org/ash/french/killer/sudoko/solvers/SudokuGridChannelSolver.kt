@@ -53,17 +53,16 @@ class SudokuGridChannelSolver(private val sudokuGrid: SudokuGrid) : SudokuGridSo
 
 interface UpdateID {
     val updateID: UUID
+        get() = UUID.randomUUID()
 }
 
 data class SudokuGridUpdate(
-    val updates: Collection<CellUpdate>,
-    override val updateID: UUID = UUID.randomUUID(),
+    val updates: Collection<CellUpdate>
 ) : UpdateID
 
 data class CellUpdate(
     val cell: Cell,
-    val value: UByte,
-    override val updateID: UUID = UUID.randomUUID(),
+    val value: UByte
 ) : UpdateID {
     constructor(cell: Cell, value: Int) : this(cell, value.toUByte())
 }
