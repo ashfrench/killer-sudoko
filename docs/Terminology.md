@@ -24,9 +24,9 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center; vertical-align: middle;"> <img src="../sudoku-solver/src/main/resources/images/killer-sudoko/cell/Killersudoku_bw_with_bg.png" alt="Example Sudoku Grid" width="250px" height="250px" > </td>
-      <td style="text-align: center; vertical-align: middle;"> <img src="../sudoku-solver/src/main/resources/images/killer-sudoko/cell/Killersudoku_cell.png" alt="Example Sudoku Grid Cell" width="250px" height="250px" > </td>
-      <td style="text-align: center; vertical-align: middle;"> <img src="../sudoku-solver/src/main/resources/images/killer-sudoko/cell/Killersudoku_cell_with_value.png" alt="Example Sudoku Grid Cell With Value" width="250px" height="250px" > </td>
+      <td style="text-align: center; vertical-align: middle;"> <img src="./images/killer-sudoko/cell/Killersudoku_bw_with_bg.png" alt="Example Sudoku Grid" width="250px" height="250px" > </td>
+      <td style="text-align: center; vertical-align: middle;"> <img src="./images/killer-sudoko/cell/Killersudoku_cell.png" alt="Example Sudoku Grid Cell" width="250px" height="250px" > </td>
+      <td style="text-align: center; vertical-align: middle;"> <img src="./images/killer-sudoko/cell/Killersudoku_cell_with_value.png" alt="Example Sudoku Grid Cell With Value" width="250px" height="250px" > </td>
     </tr>
   </tbody>
 

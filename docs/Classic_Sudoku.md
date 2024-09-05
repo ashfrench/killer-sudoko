@@ -32,8 +32,8 @@ The below sample grids are taken from https://en.wikipedia.org/wiki/Sudoku
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center; vertical-align: middle;"> <img src="../sudoku-solver/src/main/resources/images/sudoko/example-sudoku-grid.png" alt="Example Sudoku Grid" width="250px" height="250px" > </td>
-      <td style="text-align: center; vertical-align: middle;"> <img src="../sudoku-solver/src/main/resources/images/sudoko/Sudoku_puzzle_hard_for_brute_force.png" alt="Example Hard Sudoku Grid" width="250px" height="250px"> </td>
+      <td style="text-align: center; vertical-align: middle;"> <img src="./images/sudoko/example-sudoku-grid.png" alt="Example Sudoku Grid" width="250px" height="250px" > </td>
+      <td style="text-align: center; vertical-align: middle;"> <img src="./images/sudoko/Sudoku_puzzle_hard_for_brute_force.png" alt="Example Hard Sudoku Grid" width="250px" height="250px"> </td>
     </tr>
   </tbody>
 
@@ -50,8 +50,8 @@ The below sample grids are taken from https://en.wikipedia.org/wiki/Sudoku
 
 <tbody>
     <tr>
-      <td style="text-align: center; vertical-align: middle;"> <img src="../sudoku-solver/src/main/resources/images/sudoko/Sudoku_solved_by_bactracking.gif" alt="Example Brute Force Solver" width="250px" height="250px"> </td>
-      <td style="text-align: center; vertical-align: middle;"> <img src="../sudoku-solver/src/main/resources/images/sudoko/solved_puzzle.svg" alt="Example Solved Grid" width="250px" height="250px" > </td>
+      <td style="text-align: center; vertical-align: middle;"> <img src="./images/sudoko/Sudoku_solved_by_bactracking.gif" alt="Example Brute Force Solver" width="250px" height="250px"> </td>
+      <td style="text-align: center; vertical-align: middle;"> <img src="./images/sudoko/solved_puzzle.svg" alt="Example Solved Grid" width="250px" height="250px" > </td>
     </tr>
   </tbody>
 

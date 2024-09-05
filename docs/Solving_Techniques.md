@@ -54,11 +54,11 @@
 
 ## Useful Links
 
-https://sudoku9x9.com/techniques
-https://masteringsudoku.com/sudoku-solving-techniques/
-https://www.wikihow.com/Solve-Hard-Sudoku-Puzzles
-https://www.sudokuonline.io/tips/advanced-sudoku-strategies
-https://masteringsudoku.com/sudoku-tips-tricks/
+> * https://sudoku9x9.com/techniques
+> * https://masteringsudoku.com/sudoku-solving-techniques/
+> * https://www.wikihow.com/Solve-Hard-Sudoku-Puzzles
+> * https://www.sudokuonline.io/tips/advanced-sudoku-strategies
+> * https://masteringsudoku.com/sudoku-tips-tricks/
 
 [1]: https://sudoku9x9.com/techniques/hiddensingle/
 [2]: https://sudoku9x9.com/techniques/nakedsingle/

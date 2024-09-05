@@ -28,9 +28,9 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center; vertical-align: middle;"> <img src="../sudoku-solver/src/main/resources/images/killer-sudoko/Killersudoku_bw_with_bg.png" alt="Example Killer Sudoku Grid" width="250px" height="250px" > </td>
-      <td style="text-align: center; vertical-align: middle;"> <img src="../sudoku-solver/src/main/resources/images/killer-sudoko/Killersudoku_color.svg.png" alt="Example Killer Sudoku Grid with Colour" width="250px" height="250px" > </td>
-      <td style="text-align: center; vertical-align: middle;"> <img src="../sudoku-solver/src/main/resources/images/killer-sudoko/Killersudoku_color_solution.svg.png" alt="Example Killer Sudoku Grid Solved" width="250px" height="250px" > </td>
+      <td style="text-align: center; vertical-align: middle;"> <img src="./images/killer-sudoko/Killersudoku_bw_with_bg.png" alt="Example Killer Sudoku Grid" width="250px" height="250px" > </td>
+      <td style="text-align: center; vertical-align: middle;"> <img src="./images/killer-sudoko/Killersudoku_color.svg.png" alt="Example Killer Sudoku Grid with Colour" width="250px" height="250px" > </td>
+      <td style="text-align: center; vertical-align: middle;"> <img src="./images/killer-sudoko/Killersudoku_color_solution.svg.png" alt="Example Killer Sudoku Grid Solved" width="250px" height="250px" > </td>
     </tr>
   </tbody>
 
