@@ -11,7 +11,11 @@ import org.ash.french.killer.sudoko.solvers.NonetFinder
 import org.ash.french.killer.sudoko.solvers.RowFinder
 
 data class SudokuGrid(val cells: Set<Cell> = GridFactory.cells) :
-    CellValueFinder, RowFinder, ColumnFinder, NonetFinder {
+    CellValueFinder,
+    RowFinder,
+    ColumnFinder,
+    NonetFinder
+{
     private val rows = cells.groupBy { it.y }.mapValues { Row(it.key, it.value.toSet()) }
 
     private val columns = cells.groupBy { it.x }.mapValues { Column(it.key, it.value.toSet()) }

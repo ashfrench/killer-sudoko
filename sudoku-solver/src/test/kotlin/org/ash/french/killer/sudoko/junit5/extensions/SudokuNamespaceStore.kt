@@ -1,6 +1,7 @@
 package org.ash.french.killer.sudoko.junit5.extensions
 
 import org.ash.french.killer.sudoko.generators.GridFactory
+import org.ash.french.killer.sudoko.generators.SudokuGrid
 import org.junit.jupiter.api.extension.ExtensionContext
 import kotlin.test.assertNotNull
 
@@ -9,7 +10,7 @@ data class SudokuNamespaceStore(private val context: ExtensionContext) :
     ExtensionContext.Store.CloseableResource by SudokuContextStore {
     private val sudokuNamespace = SudokuNamespace
 
-    val emptySudokuGrid by lazy { GridFactory.defaultSudokuGrid() }
+    val sudokuGrid: SudokuGrid by lazy { GridFactory.defaultSudokuGrid() }
 
     init {
         val namespace = sudokuNamespace.namespace
@@ -20,9 +21,7 @@ data class SudokuNamespaceStore(private val context: ExtensionContext) :
         assertNotNull(sudokuNamespaceStore)
     }
 
-    override fun close() {
-        return
-    }
+    override fun close() = Unit
 }
 
 fun ExtensionContext.sudokuNamespaceStore() = getStore(SudokuNamespace.namespace)[SudokuNamespace] as SudokuNamespaceStore
