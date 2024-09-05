@@ -8,7 +8,7 @@ import org.ash.french.killer.sudoko.solvers.CellValueSetter
 import org.ash.french.killer.sudoko.solvers.ColumnFinder
 import org.ash.french.killer.sudoko.solvers.NonetFinder
 import org.ash.french.killer.sudoko.solvers.RowFinder
-import java.util.*
+import java.util.StringJoiner
 
 data class SudokuGrid(val cells: Set<Cell> = GridFactory.cells) :
     CellValueFinder,
