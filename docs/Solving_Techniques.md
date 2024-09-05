@@ -37,7 +37,7 @@
 ### [Swordfish][9]
 > Stuff Here
 
-### [Coloring][10]
+### [Colouring][10]
 > Stuff Here
 
 ### [Forcing Chain][11]
