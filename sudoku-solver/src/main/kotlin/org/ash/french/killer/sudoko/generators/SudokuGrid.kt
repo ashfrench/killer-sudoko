@@ -49,19 +49,6 @@ data class SudokuGrid(val cells: Set<Cell> = GridFactory.cells) :
 
     override operator fun contains(cell: Cell) = cells.contains(cell)
 
-    @Suppress("UNUSED")
-    fun updateCell(
-        cell: Cell,
-        value: UByte?,
-    ): CellUpdate {
-        if (cell !in this) {
-            return CellUpdate.failure(RuntimeException("Cell $cell does not exist in this Grid"))
-        }
-
-        cellValues.compute(cell) { _, _ -> value }
-        TODO()
-    }
-
     fun withCages(cages: Map<Cage, UByte>): SudokuGrid {
         val sudokuGrid = copy()
         sudokuGrid.cageValues.putAll(cages)
