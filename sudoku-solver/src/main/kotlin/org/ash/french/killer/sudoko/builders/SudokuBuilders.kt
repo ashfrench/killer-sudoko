@@ -14,7 +14,7 @@ fun SudokuGrid.cellValueBuilder(cellValueMap: Map<Cell, UByte?>) {
     cellValueMap
         .filter { (cell, _) -> cell in this }
         .forEach { (cell, value) ->
-            updateCell(cell, value)
+            setCellValue(cell, value)
         }
 }
 
