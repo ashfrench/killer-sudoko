@@ -12,6 +12,8 @@ https://ashfrench.co.uk/
 [![Substack](https://img.shields.io/badge/Substack-%23006f5c.svg?style=for-the-badge&logo=substack&logoColor=FF6719)](https://substack.com/@ashfrench1)
 [![Patreon](https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://patreon.com/AshFrench)
 
+---
+
 [![Kotlin CI with Gradle](https://github.com/ashfrench/killer-sudoko/actions/workflows/gradle.yml/badge.svg)](https://github.com/ashfrench/killer-sudoko/actions/workflows/gradle.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ashfrench_killer-sudoko&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=ashfrench_killer-sudoko)
 
