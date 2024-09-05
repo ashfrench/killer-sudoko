@@ -19,4 +19,5 @@ enum class SudokuSolvingUpdateType {
     COLOURING,
     FORCING_CHAIN,
     NISHIO,
+    BRUTE_FORCE,
 }
