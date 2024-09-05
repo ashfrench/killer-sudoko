@@ -7,9 +7,30 @@ import org.junit.jupiter.api.Test
 import java.util.StringJoiner
 
 class SudokuBuildersTest {
+    private val expectedString: String
+
+    init {
+        val grid = SudokuGrid()
+        val stringJoiner = StringJoiner("|| ")
+        stringJoiner.add("")
+        (1..9)
+            .forEach { y ->
+                val rowJoiner = StringJoiner(" | ")
+                (1..9).forEach { x ->
+                    val cell = Cell(x, y)
+                    val value = grid.getCellValue(cell)
+                    rowJoiner.add(value?.toString() ?: " ")
+                }
+                stringJoiner.add("$rowJoiner")
+                stringJoiner.add(" \n")
+            }
+
+        expectedString = stringJoiner.toString()
+    }
+
     @Test
     fun `can build empty sudoku grid`() {
-        val grid = sudokuGrid { }
+        val grid = sudokuGrid { }.build()
         assertEquals(SudokuGrid(), grid)
     }
 
@@ -63,23 +84,8 @@ class SudokuBuildersTest {
                 cellValue(Cell(9, 4), 1)
                 cellValue(Cell(9, 5), 2)
                 cellValue(Cell(9, 8), 3)
-            }
+            }.build()
 
-        val stringJoiner = StringJoiner("|| ")
-        stringJoiner.add("")
-        (1..9)
-            .forEach { y ->
-                val rowJoiner = StringJoiner(" | ")
-                (1..9).forEach { x ->
-                    val cell = Cell(x, y)
-                    val value = grid.getCellValue(cell)
-                    rowJoiner.add(value?.toString() ?: " ")
-                }
-                stringJoiner.add("$rowJoiner")
-                stringJoiner.add(" \n")
-            }
-        println(stringJoiner.toString())
-
-        assertEquals(stringJoiner.toString(), grid.toString())
+        assertEquals(expectedString, grid.toString())
     }
 }

@@ -83,6 +83,16 @@ data class SudokuGrid(val cells: Set<Cell> = GridFactory.cells) :
         return this
     }
 
+    fun withCage(
+        cage: Cage,
+        value: UByte,
+    ): SudokuGrid {
+        val copy = copy()
+        copy.cageValues[cage] = value
+
+        return copy
+    }
+
     fun withCages(cages: Map<Cage, UByte>): SudokuGrid {
         val sudokuGrid = copy()
         sudokuGrid.cageValues.putAll(cages)
