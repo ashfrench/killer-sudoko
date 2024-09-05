@@ -2,6 +2,7 @@ package org.ash.french.killer.sudoko.domain
 
 import org.ash.french.killer.sudoko.generators.GridFactory
 import org.ash.french.killer.sudoko.solvers.CageFinder
+import org.ash.french.killer.sudoko.solvers.CellUpdate
 import org.ash.french.killer.sudoko.solvers.CellValueFinder
 import org.ash.french.killer.sudoko.solvers.CellValueSetter
 import org.ash.french.killer.sudoko.solvers.ColumnFinder
@@ -56,6 +57,13 @@ data class SudokuGrid(val cells: Set<Cell> = GridFactory.cells) :
     override fun getCage(cell: Cell): Cage = getCages().first { cell in it }
 
     override operator fun contains(cell: Cell) = cells.contains(cell)
+
+    fun withCellValues(cellUpdates: Collection<CellUpdate>): SudokuGrid {
+        cellUpdates.forEach { (cell, value) ->
+            setCellValue(cell, value)
+        }
+        return this
+    }
 
     fun withCages(cages: Map<Cage, UByte>): SudokuGrid {
         val sudokuGrid = copy()
