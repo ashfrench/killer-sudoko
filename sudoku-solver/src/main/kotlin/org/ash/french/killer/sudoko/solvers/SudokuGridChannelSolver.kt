@@ -39,6 +39,10 @@ class SudokuGridChannelSolver(private val sudokuGrid: SudokuGrid) : SudokuGridSo
         }
     }
 
+    override fun solve(sudokuGrid: SudokuGrid): Collection<CellUpdate> {
+        TODO("Not yet implemented")
+    }
+
     override fun solve(
         sudokuGrid: SudokuGrid,
         updates: Collection<CellUpdate>,
