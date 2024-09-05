@@ -64,7 +64,7 @@ https://ashfrench.co.uk/
 
 <img src="./sudoku-solver/src/main/resources/images/killer-sudoko/Killersudoku_bw_with_bg.png" alt="Example Sudoku Grid" width="400px" height="400px" >
 
-## Solving Techniques
+## [Solving Techniques](docs/Solving_Techniques.md)
 
 ## Code Location
 

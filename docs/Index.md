@@ -6,3 +6,4 @@ This is the documentation index. It contains a list of all the documentation pag
 * [Terminology](./Terminology.md)
 * [Classic Sudoku](./Classic_Sudoku.md)
 * [Killer Sudoku Grid](./Killer_Sudoku.md)
+* [Solving Techniques](./Solving_Techniques.md)
