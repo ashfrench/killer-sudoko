@@ -56,13 +56,11 @@ interface UpdateID {
         get() = UUID.randomUUID()
 }
 
-data class SudokuGridUpdate(
-    val updates: Collection<CellUpdate>
-) : UpdateID
+data class SudokuGridUpdate(val updates: Collection<CellUpdate>) : UpdateID
 
 data class CellUpdate(
     val cell: Cell,
-    val value: UByte
+    val value: UByte,
 ) : UpdateID {
     constructor(cell: Cell, value: Int) : this(cell, value.toUByte())
 }
