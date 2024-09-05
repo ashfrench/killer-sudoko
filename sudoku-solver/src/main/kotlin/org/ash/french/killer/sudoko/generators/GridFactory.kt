@@ -1,6 +1,7 @@
 package org.ash.french.killer.sudoko.generators
 
 import org.ash.french.killer.sudoko.domain.Cell
+import org.ash.french.killer.sudoko.domain.SudokuGrid
 
 object GridFactory {
     val xRange = 1..9

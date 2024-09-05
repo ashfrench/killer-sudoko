@@ -2,7 +2,7 @@ package org.ash.french.killer.sudoko.builders
 
 import org.ash.french.killer.sudoko.domain.Cage
 import org.ash.french.killer.sudoko.domain.Cell
-import org.ash.french.killer.sudoko.generators.SudokuGrid
+import org.ash.french.killer.sudoko.domain.SudokuGrid
 
 fun sudokuGrid(init: SudokuGrid.() -> Unit): SudokuGrid {
     val sudokuGrid = SudokuGrid()

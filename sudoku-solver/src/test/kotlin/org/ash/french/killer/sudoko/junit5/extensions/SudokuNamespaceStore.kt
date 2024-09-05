@@ -1,7 +1,7 @@
 package org.ash.french.killer.sudoko.junit5.extensions
 
+import org.ash.french.killer.sudoko.domain.SudokuGrid
 import org.ash.french.killer.sudoko.generators.GridFactory
-import org.ash.french.killer.sudoko.generators.SudokuGrid
 import org.junit.jupiter.api.extension.ExtensionContext
 import kotlin.test.assertNotNull
 

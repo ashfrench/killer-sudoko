@@ -1,10 +1,6 @@
-package org.ash.french.killer.sudoko.generators
+package org.ash.french.killer.sudoko.domain
 
-import org.ash.french.killer.sudoko.domain.Cage
-import org.ash.french.killer.sudoko.domain.Cell
-import org.ash.french.killer.sudoko.domain.Column
-import org.ash.french.killer.sudoko.domain.Nonet
-import org.ash.french.killer.sudoko.domain.Row
+import org.ash.french.killer.sudoko.generators.GridFactory
 import org.ash.french.killer.sudoko.solvers.CageFinder
 import org.ash.french.killer.sudoko.solvers.CellValueFinder
 import org.ash.french.killer.sudoko.solvers.CellValueSetter
@@ -68,5 +64,3 @@ data class SudokuGrid(val cells: Set<Cell> = GridFactory.cells) :
         return sudokuGrid
     }
 }
-
-typealias CellUpdate = Result<Boolean>

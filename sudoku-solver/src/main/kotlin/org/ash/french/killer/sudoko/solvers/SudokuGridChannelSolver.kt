@@ -5,7 +5,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withTimeout
 import org.ash.french.killer.sudoko.domain.Cell
-import org.ash.french.killer.sudoko.generators.SudokuGrid
+import org.ash.french.killer.sudoko.domain.SudokuGrid
 import java.util.UUID
 import kotlin.time.Duration.Companion.seconds
 

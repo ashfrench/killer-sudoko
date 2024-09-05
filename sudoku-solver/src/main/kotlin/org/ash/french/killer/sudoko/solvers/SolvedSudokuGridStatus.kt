@@ -1,6 +1,6 @@
 package org.ash.french.killer.sudoko.solvers
 
-import org.ash.french.killer.sudoko.generators.SudokuGrid
+import org.ash.french.killer.sudoko.domain.SudokuGrid
 import java.util.UUID
 
 sealed class SolvedSudokuGridStatus {
