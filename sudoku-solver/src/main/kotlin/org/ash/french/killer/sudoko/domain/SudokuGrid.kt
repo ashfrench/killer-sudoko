@@ -8,6 +8,7 @@ import org.ash.french.killer.sudoko.solvers.CellValueSetter
 import org.ash.french.killer.sudoko.solvers.ColumnFinder
 import org.ash.french.killer.sudoko.solvers.NonetFinder
 import org.ash.french.killer.sudoko.solvers.RowFinder
+import java.util.*
 
 data class SudokuGrid(val cells: Set<Cell> = GridFactory.cells) :
     CellValueFinder,
@@ -57,6 +58,23 @@ data class SudokuGrid(val cells: Set<Cell> = GridFactory.cells) :
     override fun getCage(cell: Cell): Cage = getCages().first { cell in it }
 
     override operator fun contains(cell: Cell) = cells.contains(cell)
+
+    override fun toString(): String {
+        val stringJoiner = StringJoiner("|| ")
+        stringJoiner.add("")
+        (1..9)
+            .forEach { y ->
+                val rowJoiner = StringJoiner(" | ")
+                (1..9).forEach { x ->
+                    val cell = Cell(x, y)
+                    val value = getCellValue(cell)
+                    rowJoiner.add(value?.toString() ?: " ")
+                }
+                stringJoiner.add("$rowJoiner")
+                stringJoiner.add(" \n")
+            }
+        return stringJoiner.toString()
+    }
 
     fun withCellValues(cellUpdates: Collection<CellUpdate>): SudokuGrid {
         cellUpdates.forEach { (cell, value) ->

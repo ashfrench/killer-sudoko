@@ -78,8 +78,8 @@ class SudokuBuildersTest {
                 stringJoiner.add("$rowJoiner")
                 stringJoiner.add(" \n")
             }
-
-        println(grid)
         println(stringJoiner.toString())
+
+        assertEquals(stringJoiner.toString(), grid.toString())
     }
 }
