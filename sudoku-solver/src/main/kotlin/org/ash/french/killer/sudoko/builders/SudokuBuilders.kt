@@ -36,7 +36,7 @@ fun SudokuGrid.cageBuilder(cageValueMap: Map<Cage, UByte>): CageBuilder {
     val cages =
         cageValueMap
             .filterValues { it !in 1u..45u }
-            .filterKeys { it.size in 1..9 }
+            .filterKeys { it.cells.size in 1..9 }
 
     return CageBuilder(this, cages)
 }

@@ -1,7 +1,9 @@
 package org.ash.french.killer.sudoko.builders
 
+import kotlinx.serialization.encodeToString
 import org.ash.french.killer.sudoko.domain.Cell
 import org.ash.french.killer.sudoko.domain.SudokuGrid
+import org.ash.french.killer.sudoko.domain.TestConstants
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import java.util.StringJoiner
@@ -10,7 +12,7 @@ class SudokuBuildersTest {
     private val expectedString: String
 
     init {
-        val grid = SudokuGrid()
+        val grid = TestConstants.grid
         val stringJoiner = StringJoiner("|| ")
         stringJoiner.add("")
         (1..9)
@@ -86,6 +88,18 @@ class SudokuBuildersTest {
                 cellValue(Cell(9, 8), 3)
             }.build()
 
+        println(grid.toString())
         assertEquals(expectedString, grid.toString())
+    }
+
+    @Test
+    fun `test kotlin json serialisation`() {
+        val grid = TestConstants.grid
+        val jsonString = JSON.encodeToString(grid)
+        val cellJsonString = JSON.encodeToString(grid.cells)
+
+        println(grid.toString())
+        println(jsonString)
+        println(cellJsonString)
     }
 }
