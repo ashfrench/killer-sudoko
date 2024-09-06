@@ -12,16 +12,16 @@ fun sudokuGrid(init: SudokuGrid.() -> Unit): SudokuGridBuilder {
 
 fun SudokuGrid.cellValue(
     cell: Cell,
-    value: UByte,
+    value: UByte?,
 ) {
     setCellValue(cell, value)
 }
 
 fun SudokuGrid.cellValue(
     cell: Cell,
-    value: Int,
+    value: Int?,
 ) {
-    setCellValue(cell, value.toUByte())
+    setCellValue(cell, value?.toUByte())
 }
 
 fun SudokuGrid.cellValueBuilder(cellValueMap: Map<Cell, UByte?>) {
