@@ -4,7 +4,6 @@ import org.ash.french.killer.sudoko.builders.cellValue
 import org.ash.french.killer.sudoko.builders.sudokuGrid
 
 object TestConstants {
-
     val grid =
         sudokuGrid {
             cellValue(Cell(1, 1), 2)
@@ -54,5 +53,4 @@ object TestConstants {
             cellValue(Cell(9, 5), 2)
             cellValue(Cell(9, 8), 3)
         }.build()
-
 }
