@@ -1,7 +1,9 @@
 package org.ash.french.killer.sudoko.solvers
 
 import kotlinx.coroutines.channels.Channel
+import org.ash.french.killer.sudoko.domain.CellUpdate
 import org.ash.french.killer.sudoko.domain.SudokuGrid
+import org.ash.french.killer.sudoko.domain.SudokuGridUpdate
 
 interface SudokuGridSolvers {
     fun solve(sudokuGrid: SudokuGrid): Collection<CellUpdate>

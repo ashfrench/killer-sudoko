@@ -4,9 +4,9 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withTimeout
-import org.ash.french.killer.sudoko.domain.Cell
+import org.ash.french.killer.sudoko.domain.CellUpdate
 import org.ash.french.killer.sudoko.domain.SudokuGrid
-import java.util.UUID
+import org.ash.french.killer.sudoko.domain.SudokuGridUpdate
 import kotlin.time.Duration.Companion.seconds
 
 class SudokuGridChannelSolver(private val sudokuGrid: SudokuGrid) : SudokuGridSolvers {
@@ -50,18 +50,4 @@ class SudokuGridChannelSolver(private val sudokuGrid: SudokuGrid) : SudokuGridSo
         updates.forEach { sudokuGrid.setCellValue(it.cell, it.value) }
         return SolvingSudokuGrid(sudokuGrid, updates)
     }
-}
-
-interface UpdateID {
-    val updateID: UUID
-        get() = UUID.randomUUID()
-}
-
-data class SudokuGridUpdate(val updates: Collection<CellUpdate>) : UpdateID
-
-data class CellUpdate(
-    val cell: Cell,
-    val value: UByte,
-) : UpdateID {
-    constructor(cell: Cell, value: Int) : this(cell, value.toUByte())
 }

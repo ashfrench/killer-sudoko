@@ -1,5 +1,6 @@
 package org.ash.french.killer.sudoko.solvers
 
+import org.ash.french.killer.sudoko.domain.CellUpdate
 import org.ash.french.killer.sudoko.domain.SudokuGrid
 import java.util.UUID
 

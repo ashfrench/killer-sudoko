@@ -1,5 +1,8 @@
 package org.ash.french.killer.sudoko.domain
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Cell(val x: UByte, val y: UByte) {
     constructor(x: Int, y: Int) : this(x.toUByte(), y.toUByte())
 

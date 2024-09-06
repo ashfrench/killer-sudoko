@@ -1,5 +1,8 @@
 package org.ash.french.killer.sudoko.domain
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Row(val y: UByte, override val cells: Set<Cell>) : Region(cells) {
     override fun validate(): SudokuValidation {
         return try {
@@ -14,6 +17,7 @@ data class Row(val y: UByte, override val cells: Set<Cell>) : Region(cells) {
     }
 }
 
+@Serializable
 data class Column(val x: UByte, override val cells: Set<Cell>) : Region(cells) {
     override fun validate(): Result<Boolean> {
         return try {
@@ -28,6 +32,7 @@ data class Column(val x: UByte, override val cells: Set<Cell>) : Region(cells) {
     }
 }
 
+@Serializable
 data class Nonet(override val cells: Set<Cell>) : Region(cells) {
     override fun validate(): Result<Boolean> {
         return try {
@@ -44,6 +49,7 @@ data class Nonet(override val cells: Set<Cell>) : Region(cells) {
     }
 }
 
+@Serializable
 data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region(sum, cells) {
     init {
         require(sum in 1u..45u) { "Invalid Sum for Cage of size ${cells.size}" }

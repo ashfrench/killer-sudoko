@@ -1,5 +1,8 @@
 package org.ash.french.killer.sudoko.domain
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 sealed class CellSet(private val cells: Set<Cell> = emptySet()) : Set<Cell> by cells {
     open fun validate(): SudokuValidation {
         return try {
@@ -17,6 +20,7 @@ sealed class CellSet(private val cells: Set<Cell> = emptySet()) : Set<Cell> by c
     override fun contains(element: Cell) = cells.contains(element)
 }
 
+@Serializable
 sealed class Region(open val sum: UByte, open val cells: Set<Cell>) : CellSet(cells) {
     constructor(cells: Set<Cell>) : this(45u, cells)
 

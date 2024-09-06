@@ -1,8 +1,8 @@
 package org.ash.french.killer.sudoko.solvers.implementation
 
 import org.ash.french.killer.sudoko.domain.Cell
+import org.ash.french.killer.sudoko.domain.CellUpdate
 import org.ash.french.killer.sudoko.domain.SudokuGrid
-import org.ash.french.killer.sudoko.solvers.CellUpdate
 import org.ash.french.killer.sudoko.solvers.SolvedSudokuGridStatus
 import org.ash.french.killer.sudoko.solvers.SudokuSolvingUpdateType
 

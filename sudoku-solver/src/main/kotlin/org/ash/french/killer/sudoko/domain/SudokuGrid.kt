@@ -1,8 +1,8 @@
 package org.ash.french.killer.sudoko.domain
 
+import kotlinx.serialization.Serializable
 import org.ash.french.killer.sudoko.generators.GridFactory
 import org.ash.french.killer.sudoko.solvers.CageFinder
-import org.ash.french.killer.sudoko.solvers.CellUpdate
 import org.ash.french.killer.sudoko.solvers.CellValueFinder
 import org.ash.french.killer.sudoko.solvers.CellValueSetter
 import org.ash.french.killer.sudoko.solvers.ColumnFinder
@@ -10,6 +10,7 @@ import org.ash.french.killer.sudoko.solvers.NonetFinder
 import org.ash.french.killer.sudoko.solvers.RowFinder
 import java.util.StringJoiner
 
+@Serializable
 data class SudokuGrid(val cells: Set<Cell> = GridFactory.cells) :
     CellValueFinder,
     CellValueSetter,
