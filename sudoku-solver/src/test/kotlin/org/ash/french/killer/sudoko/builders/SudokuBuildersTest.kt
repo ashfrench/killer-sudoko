@@ -89,6 +89,7 @@ class SudokuBuildersTest {
                 cellValue(Cell(9, 8), 3)
             }.build()
 
+        println(grid.toString())
         assertEquals(expectedString, grid.toString())
     }
 
@@ -96,6 +97,10 @@ class SudokuBuildersTest {
     fun `test kotlin json serialisation`() {
         val grid = TestConstants.grid
         val jsonString = Json.encodeToString(grid)
+        val cellJsonString = Json.encodeToString(grid.cells)
+
+        println(grid.toString())
         println(jsonString)
+        println(cellJsonString)
     }
 }
