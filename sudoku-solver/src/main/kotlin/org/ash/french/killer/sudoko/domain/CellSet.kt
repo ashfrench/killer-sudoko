@@ -22,7 +22,7 @@ sealed class CellSet(private val cells: Set<Cell> = emptySet()) : Set<Cell> by c
 
 @Serializable
 sealed class Region(open val sum: UByte, open val cells: Set<Cell>) : CellSet(cells) {
-    constructor(cells: Set<Cell>) : this(45u, cells)
+    constructor(cells: Set<Cell> = emptySet()) : this(45u, cells)
 
     override fun validate(): Result<Boolean> {
         return try {
