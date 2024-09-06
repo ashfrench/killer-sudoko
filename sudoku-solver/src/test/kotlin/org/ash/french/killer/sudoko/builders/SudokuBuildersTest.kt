@@ -93,6 +93,11 @@ class SudokuBuildersTest {
     }
 
     @Test
+    fun testStuff() {
+        assertEquals(TestConstants.grid, TestConstants.grid2)
+    }
+
+    @Test
     fun `test kotlin json serialisation`() {
         val grid = TestConstants.grid
         val jsonString = JSON.encodeToString(grid)
