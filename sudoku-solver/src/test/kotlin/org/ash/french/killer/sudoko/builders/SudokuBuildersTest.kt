@@ -1,7 +1,6 @@
 package org.ash.french.killer.sudoko.builders
 
 import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
 import org.ash.french.killer.sudoko.domain.Cell
 import org.ash.french.killer.sudoko.domain.SudokuGrid
 import org.ash.french.killer.sudoko.domain.TestConstants
@@ -13,7 +12,7 @@ class SudokuBuildersTest {
     private val expectedString: String
 
     init {
-        val grid = SudokuGrid()
+        val grid = TestConstants.grid
         val stringJoiner = StringJoiner("|| ")
         stringJoiner.add("")
         (1..9)
@@ -96,8 +95,8 @@ class SudokuBuildersTest {
     @Test
     fun `test kotlin json serialisation`() {
         val grid = TestConstants.grid
-        val jsonString = Json.encodeToString(grid)
-        val cellJsonString = Json.encodeToString(grid.cells)
+        val jsonString = JSON.encodeToString(grid)
+        val cellJsonString = JSON.encodeToString(grid.cells)
 
         println(grid.toString())
         println(jsonString)
