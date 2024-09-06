@@ -6,7 +6,7 @@ https://ashfrench.co.uk/
 
 [![Ash at Stack Overflow](https://stackoverflow.com/users/flair/6894338.png?theme=dark)](https://stackoverflow.com/users/6894338/ash)
 
-> [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ash-french-tamil/details/experience/) : https://www.linkedin.com/in/ash-french-tami
+> [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ash-french-tamil/details/experience/) : https://www.linkedin.com/in/ash-french-tamil
 >
 > [![LeetCode](https://img.shields.io/badge/LeetCode-000000?logo=LeetCode&logoColor=#d16c06)](https://leetcode.com/u/ashfrench/) : https://leetcode.com/u/ashfrench/
 >
