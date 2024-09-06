@@ -24,7 +24,6 @@ sealed interface CellSet {
 sealed interface Region : CellSet {
     val sum: UByte
         get() = 45u
-    override val cells: Set<Cell>
 
     override fun validate(): Result<Boolean> {
         return try {
