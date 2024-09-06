@@ -1,10 +1,14 @@
 package org.ash.french.killer.sudoko.domain
 
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-sealed class CellSet(private val cells: Set<Cell> = emptySet()) : Set<Cell> by cells {
-    open fun validate(): SudokuValidation {
+@SerialName("CellSet")
+sealed interface CellSet {
+    val cells: Set<Cell>
+
+    fun validate(): SudokuValidation {
         return try {
             require(cells.size == 9) { "${this.javaClass.canonicalName} must contain 9 cells" }
             valid()
@@ -13,16 +17,14 @@ sealed class CellSet(private val cells: Set<Cell> = emptySet()) : Set<Cell> by c
         }
     }
 
-    init {
-        this.validate()
-    }
-
-    override fun contains(element: Cell) = cells.contains(element)
+    operator fun contains(element: Cell) = cells.contains(element)
 }
 
 @Serializable
-sealed class Region(open val sum: UByte, open val cells: Set<Cell>) : CellSet(cells) {
-    constructor(cells: Set<Cell> = emptySet()) : this(45u, cells)
+sealed interface Region : CellSet {
+    val sum: UByte
+        get() = 45u
+    override val cells: Set<Cell>
 
     override fun validate(): Result<Boolean> {
         return try {
