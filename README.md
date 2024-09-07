@@ -21,7 +21,7 @@ https://ashfrench.co.uk/
 ---
 
 [![Kotlin CI with Gradle](https://github.com/ashfrench/killer-sudoko/actions/workflows/gradle.yml/badge.svg)](https://github.com/ashfrench/killer-sudoko/actions/workflows/gradle.yml)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ashfrench_killer-sudoko&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=ashfrench_killer-sudoko)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ashfrench_killer-sudoko&metric=alert_status)](https://sonarcloud.io/project/overview?id=ashfrench_killer-sudoko)
 
 ---
 
