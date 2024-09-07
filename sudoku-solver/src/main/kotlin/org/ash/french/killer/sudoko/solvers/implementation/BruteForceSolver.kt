@@ -7,5 +7,4 @@ class BruteForceSolver : SudokuGridCellUpdate {
     override fun getCellUpdates(grid: SudokuGrid): List<CellUpdateType> {
         TODO("Not yet implemented")
     }
-
 }
