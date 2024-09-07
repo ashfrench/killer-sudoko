@@ -17,10 +17,12 @@
 > [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/NakedSingle.kt)
 
 ### [Locked Candidates][3]
-> Stuff Here
+> [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/LockedCandidates.kt)
 
 ### [Naked Pair][4] / [Triplet][13] / [Quad][14]
-> Stuff Here
+> [Naked Paid Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/NakedPair.kt)
+> [Naked Triplet Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/NakedTriplet.kt)
+> [Naked Quad Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/NakedQuad.kt)
 
 ### [Hidden Pair][5] / [Triplet][15] / [Quad][16]
 > Stuff Here
