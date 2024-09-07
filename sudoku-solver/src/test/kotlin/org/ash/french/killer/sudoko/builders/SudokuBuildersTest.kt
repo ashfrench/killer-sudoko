@@ -56,8 +56,10 @@ class SudokuBuildersTest {
 
         val jsonFilePath = Path("src/test/resources/sudoku.grid")
         val stringJoiner = StringJoiner("\n")
+
         Files.lines(jsonFilePath).forEach { stringJoiner.add(it) }
         val expectedJsonString = stringJoiner.toString()
+
         assertEquals(expectedJsonString, jsonString)
     }
 }
