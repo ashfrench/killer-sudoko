@@ -14,7 +14,7 @@
 > [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/HiddenSingle.kt)
 
 ### [Naked Single][2]
-> Stuff Here
+> [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/NakedSingle.kt)
 
 ### [Locked Candidates][3]
 > Stuff Here
