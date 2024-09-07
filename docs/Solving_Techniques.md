@@ -11,7 +11,7 @@
 ## Techniques
 
 ### [Hidden Single][1]
-> [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/HiddenSingle.kt)
+> [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/HiddenSingle.kt)
 
 ### [Naked Single][2]
 > Stuff Here
