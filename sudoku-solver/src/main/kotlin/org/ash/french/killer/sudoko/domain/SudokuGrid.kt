@@ -2,12 +2,6 @@ package org.ash.french.killer.sudoko.domain
 
 import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
-import org.ash.french.killer.sudoko.solvers.CageFinder
-import org.ash.french.killer.sudoko.solvers.CellValueFinder
-import org.ash.french.killer.sudoko.solvers.CellValueSetter
-import org.ash.french.killer.sudoko.solvers.ColumnFinder
-import org.ash.french.killer.sudoko.solvers.NonetFinder
-import org.ash.french.killer.sudoko.solvers.RowFinder
 import java.util.StringJoiner
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid

@@ -1,7 +1,4 @@
-package org.ash.french.killer.sudoko.solvers
-
-import org.ash.french.killer.sudoko.domain.Cell
-import org.ash.french.killer.sudoko.domain.Column
+package org.ash.french.killer.sudoko.domain
 
 interface ColumnFinder {
     fun getColumn(cell: Cell): Column

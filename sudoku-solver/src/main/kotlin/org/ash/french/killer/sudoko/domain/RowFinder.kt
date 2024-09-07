@@ -1,7 +1,4 @@
-package org.ash.french.killer.sudoko.solvers
-
-import org.ash.french.killer.sudoko.domain.Cell
-import org.ash.french.killer.sudoko.domain.Row
+package org.ash.french.killer.sudoko.domain
 
 interface RowFinder {
     fun getRow(cell: Cell): Row

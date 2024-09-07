@@ -1,8 +1,10 @@
 package org.ash.french.killer.sudoko.domain
 
-import java.util.UUID
+import kotlin.uuid.ExperimentalUuidApi
+import kotlin.uuid.Uuid
 
 interface UpdateID {
-    val updateID: UUID
-        get() = UUID.randomUUID()
+    @OptIn(ExperimentalUuidApi::class)
+    val updateID: Uuid
+        get() = Uuid.random()
 }

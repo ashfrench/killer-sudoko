@@ -2,10 +2,12 @@ package org.ash.french.killer.sudoko.solvers
 
 import org.ash.french.killer.sudoko.domain.CellUpdate
 import org.ash.french.killer.sudoko.domain.SudokuGrid
-import java.util.UUID
+import kotlin.uuid.ExperimentalUuidApi
+import kotlin.uuid.Uuid
 
 sealed class SolvedSudokuGridStatus {
-    val solvingID: UUID = UUID.randomUUID()
+    @OptIn(ExperimentalUuidApi::class)
+    val solvingID: Uuid = Uuid.random()
 }
 
 data class SolvedSudokuGrid(

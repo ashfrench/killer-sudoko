@@ -1,6 +1,4 @@
-package org.ash.french.killer.sudoko.solvers
-
-import org.ash.french.killer.sudoko.domain.Cell
+package org.ash.french.killer.sudoko.domain
 
 interface CellValueFinder {
     fun getCellValue(cell: Cell): UByte?

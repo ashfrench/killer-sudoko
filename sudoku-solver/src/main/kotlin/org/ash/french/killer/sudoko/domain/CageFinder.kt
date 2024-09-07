@@ -1,7 +1,4 @@
-package org.ash.french.killer.sudoko.solvers
-
-import org.ash.french.killer.sudoko.domain.Cage
-import org.ash.french.killer.sudoko.domain.Cell
+package org.ash.french.killer.sudoko.domain
 
 interface CageFinder {
     fun getCages(): Set<Cage>
