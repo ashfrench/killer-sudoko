@@ -8,7 +8,6 @@ import java.util.function.Function
 import kotlin.uuid.ExperimentalUuidApi
 
 @OptIn(ExperimentalUuidApi::class)
-@Suppress("UNUSED")
 object SudokuContextStore : ExtensionContext.Store, ExtensionContext.Store.CloseableResource {
     private val sudokuMapStore = mutableMapOf<Any?, Any?>()
 

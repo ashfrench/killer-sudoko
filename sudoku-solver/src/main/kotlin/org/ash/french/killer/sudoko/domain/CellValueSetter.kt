@@ -1,14 +1,12 @@
 package org.ash.french.killer.sudoko.domain
 
 interface CellValueSetter {
-    @Suppress("unused")
     fun setCellValue(
         x: Int,
         y: Int,
         value: UByte?,
     ) = setCellValue(Cell(x, y), value)
 
-    @Suppress("unused")
     fun setCellValue(
         x: UByte,
         y: UByte,
