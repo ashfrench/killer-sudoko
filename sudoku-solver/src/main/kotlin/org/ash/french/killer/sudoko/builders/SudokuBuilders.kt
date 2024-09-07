@@ -3,7 +3,9 @@ package org.ash.french.killer.sudoko.builders
 import org.ash.french.killer.sudoko.domain.Cage
 import org.ash.french.killer.sudoko.domain.Cell
 import org.ash.french.killer.sudoko.domain.SudokuGrid
+import kotlin.uuid.ExperimentalUuidApi
 
+@OptIn(ExperimentalUuidApi::class)
 fun sudokuGrid(init: SudokuGrid.() -> Unit): SudokuGridBuilder {
     val sudokuGrid = SudokuGrid()
     sudokuGrid.init()

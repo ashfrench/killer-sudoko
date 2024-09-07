@@ -1,5 +1,6 @@
 package org.ash.french.killer.sudoko.domain
 
+import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
 import org.ash.french.killer.sudoko.generators.GridFactory
 import org.ash.french.killer.sudoko.solvers.CageFinder
@@ -9,15 +10,20 @@ import org.ash.french.killer.sudoko.solvers.ColumnFinder
 import org.ash.french.killer.sudoko.solvers.NonetFinder
 import org.ash.french.killer.sudoko.solvers.RowFinder
 import java.util.StringJoiner
+import kotlin.uuid.ExperimentalUuidApi
+import kotlin.uuid.Uuid
 
 @Serializable
-data class SudokuGrid(val cells: Set<Cell> = GridFactory.cells) :
+data class SudokuGrid @OptIn(ExperimentalUuidApi::class) constructor(@Contextual val id: Uuid? = null) :
     CellValueFinder,
     CellValueSetter,
     RowFinder,
     ColumnFinder,
     NonetFinder,
     CageFinder {
+
+    val cells: Set<Cell> = GridFactory.cells
+
     private val rows = cells.groupBy { it.y }.mapValues { Row(it.key, it.value.toSet()) }
 
     private val columns = cells.groupBy { it.x }.mapValues { Column(it.key, it.value.toSet()) }
@@ -34,6 +40,8 @@ data class SudokuGrid(val cells: Set<Cell> = GridFactory.cells) :
 
     private val cellValues: MutableMap<Cell, UByte?> = cells.associateWith { null }.toMutableMap()
     private val cageValues: MutableMap<Cage, UByte> = mutableMapOf()
+
+
 
     override fun getCellValue(cell: Cell): UByte? = cellValues[cell]
 
@@ -84,6 +92,7 @@ data class SudokuGrid(val cells: Set<Cell> = GridFactory.cells) :
         return this
     }
 
+    @OptIn(ExperimentalUuidApi::class)
     fun withCage(
         cage: Cage,
         value: UByte,
@@ -94,6 +103,7 @@ data class SudokuGrid(val cells: Set<Cell> = GridFactory.cells) :
         return copy
     }
 
+    @OptIn(ExperimentalUuidApi::class)
     fun withCages(cages: Map<Cage, UByte>): SudokuGrid {
         val sudokuGrid = copy()
         sudokuGrid.cageValues.putAll(cages)

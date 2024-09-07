@@ -246,7 +246,7 @@ object TestConstants {
             }
             cellValue {
                 x = 9
-                y = 6
+                y = 5
                 value = 2
             }
             cellValue {

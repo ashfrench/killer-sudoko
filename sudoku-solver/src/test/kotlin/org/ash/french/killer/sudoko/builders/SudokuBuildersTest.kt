@@ -7,7 +7,9 @@ import org.ash.french.killer.sudoko.domain.TestConstants
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import java.util.StringJoiner
+import kotlin.uuid.ExperimentalUuidApi
 
+@OptIn(ExperimentalUuidApi::class)
 class SudokuBuildersTest {
     private val expectedString: String
 
@@ -93,7 +95,7 @@ class SudokuBuildersTest {
     }
 
     @Test
-    fun testStuff() {
+    fun `test old vs new kotlin dsl`() {
         assertEquals(TestConstants.grid, TestConstants.grid2)
     }
 
