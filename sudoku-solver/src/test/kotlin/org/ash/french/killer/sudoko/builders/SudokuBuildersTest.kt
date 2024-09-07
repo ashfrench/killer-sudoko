@@ -16,7 +16,7 @@ class SudokuBuildersTest {
     private val expectedString: String
 
     init {
-        val grid = TestConstants().grid
+        val grid = TestConstants.grid
         val stringJoiner = StringJoiner("|| ")
         stringJoiner.add("")
         (1..9)
@@ -42,16 +42,16 @@ class SudokuBuildersTest {
 
     @Test
     fun `test kotlin json serialisation`() {
-        val grid = TestConstants().grid
+        val grid = TestConstants.grid
         val jsonString = JSON.encodeToString(grid)
 
-        val expectedJsonString = TestConstants().jsonString
+        val expectedJsonString = TestConstants.jsonString
         assertEquals(expectedJsonString, jsonString)
     }
 
     @Test
     fun `test load json from file and compare`() {
-        val grid = TestConstants().grid
+        val grid = TestConstants.grid
         val jsonString = JSON.encodeToString(grid)
 
         val jsonFilePath = Path("src/test/resources/sudoku.grid")
