@@ -3,7 +3,7 @@ package org.ash.french.killer.sudoko.domain
 import org.ash.french.killer.sudoko.builders.cellValue
 import org.ash.french.killer.sudoko.builders.sudokuGrid
 
-object TestConstants {
+class TestConstants {
     val grid =
         sudokuGrid {
             cellValue {
