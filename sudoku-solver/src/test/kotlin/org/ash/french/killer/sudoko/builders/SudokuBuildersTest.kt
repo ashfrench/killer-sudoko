@@ -6,7 +6,9 @@ import org.ash.french.killer.sudoko.domain.SudokuGrid
 import org.ash.french.killer.sudoko.domain.TestConstants
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import java.nio.file.Files
 import java.util.StringJoiner
+import kotlin.io.path.Path
 import kotlin.uuid.ExperimentalUuidApi
 
 @OptIn(ExperimentalUuidApi::class)
@@ -44,7 +46,18 @@ class SudokuBuildersTest {
         val jsonString = JSON.encodeToString(grid)
 
         val expectedJsonString = TestConstants().jsonString
+        assertEquals(expectedJsonString, jsonString)
+    }
 
+    @Test
+    fun `test load json from file and compare`() {
+        val grid = TestConstants().grid
+        val jsonString = JSON.encodeToString(grid)
+
+        val jsonFilePath = Path("src/test/resources/sudoku.grid")
+        val stringJoiner = StringJoiner("\n")
+        Files.lines(jsonFilePath).forEach { stringJoiner.add(it) }
+        val expectedJsonString = stringJoiner.toString()
         assertEquals(expectedJsonString, jsonString)
     }
 }
