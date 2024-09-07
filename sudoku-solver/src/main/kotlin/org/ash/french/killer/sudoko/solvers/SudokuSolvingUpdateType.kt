@@ -1,5 +1,8 @@
 package org.ash.french.killer.sudoko.solvers
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 enum class SudokuSolvingUpdateType {
     RULE_OF_ONE,
     RULE_OF_45,
