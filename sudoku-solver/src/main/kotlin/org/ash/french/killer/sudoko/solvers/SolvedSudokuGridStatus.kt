@@ -2,13 +2,8 @@ package org.ash.french.killer.sudoko.solvers
 
 import org.ash.french.killer.sudoko.domain.CellUpdate
 import org.ash.french.killer.sudoko.domain.SudokuGrid
-import kotlin.uuid.ExperimentalUuidApi
-import kotlin.uuid.Uuid
 
-sealed class SolvedSudokuGridStatus {
-    @OptIn(ExperimentalUuidApi::class)
-    val solvingID: Uuid = Uuid.random()
-}
+sealed class SolvedSudokuGridStatus
 
 data class SolvedSudokuGrid(
     val grid: SudokuGrid,
