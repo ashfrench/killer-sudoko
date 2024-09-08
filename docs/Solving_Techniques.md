@@ -25,7 +25,9 @@
 > [Naked Quad Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/NakedQuad.kt)
 
 ### [Hidden Pair][5] / [Triplet][15] / [Quad][16]
-> Stuff Here
+> [Hidden Paid Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/HiddenPair.kt)
+> [Hidden Paid Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/HiddenTriplet.kt)
+> [Hidden Paid Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/HiddenQuad.kt)
 
 ### [XY-Wing][6]
 > Stuff Here
