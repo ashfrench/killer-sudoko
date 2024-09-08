@@ -14,4 +14,6 @@ interface CellValueFinder {
     ) = getCellValue(Cell(x, y))
 
     operator fun contains(cell: Cell): Boolean
+
+    fun getPresetCellValues(): List<CellUpdate>
 }
