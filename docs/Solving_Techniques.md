@@ -21,13 +21,17 @@
 
 ### [Naked Pair][4] / [Triplet][13] / [Quad][14]
 > [Naked Paid Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/NakedPair.kt)
+>
 > [Naked Triplet Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/NakedTriplet.kt)
+>
 > [Naked Quad Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/NakedQuad.kt)
 
 ### [Hidden Pair][5] / [Triplet][15] / [Quad][16]
 > [Hidden Paid Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/HiddenPair.kt)
-> [Hidden Paid Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/HiddenTriplet.kt)
-> [Hidden Paid Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/HiddenQuad.kt)
+>
+> [Hidden Triplet Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/HiddenTriplet.kt)
+>
+> [Hidden Quad Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/HiddenQuad.kt)
 
 ### [XY-Wing][6]
 > [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/XYWing.kt)
@@ -39,16 +43,16 @@
 > [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/XWing.kt)
 
 ### [Swordfish][9]
-> Stuff Here
+> [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/Swordfish.kt)
 
 ### [Colouring][10]
-> Stuff Here
+> [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/Colouring.kt)
 
 ### [Forcing Chain][11]
-> Stuff Here
+> [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/ForcingChain.kt)
 
 ### [Nishio][12]
-> Stuff Here
+> [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/Nishio.kt)
 
 ## Killer Sudoku Techniques
 > Stuff Here
