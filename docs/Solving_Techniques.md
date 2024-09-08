@@ -30,13 +30,13 @@
 > [Hidden Paid Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/HiddenQuad.kt)
 
 ### [XY-Wing][6]
-> Stuff Here
+> [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/XYWing.kt)
 
 ### [XYZ-Wing][7]
-> Stuff Here
+> [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/XYZWing.kt)
 
 ### [X-Wing][8]
-> Stuff Here
+> [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/XWing.kt)
 
 ### [Swordfish][9]
 > Stuff Here
