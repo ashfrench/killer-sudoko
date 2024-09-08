@@ -72,11 +72,6 @@ data class SudokuGrid(
         TODO("Not yet implemented")
     }
 
-    fun getCells(): Set<Cell> =
-        cellValues
-            .filterValues { it != null }
-            .keys
-
     override fun toString(): String {
         val stringJoiner = StringJoiner("|| ")
         stringJoiner.add("")
@@ -99,24 +94,5 @@ data class SudokuGrid(
             setCellValue(cell, value)
         }
         return this
-    }
-
-    @OptIn(ExperimentalUuidApi::class)
-    fun withCage(
-        cage: Cage,
-        value: UByte,
-    ): SudokuGrid {
-        val copy = copy()
-        copy.cageValues[cage] = value
-
-        return copy
-    }
-
-    @OptIn(ExperimentalUuidApi::class)
-    fun withCages(cages: Map<Cage, UByte>): SudokuGrid {
-        val sudokuGrid = copy()
-        sudokuGrid.cageValues.putAll(cages)
-
-        return sudokuGrid
     }
 }
