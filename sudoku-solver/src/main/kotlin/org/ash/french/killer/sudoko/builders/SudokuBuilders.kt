@@ -5,7 +5,7 @@ import org.ash.french.killer.sudoko.domain.Cell
 import org.ash.french.killer.sudoko.domain.SudokuGrid
 import kotlin.uuid.ExperimentalUuidApi
 
-@OptIn(ExperimentalUuidApi::class)
+@ExperimentalUuidApi
 fun sudokuGrid(init: SudokuGrid.() -> Unit): SudokuGridBuilder {
     val sudokuGrid = SudokuGrid()
     sudokuGrid.init()
@@ -19,6 +19,7 @@ fun SudokuGrid.cellValue(
     setCellValue(cell, value)
 }
 
+@ExperimentalUuidApi
 fun SudokuGrid.cellValue(init: SudokuCellValueBuilder.() -> Unit) {
     val cellValueBuilder = SudokuCellValueBuilder(this)
     cellValueBuilder.init()

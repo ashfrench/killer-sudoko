@@ -4,7 +4,9 @@ import org.junit.jupiter.api.extension.ExtensionContext
 import org.junit.jupiter.api.extension.ParameterContext
 import org.junit.jupiter.api.extension.ParameterResolver
 import kotlin.test.assertNotNull
+import kotlin.uuid.ExperimentalUuidApi
 
+@ExperimentalUuidApi
 object SudokuParameterResolver : ParameterResolver {
     override fun supportsParameter(
         parameterContext: ParameterContext,

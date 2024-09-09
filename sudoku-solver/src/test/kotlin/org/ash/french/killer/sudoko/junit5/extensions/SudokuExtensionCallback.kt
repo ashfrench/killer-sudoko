@@ -7,7 +7,9 @@ import org.junit.jupiter.api.extension.BeforeEachCallback
 import org.junit.jupiter.api.extension.ExecutionCondition
 import org.junit.jupiter.api.extension.ParameterResolver
 import org.junit.jupiter.api.extension.TestInstancePostProcessor
+import kotlin.uuid.ExperimentalUuidApi
 
+@ExperimentalUuidApi
 object SudokuExtensionCallback :
     EmptySudokuExtensionCallback,
     BeforeEachCallback by SudokuBeforeEachCallback,

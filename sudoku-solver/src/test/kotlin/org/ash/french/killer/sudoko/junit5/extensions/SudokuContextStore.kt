@@ -7,7 +7,7 @@ import org.junit.jupiter.api.extension.ExtensionContext
 import java.util.function.Function
 import kotlin.uuid.ExperimentalUuidApi
 
-@OptIn(ExperimentalUuidApi::class)
+@ExperimentalUuidApi
 object SudokuContextStore : ExtensionContext.Store, ExtensionContext.Store.CloseableResource {
     private val sudokuMapStore = mutableMapOf<Any?, Any?>()
 

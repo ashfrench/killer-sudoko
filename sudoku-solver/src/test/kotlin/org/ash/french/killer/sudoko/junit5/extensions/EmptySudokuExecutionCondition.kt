@@ -4,7 +4,9 @@ import org.junit.jupiter.api.extension.ConditionEvaluationResult
 import org.junit.jupiter.api.extension.ExecutionCondition
 import org.junit.jupiter.api.extension.ExtensionContext
 import kotlin.test.assertNotNull
+import kotlin.uuid.ExperimentalUuidApi
 
+@ExperimentalUuidApi
 object EmptySudokuExecutionCondition : ExecutionCondition {
     override fun evaluateExecutionCondition(context: ExtensionContext): ConditionEvaluationResult {
         val store = context.sudokuNamespaceStore()
