@@ -1,7 +1,9 @@
 # To Build and Run
 ```shell
 .\..\gradlew clean build 
+```
 
+```docker
 docker build -t sudoku_sovler .
 
 docker run -p 8080:8080 sudoku_sovler
