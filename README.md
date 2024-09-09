@@ -35,7 +35,7 @@ https://ashfrench.co.uk/
     - [Spring Boot](#spring-boot) 
 - [How to Build](#how-to-build)
 - [References](#references)
-- [Security](#security)
+- [Security Policy](#security-policy)
 - [Miscellaneous](#miscellaneous)
 - [Links](#links)
 
@@ -106,7 +106,8 @@ docker run -p 8080:8080 sudoku_sovler
 > * [Project Kanban Board][11]
 > * [Qodana Link][16]
 
-## [Security](SECURITY.md)
+## [Security Policy](SECURITY.md)
+![Security Policy](docs/images/skull-and-cross-bones.jpg)
 
 ## Miscellaneous
 
