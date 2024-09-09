@@ -1,8 +1,8 @@
 @file:Suppress("unused")
 
-package org.ash.french.killer.sudoko.junit5.extensions
+package org.ash.french.killer.sudoku.junit5.extensions
 
-import org.ash.french.killer.sudoko.domain.SudokuGrid
+import org.ash.french.killer.sudoku.domain.SudokuGrid
 import org.junit.jupiter.api.extension.ExtensionContext
 import java.util.function.Function
 import kotlin.uuid.ExperimentalUuidApi

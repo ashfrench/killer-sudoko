@@ -1,4 +1,4 @@
-package org.ash.french.killer.sudoko.junit5.extensions
+package org.ash.french.killer.sudoku.junit5.extensions
 
 import org.junit.jupiter.api.extension.ConditionEvaluationResult
 import org.junit.jupiter.api.extension.ExecutionCondition
