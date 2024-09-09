@@ -11,13 +11,10 @@ import kotlin.uuid.Uuid
 @ExperimentalUuidApi
 @RestController
 @RequestMapping("/sudoku")
-class SudokuGridEndpoints : SudokuEndpointInterface {
-    @GetMapping
-    override fun getEasySudokuGrid(): SudokuGrid {
-        TODO()
-    }
+class SudokuGridEndpoints {
 
-    override fun getGridUpdates(sudokuGridId: Uuid): List<CellUpdateType> {
-        TODO("Not yet implemented")
+    @GetMapping
+    fun getEasySudokuGrid(): SudokuGrid {
+        TODO()
     }
 }

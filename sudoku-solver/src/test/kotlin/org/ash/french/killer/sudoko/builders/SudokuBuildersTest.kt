@@ -43,7 +43,7 @@ class SudokuBuildersTest {
     @Test
     fun `test kotlin json serialisation`() {
         val grid = TestConstants.grid
-        val jsonString = JSON.encodeToString(grid)
+        val jsonString = org.ash.french.killer.sudoku.builders.JSON.encodeToString(grid)
 
         val expectedJsonString = TestConstants.jsonString
         assertEquals(expectedJsonString, jsonString)
@@ -52,7 +52,7 @@ class SudokuBuildersTest {
     @Test
     fun `test load json from file and compare`() {
         val grid = TestConstants.grid
-        val jsonString = JSON.encodeToString(grid)
+        val jsonString = org.ash.french.killer.sudoku.builders.JSON.encodeToString(grid)
 
         val jsonFilePath = Path("src/test/resources/sudoku.grid")
         val stringJoiner = StringJoiner("\n")
