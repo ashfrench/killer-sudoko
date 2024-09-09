@@ -30,8 +30,9 @@ https://ashfrench.co.uk/
 - [Classic Sudoku](#classic-sudoku)
 - [Killer Sudoku](#killer-sudoku-grid)
 - [Solving Techniques](#solving-techniques)
-- [Code Location](#code-location)
 - [Tooling](#tooling)
+  - [How to Build](#how-to-build)
+    - [Spring Boot](#spring-boot) 
 - [How to Build](#how-to-build)
 - [References](#references)
 - [Security](#security)
@@ -72,10 +73,6 @@ https://ashfrench.co.uk/
 
 ## [Solving Techniques](docs/Solving_Techniques.md)
 
-## Code Location
-
-### [Spring Boot](./spring-boot-sudoku/README.md)
-
 ## Tooling
 [![Kotlin](https://img.shields.io/badge/kotlin-%237F52FF.svg?style=for-the-badge&logo=kotlin&logoColor=white)][6]
 [![Gradle](https://img.shields.io/badge/Gradle-02303A.svg?style=for-the-badge&logo=Gradle&logoColor=white)][7]
@@ -95,8 +92,11 @@ https://ashfrench.co.uk/
 
 `./gradlew build`
 
-```dockerfile
-# Coming Soon Dockerfile
+### Spring Boot
+```shell
+docker build -t sudoku_sovler ./spring-boot-sudoku
+
+docker run -p 8080:8080 sudoku_sovler
 ```
 
 ## References
