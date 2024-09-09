@@ -1,6 +1,15 @@
 package org.ash.french.killer.sudoku.rest
 
-import org.springframework.stereotype.Component
+import org.ash.french.killer.sudoko.domain.SudokuGrid
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
 
-@Component
-class SudokuGridEndpoints
+@RestController
+@RequestMapping("/sudoku")
+class SudokuGridEndpoints : SudokuEndpointInterface {
+    @GetMapping
+    override fun getEasySudokuGrid(): SudokuGrid {
+        TODO()
+    }
+}
