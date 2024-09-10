@@ -18,5 +18,7 @@ interface CellValueFinder {
 
     operator fun contains(cell: Cell): Boolean
 
+    fun getAllCellValues(): Map<Cell, UByte>
+
     fun getPresetCellValues(): List<CellUpdate>
 }
