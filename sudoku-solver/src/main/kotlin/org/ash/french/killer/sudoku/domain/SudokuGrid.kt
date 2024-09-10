@@ -69,9 +69,10 @@ data class SudokuGrid(
     override operator fun contains(cell: Cell) = cells.contains(cell)
 
     override fun getAllCellValues(): Map<Cell, UByte> {
-        val allCellValues = cellValues
-            .filterValues { it != null }
-            .mapValues { it.value!! }
+        val allCellValues =
+            cellValues
+                .filterValues { it != null }
+                .mapValues { it.value!! }
 
         return allCellValues
     }
