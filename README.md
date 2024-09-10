@@ -12,11 +12,11 @@ https://ashfrench.co.uk/
 >
 > [![HackerRank](https://img.shields.io/badge/-Hackerrank-2EC866?style=for-the-badge&logo=HackerRank&logoColor=white)](https://www.hackerrank.com/profile/ash_french1) : https://www.hackerrank.com/profile/ash_french1
 >
-> [![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@ash.french1) : https://medium.com/@ash.french1
+> [![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@ash.french.tamil) : https://medium.com/@ash.french.tamil
 >
-> [![Substack](https://img.shields.io/badge/Substack-%23006f5c.svg?style=for-the-badge&logo=substack&logoColor=FF6719)](https://substack.com/@ashfrench1) : https://substack.com/@ashfrench1
+> [![Substack](https://img.shields.io/badge/Substack-%23006f5c.svg?style=for-the-badge&logo=substack&logoColor=FF6719)](https://substack.com/@ashfrenchtamil) : https://substack.com/@ashfrenchtamil
 >
-> [![Patreon](https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://patreon.com/AshFrench) : https://patreon.com/AshFrench
+> [![Patreon](https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/AshFrenchTamil) : https://www.patreon.com/AshFrenchTamil
 
 ---
 
