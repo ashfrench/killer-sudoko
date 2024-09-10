@@ -5,7 +5,7 @@ import kotlin.uuid.Uuid
 
 @ExperimentalUuidApi
 data class SudokuGrid(
-    val id: Uuid,
+    val id: Uuid?,
     val cells: List<Cell>,
     val cellValues: Map<Cell, Int>
 )
