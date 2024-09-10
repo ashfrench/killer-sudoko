@@ -1,6 +1,6 @@
 package org.ash.french.killer.sudoku.rest
 
-import org.ash.french.killer.sudoku.domain.SudokuGrid
+import org.ash.french.killer.sudoku.dto.SudokuGrid
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
@@ -18,4 +18,5 @@ class SudokuGridEndpoints {
     ): SudokuGrid {
         TODO()
     }
+
 }

@@ -1,6 +1,6 @@
 # To Build and Run
 ```shell
-.\..\gradlew clean build 
+..\gradlew clean build 
 ```
 
 ```docker
