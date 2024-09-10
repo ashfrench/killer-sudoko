@@ -42,6 +42,9 @@ dependencies {
     runtimeOnly("com.h2database:h2")
     runtimeOnly("org.springframework.boot:spring-boot-devtools")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+    implementation("org.springframework.data:spring-data-r2dbc")
+    implementation("io.r2dbc:r2dbc-h2")
 }
 
 tasks.test {
