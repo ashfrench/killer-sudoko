@@ -7,6 +7,5 @@ import kotlin.uuid.Uuid
 data class SudokuGrid(
     val id: Uuid?,
     val cells: List<Cell>,
-    val cellValues: Map<Cell, Int>
+    val cellValues: Map<Cell, Int>,
 )
-
