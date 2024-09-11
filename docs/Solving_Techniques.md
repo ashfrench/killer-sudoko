@@ -2,7 +2,7 @@
 
 [Back to README.md](../README.md)
 
-[Back to Documentation Index](./Index.md)
+[Back to Documentation Index](./README.md)
 
 > Below are examples of the technical names of what we will be describing in the domain space of sudoku.
 > I will also add useful links below to websites that have helped me understand the techniques better.

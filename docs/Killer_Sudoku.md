@@ -2,7 +2,7 @@
 
 [Back to README.md](../README.md)
 
-[Back to Documentation Index](./Index.md)
+[Back to Documentation Index](./README.md)
 
 ## Rules of Killer Sudoku
 
