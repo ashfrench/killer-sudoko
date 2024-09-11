@@ -4,12 +4,10 @@ import org.ash.french.killer.sudoku.builders.cellValue
 import org.ash.french.killer.sudoku.builders.sudokuGrid
 import org.ash.french.killer.sudoku.domain.Cell
 import org.ash.french.killer.sudoku.domain.SudokuGrid
-import org.ash.french.killer.sudoku.generators.GridFactory.cells
 import java.util.UUID
 
 data class SudokuGridDto(
     val id: UUID?,
-    val cells: List<CellDto>,
     val cellValues: Map<CellDto, Int?>,
 )
 
@@ -222,7 +220,6 @@ fun randomDefaultDto(uuid: UUID? = UUID.randomUUID()): SudokuGridDto {
 internal fun SudokuGrid.toDto(): SudokuGridDto {
     return SudokuGridDto(
         id = this.id,
-        cells = cells.map { it.toDto() },
         cellValues = getAllCellValues().mapKeys { it.key.toDto() }.mapValues { it.value.toInt() },
     )
 }
