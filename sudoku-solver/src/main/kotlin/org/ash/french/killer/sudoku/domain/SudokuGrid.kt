@@ -28,7 +28,7 @@ private val nonets =
 @OptIn(ExperimentalUuidApi::class)
 @Serializable
 internal data class SudokuGrid(
-    @Contextual val id: Uuid? = null,
+    @Contextual var id: Uuid? = null,
 ) :
     CellValueFinder,
         CellValueSetter,
