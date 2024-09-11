@@ -1,7 +1,6 @@
 package org.ash.french.killer.sudoku
 
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.assertAll
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.web.client.RestTemplateBuilder
 import org.springframework.web.client.getForEntity

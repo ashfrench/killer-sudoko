@@ -12,6 +12,11 @@ import kotlin.uuid.Uuid
 @RestController
 @RequestMapping("/sudoku")
 class SudokuGridEndpoints {
+    @GetMapping
+    fun generateSudokuGrid(): SudokuGrid {
+        TODO()
+    }
+
     @GetMapping("/{id}")
     fun getSudokuGrid(
         @PathVariable id: Uuid,
