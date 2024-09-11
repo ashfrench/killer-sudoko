@@ -1,8 +1,5 @@
 package org.ash.french.killer.sudoku.domain
 
-import kotlin.uuid.ExperimentalUuidApi
-
-@ExperimentalUuidApi
 internal interface CellValueFinder {
     fun getCellValue(cell: Cell): UByte?
 

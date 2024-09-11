@@ -1,10 +1,8 @@
 package org.ash.french.killer.sudoku.domain
 
-import kotlin.uuid.ExperimentalUuidApi
-import kotlin.uuid.Uuid
+import java.util.UUID
 
-@ExperimentalUuidApi
 internal interface UpdateID {
-    val updateID: Uuid
-        get() = Uuid.random()
+    val updateID: UUID
+        get() = UUID.randomUUID()
 }

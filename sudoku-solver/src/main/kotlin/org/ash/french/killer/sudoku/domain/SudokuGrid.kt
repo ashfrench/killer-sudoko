@@ -3,8 +3,7 @@ package org.ash.french.killer.sudoku.domain
 import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
 import java.util.StringJoiner
-import kotlin.uuid.ExperimentalUuidApi
-import kotlin.uuid.Uuid
+import java.util.UUID
 
 private val xRange = (1..9)
 private val yRange = (1..9)
@@ -25,10 +24,9 @@ private val nonets =
             Nonet(nonetCells)
         }
 
-@OptIn(ExperimentalUuidApi::class)
 @Serializable
 internal data class SudokuGrid(
-    @Contextual var id: Uuid? = null,
+    @Contextual var id: UUID? = null,
 ) :
     CellValueFinder,
         CellValueSetter,

@@ -1,5 +1,3 @@
-@file:OptIn(ExperimentalUuidApi::class, ExperimentalUuidApi::class)
-
 package org.ash.french.killer.sudoku.dto
 
 import org.ash.french.killer.sudoku.builders.cellValue
@@ -7,18 +5,15 @@ import org.ash.french.killer.sudoku.builders.sudokuGrid
 import org.ash.french.killer.sudoku.domain.Cell
 import org.ash.french.killer.sudoku.domain.SudokuGrid
 import org.ash.french.killer.sudoku.generators.GridFactory.cells
-import kotlin.uuid.ExperimentalUuidApi
-import kotlin.uuid.Uuid
+import java.util.UUID
 
-@ExperimentalUuidApi
 data class SudokuGridDto(
-    val id: Uuid?,
+    val id: UUID?,
     val cells: List<CellDto>,
     val cellValues: Map<CellDto, Int?>,
 )
 
-@ExperimentalUuidApi
-fun randomDefaultDto(uuid: Uuid? = Uuid.random()): SudokuGridDto {
+fun randomDefaultDto(uuid: UUID? = UUID.randomUUID()): SudokuGridDto {
     val grid =
         sudokuGrid {
             id = uuid

@@ -3,9 +3,7 @@ package org.ash.french.killer.sudoku.builders
 import org.ash.french.killer.sudoku.domain.Cell
 import org.ash.french.killer.sudoku.domain.CellUpdate
 import org.ash.french.killer.sudoku.domain.SudokuGrid
-import kotlin.uuid.ExperimentalUuidApi
 
-@ExperimentalUuidApi
 internal class SudokuCellValueBuilder(private var sudokuGrid: SudokuGrid) :
     SudokuBuilder<CellUpdate> {
     constructor(x: Int, y: Int, value: Int?, sudokuGrid: SudokuGrid) : this(sudokuGrid.copy()) {

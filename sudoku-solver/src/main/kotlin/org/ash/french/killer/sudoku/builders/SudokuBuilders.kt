@@ -3,9 +3,7 @@ package org.ash.french.killer.sudoku.builders
 import org.ash.french.killer.sudoku.domain.Cage
 import org.ash.french.killer.sudoku.domain.Cell
 import org.ash.french.killer.sudoku.domain.SudokuGrid
-import kotlin.uuid.ExperimentalUuidApi
 
-@ExperimentalUuidApi
 internal fun sudokuGrid(init: SudokuGrid.() -> Unit): SudokuGridBuilder {
     val sudokuGrid = SudokuGrid()
     sudokuGrid.init()
@@ -19,9 +17,8 @@ internal fun SudokuGrid.cellValue(
     setCellValue(cell, value)
 }
 
-@ExperimentalUuidApi
-internal fun SudokuGrid.cellValue(init: org.ash.french.killer.sudoku.builders.SudokuCellValueBuilder.() -> Unit) {
-    val cellValueBuilder = org.ash.french.killer.sudoku.builders.SudokuCellValueBuilder(this)
+internal fun SudokuGrid.cellValue(init: SudokuCellValueBuilder.() -> Unit) {
+    val cellValueBuilder = SudokuCellValueBuilder(this)
     cellValueBuilder.init()
 
     val cellUpdate = cellValueBuilder.build()

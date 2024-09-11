@@ -6,10 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
-import kotlin.uuid.ExperimentalUuidApi
-import kotlin.uuid.Uuid
+import java.util.UUID
 
-@ExperimentalUuidApi
 @RestController
 @RequestMapping("/sudoku")
 class SudokuGridEndpoints {
@@ -20,7 +18,7 @@ class SudokuGridEndpoints {
 
     @GetMapping("/{id}")
     fun getSudokuGrid(
-        @PathVariable id: Uuid,
+        @PathVariable id: UUID,
     ): SudokuGridDto {
         return randomDefaultDto(id)
     }

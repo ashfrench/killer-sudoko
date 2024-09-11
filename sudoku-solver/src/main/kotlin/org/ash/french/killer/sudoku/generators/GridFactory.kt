@@ -2,9 +2,7 @@ package org.ash.french.killer.sudoku.generators
 
 import org.ash.french.killer.sudoku.domain.Cell
 import org.ash.french.killer.sudoku.domain.SudokuGrid
-import kotlin.uuid.ExperimentalUuidApi
 
-@ExperimentalUuidApi
 internal object GridFactory {
     val xRange = 1..9
     val yRange = 1..9
