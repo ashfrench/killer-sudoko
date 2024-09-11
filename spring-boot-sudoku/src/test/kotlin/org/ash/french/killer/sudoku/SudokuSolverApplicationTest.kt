@@ -21,7 +21,7 @@ class SudokuSolverApplicationTest {
     }
 
     @Test
-    fun `test api docs page is up`(){
+    fun `test api docs page is up`() {
         val responseEntity = restTemplate.getForEntity<String>("http://localhost:8080/v3/api-docs")
         assert(responseEntity.statusCode.is2xxSuccessful) { "Swagger Page is not up" }
     }
