@@ -1,7 +1,7 @@
 package org.ash.french.killer.sudoku.dto
 
-data class CageDto(
-    val cells: Set<CellDto>,
+data class Cage(
+    val cells: Set<Cell>,
     val sum: Int,
 ) {
     init {

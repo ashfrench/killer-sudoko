@@ -6,12 +6,12 @@ import org.ash.french.killer.sudoku.domain.Cell
 import org.ash.french.killer.sudoku.domain.SudokuGrid
 import java.util.UUID
 
-data class SudokuGridDto(
+data class SudokuGrid(
     val id: UUID?,
-    val cellValues: Map<CellDto, Int?>,
+    val cellValues: Map<org.ash.french.killer.sudoku.dto.Cell, Int?>,
 )
 
-fun randomDefaultDto(uuid: UUID? = UUID.randomUUID()): SudokuGridDto {
+fun randomDefaultDto(uuid: UUID? = UUID.randomUUID()): org.ash.french.killer.sudoku.dto.SudokuGrid {
     val grid =
         sudokuGrid {
             id = uuid
@@ -217,13 +217,13 @@ fun randomDefaultDto(uuid: UUID? = UUID.randomUUID()): SudokuGridDto {
     return grid.toDto()
 }
 
-internal fun SudokuGrid.toDto(): SudokuGridDto {
-    return SudokuGridDto(
-        id = this.id,
+internal fun SudokuGrid.toDto(): org.ash.french.killer.sudoku.dto.SudokuGrid {
+    return SudokuGrid(
+        id = id,
         cellValues = getAllCellValues().mapKeys { it.key.toDto() }.mapValues { it.value.toInt() },
     )
 }
 
-private fun Cell.toDto(): CellDto {
-    return CellDto(x.toInt(), y.toInt())
+private fun Cell.toDto(): org.ash.french.killer.sudoku.dto.Cell {
+    return org.ash.french.killer.sudoku.dto.Cell(x.toInt(), y.toInt())
 }

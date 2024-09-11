@@ -1,6 +1,6 @@
 package org.ash.french.killer.sudoku.dto
 
-data class CellDto(
+data class Cell(
     val column: Int,
     val row: Int,
 )
