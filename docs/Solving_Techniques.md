@@ -11,48 +11,48 @@
 ## Techniques
 
 ### [Hidden Single][1]
-> [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/HiddenSingle.kt)
+> [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoku/solvers/implementation/HiddenSingle.kt)
 
 ### [Naked Single][2]
-> [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/NakedSingle.kt)
+> [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoku/solvers/implementation/NakedSingle.kt)
 
 ### [Locked Candidates][3]
-> [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/LockedCandidates.kt)
+> [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoku/solvers/implementation/LockedCandidates.kt)
 
 ### [Naked Pair][4] / [Triplet][13] / [Quad][14]
-> [Naked Paid Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/NakedPair.kt)
+> [Naked Paid Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoku/solvers/implementation/NakedPair.kt)
 >
-> [Naked Triplet Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/NakedTriplet.kt)
+> [Naked Triplet Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoku/solvers/implementation/NakedTriplet.kt)
 >
-> [Naked Quad Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/NakedQuad.kt)
+> [Naked Quad Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoku/solvers/implementation/NakedQuad.kt)
 
 ### [Hidden Pair][5] / [Triplet][15] / [Quad][16]
-> [Hidden Paid Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/HiddenPair.kt)
+> [Hidden Paid Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoku/solvers/implementation/HiddenPair.kt)
 >
-> [Hidden Triplet Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/HiddenTriplet.kt)
+> [Hidden Triplet Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoku/solvers/implementation/HiddenTriplet.kt)
 >
-> [Hidden Quad Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/HiddenQuad.kt)
+> [Hidden Quad Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoku/solvers/implementation/HiddenQuad.kt)
 
 ### [XY-Wing][6]
-> [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/XYWing.kt)
+> [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoku/solvers/implementation/XYWing.kt)
 
 ### [XYZ-Wing][7]
-> [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/XYZWing.kt)
+> [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoku/solvers/implementation/XYZWing.kt)
 
 ### [X-Wing][8]
-> [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/XWing.kt)
+> [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoku/solvers/implementation/XWing.kt)
 
 ### [Swordfish][9]
-> [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/Swordfish.kt)
+> [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoku/solvers/implementation/Swordfish.kt)
 
 ### [Colouring][10]
-> [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/Colouring.kt)
+> [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoku/solvers/implementation/Colouring.kt)
 
 ### [Forcing Chain][11]
-> [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/ForcingChain.kt)
+> [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoku/solvers/implementation/ForcingChain.kt)
 
 ### [Nishio][12]
-> [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoko/solvers/implementation/Nishio.kt)
+> [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoku/solvers/implementation/Nishio.kt)
 
 ## Killer Sudoku Techniques
 > Stuff Here
