@@ -2,6 +2,8 @@
 
 ---
 
+![https://ashfrench.co.uk/](docs/images/favicon/favicon.ico "https://ashfrench.co.uk/") 
+
 https://ashfrench.co.uk/
 
 [![Ash at Stack Overflow](https://stackoverflow.com/users/flair/6894338.png?theme=dark)](https://stackoverflow.com/users/6894338/ash)
