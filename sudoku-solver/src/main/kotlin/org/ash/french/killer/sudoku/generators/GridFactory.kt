@@ -5,7 +5,7 @@ import org.ash.french.killer.sudoku.domain.SudokuGrid
 import kotlin.uuid.ExperimentalUuidApi
 
 @ExperimentalUuidApi
-object GridFactory {
+internal object GridFactory {
     val xRange = 1..9
     val yRange = 1..9
     val cells =

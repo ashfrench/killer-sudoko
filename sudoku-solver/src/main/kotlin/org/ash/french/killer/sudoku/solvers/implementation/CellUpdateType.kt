@@ -7,4 +7,4 @@ import kotlin.uuid.ExperimentalUuidApi
 
 @ExperimentalUuidApi
 @Serializable
-data class CellUpdateType(val cellUpdate: CellUpdate, val type: SudokuSolvingUpdateType, val description: String)
+internal data class CellUpdateType(val cellUpdate: CellUpdate, val type: SudokuSolvingUpdateType, val description: String)

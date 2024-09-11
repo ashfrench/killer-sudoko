@@ -5,7 +5,7 @@ import org.ash.french.killer.sudoku.builders.sudokuGrid
 import kotlin.uuid.ExperimentalUuidApi
 
 @ExperimentalUuidApi
-object TestConstants {
+internal object TestConstants {
     val grid =
         sudokuGrid {
             cellValue {

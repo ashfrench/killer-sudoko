@@ -7,11 +7,11 @@ import org.ash.french.killer.sudoku.domain.CellSet
 import org.ash.french.killer.sudoku.domain.SudokuValidation
 import org.ash.french.killer.sudoku.domain.valid
 
-fun validateCage(cage: Cage): SudokuValidation {
+internal fun validateCage(cage: Cage): SudokuValidation {
     return valid()
 }
 
-fun defaultCageSizes(): Map<UByte, Map<UByte, CellSet>> {
+internal fun defaultCageSizes(): Map<UByte, Map<UByte, CellSet>> {
     val availableSums = (1..45)
     val availableCageSizes = (1..9)
     val availableCellValues = (9 downTo 1)
@@ -24,7 +24,7 @@ fun defaultCageSizes(): Map<UByte, Map<UByte, CellSet>> {
     return emptyMap()
 }
 
-fun getCageValues(
+internal fun getCageValues(
     cageSize: Int,
     cageSum: Int,
 ) = getCageValues(
@@ -32,7 +32,7 @@ fun getCageValues(
     cageSum.toUByte(),
 )
 
-fun getCageValues(
+internal fun getCageValues(
     cageSize: UByte,
     cageSum: UByte,
 ): Result<Set<CellSet>> {
@@ -50,38 +50,38 @@ fun getCageValues(
     }
 }
 
-fun calculateCellSetCageSizeOne(cageSum: UByte): Result<Set<CellSet>> {
+internal fun calculateCellSetCageSizeOne(cageSum: UByte): Result<Set<CellSet>> {
     TODO("Not yet implemented")
 }
 
-fun calculateCellSetCageSizeTwo(cageSum: UByte): Result<Set<CellSet>> {
+internal fun calculateCellSetCageSizeTwo(cageSum: UByte): Result<Set<CellSet>> {
     TODO("Not yet implemented")
 }
 
-fun calculateCellSetCageSizeThree(cageSum: UByte): Result<Set<CellSet>> {
+internal fun calculateCellSetCageSizeThree(cageSum: UByte): Result<Set<CellSet>> {
     TODO("Not yet implemented")
 }
 
-fun calculateCellSetCageSizeFour(cageSum: UByte): Result<Set<CellSet>> {
+internal fun calculateCellSetCageSizeFour(cageSum: UByte): Result<Set<CellSet>> {
     TODO("Not yet implemented")
 }
 
-fun calculateCellSetCageSizeFive(cageSum: UByte): Result<Set<CellSet>> {
+internal fun calculateCellSetCageSizeFive(cageSum: UByte): Result<Set<CellSet>> {
     TODO("Not yet implemented")
 }
 
-fun calculateCellSetCageSizeSix(cageSum: UByte): Result<Set<CellSet>> {
+internal fun calculateCellSetCageSizeSix(cageSum: UByte): Result<Set<CellSet>> {
     TODO("Not yet implemented")
 }
 
-fun calculateCellSetCageSizeSeven(cageSum: UByte): Result<Set<CellSet>> {
+internal fun calculateCellSetCageSizeSeven(cageSum: UByte): Result<Set<CellSet>> {
     TODO("Not yet implemented")
 }
 
-fun calculateCellSetCageSizeEight(cageSum: UByte): Result<Set<CellSet>> {
+internal fun calculateCellSetCageSizeEight(cageSum: UByte): Result<Set<CellSet>> {
     TODO("Not yet implemented")
 }
 
-fun calculateCellSetCageSizeNine(cageSum: UByte): Result<Set<CellSet>> {
+internal fun calculateCellSetCageSizeNine(cageSum: UByte): Result<Set<CellSet>> {
     TODO("Not yet implemented")
 }

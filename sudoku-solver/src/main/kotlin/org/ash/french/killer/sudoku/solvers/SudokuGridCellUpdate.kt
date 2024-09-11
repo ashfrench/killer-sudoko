@@ -8,6 +8,6 @@ import kotlin.uuid.ExperimentalUuidApi
  * Docs for <project_root>/docs/Solving_Techniques.md
  */
 @ExperimentalUuidApi
-fun interface SudokuGridCellUpdate {
+internal fun interface SudokuGridCellUpdate {
     fun getCellUpdates(grid: SudokuGrid): List<CellUpdateType>
 }

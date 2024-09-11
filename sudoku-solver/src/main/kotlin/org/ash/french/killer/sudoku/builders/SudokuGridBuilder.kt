@@ -5,7 +5,7 @@ import org.ash.french.killer.sudoku.domain.SudokuGrid
 import kotlin.uuid.ExperimentalUuidApi
 
 @ExperimentalUuidApi
-data class SudokuGridBuilder(private var sudokuGrid: SudokuGrid) :
+internal data class SudokuGridBuilder(private var sudokuGrid: SudokuGrid) :
     org.ash.french.killer.sudoku.builders.SudokuBuilder<SudokuGrid> {
     private var killerSudokuGrid: UByte = 0u
     private val cellUpdates = mutableListOf<CellUpdate>()

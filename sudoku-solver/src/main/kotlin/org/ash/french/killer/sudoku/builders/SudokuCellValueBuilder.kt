@@ -6,8 +6,8 @@ import org.ash.french.killer.sudoku.domain.SudokuGrid
 import kotlin.uuid.ExperimentalUuidApi
 
 @ExperimentalUuidApi
-class SudokuCellValueBuilder(private var sudokuGrid: SudokuGrid) :
-    org.ash.french.killer.sudoku.builders.SudokuBuilder<CellUpdate> {
+internal class SudokuCellValueBuilder(private var sudokuGrid: SudokuGrid) :
+    SudokuBuilder<CellUpdate> {
     constructor(x: Int, y: Int, value: Int?, sudokuGrid: SudokuGrid) : this(sudokuGrid.copy()) {
         sudokuGrid.cellValue(Cell(x, y), value?.toUByte())
     }

@@ -5,7 +5,7 @@ import org.ash.french.killer.sudoku.solvers.SudokuGridCellUpdate
 import kotlin.uuid.ExperimentalUuidApi
 
 @ExperimentalUuidApi
-class NakedPair : SudokuGridCellUpdate {
+internal class NakedPair : SudokuGridCellUpdate {
     override fun getCellUpdates(grid: SudokuGrid): List<CellUpdateType> {
         TODO("Not yet implemented")
     }

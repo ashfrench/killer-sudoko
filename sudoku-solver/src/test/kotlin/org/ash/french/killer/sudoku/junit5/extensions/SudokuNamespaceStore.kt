@@ -7,7 +7,7 @@ import kotlin.test.assertNotNull
 import kotlin.uuid.ExperimentalUuidApi
 
 @ExperimentalUuidApi
-data class SudokuNamespaceStore(private val context: ExtensionContext) :
+internal data class SudokuNamespaceStore(private val context: ExtensionContext) :
     ExtensionContext.Store by SudokuContextStore,
     ExtensionContext.Store.CloseableResource by SudokuContextStore {
     private val sudokuNamespace = SudokuNamespace
@@ -27,4 +27,4 @@ data class SudokuNamespaceStore(private val context: ExtensionContext) :
 }
 
 @ExperimentalUuidApi
-fun ExtensionContext.sudokuNamespaceStore() = getStore(SudokuNamespace.namespace)[SudokuNamespace] as SudokuNamespaceStore
+internal fun ExtensionContext.sudokuNamespaceStore() = getStore(SudokuNamespace.namespace)[SudokuNamespace] as SudokuNamespaceStore
