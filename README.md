@@ -2,9 +2,9 @@
 
 ---
 
-![https://ashfrench.co.uk/](docs/images/favicon/favicon.ico "https://ashfrench.co.uk/") 
+[![https://ashfrench.co.uk/](docs/images/favicon/favicon.ico "https://ashfrench.co.uk/")][0] 
 
-https://ashfrench.co.uk/
+[https://ashfrench.co.uk/][0]
 
 [![Ash at Stack Overflow](https://stackoverflow.com/users/flair/6894338.png?theme=dark)](https://stackoverflow.com/users/6894338/ash)
 
@@ -133,6 +133,7 @@ docker run -p 8080:8080 sudoku_sovler
 > 1. https://en.wikipedia.org/wiki/Well-posed_problem
 > 1. https://qodana.cloud/projects/3dBJ8/reports/RwegE
 
+[0]: https://ashfrench.co.uk/
 [1]: https://www.ibm.com
 [2]: https://www.cs.manchester.ac.uk/
 [3]: https://en.wikipedia.org/wiki/Brute-force_search
