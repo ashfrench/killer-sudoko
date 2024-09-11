@@ -1,6 +1,6 @@
 package org.ash.french.killer.sudoku.domain
 
-interface CellValueSetter {
+internal interface CellValueSetter {
     fun setCellValue(
         x: Int,
         y: Int,

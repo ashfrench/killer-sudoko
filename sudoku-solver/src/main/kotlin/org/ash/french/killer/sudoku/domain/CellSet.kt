@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 @SerialName("CellSet")
-sealed interface CellSet {
+internal sealed interface CellSet {
     val cells: Set<Cell>
 
     fun validate(): SudokuValidation {
@@ -21,7 +21,7 @@ sealed interface CellSet {
 }
 
 @Serializable
-sealed interface Region : CellSet {
+internal sealed interface Region : CellSet {
     val sum: UByte
         get() = 45u
 

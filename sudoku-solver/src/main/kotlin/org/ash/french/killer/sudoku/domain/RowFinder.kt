@@ -1,6 +1,6 @@
 package org.ash.french.killer.sudoku.domain
 
-interface RowFinder {
+internal interface RowFinder {
     fun getRow(cell: Cell): Row
 
     fun getRow(y: UByte) = getRow(Cell(1u, y))

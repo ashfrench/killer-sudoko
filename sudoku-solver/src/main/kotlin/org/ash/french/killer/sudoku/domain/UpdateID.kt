@@ -4,7 +4,7 @@ import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
 @ExperimentalUuidApi
-interface UpdateID {
+internal interface UpdateID {
     val updateID: Uuid
         get() = Uuid.random()
 }

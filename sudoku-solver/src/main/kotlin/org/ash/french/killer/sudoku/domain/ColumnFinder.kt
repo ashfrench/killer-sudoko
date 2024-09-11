@@ -1,6 +1,6 @@
 package org.ash.french.killer.sudoku.domain
 
-interface ColumnFinder {
+internal interface ColumnFinder {
     fun getColumn(cell: Cell): Column
 
     fun getColumn(x: UByte) = getColumn(Cell(x, 1u))

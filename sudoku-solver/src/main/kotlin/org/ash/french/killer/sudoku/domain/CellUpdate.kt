@@ -5,7 +5,7 @@ import kotlin.uuid.ExperimentalUuidApi
 
 @ExperimentalUuidApi
 @Serializable
-data class CellUpdate(
+internal data class CellUpdate(
     val cell: Cell,
     val value: UByte,
 ) : UpdateID {

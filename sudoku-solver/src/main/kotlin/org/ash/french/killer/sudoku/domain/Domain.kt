@@ -1,7 +1,7 @@
 package org.ash.french.killer.sudoku.domain
 
-typealias SudokuValidation = Result<Boolean>
+internal typealias SudokuValidation = Result<Boolean>
 
-fun validationFailure(t: Throwable): SudokuValidation = Result.failure(t)
+internal fun validationFailure(t: Throwable): SudokuValidation = Result.failure(t)
 
-fun valid(): SudokuValidation = Result.success(true)
+internal fun valid(): SudokuValidation = Result.success(true)

@@ -1,6 +1,6 @@
 package org.ash.french.killer.sudoku.rest
 
-import org.ash.french.killer.sudoku.dto.SudokuGrid
+import org.ash.french.killer.sudoku.dto.SudokuGridDto
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
@@ -13,14 +13,14 @@ import kotlin.uuid.Uuid
 @RequestMapping("/sudoku")
 class SudokuGridEndpoints {
     @GetMapping
-    fun generateSudokuGrid(): SudokuGrid {
+    fun generateSudokuGrid(): SudokuGridDto {
         TODO()
     }
 
     @GetMapping("/{id}")
     fun getSudokuGrid(
         @PathVariable id: Uuid,
-    ): SudokuGrid {
+    ): SudokuGridDto {
         TODO()
     }
 }

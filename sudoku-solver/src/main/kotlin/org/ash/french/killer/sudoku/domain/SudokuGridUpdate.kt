@@ -5,4 +5,4 @@ import kotlin.uuid.ExperimentalUuidApi
 
 @ExperimentalUuidApi
 @Serializable
-data class SudokuGridUpdate(val updates: Collection<CellUpdate>) : UpdateID
+internal data class SudokuGridUpdate(val updates: Collection<CellUpdate>) : UpdateID
