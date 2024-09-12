@@ -10,14 +10,15 @@ import kotlin.uuid.ExperimentalUuidApi
 @ExperimentalUuidApi
 internal class HiddenSingle : SudokuGridCellUpdate {
     override fun getCellUpdates(grid: SudokuGrid): List<CellUpdateType> {
-        val updated = CellUpdateType(
-            CellUpdate(
-                Cell(1, 1),
-                1
-            ),
-            SudokuSolvingUpdateType.HIDDEN_SINGLE,
-            "Hidden Single"
-        )
+        val updated =
+            CellUpdateType(
+                CellUpdate(
+                    Cell(1, 1),
+                    1,
+                ),
+                SudokuSolvingUpdateType.HIDDEN_SINGLE,
+                "Hidden Single",
+            )
         return listOf(updated)
     }
 }
