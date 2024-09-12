@@ -5,9 +5,7 @@ package org.ash.french.killer.sudoku.junit5.extensions
 import org.ash.french.killer.sudoku.domain.SudokuGrid
 import org.junit.jupiter.api.extension.ExtensionContext
 import java.util.function.Function
-import kotlin.uuid.ExperimentalUuidApi
 
-@ExperimentalUuidApi
 object SudokuContextStore : ExtensionContext.Store, ExtensionContext.Store.CloseableResource {
     private val sudokuMapStore = mutableMapOf<Any?, Any?>()
 

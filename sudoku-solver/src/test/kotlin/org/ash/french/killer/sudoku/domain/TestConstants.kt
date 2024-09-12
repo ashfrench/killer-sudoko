@@ -2,9 +2,7 @@ package org.ash.french.killer.sudoku.domain
 
 import org.ash.french.killer.sudoku.builders.cellValue
 import org.ash.french.killer.sudoku.builders.sudokuGrid
-import kotlin.uuid.ExperimentalUuidApi
 
-@ExperimentalUuidApi
 internal object TestConstants {
     val grid =
         sudokuGrid {

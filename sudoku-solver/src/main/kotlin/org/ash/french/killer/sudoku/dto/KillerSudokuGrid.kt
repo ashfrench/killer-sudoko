@@ -1,11 +1,9 @@
 package org.ash.french.killer.sudoku.dto
 
-import kotlin.uuid.ExperimentalUuidApi
-import kotlin.uuid.Uuid
+import java.util.UUID
 
-@ExperimentalUuidApi
 data class KillerSudokuGrid(
-    val id: Uuid?,
+    val id: UUID?,
     val cells: List<Cell>,
     val cellValues: Map<Cell, Int>,
     val cages: List<Cage>,

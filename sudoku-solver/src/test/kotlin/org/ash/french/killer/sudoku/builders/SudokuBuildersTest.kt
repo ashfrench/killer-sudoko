@@ -9,9 +9,7 @@ import java.nio.file.Files
 import java.util.StringJoiner
 import kotlin.io.path.Path
 import kotlin.test.assertEquals
-import kotlin.uuid.ExperimentalUuidApi
 
-@OptIn(ExperimentalUuidApi::class)
 class SudokuBuildersTest {
     private val expectedString: String
 
