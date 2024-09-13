@@ -17,6 +17,8 @@ internal sealed interface CellSet {
         }
     }
 
+    fun cellValues(grid: SudokuGrid): Map<Cell, UByte> = grid.getAllCellValues().filterKeys { it in cells }
+
     operator fun contains(element: Cell) = cells.contains(element)
 }
 
