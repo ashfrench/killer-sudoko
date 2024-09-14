@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 @SerialName("CellSet")
-internal sealed interface CellSet {
+sealed interface CellSet {
     val cells: Set<Cell>
 
     fun validate(): SudokuValidation {
@@ -17,13 +17,13 @@ internal sealed interface CellSet {
         }
     }
 
-    fun cellValues(grid: SudokuGrid): Map<Cell, UByte> = grid.getAllCellValues().filterKeys { it in cells }
+    fun cellValues(grid: KillerSudokuGrid): Map<Cell, UByte> = grid.getAllCellValues().filterKeys { it in cells }
 
     operator fun contains(element: Cell) = cells.contains(element)
 }
 
 @Serializable
-internal sealed interface Region : CellSet {
+sealed interface Region : CellSet {
     val sum: UByte
         get() = 45u
 

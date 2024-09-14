@@ -3,7 +3,7 @@ package org.ash.french.killer.sudoku.dto
 import org.ash.french.killer.sudoku.builders.cellValue
 import org.ash.french.killer.sudoku.builders.sudokuGrid
 import org.ash.french.killer.sudoku.domain.Cell
-import org.ash.french.killer.sudoku.domain.SudokuGrid
+import org.ash.french.killer.sudoku.domain.KillerSudokuGrid
 import java.util.UUID
 
 data class SudokuGrid(
@@ -217,7 +217,7 @@ fun randomDefaultDto(uuid: UUID? = UUID.randomUUID()): org.ash.french.killer.sud
     return grid.toDto()
 }
 
-internal fun SudokuGrid.toDto(): org.ash.french.killer.sudoku.dto.SudokuGrid {
+internal fun KillerSudokuGrid.toDto(): org.ash.french.killer.sudoku.dto.SudokuGrid {
     return SudokuGrid(
         id = id,
         cellValues = getAllCellValues().mapKeys { it.key.toDto() }.mapValues { it.value.toInt() },

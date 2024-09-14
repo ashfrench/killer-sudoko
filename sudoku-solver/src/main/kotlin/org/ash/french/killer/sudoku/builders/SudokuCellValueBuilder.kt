@@ -2,11 +2,11 @@ package org.ash.french.killer.sudoku.builders
 
 import org.ash.french.killer.sudoku.domain.Cell
 import org.ash.french.killer.sudoku.domain.CellUpdate
-import org.ash.french.killer.sudoku.domain.SudokuGrid
+import org.ash.french.killer.sudoku.domain.KillerSudokuGrid
 
-internal class SudokuCellValueBuilder(private var sudokuGrid: SudokuGrid) :
+class SudokuCellValueBuilder(private var sudokuGrid: KillerSudokuGrid) :
     SudokuBuilder<CellUpdate> {
-    constructor(x: Int, y: Int, value: Int?, sudokuGrid: SudokuGrid) : this(sudokuGrid.copy()) {
+    constructor(x: Int, y: Int, value: Int?, sudokuGrid: KillerSudokuGrid) : this(sudokuGrid.copy()) {
         sudokuGrid.cellValue(Cell(x, y), value?.toUByte())
     }
 

@@ -3,7 +3,7 @@ package org.ash.french.killer.sudoku.domain
 import kotlinx.serialization.Serializable
 
 @Serializable
-internal data class Row(val y: UByte, override val cells: Set<Cell>) : Region {
+data class Row(val y: UByte, override val cells: Set<Cell>) : Region {
     override fun validate(): SudokuValidation {
         return try {
             require(y in (1u..9u)) { "Y must be a positive Integer between 1 and 9" }
@@ -18,7 +18,7 @@ internal data class Row(val y: UByte, override val cells: Set<Cell>) : Region {
 }
 
 @Serializable
-internal data class Column(val x: UByte, override val cells: Set<Cell>) : Region {
+data class Column(val x: UByte, override val cells: Set<Cell>) : Region {
     override fun validate(): Result<Boolean> {
         return try {
             require(x in (1u..9u)) { "X must be a positive Integer between 1 and 9" }
@@ -33,7 +33,7 @@ internal data class Column(val x: UByte, override val cells: Set<Cell>) : Region
 }
 
 @Serializable
-internal data class Nonet(override val cells: Set<Cell>) : Region {
+data class Nonet(override val cells: Set<Cell>) : Region {
     override fun validate(): Result<Boolean> {
         return try {
             val groupByX = cells.groupBy { it.x }
@@ -50,7 +50,7 @@ internal data class Nonet(override val cells: Set<Cell>) : Region {
 }
 
 @Serializable
-internal data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region {
+data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region {
     init {
         require(sum in 1u..45u) { "Invalid Sum for Cage of size ${cells.size}" }
     }

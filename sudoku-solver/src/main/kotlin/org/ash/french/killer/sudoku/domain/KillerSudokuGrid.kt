@@ -1,14 +1,39 @@
 package org.ash.french.killer.sudoku.domain
 
+import kotlinx.serialization.Contextual
+import kotlinx.serialization.Serializable
 import java.util.StringJoiner
 import java.util.UUID
 
-data class SudokuGrid(var id: UUID? = null) :
+private val xRange = (1..9)
+private val yRange = (1..9)
+val cells: Set<Cell> =
+    xRange
+        .flatMap { x ->
+            yRange
+                .map { y -> Cell(x, y) }
+        }.toSet()
+
+val nonets =
+    (1..9 step 3)
+        .map { x ->
+            val nonetCells =
+                (1..9 step 3)
+                    .map { y -> Cell(x, y) }
+                    .toSet()
+            Nonet(nonetCells)
+        }
+
+@Serializable
+data class KillerSudokuGrid(
+    @Contextual var id: UUID? = null,
+) :
     CellValueFinder,
-    CellValueSetter,
-    RowFinder,
-    ColumnFinder,
-    NonetFinder {
+        CellValueSetter,
+        RowFinder,
+        ColumnFinder,
+        NonetFinder,
+        CageFinder {
     private val rows = cells.groupBy { it.y }.mapValues { Row(it.key, it.value.toSet()) }
 
     private val columns = cells.groupBy { it.x }.mapValues { Column(it.key, it.value.toSet()) }
@@ -34,6 +59,10 @@ data class SudokuGrid(var id: UUID? = null) :
 
         return nonets[nonetPosition]
     }
+
+    override fun getCages() = cageValues.keys.toSet()
+
+    override fun getCage(cell: Cell): Cage = getCages().first { cell in it }
 
     override operator fun contains(cell: Cell) = cells.contains(cell)
 
@@ -79,7 +108,7 @@ data class SudokuGrid(var id: UUID? = null) :
         return columnJoiner.toString()
     }
 
-    fun withCellValues(cellUpdates: Collection<CellUpdate>): SudokuGrid {
+    fun withCellValues(cellUpdates: Collection<CellUpdate>): KillerSudokuGrid {
         cellUpdates.forEach { (cell, value) ->
             setCellValue(cell, value)
         }

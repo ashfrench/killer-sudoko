@@ -3,7 +3,7 @@ package org.ash.french.killer.sudoku.domain
 import kotlinx.serialization.Serializable
 
 @Serializable
-internal data class Cell(val x: UByte, val y: UByte) {
+data class Cell(val x: UByte, val y: UByte) {
     constructor(x: Int, y: Int) : this(x.toUByte(), y.toUByte())
 
     init {

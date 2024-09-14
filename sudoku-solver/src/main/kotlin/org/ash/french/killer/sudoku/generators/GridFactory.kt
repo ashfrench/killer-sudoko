@@ -1,7 +1,7 @@
 package org.ash.french.killer.sudoku.generators
 
 import org.ash.french.killer.sudoku.domain.Cell
-import org.ash.french.killer.sudoku.domain.SudokuGrid
+import org.ash.french.killer.sudoku.domain.KillerSudokuGrid
 
 internal object GridFactory {
     val xRange = 1..9
@@ -13,8 +13,8 @@ internal object GridFactory {
                     .map { y -> Cell(x, y) }
             }.toSet()
 
-    fun defaultSudokuGrid(): SudokuGrid {
+    fun defaultSudokuGrid(): KillerSudokuGrid {
         require(cells.size == 81) { "Missing Cells to create a grid" }
-        return SudokuGrid()
+        return KillerSudokuGrid()
     }
 }

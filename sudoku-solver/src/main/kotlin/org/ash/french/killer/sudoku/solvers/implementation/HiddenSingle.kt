@@ -1,13 +1,13 @@
 package org.ash.french.killer.sudoku.solvers.implementation
 
 import org.ash.french.killer.sudoku.domain.Column
+import org.ash.french.killer.sudoku.domain.KillerSudokuGrid
 import org.ash.french.killer.sudoku.domain.Nonet
 import org.ash.french.killer.sudoku.domain.Row
-import org.ash.french.killer.sudoku.domain.SudokuGrid
-import org.ash.french.killer.sudoku.solvers.SudokuGridCellUpdate
+import org.ash.french.killer.sudoku.solvers.KillerSudokuGridCellUpdate
 
-internal class HiddenSingle : SudokuGridCellUpdate {
-    override fun getCellUpdates(grid: SudokuGrid): List<CellUpdateType> {
+internal class HiddenSingle : KillerSudokuGridCellUpdate {
+    override fun getCellUpdates(grid: KillerSudokuGrid): List<CellUpdateType> {
         val updates =
             (1..9)
                 .flatMap { hiddenSingleCheck ->
@@ -29,21 +29,21 @@ internal class HiddenSingle : SudokuGridCellUpdate {
 }
 
 private fun Nonet.findHiddenSingle(
-    grid: SudokuGrid,
+    grid: KillerSudokuGrid,
     hiddenSingleCheck: Int,
 ): CellUpdateType? {
     return null
 }
 
 private fun Row.findHiddenSingle(
-    grid: SudokuGrid,
+    grid: KillerSudokuGrid,
     hiddenSingleCheck: Int,
 ): CellUpdateType? {
     return null
 }
 
 private fun Column.findHiddenSingle(
-    grid: SudokuGrid,
+    grid: KillerSudokuGrid,
     hiddenSingleCheck: Int,
 ): CellUpdateType? {
     return null

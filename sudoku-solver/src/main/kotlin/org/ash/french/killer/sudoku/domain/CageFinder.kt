@@ -1,6 +1,6 @@
 package org.ash.french.killer.sudoku.domain
 
-internal interface CageFinder {
+interface CageFinder {
     fun getCages(): Set<Cage>
 
     fun getCage(cell: Cell): Cage

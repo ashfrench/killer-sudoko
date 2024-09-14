@@ -1,6 +1,6 @@
 package org.ash.french.killer.sudoku.domain
 
-internal interface CellValueFinder {
+interface CellValueFinder {
     fun getCellValue(cell: Cell): UByte?
 
     fun getCellValue(

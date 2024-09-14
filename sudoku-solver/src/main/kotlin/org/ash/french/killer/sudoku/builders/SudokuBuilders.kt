@@ -2,22 +2,22 @@ package org.ash.french.killer.sudoku.builders
 
 import org.ash.french.killer.sudoku.domain.Cage
 import org.ash.french.killer.sudoku.domain.Cell
-import org.ash.french.killer.sudoku.domain.SudokuGrid
+import org.ash.french.killer.sudoku.domain.KillerSudokuGrid
 
-internal fun sudokuGrid(init: SudokuGrid.() -> Unit): SudokuGridBuilder {
-    val sudokuGrid = SudokuGrid()
+fun sudokuGrid(init: KillerSudokuGrid.() -> Unit): SudokuGridBuilder {
+    val sudokuGrid = KillerSudokuGrid()
     sudokuGrid.init()
     return SudokuGridBuilder(sudokuGrid)
 }
 
-internal fun SudokuGrid.cellValue(
+internal fun KillerSudokuGrid.cellValue(
     cell: Cell,
     value: UByte?,
 ) {
     setCellValue(cell, value)
 }
 
-internal fun SudokuGrid.cellValue(init: SudokuCellValueBuilder.() -> Unit) {
+internal fun KillerSudokuGrid.cellValue(init: SudokuCellValueBuilder.() -> Unit) {
     val cellValueBuilder = SudokuCellValueBuilder(this)
     cellValueBuilder.init()
 
@@ -25,14 +25,14 @@ internal fun SudokuGrid.cellValue(init: SudokuCellValueBuilder.() -> Unit) {
     this.cellValue(cellUpdate.cell, cellUpdate.value)
 }
 
-internal fun SudokuGrid.cellValue(
+internal fun KillerSudokuGrid.cellValue(
     cell: Cell,
     value: Int?,
 ) {
     setCellValue(cell, value?.toUByte())
 }
 
-internal fun SudokuGrid.cellValueBuilder(cellValueMap: Map<Cell, UByte?>) {
+internal fun KillerSudokuGrid.cellValueBuilder(cellValueMap: Map<Cell, UByte?>) {
     cellValueMap
         .filter { (cell, _) -> cell in this }
         .forEach { (cell, value) ->
@@ -40,7 +40,7 @@ internal fun SudokuGrid.cellValueBuilder(cellValueMap: Map<Cell, UByte?>) {
         }
 }
 
-internal fun SudokuGrid.cageBuilder(cageValueMap: Map<Cage, UByte>): CageBuilder {
+internal fun KillerSudokuGrid.cageBuilder(cageValueMap: Map<Cage, UByte>): CageBuilder {
     val cages =
         cageValueMap
             .filterValues { it !in 1u..45u }
@@ -49,4 +49,4 @@ internal fun SudokuGrid.cageBuilder(cageValueMap: Map<Cage, UByte>): CageBuilder
     return CageBuilder(this, cages)
 }
 
-internal class CageBuilder(val sudokuGrid: SudokuGrid, val cages: Map<Cage, UByte> = emptyMap())
+internal class CageBuilder(val sudokuGrid: KillerSudokuGrid, val cages: Map<Cage, UByte> = emptyMap())
