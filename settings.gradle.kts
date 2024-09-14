@@ -20,4 +20,4 @@ plugins {
 }
 include("sudoku-solver")
 include("spring-boot-sudoku")
-include("sudoku-compose")
+include("sudoku-jetpack-compose")

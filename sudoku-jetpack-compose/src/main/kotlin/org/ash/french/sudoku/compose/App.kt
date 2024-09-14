@@ -1,4 +1,4 @@
-package org.ash.french.killer.sudoku.jetpack.compose
+package org.ash.french.sudoku.compose
 
 import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.material.Button
