@@ -1,5 +1,3 @@
-@file:Suppress("unused")
-
 package org.ash.french.killer.sudoku.junit5.extensions
 
 import org.ash.french.killer.sudoku.domain.SudokuGrid

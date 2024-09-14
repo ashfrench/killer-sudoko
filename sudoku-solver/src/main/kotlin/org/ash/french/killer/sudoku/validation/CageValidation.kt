@@ -1,5 +1,3 @@
-@file:Suppress("UNUSED_VARIABLE", "UNUSED_PARAMETER", "unused")
-
 package org.ash.french.killer.sudoku.validation
 
 import org.ash.french.killer.sudoku.domain.Cage
