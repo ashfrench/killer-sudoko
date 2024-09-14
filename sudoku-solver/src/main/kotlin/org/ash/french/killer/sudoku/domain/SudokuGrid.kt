@@ -80,24 +80,32 @@ internal data class SudokuGrid(
     }
 
     override fun toString(): String {
-        val stringJoiner = StringJoiner("|| ")
-        stringJoiner.add("")
+        val columnJoiner = StringJoiner("")
         (1..9)
             .forEach { y ->
-                stringJoiner.add("------------------------------------||\n")
+                columnJoiner.add("||-------------------------------------||\n")
+                if (y % 3 == 1) {
+                    columnJoiner.add("||-------------------------------------||\n")
+                }
                 val rowJoiner = StringJoiner("|")
+                columnJoiner.add("||")
                 (1..9).forEach { x ->
                     val cell = Cell(x, y)
                     val value = getCellValue(cell)
                     val valueString = value?.toString() ?: " "
                     rowJoiner.add(" $valueString ")
-                }
-                stringJoiner.add("$rowJoiner ")
-                stringJoiner.add(" \n")
-            }
-        stringJoiner.add("------------------------------------||\n")
 
-        return stringJoiner.toString()
+                    if (x % 3 == 0 && x != 9) {
+                        rowJoiner.add("")
+                    }
+                }
+                columnJoiner.add("$rowJoiner")
+                columnJoiner.add("||\n")
+            }
+        columnJoiner.add("||-------------------------------------||\n")
+        columnJoiner.add("||-------------------------------------||")
+
+        return columnJoiner.toString()
     }
 
     fun withCellValues(cellUpdates: Collection<CellUpdate>): SudokuGrid {
