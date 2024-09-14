@@ -19,15 +19,18 @@ class SudokuBuildersTest {
         stringJoiner.add("")
         (1..9)
             .forEach { y ->
-                val rowJoiner = StringJoiner(" | ")
+                stringJoiner.add("------------------------------------||\n")
+                val rowJoiner = StringJoiner("|")
                 (1..9).forEach { x ->
                     val cell = Cell(x, y)
                     val value = grid.getCellValue(cell)
-                    rowJoiner.add(value?.toString() ?: " ")
+                    val valueString = value?.toString() ?: " "
+                    rowJoiner.add(" $valueString ")
                 }
-                stringJoiner.add("$rowJoiner")
+                stringJoiner.add("$rowJoiner ")
                 stringJoiner.add(" \n")
             }
+        stringJoiner.add("------------------------------------||\n")
 
         expectedString = stringJoiner.toString()
     }
@@ -41,7 +44,7 @@ class SudokuBuildersTest {
     @Test
     fun `test kotlin json serialisation`() {
         val grid = TestConstants.grid
-        val jsonString = org.ash.french.killer.sudoku.builders.JSON.encodeToString(grid)
+        val jsonString = JSON.encodeToString(grid)
 
         val expectedJsonString = TestConstants.jsonString
         assertEquals(expectedJsonString, jsonString)
@@ -59,5 +62,32 @@ class SudokuBuildersTest {
         val expectedJsonString = stringJoiner.toString()
 
         assertEquals(expectedJsonString, jsonString)
+    }
+
+    @Test
+    fun `test expected stdout string`() {
+        val gridStringPrint = """
+        || ------------------------------------||
+        ||  2 |   |   | 5 |   | 7 |   |   |    ||  
+        || ------------------------------------||
+        ||    |   | 6 | 4 | 3 |   | 1 |   |    ||  
+        || ------------------------------------||
+        ||  7 | 5 | 3 | 6 |   |   |   | 4 | 8  ||  
+        || ------------------------------------||
+        ||    |   |   | 8 |   |   | 4 | 5 | 1  ||  
+        || ------------------------------------||
+        ||  3 |   |   |   | 6 |   | 9 |   | 2  ||  
+        || ------------------------------------||
+        ||    | 8 | 5 |   | 2 |   |   | 3 |    ||  
+        || ------------------------------------||
+        ||  5 |   | 1 |   |   | 9 | 6 |   |    ||  
+        || ------------------------------------||
+        ||    | 4 | 9 | 7 |   |   |   |   | 3  ||  
+        || ------------------------------------||
+        ||  8 | 2 | 7 |   |   | 6 |   | 9 |    ||  
+        || ------------------------------------||
+        
+        """.trimIndent()
+        assertEquals(gridStringPrint, TestConstants.grid.toString())
     }
 }

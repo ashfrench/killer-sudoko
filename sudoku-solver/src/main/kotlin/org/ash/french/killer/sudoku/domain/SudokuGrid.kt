@@ -84,15 +84,19 @@ internal data class SudokuGrid(
         stringJoiner.add("")
         (1..9)
             .forEach { y ->
-                val rowJoiner = StringJoiner(" | ")
+                stringJoiner.add("------------------------------------||\n")
+                val rowJoiner = StringJoiner("|")
                 (1..9).forEach { x ->
                     val cell = Cell(x, y)
                     val value = getCellValue(cell)
-                    rowJoiner.add(value?.toString() ?: " ")
+                    val valueString = value?.toString() ?: " "
+                    rowJoiner.add(" $valueString ")
                 }
-                stringJoiner.add("$rowJoiner")
+                stringJoiner.add("$rowJoiner ")
                 stringJoiner.add(" \n")
             }
+        stringJoiner.add("------------------------------------||\n")
+
         return stringJoiner.toString()
     }
 
