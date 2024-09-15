@@ -11,13 +11,15 @@ data class SudokuGrid(var id: UUID? = null) :
     NonetFinder by SudokuFinder {
     override operator fun contains(cell: Cell) = cells.contains(cell)
 
+    private fun StringJoiner.addRowString() = add("||-------------------------------------||\n")
+
     override fun toString(): String {
         val columnJoiner = StringJoiner("")
         (1..9)
             .forEach { y ->
-                columnJoiner.add("||-------------------------------------||\n")
+                columnJoiner.addRowString()
                 if (y % 3 == 1) {
-                    columnJoiner.add("||-------------------------------------||\n")
+                    columnJoiner.addRowString()
                 }
                 val rowJoiner = StringJoiner("|")
                 columnJoiner.add("||")
@@ -34,8 +36,8 @@ data class SudokuGrid(var id: UUID? = null) :
                 columnJoiner.add("$rowJoiner")
                 columnJoiner.add("||\n")
             }
-        columnJoiner.add("||-------------------------------------||\n")
-        columnJoiner.add("||-------------------------------------||")
+        columnJoiner.addRowString()
+        columnJoiner.addRowString()
 
         return columnJoiner.toString()
     }
