@@ -1,3 +1,5 @@
 package org.ash.french.killer.sudoku.domain
 
-interface SudokuGridInterface : CellValueFinder, CellValueSetter, ColumnFinder, RowFinder, NonetFinder
+sealed interface SudokuGridInterface : CellValueFinder, CellValueSetter, ColumnFinder, RowFinder, NonetFinder
+
+interface KillerSudokuGridInterface : SudokuGridInterface, CageFinder
