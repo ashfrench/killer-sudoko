@@ -5,52 +5,17 @@ import kotlinx.serialization.Serializable
 import java.util.StringJoiner
 import java.util.UUID
 
-private val xRange = (1..9)
-private val yRange = (1..9)
-val cells: Set<Cell> =
-    xRange
-        .flatMap { x ->
-            yRange
-                .map { y -> Cell(x, y) }
-        }.toSet()
-
-val nonets =
-    (1..9 step 3)
-        .map { x ->
-            val nonetCells =
-                (1..9 step 3)
-                    .map { y -> Cell(x, y) }
-                    .toSet()
-            Nonet(nonetCells)
-        }
-
 @Serializable
 data class KillerSudokuGrid(
     @Contextual var id: UUID? = null,
 ) :
     CellValueFinder by CellValueUpdater,
-    CellValueSetter by CellValueUpdater,
-        RowFinder,
-        ColumnFinder,
-        NonetFinder,
+        CellValueSetter by CellValueUpdater,
+        RowFinder by SudokuFinder,
+        ColumnFinder by SudokuFinder,
+        NonetFinder by SudokuFinder,
         CageFinder {
-    private val rows = cells.groupBy { it.y }.mapValues { Row(it.key, it.value.toSet()) }
-
-    private val columns = cells.groupBy { it.x }.mapValues { Column(it.key, it.value.toSet()) }
-
     private val cageValues: MutableMap<Cage, UByte> = mutableMapOf()
-
-    override fun getRow(cell: Cell) = rows[cell.y] ?: throw RuntimeException("Unexpected Cell: $cell - No row found")
-
-    override fun getColumn(cell: Cell) = columns[cell.x] ?: throw RuntimeException("Unexpected Cell: $cell - No Column found")
-
-    override fun getNonet(cell: Cell) = nonets.find { cell in it } ?: throw RuntimeException("No Nonet for Cell $cell")
-
-    override fun getNonet(nonetPosition: Int): Nonet {
-        require(nonetPosition in 1..9)
-
-        return nonets[nonetPosition]
-    }
 
     override fun getCages() = cageValues.keys.toSet()
 

@@ -6,27 +6,9 @@ import java.util.UUID
 data class SudokuGrid(var id: UUID? = null) :
     CellValueFinder by CellValueUpdater,
     CellValueSetter by CellValueUpdater,
-    RowFinder,
-    ColumnFinder,
-    NonetFinder {
-    private val rows = cells.groupBy { it.y }.mapValues { Row(it.key, it.value.toSet()) }
-
-    private val columns = cells.groupBy { it.x }.mapValues { Column(it.key, it.value.toSet()) }
-
-    private val cageValues: MutableMap<Cage, UByte> = mutableMapOf()
-
-    override fun getRow(cell: Cell) = rows[cell.y] ?: throw RuntimeException("Unexpected Cell: $cell - No row found")
-
-    override fun getColumn(cell: Cell) = columns[cell.x] ?: throw RuntimeException("Unexpected Cell: $cell - No Column found")
-
-    override fun getNonet(cell: Cell) = nonets.find { cell in it } ?: throw RuntimeException("No Nonet for Cell $cell")
-
-    override fun getNonet(nonetPosition: Int): Nonet {
-        require(nonetPosition in 1..9)
-
-        return nonets[nonetPosition]
-    }
-
+    RowFinder by SudokuFinder,
+    ColumnFinder by SudokuFinder,
+    NonetFinder by SudokuFinder {
     override operator fun contains(cell: Cell) = cells.contains(cell)
 
     override fun toString(): String {

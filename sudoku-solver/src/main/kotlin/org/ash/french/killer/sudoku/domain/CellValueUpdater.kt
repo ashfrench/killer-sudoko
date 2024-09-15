@@ -1,6 +1,6 @@
 package org.ash.french.killer.sudoku.domain
 
-object CellValueUpdater: CellValueFinder, CellValueSetter {
+object CellValueUpdater : CellValueFinder, CellValueSetter {
     private val cellValues: MutableMap<Cell, UByte?> = cells.associateWith { null }.toMutableMap()
 
     override fun getCellValue(cell: Cell): UByte? = cellValues[cell]
@@ -24,5 +24,4 @@ object CellValueUpdater: CellValueFinder, CellValueSetter {
     override fun getPresetCellValues(): List<CellUpdate> {
         TODO("Not yet implemented")
     }
-
 }

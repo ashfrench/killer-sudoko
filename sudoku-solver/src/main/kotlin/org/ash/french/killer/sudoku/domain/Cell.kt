@@ -11,3 +11,12 @@ data class Cell(val x: UByte, val y: UByte) {
         require(y in (1u..9u)) { "Y must be a positive Integer between 1 and 9" }
     }
 }
+
+private val xRange = (1..9)
+private val yRange = (1..9)
+val cells: Set<Cell> =
+    xRange
+        .flatMap { x ->
+            yRange
+                .map { y -> Cell(x, y) }
+        }.toSet()
