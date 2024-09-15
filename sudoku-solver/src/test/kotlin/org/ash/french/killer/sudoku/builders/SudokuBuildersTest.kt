@@ -94,7 +94,6 @@ class SudokuBuildersTest {
             || 8 | 2 | 7 ||   |   | 6 ||   | 9 |   ||
             ||-------------------------------------||
             ||-------------------------------------||
-            
             """.trimIndent()
 
         println(TestConstants.grid.toString())

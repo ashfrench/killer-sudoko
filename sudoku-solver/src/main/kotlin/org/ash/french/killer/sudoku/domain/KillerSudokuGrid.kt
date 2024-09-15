@@ -23,7 +23,7 @@ data class KillerSudokuGrid(
 
     override operator fun contains(cell: Cell) = cells.contains(cell)
 
-    private fun StringJoiner.addRowString() = add("||-------------------------------------||\n")
+    private fun StringJoiner.addRowString(newLine: Boolean = true) = add("||-------------------------------------||" + if (newLine) "\n" else "")
 
     override fun toString(): String {
         val columnJoiner = StringJoiner("")
@@ -49,7 +49,7 @@ data class KillerSudokuGrid(
                 columnJoiner.add("||\n")
             }
         columnJoiner.addRowString()
-        columnJoiner.addRowString()
+        columnJoiner.addRowString(false)
 
         return columnJoiner.toString()
     }
