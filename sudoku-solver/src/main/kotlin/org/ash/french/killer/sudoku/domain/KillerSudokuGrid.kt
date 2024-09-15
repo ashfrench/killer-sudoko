@@ -8,13 +8,13 @@ import java.util.UUID
 @Serializable
 data class KillerSudokuGrid(
     @Contextual var id: UUID? = null,
-) :
+) : SudokuGridInterface,
     CellValueFinder by CellValueUpdater,
-        CellValueSetter by CellValueUpdater,
-        RowFinder by SudokuFinder,
-        ColumnFinder by SudokuFinder,
-        NonetFinder by SudokuFinder,
-        CageFinder {
+    CellValueSetter by CellValueUpdater,
+    RowFinder by SudokuFinder,
+    ColumnFinder by SudokuFinder,
+    NonetFinder by SudokuFinder,
+    CageFinder {
     private val cageValues: MutableMap<Cage, UByte> = mutableMapOf()
 
     override fun getCages() = cageValues.keys.toSet()

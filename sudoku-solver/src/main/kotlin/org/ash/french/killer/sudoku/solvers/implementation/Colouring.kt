@@ -1,10 +1,10 @@
 package org.ash.french.killer.sudoku.solvers.implementation
 
-import org.ash.french.killer.sudoku.domain.KillerSudokuGrid
-import org.ash.french.killer.sudoku.solvers.KillerSudokuGridCellUpdate
+import org.ash.french.killer.sudoku.domain.SudokuGridInterface
+import org.ash.french.killer.sudoku.solvers.SudokuGridCellUpdate
 
-internal class Colouring : KillerSudokuGridCellUpdate {
-    override fun getCellUpdates(grid: KillerSudokuGrid): List<CellUpdateType> {
+internal class Colouring : SudokuGridCellUpdate {
+    override fun getCellUpdates(grid: SudokuGridInterface): List<CellUpdateType> {
         TODO("Not yet implemented")
     }
 }

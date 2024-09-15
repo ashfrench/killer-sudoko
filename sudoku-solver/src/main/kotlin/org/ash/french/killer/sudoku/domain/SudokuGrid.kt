@@ -4,6 +4,7 @@ import java.util.StringJoiner
 import java.util.UUID
 
 data class SudokuGrid(var id: UUID? = null) :
+    SudokuGridInterface,
     CellValueFinder by CellValueUpdater,
     CellValueSetter by CellValueUpdater,
     RowFinder by SudokuFinder,
