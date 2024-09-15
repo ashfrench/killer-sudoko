@@ -6,4 +6,6 @@ interface ColumnFinder {
     fun getColumn(x: UByte) = getColumn(Cell(x, 1u))
 
     fun getColumn(x: Int) = getColumn(Cell(x, 1))
+
+    fun getColumns(): List<Column>
 }

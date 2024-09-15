@@ -7,7 +7,11 @@ object SudokuFinder : RowFinder, ColumnFinder, NonetFinder {
 
     override fun getRow(cell: Cell) = rows[cell.y] ?: throw RuntimeException("Unexpected Cell: $cell - No row found")
 
+    override fun getRows() = rows.values.toList()
+
     override fun getColumn(cell: Cell) = columns[cell.x] ?: throw RuntimeException("Unexpected Cell: $cell - No Column found")
+
+    override fun getColumns() = columns.values.toList()
 
     override fun getNonet(cell: Cell) = nonets.find { cell in it } ?: throw RuntimeException("No Nonet for Cell $cell")
 
