@@ -28,8 +28,8 @@ val nonets =
 data class KillerSudokuGrid(
     @Contextual var id: UUID? = null,
 ) :
-    CellValueFinder,
-        CellValueSetter,
+    CellValueFinder by CellValueUpdater,
+    CellValueSetter by CellValueUpdater,
         RowFinder,
         ColumnFinder,
         NonetFinder,
@@ -38,15 +38,7 @@ data class KillerSudokuGrid(
 
     private val columns = cells.groupBy { it.x }.mapValues { Column(it.key, it.value.toSet()) }
 
-    private val cellValues: MutableMap<Cell, UByte?> = cells.associateWith { null }.toMutableMap()
     private val cageValues: MutableMap<Cage, UByte> = mutableMapOf()
-
-    override fun getCellValue(cell: Cell): UByte? = cellValues[cell]
-
-    override fun setCellValue(
-        cell: Cell,
-        value: UByte?,
-    ): UByte? = cellValues.compute(cell) { _, _ -> value }
 
     override fun getRow(cell: Cell) = rows[cell.y] ?: throw RuntimeException("Unexpected Cell: $cell - No row found")
 
@@ -65,19 +57,6 @@ data class KillerSudokuGrid(
     override fun getCage(cell: Cell): Cage = getCages().first { cell in it }
 
     override operator fun contains(cell: Cell) = cells.contains(cell)
-
-    override fun getAllCellValues(): Map<Cell, UByte> {
-        val allCellValues =
-            cellValues
-                .filterValues { it != null }
-                .mapValues { it.value!! }
-
-        return allCellValues
-    }
-
-    override fun getPresetCellValues(): List<CellUpdate> {
-        TODO("Not yet implemented")
-    }
 
     override fun toString(): String {
         val columnJoiner = StringJoiner("")
