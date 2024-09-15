@@ -3,21 +3,22 @@ package org.ash.french.killer.sudoku.builders
 import org.ash.french.killer.sudoku.domain.Cage
 import org.ash.french.killer.sudoku.domain.Cell
 import org.ash.french.killer.sudoku.domain.KillerSudokuGrid
+import org.ash.french.killer.sudoku.domain.SudokuGrid
 
-fun sudokuGrid(init: KillerSudokuGrid.() -> Unit): SudokuGridBuilder {
-    val sudokuGrid = KillerSudokuGrid()
+fun sudokuGrid(init: SudokuGrid.() -> Unit): SudokuGridBuilder {
+    val sudokuGrid = SudokuGrid()
     sudokuGrid.init()
     return SudokuGridBuilder(sudokuGrid)
 }
 
-internal fun KillerSudokuGrid.cellValue(
+internal fun SudokuGrid.cellValue(
     cell: Cell,
     value: UByte?,
 ) {
     setCellValue(cell, value)
 }
 
-internal fun KillerSudokuGrid.cellValue(init: SudokuCellValueBuilder.() -> Unit) {
+internal fun SudokuGrid.cellValue(init: SudokuCellValueBuilder.() -> Unit) {
     val cellValueBuilder = SudokuCellValueBuilder(this)
     cellValueBuilder.init()
 

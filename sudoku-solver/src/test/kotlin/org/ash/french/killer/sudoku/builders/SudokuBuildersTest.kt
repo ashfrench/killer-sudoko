@@ -2,7 +2,7 @@ package org.ash.french.killer.sudoku.builders
 
 import kotlinx.serialization.encodeToString
 import org.ash.french.killer.sudoku.domain.Cell
-import org.ash.french.killer.sudoku.domain.KillerSudokuGrid
+import org.ash.french.killer.sudoku.domain.SudokuGrid
 import org.ash.french.killer.sudoku.domain.TestConstants
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
@@ -39,7 +39,7 @@ class SudokuBuildersTest {
     @Test
     fun `can build empty sudoku grid`() {
         val grid = sudokuGrid { }.build()
-        assertEquals(KillerSudokuGrid(), grid)
+        assertEquals(SudokuGrid(), grid)
     }
 
     @Disabled
