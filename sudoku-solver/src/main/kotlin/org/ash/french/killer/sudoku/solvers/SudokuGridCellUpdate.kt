@@ -6,6 +6,6 @@ import org.ash.french.killer.sudoku.solvers.implementation.CellUpdateType
 /**
  * Docs for <project_root>/docs/Solving_Techniques.md
  */
-internal fun interface SudokuGridCellUpdate {
+fun interface SudokuGridCellUpdate {
     fun getCellUpdates(grid: SudokuGridInterface): List<CellUpdateType>
 }
