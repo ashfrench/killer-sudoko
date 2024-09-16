@@ -6,11 +6,8 @@ plugins {
     id("org.jlleitschuh.gradle.ktlint") version "12.1.1" apply false
 }
 
-
 group = "org.ash.french"
 version = "0.0.1-SNAPSHOT"
-
-
 
 java {
     toolchain {

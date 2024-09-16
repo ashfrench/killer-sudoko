@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "org.ash.french"
-version = "unspecified"
+version = "0.0.1-SNAPSHOT"
 
 repositories {
     mavenCentral()
