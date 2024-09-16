@@ -1,7 +1,6 @@
 package org.ash.french.killer.sudoku.builders
 
 import kotlinx.serialization.encodeToString
-import org.ash.french.killer.sudoku.domain.Cell
 import org.ash.french.killer.sudoku.domain.SudokuGrid
 import org.ash.french.killer.sudoku.domain.TestConstants
 import org.junit.jupiter.api.Test
@@ -11,30 +10,6 @@ import kotlin.io.path.Path
 import kotlin.test.assertEquals
 
 class SudokuBuildersTest {
-    private val expectedString: String
-
-    init {
-        val grid = TestConstants.grid
-        val stringJoiner = StringJoiner("|| ")
-        stringJoiner.add("")
-        (1..9)
-            .forEach { y ->
-                stringJoiner.add("------------------------------------||\n")
-                val rowJoiner = StringJoiner("|")
-                (1..9).forEach { x ->
-                    val cell = Cell(x, y)
-                    val value = grid.getCellValue(cell)
-                    val valueString = value?.toString() ?: " "
-                    rowJoiner.add(" $valueString ")
-                }
-                stringJoiner.add("$rowJoiner ")
-                stringJoiner.add(" \n")
-            }
-        stringJoiner.add("------------------------------------||\n")
-
-        expectedString = stringJoiner.toString()
-    }
-
     @Test
     fun `can build empty sudoku grid`() {
         val grid = sudokuGrid { }.build()
