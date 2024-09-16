@@ -42,7 +42,6 @@ class SudokuBuildersTest {
         assertEquals(SudokuGrid(), grid)
     }
 
-    @Disabled
     @Test
     fun `test kotlin json serialisation`() {
         val grid = TestConstants.grid
@@ -52,7 +51,6 @@ class SudokuBuildersTest {
         assertEquals(expectedJsonString, jsonString)
     }
 
-    @Disabled
     @Test
     fun `test load json from file and compare`() {
         val grid = TestConstants.grid

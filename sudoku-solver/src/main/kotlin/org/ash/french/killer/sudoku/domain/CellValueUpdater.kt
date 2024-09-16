@@ -1,8 +1,9 @@
 package org.ash.french.killer.sudoku.domain
 
-object CellValueUpdater : CellValueFinder, CellValueSetter {
-    private val cellValues: MutableMap<Cell, UByte?> = cells.associateWith { null }.toMutableMap()
+import kotlinx.serialization.Serializable
 
+@Serializable
+data class CellValueUpdater(private val cellValues: MutableMap<Cell, UByte?>) : CellValueFinder, CellValueSetter {
     override fun getCellValue(cell: Cell): UByte? = cellValues[cell]
 
     override fun setCellValue(

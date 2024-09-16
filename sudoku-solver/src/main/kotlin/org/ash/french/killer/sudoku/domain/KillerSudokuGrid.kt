@@ -7,14 +7,14 @@ import java.util.UUID
 @Serializable
 data class KillerSudokuGrid(
     @Contextual var id: UUID? = null,
+    private val cellValues: MutableMap<Cell, UByte?> = cells.associateWith { null }.toMutableMap(),
+    private val cageValues: MutableMap<Cage, UByte> = mutableMapOf(),
 ) : KillerSudokuGridInterface,
-    CellValueFinder by CellValueUpdater,
-    CellValueSetter by CellValueUpdater,
+    CellValueFinder by CellValueUpdater(cellValues),
+    CellValueSetter by CellValueUpdater(cellValues),
     RowFinder by SudokuFinder,
     ColumnFinder by SudokuFinder,
     NonetFinder by SudokuFinder {
-    private val cageValues: MutableMap<Cage, UByte> = mutableMapOf()
-
     override fun getCages() = cageValues.keys.toSet()
 
     override fun getCage(cell: Cell): Cage = getCages().first { cell in it }

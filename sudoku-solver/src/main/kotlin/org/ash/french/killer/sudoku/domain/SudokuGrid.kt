@@ -1,11 +1,17 @@
 package org.ash.french.killer.sudoku.domain
 
+import kotlinx.serialization.Contextual
+import kotlinx.serialization.Serializable
 import java.util.UUID
 
-data class SudokuGrid(var id: UUID? = null) :
+@Serializable
+data class SudokuGrid(
+    @Contextual var id: UUID? = null,
+    private val cellValues: MutableMap<Cell, UByte?> = cells.associateWith { null }.toMutableMap(),
+) :
     SudokuGridInterface,
-    CellValueFinder by CellValueUpdater,
-    CellValueSetter by CellValueUpdater,
+    CellValueFinder by CellValueUpdater(cellValues),
+    CellValueSetter by CellValueUpdater(cellValues),
     RowFinder by SudokuFinder,
     ColumnFinder by SudokuFinder,
     NonetFinder by SudokuFinder {
