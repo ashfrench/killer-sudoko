@@ -10,11 +10,11 @@ data class SudokuGrid(
     private val cellValues: MutableMap<Cell, UByte?> = cells.associateWith { null }.toMutableMap(),
 ) :
     SudokuGridInterface,
-    CellValueFinder by CellValueUpdater(cellValues),
-    CellValueSetter by CellValueUpdater(cellValues),
-    RowFinder by SudokuFinder,
-    ColumnFinder by SudokuFinder,
-    NonetFinder by SudokuFinder {
+        CellValueFinder by CellValueUpdater(cellValues),
+        CellValueSetter by CellValueUpdater(cellValues),
+        RowFinder by SudokuFinder,
+        ColumnFinder by SudokuFinder,
+        NonetFinder by SudokuFinder {
     override operator fun contains(cell: Cell) = cells.contains(cell)
 
     override fun toString() = SudokuStdPrinter.printSudokuString(this)

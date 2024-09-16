@@ -4,7 +4,6 @@ import kotlinx.serialization.encodeToString
 import org.ash.french.killer.sudoku.domain.Cell
 import org.ash.french.killer.sudoku.domain.SudokuGrid
 import org.ash.french.killer.sudoku.domain.TestConstants
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import java.nio.file.Files
 import java.util.StringJoiner
