@@ -4,6 +4,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Row(val y: UByte, override val cells: Set<Cell>) : Region {
+    init {
+        this.validate().getOrThrow()
+    }
+
     override fun validate(): SudokuValidation {
         return try {
             require(y in (1u..9u)) { "Y must be a positive Integer between 1 and 9" }

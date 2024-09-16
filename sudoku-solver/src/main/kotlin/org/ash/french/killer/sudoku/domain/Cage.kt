@@ -5,9 +5,27 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region {
     init {
-        require(sum in 1u..45u) { "Invalid Sum for Cage of size ${cells.size}" }
-        require(cells.size in 1..9) { "A cage must contain between 1 and 9 cells" }
-        validateCageSum(sum, cells)
+        this.validate().getOrThrow()
+    }
+
+    private fun validateCells(cells: Set<Cell>) {
+        if (cells.size == 1) {
+            return
+        }
+
+        val cellRows = cells.associateBy { it.x.toInt() }
+        val cellCols = cells.associateBy { it.y.toInt() }
+
+        when (cells.size) {
+            2 -> TODO()
+            3 -> TODO()
+            4 -> TODO()
+            5 -> TODO()
+            6 -> TODO()
+            7 -> TODO()
+            8 -> TODO()
+            9 -> TODO()
+        }
     }
 
     private fun validateCageSum(
@@ -35,6 +53,15 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
     }
 
     override fun validate(): Result<Boolean> {
-        return validate()
+        return try {
+            require(sum in 1u..45u) { "Invalid Sum for Cage of size ${cells.size}" }
+            require(cells.size in 1..9) { "A cage must contain between 1 and 9 cells" }
+            validateCageSum(sum, cells)
+            validateCells(cells)
+
+            valid()
+        } catch (e: Throwable) {
+            validationFailure(e)
+        }
     }
 }

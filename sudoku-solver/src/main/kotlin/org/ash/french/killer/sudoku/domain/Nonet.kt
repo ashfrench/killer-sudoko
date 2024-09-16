@@ -14,6 +14,10 @@ val nonets =
 
 @Serializable
 data class Nonet(override val cells: Set<Cell>) : Region {
+    init {
+        this.validate().getOrThrow()
+    }
+
     override fun validate(): Result<Boolean> {
         return try {
             val groupByX = cells.groupBy { it.x }
