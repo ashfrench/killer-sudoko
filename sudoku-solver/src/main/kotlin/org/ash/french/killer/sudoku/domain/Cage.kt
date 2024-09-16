@@ -10,21 +10,28 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
         validateCageSum(sum, cells)
     }
 
-    private fun validateCageSum(sum: UByte, cells: Set<Cell>) {
+    private fun validateCageSum(
+        sum: UByte,
+        cells: Set<Cell>,
+    ) {
         val intSum = sum.toInt()
-        val valid = when (cells.size) {
-            1 -> intSum in 1..9
-            2 -> intSum in 2..17
-            3 -> intSum in 6..24
-            4 -> intSum in 10..30
-            5 -> intSum in 15..35
-            6 -> intSum in 21..39
-            7 -> intSum in 28..42
-            8 -> intSum in 36..44
-            9 -> intSum in 45..45
+        val valid = cells.size.isValidCageSum(intSum)
+        require(valid) { "Invalid cage sum $sum for size ${cells.size}" }
+    }
+
+    private fun Int.isValidCageSum(sum: Int): Boolean {
+        return when (this) {
+            1 -> sum in 1..9
+            2 -> sum in 2..17
+            3 -> sum in 6..24
+            4 -> sum in 10..30
+            5 -> sum in 15..35
+            6 -> sum in 21..39
+            7 -> sum in 28..42
+            8 -> sum in 36..44
+            9 -> sum in 45..45
             else -> false
         }
-        require(valid) { "Invalid cage sum $sum for size ${cells.size}" }
     }
 
     override fun validate(): Result<Boolean> {
