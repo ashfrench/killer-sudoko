@@ -12,14 +12,14 @@ fun sudokuGrid(init: SudokuGrid.() -> Unit): SudokuGridBuilder {
     return SudokuGridBuilder(sudokuGrid)
 }
 
-internal fun SudokuGrid.cellValue(
+fun SudokuGrid.cellValue(
     cell: Cell,
     value: UByte?,
 ) {
     setCellValue(cell, value)
 }
 
-internal fun SudokuGrid.cellValue(init: SudokuCellValueBuilder.() -> Unit) {
+fun SudokuGrid.cellValue(init: SudokuCellValueBuilder.() -> Unit) {
     val cellValueBuilder = SudokuCellValueBuilder(this)
     cellValueBuilder.init()
 

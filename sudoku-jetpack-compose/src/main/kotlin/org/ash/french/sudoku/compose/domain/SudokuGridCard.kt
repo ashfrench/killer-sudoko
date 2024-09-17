@@ -14,7 +14,7 @@ fun sudokuGridCard(sudokuGrid: SudokuGrid) {
 
     val nonetCards =
         nonets.map {
-            nonetCard(it, cellCards, sudokuGrid)
+            nonetCard(it, sudokuGrid)
         }
 
     val rowCards = sudokuGrid.getRows().map { rowCard(it) }

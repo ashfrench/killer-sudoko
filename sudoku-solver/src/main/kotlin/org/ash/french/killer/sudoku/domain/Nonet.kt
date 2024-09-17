@@ -2,15 +2,24 @@ package org.ash.french.killer.sudoku.domain
 
 import kotlinx.serialization.Serializable
 
+val groupByX = cells.groupBy { it.x }
+val groupByY = cells.groupBy { it.y }
+
 val nonets =
-    (1..9 step 3)
-        .map { x ->
-            val nonetCells =
-                (1..9 step 3)
-                    .map { y -> Cell(x, y) }
-                    .toSet()
-            Nonet(nonetCells)
+    (1..9)
+        .chunked(3)
+        .flatMap { xList ->
+            (1..9)
+                .chunked(3)
+                .map { yList ->
+                    xList.flatMap { x ->
+                        yList.map { y ->
+                            Cell(x, y)
+                        }
+                    }
+                }
         }
+        .map { Nonet(it.toSet()) }
 
 @Serializable
 data class Nonet(override val cells: Set<Cell>) : Region {
