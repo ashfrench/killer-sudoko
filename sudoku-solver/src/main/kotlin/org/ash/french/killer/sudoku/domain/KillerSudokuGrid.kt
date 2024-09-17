@@ -23,9 +23,13 @@ data class KillerSudokuGrid(
 
     override fun toString() = SudokuStdPrinter.printSudokuString(this)
 
-    fun withCellValues(cellUpdates: Collection<CellUpdate>): KillerSudokuGrid {
-        cellUpdates.forEach { (cell, value) ->
-            setCellValue(cell, value)
+    fun withKillerSudokuUpdates(updates: Collection<KillerSudokuUpdate>): KillerSudokuGrid {
+        updates.map {
+            when (it) {
+                is KillerSudokuCellUpdate -> this.setCellValue(it.cell, it.value)
+                is RemovePotentialCageValues -> TODO()
+                is RemovePotentialCellValue -> TODO()
+            }
         }
         return this
     }

@@ -4,8 +4,15 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region {
+    private val potentialCageValues: Set<Set<Int>>
+
     init {
         this.validate().getOrThrow()
+        potentialCageValues = generatePotentialCageValues()
+    }
+
+    private fun generatePotentialCageValues(): Set<Set<Int>> {
+        TODO("Not yet implemented")
     }
 
     private fun validateCells(cells: Set<Cell>) {
