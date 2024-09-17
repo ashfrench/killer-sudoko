@@ -44,6 +44,14 @@ tasks.withType<Test> {
     useJUnitPlatform()
 }
 
+sonar {
+    properties {
+        property("sonar.projectKey", "ashfrench_killer-sudoko")
+        property("sonar.organization", "ashfrench")
+        property("sonar.host.url", "https://sonarcloud.io")
+    }
+}
+
 subprojects {
     apply(plugin = "org.jlleitschuh.gradle.ktlint")
     apply(plugin = "org.sonarqube")
