@@ -4,6 +4,8 @@ plugins {
 
     // Get the current version from https://github.com/JLLeitschuh/ktlint-gradle
     id("org.jlleitschuh.gradle.ktlint") version "12.1.1" apply false
+
+    id("org.sonarqube") version "5.1.0.4882"
 }
 
 group = "org.ash.french"
@@ -44,6 +46,7 @@ tasks.withType<Test> {
 
 subprojects {
     apply(plugin = "org.jlleitschuh.gradle.ktlint")
+    apply(plugin = "org.sonarqube")
 
     // Optionally configure plugin
     configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
