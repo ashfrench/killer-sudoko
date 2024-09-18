@@ -12,6 +12,8 @@
 
 ### [Hidden Single][1]
 > [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoku/solvers/implementation/HiddenSingle.kt)
+> 
+> [Test Code is based here](../sudoku-solver/src/test/kotlin/org/ash/french/killer/sudoku/solvers/implementation/HiddenSingleTest.kt)
 
 ### [Naked Single][2]
 > [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoku/solvers/implementation/NakedSingle.kt)
