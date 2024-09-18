@@ -16,9 +16,8 @@ object SudokuFinder : RowFinder, ColumnFinder, NonetFinder {
     override fun getNonet(cell: Cell) = nonets.find { cell in it } ?: throw RuntimeException("No Nonet for Cell $cell")
 
     override fun getNonet(nonetPosition: Int): Nonet {
-        require(nonetPosition in 0..9)
-
-        return nonets[nonetPosition]
+        require(nonetPosition in 1..9)
+        return nonets[nonetPosition - 1]
     }
 
     override fun getNonets() = nonets
