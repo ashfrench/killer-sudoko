@@ -29,7 +29,7 @@ fun SudokuGrid.cellValue(init: SudokuCellValueBuilder.() -> Unit) {
 }
 ```
 
-Below is an example grid with a [Hidden Single](../docs/Solving_Techniques.md#hidden-single1)
+Below is an example grid with a [Hidden Single](../docs/Solving_Techniques.md#hidden-single1) where `Cell(x=2, y=5, value=2)`
 ```kotlin
 sudokuGrid {
     cellValue {
