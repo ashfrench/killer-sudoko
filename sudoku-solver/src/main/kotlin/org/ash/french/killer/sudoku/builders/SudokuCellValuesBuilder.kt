@@ -4,8 +4,7 @@ import org.ash.french.killer.sudoku.domain.Cell
 import org.ash.french.killer.sudoku.domain.CellUpdate
 import org.ash.french.killer.sudoku.domain.SudokuGrid
 
-class SudokuCellValuesBuilder(private var sudokuGrid: SudokuGrid) :
-    SudokuBuilder<List<CellUpdate>> {
+class SudokuCellValuesBuilder(private var sudokuGrid: SudokuGrid) : SudokuBuilder<List<CellUpdate>> {
     var cells = mutableListOf<Cell>()
     var value: Int? = null
 
@@ -13,11 +12,17 @@ class SudokuCellValuesBuilder(private var sudokuGrid: SudokuGrid) :
         val grid = sudokuGrid.copy()
 
         val updates =
-            cells.map { cell ->
+            cells.distinct().map { cell ->
                 CellUpdate(cell, value!!)
             }
         grid.setCellValues(updates)
 
         return updates
+    }
+
+    fun cell(init: SudokuCellBuilder.() -> Unit) {
+        val cellBuilder = SudokuCellBuilder()
+        cellBuilder.init()
+        cells.add(cellBuilder.build())
     }
 }

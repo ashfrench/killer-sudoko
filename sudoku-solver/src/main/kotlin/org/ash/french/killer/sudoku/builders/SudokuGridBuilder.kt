@@ -3,8 +3,7 @@ package org.ash.french.killer.sudoku.builders
 import org.ash.french.killer.sudoku.domain.CellUpdate
 import org.ash.french.killer.sudoku.domain.SudokuGrid
 
-data class SudokuGridBuilder(private var sudokuGrid: SudokuGrid) :
-    SudokuBuilder<SudokuGrid> {
+data class SudokuGridBuilder(private var sudokuGrid: SudokuGrid) : SudokuBuilder<SudokuGrid> {
     private var killerSudokuGrid: UByte = 0u
     private val cellUpdates = mutableListOf<CellUpdate>()
 

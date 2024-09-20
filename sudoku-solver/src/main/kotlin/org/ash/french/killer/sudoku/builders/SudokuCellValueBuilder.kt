@@ -4,12 +4,7 @@ import org.ash.french.killer.sudoku.domain.Cell
 import org.ash.french.killer.sudoku.domain.CellUpdate
 import org.ash.french.killer.sudoku.domain.SudokuGrid
 
-class SudokuCellValueBuilder(private var sudokuGrid: SudokuGrid) :
-    SudokuBuilder<CellUpdate> {
-    constructor(x: Int, y: Int, value: Int?, sudokuGrid: SudokuGrid) : this(sudokuGrid.copy()) {
-        sudokuGrid.setCellValue(Cell(x, y), value?.toUByte())
-    }
-
+class SudokuCellValueBuilder(private var sudokuGrid: SudokuGrid) : SudokuBuilder<CellUpdate> {
     var x: Int = 1
     var y: Int = 1
     var value: Int? = null
