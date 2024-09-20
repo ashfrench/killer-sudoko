@@ -1,0 +1,23 @@
+package org.ash.french.killer.sudoku.builders
+
+import org.ash.french.killer.sudoku.domain.Cell
+import org.ash.french.killer.sudoku.domain.CellUpdate
+import org.ash.french.killer.sudoku.domain.SudokuGrid
+
+class SudokuCellValuesBuilder(private var sudokuGrid: SudokuGrid) :
+    SudokuBuilder<List<CellUpdate>> {
+    var cells = mutableListOf<Cell>()
+    var value: Int? = null
+
+    override fun build(): List<CellUpdate> {
+        val grid = sudokuGrid.copy()
+
+        val updates =
+            cells.map { cell ->
+                CellUpdate(cell, value!!)
+            }
+        grid.setCellValues(updates)
+
+        return updates
+    }
+}

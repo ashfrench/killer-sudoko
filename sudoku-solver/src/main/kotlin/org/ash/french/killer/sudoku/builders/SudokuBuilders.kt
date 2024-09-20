@@ -27,6 +27,16 @@ fun SudokuGrid.cellValue(init: SudokuCellValueBuilder.() -> Unit) {
     this.cellValue(cellUpdate.cell, cellUpdate.value)
 }
 
+fun SudokuGrid.cellValues(init: SudokuCellValuesBuilder.() -> Unit) {
+    val builder = SudokuCellValuesBuilder(this)
+    builder.init()
+
+    val updates = builder.build()
+    updates.forEach {
+        setCellValue(it.cell, it.value)
+    }
+}
+
 internal fun KillerSudokuGrid.cellValue(
     cell: Cell,
     value: Int?,

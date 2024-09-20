@@ -18,5 +18,9 @@ interface CellValueSetter {
         value: UByte?,
     ): UByte?
 
+    fun setCellValue(cellUpdate: CellUpdate): UByte? = setCellValue(cellUpdate.cell, cellUpdate.value)
+
+    fun setCellValues(updates: List<CellUpdate>): List<UByte?> = updates.map { setCellValue(it.cell, it.value) }
+
     operator fun contains(cell: Cell): Boolean
 }
