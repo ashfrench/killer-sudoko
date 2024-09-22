@@ -8,5 +8,5 @@ data class CellUpdate(
     val value: UByte,
 ) : UpdateID {
     constructor(cell: Cell, value: Int) : this(cell, value.toUByte())
-    constructor(x: Int, y: Int, value: Int): this(Cell(x,y), value)
+    constructor(x: Int, y: Int, value: Int) : this(Cell(x, y), value)
 }
