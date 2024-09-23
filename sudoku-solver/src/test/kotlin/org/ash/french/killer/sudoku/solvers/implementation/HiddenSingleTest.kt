@@ -246,6 +246,7 @@ class HiddenSingleTest {
             }.build()
 
         println(grid)
+        val presetCellValues = grid.getSetCellValues()
         val updates = HiddenSingle().getCellUpdates(grid)
         val expectedUpdate = CellUpdate(x = 4, y = 7, 5)
     }

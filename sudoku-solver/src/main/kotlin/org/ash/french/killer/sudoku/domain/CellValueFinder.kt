@@ -17,5 +17,5 @@ interface CellValueFinder {
 
     fun getAllCellValues(): Map<Cell, UByte>
 
-    fun getPresetCellValues(): List<CellUpdate>
+    fun getSetCellValues(): List<CellUpdate>
 }
