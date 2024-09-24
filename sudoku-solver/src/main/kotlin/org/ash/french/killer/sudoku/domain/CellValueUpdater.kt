@@ -51,10 +51,16 @@ data class CellValueUpdater(private val cellValues: MutableMap<Cell, UByte?>) : 
     ) {
         cells
             .filter { it != cell }
-            .forEach {
-                val potentialValues = potentialCellValues[it]!!
+            .mapNotNull {
+                val potentialValues = potentialCellValues[it]
+                if (potentialValues == null) {
+                    null
+                } else {
+                    it to potentialValues
+                }
+            }.forEach { (cell, potentialValues) ->
                 val filter = potentialValues.filterNot { potentialValue -> potentialValue == value }
-                potentialCellValues[it] = filter
+                potentialCellValues[cell] = filter
             }
     }
 
