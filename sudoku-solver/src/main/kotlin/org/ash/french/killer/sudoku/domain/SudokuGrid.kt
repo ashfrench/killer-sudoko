@@ -20,7 +20,9 @@ data class SudokuGrid(
     override fun toString() = SudokuStdPrinter.printSudokuString(this)
 
     fun withCellValues(cellUpdates: Collection<CellUpdate>): SudokuGrid {
-        cellUpdates.forEach { (cell, value) ->
+        cellUpdates.forEach { update ->
+            val cell = update.cell
+            val value = update.value
             setCellValue(cell, value)
         }
         return this

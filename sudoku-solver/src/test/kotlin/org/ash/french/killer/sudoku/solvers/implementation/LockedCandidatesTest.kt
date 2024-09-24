@@ -2,7 +2,7 @@ package org.ash.french.killer.sudoku.solvers.implementation
 
 import org.ash.french.killer.sudoku.builders.cellValues
 import org.ash.french.killer.sudoku.builders.sudokuGrid
-import org.ash.french.killer.sudoku.domain.CellUpdate
+import org.ash.french.killer.sudoku.domain.CellUpdateValue
 import org.junit.jupiter.api.Test
 
 class LockedCandidatesTest {
@@ -117,6 +117,6 @@ class LockedCandidatesTest {
             }.build()
 
         val updates = LockedCandidates().getCellUpdates(grid)
-        val expectedUpdate = CellUpdate(x = 2, y = 8, 3)
+        val expectedUpdate = CellUpdateValue(x = 2, y = 8, 3)
     }
 }

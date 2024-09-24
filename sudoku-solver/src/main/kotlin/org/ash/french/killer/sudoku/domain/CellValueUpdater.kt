@@ -7,7 +7,7 @@ data class CellValueUpdater(private val cellValues: MutableMap<Cell, UByte?>) : 
     private val setCells: MutableMap<Cell, CellUpdate> =
         cellValues
             .filterValues { it != null }
-            .mapValues { CellUpdate(it.key, it.value!!) }
+            .mapValues { CellUpdateValue(it.key, it.value!!) }
             .toMutableMap()
 
     private val potentialCellValues =
@@ -66,7 +66,7 @@ data class CellValueUpdater(private val cellValues: MutableMap<Cell, UByte?>) : 
     ): UByte? {
         return cellValues.compute(cell) { _, _ ->
             if (value != null) {
-                setCells[cell] = CellUpdate(cell, value)
+                setCells[cell] = CellUpdateValue(cell, value)
                 updatePotentialValues(cell, value)
             }
             value

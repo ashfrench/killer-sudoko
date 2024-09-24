@@ -2,6 +2,7 @@ package org.ash.french.killer.sudoku.builders
 
 import org.ash.french.killer.sudoku.domain.Cell
 import org.ash.french.killer.sudoku.domain.CellUpdate
+import org.ash.french.killer.sudoku.domain.CellUpdateValue
 import org.ash.french.killer.sudoku.domain.SudokuGrid
 
 class SudokuCellValueBuilder(private var sudokuGrid: SudokuGrid) : SudokuBuilder<CellUpdate> {
@@ -14,6 +15,6 @@ class SudokuCellValueBuilder(private var sudokuGrid: SudokuGrid) : SudokuBuilder
         val cell = Cell(x, y)
         grid.setCellValue(cell, value?.toUByte())
 
-        return CellUpdate(cell, value!!)
+        return CellUpdateValue(cell, value!!)
     }
 }
