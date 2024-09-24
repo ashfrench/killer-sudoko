@@ -29,9 +29,10 @@
 
 ## Table Of Contents
 
+- [Docs](./docs/README.md)
+  - [Solving Techniques](docs/Solving_Techniques.md)
 - [Classic Sudoku](#classic-sudoku)
 - [Killer Sudoku](#killer-sudoku-grid)
-- [Solving Techniques](#solving-techniques)
 - [Tooling](#tooling)
   - [How to Build](#how-to-build)
     - [Spring Boot](#spring-boot) 
@@ -40,8 +41,6 @@
 - [Security Policy](#security-policy)
 - [Miscellaneous](#miscellaneous)
 - [Links](#links)
-
----
 
 > This is a rewrite in kotlin of my Computer Science dissertation project. I Studied `Computer Science with a Year in Industry (2006-2010)` with [IBM][1] `(2008-2009)` at [Manchester University][2]. I achieved a 1st class honours for this project and was in the top 10 of the year.
 >
@@ -73,7 +72,7 @@
 
 <img src="./docs/images/killer-sudoko/Killersudoku_bw_with_bg.png" alt="Example Sudoku Grid" width="400px" height="400px" >
 
-## [Solving Techniques](docs/Solving_Techniques.md)
+## 
 
 ## Tooling
 [![Kotlin](https://img.shields.io/badge/kotlin-%237F52FF.svg?style=for-the-badge&logo=kotlin&logoColor=white)][6]
