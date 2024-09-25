@@ -1,7 +1,7 @@
 # Documentation Index
-[Back to README.md](../README.md)
-
 ![Ash French](./images/favicon/favicon.ico)
+
+[Back to README.md](../README.md)
 
 This is the documentation index. It contains a list of all the documentation pages.
 
