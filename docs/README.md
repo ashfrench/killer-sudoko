@@ -7,3 +7,12 @@ This is the documentation index. It contains a list of all the documentation pag
 * [Classic Sudoku](./Classic_Sudoku.md)
 * [Killer Sudoku Grid](./Killer_Sudoku.md)
 * [Solving Techniques](./Solving_Techniques.md)
+
+## Code
+
+The way you can listen to any updates for a grid will return any CellUpdates which all have a unique ID, so you can check which have been processed already.
+
+```kotlin
+@Serializable
+sealed class CellUpdate : UpdateID
+```
