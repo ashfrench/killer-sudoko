@@ -26,3 +26,11 @@ data class CellRemovePotentialValueUpdate(
     constructor(cell: Cell, value: Int) : this(cell, value.toUByte())
     constructor(x: Int, y: Int, value: Int) : this(Cell(x, y), value)
 }
+
+data class CellRemovePotentialValueFromRegionUpdate(
+    override val cell: Cell,
+    override val value: UByte,
+) : CellUpdate(cell, value), UpdateID {
+    constructor(cell: Cell, value: Int) : this(cell, value.toUByte())
+    constructor(x: Int, y: Int, value: Int) : this(Cell(x, y), value)
+}
