@@ -1,6 +1,8 @@
 # Documentation Index
 [Back to README.md](../README.md)
 
+![Ash French](./images/favicon/favicon.ico)
+
 This is the documentation index. It contains a list of all the documentation pages.
 
 * [Terminology](./Terminology.md)
@@ -16,3 +18,5 @@ The way you can listen to any updates for a grid will return any CellUpdates whi
 @Serializable
 sealed class CellUpdate : UpdateID
 ```
+
+[0]: https://ashfrench.co.uk/
