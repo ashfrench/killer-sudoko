@@ -1,5 +1,7 @@
 # [Killer Sudoku Grid](https://en.wikipedia.org/wiki/Killer_sudoku)
 
+![Ash French](./images/favicon/favicon.ico)
+
 [Back to README.md](../README.md)
 
 [Back to Documentation Index](./README.md)

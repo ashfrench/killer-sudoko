@@ -1,5 +1,7 @@
 # [Solving Techniques](https://en.wikipedia.org/wiki/Glossary_of_Sudoku)
 
+![Ash French](./images/favicon/favicon.ico)
+
 [Back to README.md](../README.md)
 
 [Back to Documentation Index](./README.md)

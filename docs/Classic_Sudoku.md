@@ -1,5 +1,7 @@
 # Classic Sudoku
 
+![Ash French](./images/favicon/favicon.ico)
+
 [Back to README.md](../README.md)
 
 [Back to Documentation Index](./README.md)
