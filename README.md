@@ -34,7 +34,7 @@
 - [Classic Sudoku](#classic-sudoku)
 - [Killer Sudoku](#killer-sudoku-grid)
 - [Tooling](#tooling)
-  - [How to Build](#how-to-build)
+  - [How to Build](#how-to-build-and-run)
     - [Spring Boot](#spring-boot) 
 - [How to Build](#how-to-build)
 - [References](#references)
@@ -89,7 +89,7 @@
 * [Compose Multi Platform][9]
 * [JUnit 5 Extension Model][10]
 
-## How to Build
+## How to Build and Run
 
 `./gradlew build`
 
@@ -98,6 +98,15 @@
 docker build -t sudoku_sovler ./spring-boot-sudoku
 
 docker run -p 8080:8080 sudoku_sovler
+```
+
+### Internal Code
+
+The way you can listen to any updates for a grid will return any CellUpdates which all have a unique ID, so you can check which have been processed already.
+
+```kotlin
+@Serializable
+sealed class CellUpdate : UpdateID
 ```
 
 ## References
