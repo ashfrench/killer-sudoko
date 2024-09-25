@@ -2,6 +2,7 @@ package org.ash.french.killer.sudoku.builders
 
 import org.ash.french.killer.sudoku.domain.Cage
 import org.ash.french.killer.sudoku.domain.Cell
+import org.ash.french.killer.sudoku.domain.CellUpdateValue
 import org.ash.french.killer.sudoku.domain.KillerSudokuGrid
 import org.ash.french.killer.sudoku.domain.SudokuGrid
 import java.util.UUID
@@ -23,8 +24,10 @@ fun SudokuGrid.cellValue(init: SudokuCellValueBuilder.() -> Unit) {
     val cellValueBuilder = SudokuCellValueBuilder(this)
     cellValueBuilder.init()
 
-    val cellUpdate = cellValueBuilder.build()
-    this.cellValue(cellUpdate.cell, cellUpdate.value)
+    when (val cellUpdate = cellValueBuilder.build()) {
+        is CellUpdateValue -> cellValue(cellUpdate.cell, cellUpdate.value)
+        else -> throw UnsupportedOperationException("Can only build a grid with set values")
+    }
 }
 
 fun SudokuGrid.cellValues(init: SudokuCellValuesBuilder.() -> Unit) {
@@ -33,7 +36,10 @@ fun SudokuGrid.cellValues(init: SudokuCellValuesBuilder.() -> Unit) {
 
     val updates = builder.build()
     updates.forEach {
-        setCellValue(it.cell, it.value)
+        when (it) {
+            is CellUpdateValue -> setCellValue(it.cell, it.value)
+            else -> throw UnsupportedOperationException("Can only build a grid with set values")
+        }
     }
 }
 

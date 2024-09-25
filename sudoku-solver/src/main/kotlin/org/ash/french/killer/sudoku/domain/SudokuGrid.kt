@@ -21,9 +21,15 @@ data class SudokuGrid(
 
     fun withCellValues(cellUpdates: Collection<CellUpdate>): SudokuGrid {
         cellUpdates.forEach { update ->
-            val cell = update.cell
-            val value = update.value
-            setCellValue(cell, value)
+            when (update) {
+                is CellRemovePotentialValueFromRegionUpdate -> TODO()
+                is CellRemovePotentialValueUpdate -> TODO()
+                is CellUpdateValue -> {
+                    val cell = update.cell
+                    val value = update.value
+                    setCellValue(cell, value)
+                }
+            }
         }
         return this
     }

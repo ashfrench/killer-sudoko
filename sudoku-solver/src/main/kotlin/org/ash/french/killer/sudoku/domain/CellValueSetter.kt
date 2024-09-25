@@ -18,9 +18,21 @@ interface CellValueSetter {
         value: UByte?,
     ): UByte?
 
-    fun setCellValue(cellUpdate: CellUpdate): UByte? = setCellValue(cellUpdate.cell, cellUpdate.value)
+    fun setCellValue(cellUpdate: CellUpdate): UByte? =
+        when (cellUpdate) {
+            is CellRemovePotentialValueFromRegionUpdate -> TODO()
+            is CellRemovePotentialValueUpdate -> TODO()
+            is CellUpdateValue -> setCellValue(cellUpdate.cell, cellUpdate.value)
+        }
 
-    fun setCellValues(updates: List<CellUpdate>): List<UByte?> = updates.map { setCellValue(it.cell, it.value) }
+    fun setCellValues(updates: List<CellUpdate>): List<UByte?> =
+        updates.map {
+            when (it) {
+                is CellRemovePotentialValueFromRegionUpdate -> TODO()
+                is CellRemovePotentialValueUpdate -> TODO()
+                is CellUpdateValue -> setCellValue(it.cell, it.value)
+            }
+        }
 
     operator fun contains(cell: Cell): Boolean
 }
