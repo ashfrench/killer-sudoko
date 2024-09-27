@@ -5,6 +5,6 @@ import org.ash.french.killer.sudoku.solvers.SudokuGridCellUpdate
 
 internal class XYZWing : SudokuGridCellUpdate {
     override fun getCellUpdates(grid: SudokuGridInterface): List<CellUpdateType> {
-        TODO("Not yet implemented")
+        return emptyList()
     }
 }
