@@ -136,6 +136,8 @@ sealed class CellUpdate : UpdateID
 > 1. https://junit.org/junit5/docs/current/user-guide/
 > 1. https://en.wikipedia.org/wiki/Well-posed_problem
 > 1. https://qodana.cloud/projects/3dBJ8/reports/RwegE
+> 1. https://gitlab.com/opensudoku/opensudoku
+> 1. https://github.com/kaajjo/LibreSudoku
 
 [0]: https://ashfrench.co.uk/
 [1]: https://www.ibm.com
