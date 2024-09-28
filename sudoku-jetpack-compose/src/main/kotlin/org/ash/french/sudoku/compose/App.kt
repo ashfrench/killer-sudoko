@@ -12,16 +12,25 @@ import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import org.ash.french.killer.sudoku.builders.randomDefaultGrid
+import org.ash.french.killer.sudoku.domain.SudokuGrid
 
 @Composable
 @Preview
 fun app() {
-    val grid = randomDefaultGrid()
-    println(grid)
+    val grid: SudokuGrid =
+        by remember {
+            mutableStateOf<SudokuGrid>(randomDefaultGrid())
+        }
+    LaunchedEffect(grid) {
+        println("Grid changed")
+        println(grid)
+    }
 
     Scaffold(
         topBar = {
