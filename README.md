@@ -95,6 +95,8 @@
 
 The way you can listen to any updates for a grid will return any CellUpdates which all have a unique ID, so you can check which have been processed already.
 
+I will try to make optimisations that I think can be added from [LibreSudoku][18]
+
 ```kotlin
 import kotlinx.serialization.Serializable
 
