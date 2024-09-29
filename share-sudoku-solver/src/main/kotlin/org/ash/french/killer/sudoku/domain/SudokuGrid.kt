@@ -15,6 +15,10 @@ data class SudokuGrid(
         RowFinder by SudokuFinder,
         ColumnFinder by SudokuFinder,
         NonetFinder by SudokuFinder {
+    init {
+        require(cellValues.values.filterNotNull().all { it.inRange1to9() })
+    }
+
     override operator fun contains(cell: Cell) = cells.contains(cell)
 
     override fun toString() = SudokuStdPrinter.printSudokuString(this)
@@ -34,3 +38,5 @@ data class SudokuGrid(
         return this
     }
 }
+
+private fun UByte?.inRange1to9() = this != null && this in (1u..9u)
