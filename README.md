@@ -34,9 +34,9 @@
     - [Spring Boot](#spring-boot) 
 - [How to Build](#how-to-build)
 - [References](#references)
-- [Security Policy](#security-policy)
 - [Miscellaneous](#miscellaneous)
 - [Links](#links)
+- [Security Policy](#security-policy)
 
 > This is a rewrite in kotlin of my Computer Science dissertation project. I Studied `Computer Science with a Year in Industry (2006-2010)` with [IBM][1] `(2008-2009)` at [Manchester University][2]. I achieved a 1st class honours for this project and was in the top 10 of the year.
 >
@@ -112,9 +112,6 @@ sealed class CellUpdate : UpdateID
 > * [Project Kanban Board][11]
 > * [Qodana Link][16]
 
-## [Security Policy](SECURITY.md)
-![Security Policy](docs/images/skull-and-cross-bones.jpg)
-
 ## Miscellaneous
 
 [![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
@@ -158,3 +155,6 @@ sealed class CellUpdate : UpdateID
 [16]: https://qodana.cloud/projects/3dBJ8/reports/RwegE
 [17]: https://gitlab.com/opensudoku/opensudoku
 [18]: https://github.com/kaajjo/LibreSudoku
+
+### [Security Policy](SECURITY.md)
+![Security Policy](docs/images/skull-and-cross-bones.jpg)
