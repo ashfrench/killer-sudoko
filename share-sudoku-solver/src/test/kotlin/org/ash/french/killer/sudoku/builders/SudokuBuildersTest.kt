@@ -1,6 +1,6 @@
 package org.ash.french.killer.sudoku.builders
 
-import kotlinx.serialization.encodeToString
+import kotlinx.serialization.PolymorphicSerializer
 import org.ash.french.killer.sudoku.domain.SudokuGrid
 import org.ash.french.killer.sudoku.domain.TestConstants
 import org.junit.jupiter.api.Test
@@ -19,7 +19,7 @@ class SudokuBuildersTest {
     @Test
     fun `test kotlin json serialisation`() {
         val grid = TestConstants.grid
-        val jsonString = JSON.encodeToString(grid)
+        val jsonString = JSON.encodeToString(PolymorphicSerializer(SudokuGrid::class), grid)
 
         val expectedJsonString = TestConstants.jsonString
         assertEquals(expectedJsonString, jsonString)
@@ -28,7 +28,7 @@ class SudokuBuildersTest {
     @Test
     fun `test load json from file and compare`() {
         val grid = TestConstants.grid
-        val jsonString = JSON.encodeToString(grid)
+        val jsonString = JSON.encodeToString(PolymorphicSerializer(SudokuGrid::class), grid)
 
         val jsonFilePath = Path("src/test/resources/sudoku.grid")
         val stringJoiner = StringJoiner("\n")

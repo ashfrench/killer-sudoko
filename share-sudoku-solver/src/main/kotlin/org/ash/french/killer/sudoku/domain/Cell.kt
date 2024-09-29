@@ -15,7 +15,7 @@ data class Cell(
     init {
         require(x.inRange1to9()) { "X must be a positive Integer between 1 and 9" }
         require(y.inRange1to9()) { "Y must be a positive Integer between 1 and 9" }
-        require(value != null && value.inRange1to9()) {"When set value must be between 1 and 9"}
+        require((value != null && value.inRange1to9()) || (value == null)) { "When set value must be between 1 and 9" }
     }
 }
 

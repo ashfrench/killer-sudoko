@@ -1,5 +1,6 @@
 plugins {
-    kotlin("jvm") version "2.0.20"
+    kotlin("jvm")
+    kotlin("plugin.serialization")
 }
 
 group = "org.ash.french"
@@ -10,12 +11,14 @@ repositories {
 }
 
 dependencies {
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.1")
     testImplementation(kotlin("test"))
 }
 
 tasks.test {
     useJUnitPlatform()
 }
+
 kotlin {
     jvmToolchain(21)
 }
