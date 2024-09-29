@@ -101,6 +101,8 @@ docker run -p 8080:8080 sudoku_sovler
 The way you can listen to any updates for a grid will return any CellUpdates which all have a unique ID, so you can check which have been processed already.
 
 ```kotlin
+import kotlinx.serialization.Serializable
+
 @Serializable
 sealed class CellUpdate : UpdateID
 ```
