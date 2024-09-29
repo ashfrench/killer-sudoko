@@ -156,5 +156,7 @@ sealed class CellUpdate : UpdateID
 [17]: https://gitlab.com/opensudoku/opensudoku
 [18]: https://github.com/kaajjo/LibreSudoku
 
+[Return to Top](#table-of-contents)
+
 ### [Security Policy](SECURITY.md)
 ![Security Policy](docs/images/skull-and-cross-bones.jpg)
