@@ -18,6 +18,7 @@ pluginManagement {
 plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"
 }
-include("sudoku-solver")
+include("shared-sudoku-solver")
 include("spring-boot-sudoku")
 include("sudoku-jetpack-compose")
+include("share-sudoku-solver")
