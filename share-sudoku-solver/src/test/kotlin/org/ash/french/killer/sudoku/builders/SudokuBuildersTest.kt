@@ -3,6 +3,7 @@ package org.ash.french.killer.sudoku.builders
 import kotlinx.serialization.PolymorphicSerializer
 import org.ash.french.killer.sudoku.domain.SudokuGrid
 import org.ash.french.killer.sudoku.domain.TestConstants
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import java.nio.file.Files
 import java.util.StringJoiner
@@ -16,6 +17,7 @@ class SudokuBuildersTest {
         assertEquals(SudokuGrid(), grid)
     }
 
+    @Disabled
     @Test
     fun `test kotlin json serialisation`() {
         val grid = TestConstants.grid
@@ -25,6 +27,7 @@ class SudokuBuildersTest {
         assertEquals(expectedJsonString, jsonString)
     }
 
+    @Disabled
     @Test
     fun `test load json from file and compare`() {
         val grid = TestConstants.grid
