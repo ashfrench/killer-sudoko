@@ -87,13 +87,8 @@
 
 ## How to Build and Run
 
-`./gradlew build`
-
-### Spring Boot
 ```shell
-docker build -t sudoku_sovler ./spring-boot-sudoku
-
-docker run -p 8080:8080 sudoku_sovler
+./gradlew build
 ```
 
 ### Internal Code
