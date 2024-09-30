@@ -7,7 +7,11 @@ data class SudokuGridBuilder(private var sudokuGrid: SudokuGrid) : SudokuBuilder
     private var killerSudokuGrid: UByte = 0u
     private val cellUpdates = mutableListOf<CellUpdate>()
 
-    override fun build(): SudokuGrid = sudokuGrid.withCellValues(cellUpdates)
+    override fun build(): SudokuGrid =
+        sudokuGrid.withCellValues(cellUpdates).also {
+            println(sudokuGrid)
+            println()
+        }
 
     fun cell(init: SudokuCellValueBuilder.() -> Unit): CellUpdate {
         val builder = SudokuCellValueBuilder(sudokuGrid)
