@@ -1,6 +1,11 @@
 package org.ash.french.killer.sudoku.builders
 
-import org.ash.french.killer.sudoku.domain.*
+import org.ash.french.killer.sudoku.domain.Cage
+import org.ash.french.killer.sudoku.domain.Cell
+import org.ash.french.killer.sudoku.domain.CellState
+import org.ash.french.killer.sudoku.domain.CellUpdateValueOriginalValue
+import org.ash.french.killer.sudoku.domain.KillerSudokuGrid
+import org.ash.french.killer.sudoku.domain.SudokuGrid
 import java.util.UUID
 
 fun sudokuGrid(init: SudokuGrid.() -> Unit): SudokuGridBuilder {

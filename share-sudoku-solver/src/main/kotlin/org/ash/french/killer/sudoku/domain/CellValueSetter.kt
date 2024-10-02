@@ -20,7 +20,7 @@ interface CellValueSetter {
 
     fun lockCellValue(
         cell: Cell,
-        value: UByte
+        value: UByte,
     ): Cell
 
     fun setCellValues(updates: List<CellUpdate>): List<Cell> =
