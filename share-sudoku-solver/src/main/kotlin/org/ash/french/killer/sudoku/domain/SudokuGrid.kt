@@ -7,7 +7,7 @@ import java.util.UUID
 @Serializable
 data class SudokuGrid(
     @Contextual var id: UUID? = null,
-    private val cellValues: MutableMap<Cell, UByte?> = cells.associateWith { null }.toMutableMap(),
+    private val cellValues: MutableMap<Cell, CellState> = cells.associateWith { CellState() }.toMutableMap(),
 ) :
     SudokuGridInterface,
         CellValueFinder by CellValueUpdater(cellValues),
@@ -16,12 +16,16 @@ data class SudokuGrid(
         ColumnFinder by SudokuFinder,
         NonetFinder by SudokuFinder {
     init {
-        require(cellValues.values.filterNotNull().all { it.inRange1to9() })
+//        require(cellValues.values.all { it.value.inRange1to9() })
     }
 
     override operator fun contains(cell: Cell) = cells.contains(cell)
 
     override fun toString() = SudokuStdPrinter.printSudokuString(this)
+
+    fun withOriginalCellValues(cellUpdates: Collection<CellUpdateValue>): SudokuGrid {
+        return copy(cellValues = cellValues.toMutableMap())
+    }
 
     fun withCellValues(cellUpdates: Collection<CellUpdate>): SudokuGrid {
         cellUpdates.forEach { update ->
@@ -39,4 +43,4 @@ data class SudokuGrid(
     }
 }
 
-private fun UByte?.inRange1to9() = this != null && this in (1u..9u)
+fun UByte?.inRange1to9() = this != null && this in (1u..9u)

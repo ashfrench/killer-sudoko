@@ -1,7 +1,17 @@
 package org.ash.french.killer.sudoku.domain
 
 interface CellValueFinder {
-    fun getCellValue(cell: Cell): UByte?
+    fun getCell(
+        x: Int,
+        y: Int,
+    ): Cell = getCell(x.toUByte(), y.toUByte())
+
+    fun getCell(
+        x: UByte,
+        y: UByte,
+    ): Cell
+
+    fun getCellValue(cell: Cell): CellState
 
     fun getCellValue(
         x: Int,
@@ -15,7 +25,7 @@ interface CellValueFinder {
 
     operator fun contains(cell: Cell): Boolean
 
-    fun getAllCellValues(): Map<Cell, UByte>
+    fun getAllCellValues(): Map<Cell, CellState>
 
     fun getSetCellValues(): List<CellUpdate>
 }

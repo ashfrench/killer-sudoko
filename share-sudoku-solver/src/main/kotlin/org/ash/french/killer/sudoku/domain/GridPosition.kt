@@ -17,5 +17,3 @@ interface Position {
     val x: UByte
     val y: UByte
 }
-
-private fun UByte?.inRange1to9() = this != null && this in (1u..9u)

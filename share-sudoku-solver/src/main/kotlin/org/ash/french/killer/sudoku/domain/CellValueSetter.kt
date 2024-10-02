@@ -11,21 +11,26 @@ interface CellValueSetter {
         x: UByte,
         y: UByte,
         value: UByte?,
-    ): UByte? = setCellValue(Cell(x, y), value)
+    ): Cell = setCellValue(Cell(x, y), value)
 
     fun setCellValue(
         cell: Cell,
         value: UByte?,
-    ): UByte?
+    ): Cell
 
-    fun setCellValue(cellUpdate: CellUpdate): UByte? =
+    fun lockCellValue(
+        cell: Cell,
+        value: UByte
+    ): Cell
+
+    fun setCellValue(cellUpdate: CellUpdate): Cell =
         when (cellUpdate) {
             is CellRemovePotentialValueFromRegionUpdate -> TODO()
             is CellRemovePotentialValueUpdate -> TODO()
             is CellUpdateValue -> setCellValue(cellUpdate.cell, cellUpdate.value)
         }
 
-    fun setCellValues(updates: List<CellUpdate>): List<UByte?> =
+    fun setCellValues(updates: List<CellUpdate>): List<Cell> =
         updates.map {
             when (it) {
                 is CellRemovePotentialValueFromRegionUpdate -> TODO()

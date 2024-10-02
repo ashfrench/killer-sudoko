@@ -3,26 +3,7 @@ package org.ash.french.killer.sudoku.domain
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class CellValueUpdater(private val cellValues: MutableMap<Cell, UByte?>) : CellValueFinder, CellValueSetter {
-    private val setCells: MutableMap<Cell, CellUpdate> =
-        cellValues
-            .filterValues { it != null }
-            .mapValues { CellUpdateValue(it.key, it.value!!) }
-            .toMutableMap()
-
-    private val potentialCellValues =
-        cells
-            .associateWith {
-                val cellValue = cellValues[it]?.toInt()
-                val list =
-                    if (cellValue == null) {
-                        listOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
-                    } else {
-                        listOf(cellValue)
-                    }
-                list
-            }.toMutableMap()
-
+data class CellValueUpdater(private val cellValues: MutableMap<Cell, CellState>) : CellValueFinder, CellValueSetter {
     private fun updatePotentialValues(
         cell: Cell,
         value: UByte,
@@ -38,7 +19,7 @@ data class CellValueUpdater(private val cellValues: MutableMap<Cell, UByte?>) : 
         val column = SudokuFinder.getColumn(cell)
         val nonet = SudokuFinder.getNonet(cell)
 
-        potentialCellValues[cell] = listOf(value)
+//        potentialCellValues[cell] = listOf(value)
 
         row.updatePotentialValues(cell, value)
         column.updatePotentialValues(cell, value)
@@ -49,48 +30,44 @@ data class CellValueUpdater(private val cellValues: MutableMap<Cell, UByte?>) : 
         cell: Cell,
         value: Int,
     ) {
-        cells
-            .filter { it != cell }
-            .mapNotNull {
-                val potentialValues = potentialCellValues[it]
-                if (potentialValues == null) {
-                    null
-                } else {
-                    it to potentialValues
-                }
-            }.forEach { (cell, potentialValues) ->
-                val filter = potentialValues.filterNot { potentialValue -> potentialValue == value }
-                potentialCellValues[cell] = filter
-            }
+
     }
 
-    override fun getCellValue(cell: Cell): UByte? = cellValues[cell]
+    override fun getCell(x: UByte, y: UByte): Cell {
+        return cells.firstOrNull { cell -> cell.x == x && cell.y == y }?: throw RuntimeException("Cell Not Found")
+    }
+
+    override fun getCellValue(cell: Cell): CellState = cellValues[cell]?: throw RuntimeException("Cell Not Found")
 
     override fun setCellValue(
         cell: Cell,
         value: UByte?,
-    ): UByte? {
-        return cellValues.compute(cell) { _, _ ->
-            if (value != null) {
-                setCells[cell] = CellUpdateValue(cell, value)
-                updatePotentialValues(cell, value)
-            }
-            value
-        }
+    ): Cell {
+//        cellValues.compute(cell) { _, _ ->
+//            if (value != null) {
+//                setCells[cell] = CellUpdateValue(cell, value)
+//                updatePotentialValues(cell, value)
+//            }
+//            value
+//        }
+        return getCell(cell.x, cell.y)
+    }
+
+    override fun lockCellValue(cell: Cell, value: UByte): Cell {
+        TODO("Not yet implemented")
     }
 
     override operator fun contains(cell: Cell) = cells.contains(cell)
 
-    override fun getAllCellValues(): Map<Cell, UByte> {
+    override fun getAllCellValues(): Map<Cell, CellState> {
         val allCellValues =
             cellValues
-                .filterValues { it != null }
-                .mapValues { it.value!! }
+                .mapValues { it.value }
 
         return allCellValues
     }
 
     override fun getSetCellValues(): List<CellUpdate> {
-        return setCells.values.toList()
+        TODO()
     }
 }

@@ -33,7 +33,7 @@ object SudokuStdPrinter {
                 columnJoiner.add("||")
                 (1..9).forEach { x ->
                     val cell = Cell(x, y)
-                    val value = getCellValue(cell)
+                    val value = getCellValue(cell).value
                     val valueString = value?.toString() ?: " "
                     rowJoiner.add(" $valueString ")
 

@@ -17,7 +17,7 @@ sealed interface CellSet {
         }
     }
 
-    fun cellValues(grid: KillerSudokuGrid): Map<Cell, UByte> = grid.getAllCellValues().filterKeys { it in cells }
+    fun cellValues(grid: KillerSudokuGrid): Map<Cell, CellState> = grid.getAllCellValues().filterKeys { it in cells }
 
     operator fun contains(element: Cell) = cells.contains(element)
 }

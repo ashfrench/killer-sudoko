@@ -7,8 +7,8 @@ import java.util.UUID
 @Serializable
 data class KillerSudokuGrid(
     @Contextual var id: UUID? = null,
-    private val cellValues: MutableMap<Cell, UByte?> = cells.associateWith { null }.toMutableMap(),
-    private val cageValues: MutableMap<Cage, UByte> = mutableMapOf(),
+    private val cellValues: MutableMap<Cell, CellState> = cells.associateWith { CellState() }.toMutableMap(),
+    private val cageValues: MutableMap<Cage, CellState> = mutableMapOf(),
 ) : KillerSudokuGridInterface,
     CellValueFinder by CellValueUpdater(cellValues),
     CellValueSetter by CellValueUpdater(cellValues),
