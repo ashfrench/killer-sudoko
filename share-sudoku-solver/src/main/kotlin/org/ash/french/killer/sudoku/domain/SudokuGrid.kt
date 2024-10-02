@@ -16,7 +16,7 @@ data class SudokuGrid(
         ColumnFinder by SudokuFinder,
         NonetFinder by SudokuFinder {
     init {
-//        require(cellValues.values.all { it.value.inRange1to9() })
+        require(cellValues.values.all { it.value.inRange1to9() || it.value == null })
     }
 
     override operator fun contains(cell: Cell) = cells.contains(cell)
