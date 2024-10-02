@@ -23,16 +23,18 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
         val cellRows = cells.associateBy { it.x.toInt() }
         val cellCols = cells.associateBy { it.y.toInt() }
 
-        when (cells.size) {
-            2 -> TODO()
-            3 -> TODO()
-            4 -> TODO()
-            5 -> TODO()
-            6 -> TODO()
-            7 -> TODO()
-            8 -> TODO()
-            9 -> TODO()
-        }
+        val rowKeys = cellRows.keys.sorted()
+        val colKeys = cellCols.keys.sorted()
+
+        val rowSummaryStatistics = rowKeys.stream().mapToInt { it }.summaryStatistics()
+        val colSummaryStatistics = colKeys.stream().mapToInt { it }.summaryStatistics()
+
+        val rowRange = rowSummaryStatistics.min..rowSummaryStatistics.min
+        val colRange = colSummaryStatistics.min..colSummaryStatistics.min
+
+        require(rowRange.count() <= cells.size)
+        require(colRange.count() <= cells.size)
+        require(rowRange.count() + colRange.count() <= cells.size)
     }
 
     private fun validateCageSum(
