@@ -17,7 +17,7 @@ data class CellValueUpdater(private val cellValues: MutableMap<Cell, CellState>)
 
     override fun setCellValue(
         cell: Cell,
-        value: CellState?,
+        value: CellState,
     ): Cell {
         cellValues.compute(cell) { _, _ ->
             value

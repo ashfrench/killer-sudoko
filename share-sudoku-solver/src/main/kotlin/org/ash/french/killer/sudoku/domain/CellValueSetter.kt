@@ -15,7 +15,7 @@ interface CellValueSetter {
 
     fun setCellValue(
         cell: Cell,
-        value: CellState?,
+        value: CellState,
     ): Cell
 
     fun lockCellValue(
