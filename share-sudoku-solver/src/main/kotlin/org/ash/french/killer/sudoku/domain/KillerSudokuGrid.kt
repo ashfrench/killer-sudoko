@@ -26,7 +26,7 @@ data class KillerSudokuGrid(
     fun withKillerSudokuUpdates(updates: Collection<KillerSudokuUpdate>): KillerSudokuGrid {
         updates.map {
             when (it) {
-                is KillerSudokuCellUpdate -> this.setCellValue(it.cell, it.value)
+                is KillerSudokuCellUpdate -> this.setCellValue(it.cell, CellState(it.value))
                 is RemovePotentialCageValues -> TODO()
                 is RemovePotentialCellValue -> TODO()
             }

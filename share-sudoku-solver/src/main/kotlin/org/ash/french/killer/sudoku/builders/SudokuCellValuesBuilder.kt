@@ -2,7 +2,7 @@ package org.ash.french.killer.sudoku.builders
 
 import org.ash.french.killer.sudoku.domain.Cell
 import org.ash.french.killer.sudoku.domain.CellUpdate
-import org.ash.french.killer.sudoku.domain.CellUpdateValue
+import org.ash.french.killer.sudoku.domain.CellUpdateValueOriginalValue
 import org.ash.french.killer.sudoku.domain.SudokuGrid
 
 class SudokuCellValuesBuilder(private var sudokuGrid: SudokuGrid) : SudokuBuilder<List<CellUpdate>> {
@@ -14,7 +14,7 @@ class SudokuCellValuesBuilder(private var sudokuGrid: SudokuGrid) : SudokuBuilde
 
         val updates =
             cells.distinct().map { cell ->
-                CellUpdateValue(cell, value!!)
+                CellUpdateValueOriginalValue(cell, value!!)
             }
         grid.setCellValues(updates)
 

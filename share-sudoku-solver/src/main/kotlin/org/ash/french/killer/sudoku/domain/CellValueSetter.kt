@@ -5,17 +5,17 @@ interface CellValueSetter {
         x: Int,
         y: Int,
         value: UByte?,
-    ) = setCellValue(Cell(x, y), value)
+    ) = setCellValue(Cell(x, y), CellState(value))
 
     fun setCellValue(
         x: UByte,
         y: UByte,
         value: UByte?,
-    ): Cell = setCellValue(Cell(x, y), value)
+    ): Cell = setCellValue(Cell(x, y), CellState(value))
 
     fun setCellValue(
         cell: Cell,
-        value: UByte?,
+        value: CellState?,
     ): Cell
 
     fun lockCellValue(
@@ -23,19 +23,13 @@ interface CellValueSetter {
         value: UByte
     ): Cell
 
-    fun setCellValue(cellUpdate: CellUpdate): Cell =
-        when (cellUpdate) {
-            is CellRemovePotentialValueFromRegionUpdate -> TODO()
-            is CellRemovePotentialValueUpdate -> TODO()
-            is CellUpdateValue -> setCellValue(cellUpdate.cell, cellUpdate.value)
-        }
-
     fun setCellValues(updates: List<CellUpdate>): List<Cell> =
         updates.map {
             when (it) {
                 is CellRemovePotentialValueFromRegionUpdate -> TODO()
                 is CellRemovePotentialValueUpdate -> TODO()
-                is CellUpdateValue -> setCellValue(it.cell, it.value)
+                is CellUpdateValueOriginalValue -> setCellValue(it.cell, CellState(it.value, locked = true))
+                is CellUpdateValue -> TODO()
             }
         }
 

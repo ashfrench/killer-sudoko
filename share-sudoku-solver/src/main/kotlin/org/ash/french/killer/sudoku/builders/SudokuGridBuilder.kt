@@ -1,14 +1,15 @@
 package org.ash.french.killer.sudoku.builders
 
 import org.ash.french.killer.sudoku.domain.CellUpdate
+import org.ash.french.killer.sudoku.domain.CellUpdateValueOriginalValue
 import org.ash.french.killer.sudoku.domain.SudokuGrid
 
 data class SudokuGridBuilder(private var sudokuGrid: SudokuGrid) : SudokuBuilder<SudokuGrid> {
     private var killerSudokuGrid: UByte = 0u
-    private val cellUpdates = mutableListOf<CellUpdate>()
+    private val cellUpdates = mutableListOf<CellUpdateValueOriginalValue>()
 
     override fun build(): SudokuGrid =
-        sudokuGrid.withCellValues(cellUpdates).also {
+        sudokuGrid.withOriginalCellValues(cellUpdates).also {
             println(sudokuGrid)
             println()
         }

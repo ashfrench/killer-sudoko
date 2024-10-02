@@ -3,7 +3,7 @@ package org.ash.french.killer.sudoku.solvers.implementation
 import org.ash.french.killer.sudoku.builders.cellValue
 import org.ash.french.killer.sudoku.builders.cellValues
 import org.ash.french.killer.sudoku.builders.sudokuGrid
-import org.ash.french.killer.sudoku.domain.CellUpdateValue
+import org.ash.french.killer.sudoku.domain.CellUpdateValueOriginalValue
 import org.junit.jupiter.api.Test
 
 class HiddenSingleTest {
@@ -37,7 +37,7 @@ class HiddenSingleTest {
             }.build()
 
         val updates = HiddenSingle().getCellUpdates(grid)
-        val expectedUpdate = CellUpdateValue(x = 2, y = 5, 2)
+        val expectedUpdate = CellUpdateValueOriginalValue(x = 2, y = 5, 2)
     }
 
     @Test
@@ -248,7 +248,7 @@ class HiddenSingleTest {
         println(grid)
         val presetCellValues = grid.getSetCellValues()
         val updates = HiddenSingle().getCellUpdates(grid)
-        val expectedUpdate = CellUpdateValue(x = 4, y = 7, 5)
+        val expectedUpdate = CellUpdateValueOriginalValue(x = 4, y = 7, 5)
     }
 
     @Test
@@ -394,6 +394,6 @@ class HiddenSingleTest {
 
         println(grid)
         val updates = HiddenSingle().getCellUpdates(grid)
-        val expectedUpdate = CellUpdateValue(x = 6, y = 2, 4)
+        val expectedUpdate = CellUpdateValueOriginalValue(x = 6, y = 2, 4)
     }
 }

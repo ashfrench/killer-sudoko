@@ -1,20 +1,20 @@
 package org.ash.french.killer.sudoku.builders
 
 import org.ash.french.killer.sudoku.domain.Cell
-import org.ash.french.killer.sudoku.domain.CellUpdate
-import org.ash.french.killer.sudoku.domain.CellUpdateValue
+import org.ash.french.killer.sudoku.domain.CellState
+import org.ash.french.killer.sudoku.domain.CellUpdateValueOriginalValue
 import org.ash.french.killer.sudoku.domain.SudokuGrid
 
-class SudokuCellValueBuilder(private var sudokuGrid: SudokuGrid) : SudokuBuilder<CellUpdate> {
+class SudokuCellValueBuilder(private var sudokuGrid: SudokuGrid) : SudokuBuilder<CellUpdateValueOriginalValue> {
     var x: Int = 1
     var y: Int = 1
     var value: Int? = null
 
-    override fun build(): CellUpdate {
+    override fun build(): CellUpdateValueOriginalValue {
         val grid = sudokuGrid.copy()
         val cell = Cell(x, y)
-        grid.setCellValue(cell, value?.toUByte())
+        grid.setCellValue(cell, CellState(value?.toUByte(), locked = true))
 
-        return CellUpdateValue(cell, value!!)
+        return CellUpdateValueOriginalValue(cell, value!!)
     }
 }

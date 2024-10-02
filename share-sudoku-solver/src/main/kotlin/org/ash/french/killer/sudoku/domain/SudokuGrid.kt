@@ -23,7 +23,10 @@ data class SudokuGrid(
 
     override fun toString() = SudokuStdPrinter.printSudokuString(this)
 
-    fun withOriginalCellValues(cellUpdates: Collection<CellUpdateValue>): SudokuGrid {
+    fun withOriginalCellValues(cellUpdates: Collection<CellUpdateValueOriginalValue>): SudokuGrid {
+        cellUpdates.forEach {
+            setCellValue(it.cell, CellState(it.value, locked = true))
+        }
         return copy(cellValues = cellValues.toMutableMap())
     }
 
@@ -32,11 +35,13 @@ data class SudokuGrid(
             when (update) {
                 is CellRemovePotentialValueFromRegionUpdate -> TODO()
                 is CellRemovePotentialValueUpdate -> TODO()
-                is CellUpdateValue -> {
+                is CellUpdateValueOriginalValue -> {
                     val cell = update.cell
                     val value = update.value
-                    setCellValue(cell, value)
+                    setCellValue(cell, CellState(value, locked = true))
                 }
+
+                is CellUpdateValue -> TODO()
             }
         }
         return this

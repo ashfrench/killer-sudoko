@@ -1,10 +1,6 @@
 package org.ash.french.killer.sudoku.builders
 
-import org.ash.french.killer.sudoku.domain.Cage
-import org.ash.french.killer.sudoku.domain.Cell
-import org.ash.french.killer.sudoku.domain.CellUpdateValue
-import org.ash.french.killer.sudoku.domain.KillerSudokuGrid
-import org.ash.french.killer.sudoku.domain.SudokuGrid
+import org.ash.french.killer.sudoku.domain.*
 import java.util.UUID
 
 fun sudokuGrid(init: SudokuGrid.() -> Unit): SudokuGridBuilder {
@@ -17,17 +13,15 @@ fun SudokuGrid.cellValue(
     cell: Cell,
     value: UByte?,
 ) {
-    setCellValue(cell, value)
+    setCellValue(cell, CellState(value, locked = true))
 }
 
 fun SudokuGrid.cellValue(init: SudokuCellValueBuilder.() -> Unit) {
     val cellValueBuilder = SudokuCellValueBuilder(this)
     cellValueBuilder.init()
 
-    when (val cellUpdate = cellValueBuilder.build()) {
-        is CellUpdateValue -> cellValue(cellUpdate.cell, cellUpdate.value)
-        else -> throw UnsupportedOperationException("Can only build a grid with set values")
-    }
+    val cellUpdate = cellValueBuilder.build()
+    cellValue(cellUpdate.cell, cellUpdate.value)
 }
 
 fun SudokuGrid.cellValues(init: SudokuCellValuesBuilder.() -> Unit) {
@@ -37,7 +31,7 @@ fun SudokuGrid.cellValues(init: SudokuCellValuesBuilder.() -> Unit) {
     val updates = builder.build()
     updates.forEach {
         when (it) {
-            is CellUpdateValue -> setCellValue(it.cell, it.value)
+            is CellUpdateValueOriginalValue -> setCellValue(it.cell, CellState(it.value, locked = true))
             else -> throw UnsupportedOperationException("Can only build a grid with set values")
         }
     }
@@ -47,14 +41,14 @@ internal fun KillerSudokuGrid.cellValue(
     cell: Cell,
     value: Int?,
 ) {
-    setCellValue(cell, value?.toUByte())
+    setCellValue(cell, CellState(value?.toUByte(), locked = true))
 }
 
 internal fun KillerSudokuGrid.cellValueBuilder(cellValueMap: Map<Cell, UByte?>) {
     cellValueMap
         .filter { (cell, _) -> cell in this }
         .forEach { (cell, value) ->
-            setCellValue(cell, value)
+            setCellValue(cell, CellState(value))
         }
 }
 
