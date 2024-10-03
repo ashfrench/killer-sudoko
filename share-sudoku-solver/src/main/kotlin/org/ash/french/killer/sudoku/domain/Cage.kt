@@ -1,6 +1,8 @@
 package org.ash.french.killer.sudoku.domain
 
 import kotlinx.serialization.Serializable
+import java.math.BigDecimal
+import kotlin.math.max
 
 @Serializable
 data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region {
@@ -12,6 +14,17 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
     }
 
     private fun generatePotentialCageValues(): Set<Set<Int>> {
+        when (cells.size){
+            1 -> setOf(setOf(sum.toInt()))
+            2 -> TODO()
+            3 -> TODO()
+            4 -> TODO()
+            5 -> TODO()
+            6 -> TODO()
+            7 -> TODO()
+            8 -> TODO()
+            9 -> TODO()
+        }
         TODO("Not yet implemented")
     }
 
@@ -31,6 +44,15 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
 
         val rowRange = rowSummaryStatistics.min..rowSummaryStatistics.min
         val colRange = colSummaryStatistics.min..colSummaryStatistics.min
+
+        cells.fold(CellStatistics()) { cellStatics, cell ->
+            cellStatics.copy(
+                min = if (cellStatics.min > cell.x.toInt()) cell.x.toInt() else cellStatics.min,
+                max = if (cellStatics.max < cell.x.toInt()) cell.x.toInt() else cellStatics.max,
+                sum = cellStatics.sum + cell.x.toInt(),
+                count = cellStatics.count.inc(),
+            )
+        }
 
         require(rowRange.count() <= cells.size)
         require(colRange.count() <= cells.size)
@@ -74,3 +96,13 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
         }
     }
 }
+
+data class CellStatistics(
+    val min: Int = Int.MAX_VALUE,
+    val max: Int = Int.MIN_VALUE,
+    val sum: Long = 0,
+    val count: Long = 0,
+){
+    fun getRange(): IntRange = min..max
+}
+
