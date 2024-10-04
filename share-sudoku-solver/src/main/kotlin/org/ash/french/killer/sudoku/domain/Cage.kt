@@ -1,8 +1,6 @@
 package org.ash.french.killer.sudoku.domain
 
 import kotlinx.serialization.Serializable
-import java.math.BigDecimal
-import kotlin.math.max
 
 @Serializable
 data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region {
@@ -14,7 +12,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
     }
 
     private fun generatePotentialCageValues(): Set<Set<Int>> {
-        when (cells.size){
+        when (cells.size) {
             1 -> setOf(setOf(sum.toInt()))
             2 -> TODO()
             3 -> TODO()
@@ -102,7 +100,6 @@ data class CellStatistics(
     val max: Int = Int.MIN_VALUE,
     val sum: Long = 0,
     val count: Long = 0,
-){
+) {
     fun getRange(): IntRange = min..max
 }
-
