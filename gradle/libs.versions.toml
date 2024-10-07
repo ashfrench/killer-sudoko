@@ -1,14 +1,18 @@
 [versions]
 junit = "4.13.2"
 kotlin = "2.0.0"
-kotlinx-coroutines = "1.8.1"
-kotlinx-serialization = "1.7.1"
+kotlinx-coroutines = "1.9.0"
+kotlinx-serialization = "1.7.3"
+klint = "12.1.1"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization"}
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines"}
+# https://mvnrepository.com/artifact/org.jlleitschuh.gradle/ktlint-gradle
+ktlint-gradle = { module = "org.jlleitschuh.gradle:ktlint-gradle", version.ref = "klint" }
 
 [plugins]
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }

@@ -25,12 +25,12 @@ dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
 
     // https://mvnrepository.com/artifact/org.jlleitschuh.gradle/ktlint-gradle
-    implementation("org.jlleitschuh.gradle:ktlint-gradle:12.1.1")
+    implementation(libs.ktlint.gradle)
 
     // https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-coroutines-core
-    runtimeOnly("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
+    runtimeOnly(libs.kotlinx.coroutines.core)
 
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.1")
+    implementation(libs.kotlinx.serialization.json)
 }
 
 
