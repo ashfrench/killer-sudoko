@@ -116,7 +116,7 @@ class LockedCandidatesTest {
                 }
             }.build()
 
-        val updates = LockedCandidates().getCellUpdates(grid)
+        val updates = LockedCandidates.getCellUpdates(grid)
         val expectedUpdate = CellUpdateValueOriginalValue(x = 2, y = 8, 3)
     }
 }

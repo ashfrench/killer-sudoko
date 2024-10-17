@@ -1,9 +1,8 @@
 package org.ash.french.killer.sudoku.solvers.implementation
 
 import org.ash.french.killer.sudoku.domain.SudokuGridInterface
-import org.ash.french.killer.sudoku.solvers.SudokuGridCellUpdate
 
-internal class HiddenTriplet : SudokuGridCellUpdate {
+internal data object HiddenTriplet : SudokuGridCellUpdate {
     override fun getCellUpdates(grid: SudokuGridInterface): List<CellUpdateType> {
         TODO("Not yet implemented")
     }

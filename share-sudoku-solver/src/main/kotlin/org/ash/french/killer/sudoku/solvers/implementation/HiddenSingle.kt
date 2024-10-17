@@ -4,9 +4,8 @@ import org.ash.french.killer.sudoku.domain.Column
 import org.ash.french.killer.sudoku.domain.Nonet
 import org.ash.french.killer.sudoku.domain.Row
 import org.ash.french.killer.sudoku.domain.SudokuGridInterface
-import org.ash.french.killer.sudoku.solvers.SudokuGridCellUpdate
 
-class HiddenSingle : SudokuGridCellUpdate {
+internal data object HiddenSingle : SudokuGridCellUpdate {
     override fun getCellUpdates(grid: SudokuGridInterface): List<CellUpdateType> {
         val updates =
             (1..9)

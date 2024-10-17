@@ -20,3 +20,4 @@ plugins {
 }
 
 include("share-sudoku-solver")
+include("killer-sudoku-compose")

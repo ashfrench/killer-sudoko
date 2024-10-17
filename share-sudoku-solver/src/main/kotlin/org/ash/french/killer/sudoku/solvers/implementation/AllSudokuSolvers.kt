@@ -1,26 +1,25 @@
 package org.ash.french.killer.sudoku.solvers.implementation
 
 import org.ash.french.killer.sudoku.domain.SudokuGridInterface
-import org.ash.french.killer.sudoku.solvers.SudokuGridCellUpdate
 
 private val allSudokuSolvers: List<SudokuGridCellUpdate> =
     listOf(
-        Colouring(),
-        ForcingChain(),
-        HiddenSingle(),
-        HiddenPair(),
-        HiddenTriplet(),
-        HiddenQuad(),
-        LockedCandidates(),
-        NakedSingle(),
-        NakedPair(),
-        NakedTriplet(),
-        NakedQuad(),
-        Nishio(),
-        Swordfish(),
-        XWing(),
-        XYWing(),
-        XYZWing(),
+        Colouring,
+        ForcingChain,
+        HiddenSingle,
+        HiddenPair,
+        HiddenTriplet,
+        HiddenQuad,
+        LockedCandidates,
+        NakedSingle,
+        NakedPair,
+        NakedTriplet,
+        NakedQuad,
+        Nishio,
+        Swordfish,
+        XWing,
+        XYWing,
+        XYZWing,
     )
 
 class AllSudokuSolvers(private val solvers: List<SudokuGridCellUpdate> = allSudokuSolvers) : SudokuGridCellUpdate {

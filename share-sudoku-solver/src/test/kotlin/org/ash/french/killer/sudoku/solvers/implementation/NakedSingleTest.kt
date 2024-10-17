@@ -59,7 +59,7 @@ class NakedSingleTest {
                 }
             }.build()
 
-        val updates = NakedSingle().getCellUpdates(grid)
+        val updates = NakedSingle.getCellUpdates(grid)
         val expectedUpdate = CellUpdateValueOriginalValue(x = 5, y = 2, 3)
     }
 }

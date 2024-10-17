@@ -266,6 +266,6 @@ class XWingTest {
                 }
             }.build()
 
-        val updates = XWing().getCellUpdates(grid)
+        val updates = XWing.getCellUpdates(grid)
     }
 }

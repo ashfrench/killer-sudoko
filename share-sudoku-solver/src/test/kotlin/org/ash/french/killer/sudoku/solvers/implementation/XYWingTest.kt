@@ -212,7 +212,7 @@ class XYWingTest {
                 }
             }.build()
 
-        val updates = XYWing().getCellUpdates(grid)
+        val updates = XYWing.getCellUpdates(grid)
         listOf(
             CellRemovePotentialValueUpdate(6, 4, 3),
             CellRemovePotentialValueUpdate(6, 5, 3),
