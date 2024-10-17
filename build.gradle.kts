@@ -6,15 +6,15 @@ plugins {
     id("org.jlleitschuh.gradle.ktlint") version "12.1.1" apply false
 
     id("org.sonarqube") version "5.1.0.4882"
+
+    alias(libs.plugins.compose.compiler) apply false
 }
 
 group = "org.ash.french"
 version = "0.0.1-SNAPSHOT"
 
 java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
-    }
+    sourceCompatibility = JavaVersion.VERSION_21
 }
 
 repositories {
