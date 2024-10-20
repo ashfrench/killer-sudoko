@@ -9,7 +9,7 @@ fun main() =
     application {
         val defaultGrid = randomDefaultGrid()
         val sudokuGridCard = SudokuGridCard(defaultGrid)
-        Window(onCloseRequest = ::exitApplication) {
+        Window(onCloseRequest = ::exitApplication, title = "Killer Sudoku Solver") {
             sudokuGridCard.composableCard()
         }
     }
