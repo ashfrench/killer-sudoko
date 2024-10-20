@@ -7,7 +7,8 @@ plugins {
 
     id("org.sonarqube") version "5.1.0.4882"
 
-    alias(libs.plugins.compose.compiler) apply false
+    id("org.jetbrains.compose") apply false
+    id("org.jetbrains.kotlin.plugin.compose") apply false
 }
 
 group = "org.ash.french"
@@ -19,6 +20,7 @@ java {
 
 repositories {
     mavenCentral()
+    google()
 }
 
 dependencies {

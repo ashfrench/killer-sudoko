@@ -1,6 +1,9 @@
 plugins {
     kotlin("jvm")
     kotlin("plugin.serialization")
+
+    id("org.jetbrains.compose")
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 group = "org.ash.french"
@@ -16,6 +19,8 @@ dependencies {
     implementation(project(":share-sudoku-solver"))
     implementation(libs.kotlinx.serialization.json)
     testImplementation(kotlin("test"))
+
+    implementation(compose.desktop.currentOs)
 }
 
 tasks.test {
