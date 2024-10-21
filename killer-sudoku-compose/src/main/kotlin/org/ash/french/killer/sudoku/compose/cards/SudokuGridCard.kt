@@ -1,44 +1,37 @@
 package org.ash.french.killer.sudoku.compose.cards
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material.OutlinedButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import org.ash.french.killer.sudoku.domain.Cell
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import org.ash.french.killer.sudoku.domain.SudokuGrid
-import org.ash.french.killer.sudoku.domain.cells
 
-class SudokuGridCard(val sudokuGrid: SudokuGrid) {
-    private val boxPadding = 0.3f
+class SudokuGridCard(private val sudokuGrid: SudokuGrid) {
     @Composable
     fun composableCard() {
-        val rowToCellsMap = cells.groupBy { it.x }
-        rowToCellsMap.entries.map {
-            Column {
-                Row {
-                    sudokuRowComposable(it.value)
-                }
-            }
-            Column {
-                Row {
-                    sudokuRowComposable(it.value)
-                }
+        LazyVerticalGrid(columns = GridCells.Fixed(9), modifier = Modifier.padding(2.dp)) {
+            items(81) { itemIndex ->
+                val x = (itemIndex % 9) + 1
+                val y = (itemIndex / 9) + 1
+
+                cellCard(x, y)
             }
         }
     }
 
     @Composable
-    fun sudokuRowComposable(cells: List<Cell>) {
-        cells.map {
-            cellCard(it)
-        }
-    }
-
-    @Composable
-    fun cellCard(cell: Cell) {
+    fun cellCard(
+        x: Int,
+        y: Int,
+    ) {
         OutlinedButton(onClick = {}) {
-            Text("$cell")
+            val cellState = sudokuGrid.getCellValue(x, y)
+            val value = cellState.value ?: ""
+            Text("$value")
         }
     }
 }
