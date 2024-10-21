@@ -23,19 +23,19 @@ fun main() =
                     TopAppBar(
                         title = {
                             Text("Top app bar")
-                        }
+                        },
                     )
                 },
                 bottomBar = {
-                    BottomAppBar{
+                    BottomAppBar {
                         Text(
                             modifier = Modifier.fillMaxWidth(),
                             textAlign = TextAlign.Center,
                             text = "Bottom app bar",
                         )
                     }
-                }
-            ){ _ ->
+                },
+            ) { _ ->
                 sudokuGridCard.composableCard()
             }
         }
