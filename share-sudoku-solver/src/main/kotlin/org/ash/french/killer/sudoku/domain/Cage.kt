@@ -33,6 +33,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                     17 -> setOf(setOf(8, 9))
                     else -> throw RuntimeException("Invalid Sum $sum for size ${cells.size}")
                 }
+
             3 ->
                 when (sum.toInt()) {
                     6 -> setOf(setOf(1, 2, 3))
@@ -41,13 +42,86 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                     9 -> setOf(setOf(1, 2, 6), setOf(1, 3, 5), setOf(2, 3, 4))
                     10 -> setOf(setOf(1, 2, 7), setOf(1, 3, 6), setOf(1, 4, 5), setOf(2, 3, 5))
                     11 -> setOf(setOf(1, 2, 8), setOf(1, 3, 7), setOf(1, 4, 6), setOf(2, 3, 6), setOf(2, 4, 5))
-                    12 -> setOf(setOf(1, 2, 9), setOf(1, 3, 8), setOf(1, 4, 7), setOf(1, 5, 6), setOf(2, 3, 7), setOf(2, 4, 6), setOf(3, 4, 5))
-                    13 -> setOf(setOf(1, 3, 9), setOf(1, 4, 8), setOf(1, 5, 7), setOf(2, 3, 8), setOf(2, 4, 7), setOf(2, 5, 6), setOf(3, 4, 6))
-                    14 -> setOf(setOf(1, 4, 9), setOf(1, 5, 8), setOf(1, 6, 7), setOf(2, 3, 9), setOf(2, 4, 8), setOf(2, 5, 7), setOf(3, 4, 7), setOf(3, 5, 6))
-                    15 -> setOf(setOf(1, 5, 9), setOf(1, 6, 8), setOf(2, 4, 9), setOf(2, 5, 8), setOf(2, 6, 7), setOf(3, 4, 8), setOf(3, 5, 7), setOf(4, 5, 6))
-                    16 -> setOf(setOf(1, 6, 9), setOf(1, 7, 8), setOf(2, 5, 9), setOf(2, 6, 8), setOf(3, 4, 9), setOf(3, 5, 8), setOf(3, 6, 7), setOf(4, 5, 7))
-                    17 -> setOf(setOf(1, 7, 9), setOf(2, 6, 9), setOf(2, 7, 8), setOf(3, 5, 9), setOf(3, 6, 8), setOf(4, 5, 8), setOf(4, 6, 7))
-                    18 -> setOf(setOf(1, 8, 9), setOf(2, 7, 9), setOf(3, 6, 9), setOf(3, 7, 8), setOf(4, 5, 9), setOf(4, 6, 8), setOf(5, 6, 7))
+                    12 ->
+                        setOf(
+                            setOf(1, 2, 9),
+                            setOf(1, 3, 8),
+                            setOf(1, 4, 7),
+                            setOf(1, 5, 6),
+                            setOf(2, 3, 7),
+                            setOf(2, 4, 6),
+                            setOf(3, 4, 5),
+                        )
+
+                    13 ->
+                        setOf(
+                            setOf(1, 3, 9),
+                            setOf(1, 4, 8),
+                            setOf(1, 5, 7),
+                            setOf(2, 3, 8),
+                            setOf(2, 4, 7),
+                            setOf(2, 5, 6),
+                            setOf(3, 4, 6),
+                        )
+
+                    14 ->
+                        setOf(
+                            setOf(1, 4, 9),
+                            setOf(1, 5, 8),
+                            setOf(1, 6, 7),
+                            setOf(2, 3, 9),
+                            setOf(2, 4, 8),
+                            setOf(2, 5, 7),
+                            setOf(3, 4, 7),
+                            setOf(3, 5, 6),
+                        )
+
+                    15 ->
+                        setOf(
+                            setOf(1, 5, 9),
+                            setOf(1, 6, 8),
+                            setOf(2, 4, 9),
+                            setOf(2, 5, 8),
+                            setOf(2, 6, 7),
+                            setOf(3, 4, 8),
+                            setOf(3, 5, 7),
+                            setOf(4, 5, 6),
+                        )
+
+                    16 ->
+                        setOf(
+                            setOf(1, 6, 9),
+                            setOf(1, 7, 8),
+                            setOf(2, 5, 9),
+                            setOf(2, 6, 8),
+                            setOf(3, 4, 9),
+                            setOf(3, 5, 8),
+                            setOf(3, 6, 7),
+                            setOf(4, 5, 7),
+                        )
+
+                    17 ->
+                        setOf(
+                            setOf(1, 7, 9),
+                            setOf(2, 6, 9),
+                            setOf(2, 7, 8),
+                            setOf(3, 5, 9),
+                            setOf(3, 6, 8),
+                            setOf(4, 5, 8),
+                            setOf(4, 6, 7),
+                        )
+
+                    18 ->
+                        setOf(
+                            setOf(1, 8, 9),
+                            setOf(2, 7, 9),
+                            setOf(3, 6, 9),
+                            setOf(3, 7, 8),
+                            setOf(4, 5, 9),
+                            setOf(4, 6, 8),
+                            setOf(5, 6, 7),
+                        )
+
                     19 -> setOf(setOf(2, 8, 9), setOf(3, 7, 9), setOf(4, 6, 9), setOf(4, 7, 8), setOf(5, 6, 8))
                     20 -> setOf(setOf(3, 8, 9), setOf(4, 7, 9), setOf(5, 6, 9), setOf(5, 7, 8))
                     21 -> setOf(setOf(4, 8, 9), setOf(5, 7, 9), setOf(6, 7, 8))
@@ -56,79 +130,488 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                     24 -> setOf(setOf(7, 8, 9))
                     else -> throw RuntimeException("Invalid Sum $sum for size ${cells.size}")
                 }
+
             4 ->
                 when (sum.toInt()) {
                     10 -> setOf(setOf(1, 2, 3, 4))
                     11 -> setOf(setOf(1, 2, 3, 5))
                     12 -> setOf(setOf(1, 2, 3, 6), setOf(1, 2, 4, 5))
                     13 -> setOf(setOf(1, 2, 3, 7), setOf(1, 2, 4, 6), setOf(1, 3, 4, 5))
-                    14 -> setOf(setOf(1, 2, 3, 8), setOf(1, 2, 4, 7), setOf(1, 2, 5, 6), setOf(1, 3, 4, 6), setOf(2, 3, 4, 5))
-                    15 -> setOf(setOf(1, 2, 3, 9), setOf(1, 2, 4, 8), setOf(1, 2, 5, 7), setOf(1, 3, 4, 7), setOf(1, 3, 5, 6), setOf(2, 3, 4, 6))
-                    16 -> setOf(setOf(1, 2, 4, 9), setOf(1, 2, 5, 8), setOf(1, 2, 6, 7), setOf(1, 3, 4, 8), setOf(1, 3, 5, 7), setOf(1, 4, 5, 6), setOf(2, 3, 4, 7), setOf(2, 3, 5, 6))
-                    17 -> setOf(setOf(1, 2, 5, 9), setOf(1, 2, 6, 8), setOf(1, 3, 4, 9), setOf(1, 3, 5, 8), setOf(1, 3, 6, 7), setOf(1, 4, 5, 7), setOf(2, 3, 4, 8), setOf(2, 3, 5, 7), setOf(2, 4, 5, 6))
-                    18 -> setOf(setOf(1, 2, 6, 9), setOf(1, 2, 7, 8), setOf(1, 3, 5, 9), setOf(1, 3, 6, 8), setOf(1, 4, 5, 8), setOf(1, 4, 6, 7), setOf(2, 3, 4, 9), setOf(2, 3, 5, 8), setOf(2, 3, 6, 7), setOf(2, 4, 5, 7), setOf(3, 4, 5, 6))
-                    19 -> setOf(setOf(1, 2, 7, 9), setOf(1, 3, 6, 9), setOf(1, 3, 7, 8), setOf(1, 4, 5, 9), setOf(1, 4, 6, 8), setOf(1, 5, 6, 7), setOf(2, 3, 5, 9), setOf(2, 3, 6, 8), setOf(2, 4, 5, 8), setOf(2, 4, 6, 7), setOf(3, 4, 5, 7))
-                    20 -> setOf(setOf(1, 2, 8, 9), setOf(1, 3, 7, 9), setOf(1, 4, 6, 9), setOf(1, 4, 7, 8), setOf(1, 5, 6, 8), setOf(2, 3, 6, 9), setOf(2, 3, 7, 8), setOf(2, 4, 5, 9), setOf(2, 4, 6, 8), setOf(2, 5, 6, 7), setOf(3, 4, 5, 8), setOf(3, 4, 6, 7))
-                    21 -> setOf(setOf(1, 3, 8, 9), setOf(1, 4, 7, 9), setOf(1, 5, 6, 9), setOf(1, 5, 7, 8), setOf(2, 3, 7, 9), setOf(2, 4, 6, 9), setOf(2, 4, 7, 8), setOf(2, 5, 6, 8), setOf(3, 4, 5, 9), setOf(3, 4, 6, 8), setOf(3, 5, 6, 7))
-                    22 -> setOf(setOf(1, 4, 8, 9), setOf(1, 5, 7, 9), setOf(1, 6, 7, 8), setOf(2, 3, 8, 9), setOf(2, 4, 7, 9), setOf(2, 5, 6, 9), setOf(2, 5, 7, 8), setOf(3, 4, 6, 9), setOf(3, 4, 7, 8), setOf(3, 5, 6, 8), setOf(4, 5, 6, 7))
-                    23 -> setOf(setOf(1, 5, 8, 9), setOf(1, 6, 7, 9), setOf(2, 4, 8, 9), setOf(2, 5, 7, 9), setOf(2, 6, 7, 8), setOf(3, 4, 7, 9), setOf(3, 5, 6, 9), setOf(3, 5, 7, 8), setOf(4, 5, 6, 8))
-                    24 -> setOf(setOf(1, 6, 8, 9), setOf(2, 5, 8, 9), setOf(2, 6, 7, 9), setOf(3, 4, 8, 9), setOf(3, 5, 7, 9), setOf(3, 6, 7, 8), setOf(4, 5, 6, 9), setOf(4, 5, 7, 8))
-                    25 -> setOf(setOf(1, 7, 8, 9), setOf(2, 6, 8, 9), setOf(3, 5, 8, 9), setOf(3, 6, 7, 9), setOf(4, 5, 7, 9), setOf(4, 6, 7, 8))
-                    26 -> setOf(setOf(2, 7, 8, 9), setOf(3, 6, 8, 9), setOf(4, 5, 8, 9), setOf(4, 6, 7, 9), setOf(5, 6, 7, 8))
+                    14 ->
+                        setOf(
+                            setOf(1, 2, 3, 8),
+                            setOf(1, 2, 4, 7),
+                            setOf(1, 2, 5, 6),
+                            setOf(1, 3, 4, 6),
+                            setOf(2, 3, 4, 5),
+                        )
+
+                    15 ->
+                        setOf(
+                            setOf(1, 2, 3, 9),
+                            setOf(1, 2, 4, 8),
+                            setOf(1, 2, 5, 7),
+                            setOf(1, 3, 4, 7),
+                            setOf(1, 3, 5, 6),
+                            setOf(2, 3, 4, 6),
+                        )
+
+                    16 ->
+                        setOf(
+                            setOf(1, 2, 4, 9),
+                            setOf(1, 2, 5, 8),
+                            setOf(1, 2, 6, 7),
+                            setOf(1, 3, 4, 8),
+                            setOf(1, 3, 5, 7),
+                            setOf(1, 4, 5, 6),
+                            setOf(2, 3, 4, 7),
+                            setOf(2, 3, 5, 6),
+                        )
+
+                    17 ->
+                        setOf(
+                            setOf(1, 2, 5, 9),
+                            setOf(1, 2, 6, 8),
+                            setOf(1, 3, 4, 9),
+                            setOf(1, 3, 5, 8),
+                            setOf(1, 3, 6, 7),
+                            setOf(1, 4, 5, 7),
+                            setOf(2, 3, 4, 8),
+                            setOf(2, 3, 5, 7),
+                            setOf(2, 4, 5, 6),
+                        )
+
+                    18 ->
+                        setOf(
+                            setOf(1, 2, 6, 9),
+                            setOf(1, 2, 7, 8),
+                            setOf(1, 3, 5, 9),
+                            setOf(1, 3, 6, 8),
+                            setOf(1, 4, 5, 8),
+                            setOf(1, 4, 6, 7),
+                            setOf(2, 3, 4, 9),
+                            setOf(2, 3, 5, 8),
+                            setOf(2, 3, 6, 7),
+                            setOf(2, 4, 5, 7),
+                            setOf(3, 4, 5, 6),
+                        )
+
+                    19 ->
+                        setOf(
+                            setOf(1, 2, 7, 9),
+                            setOf(1, 3, 6, 9),
+                            setOf(1, 3, 7, 8),
+                            setOf(1, 4, 5, 9),
+                            setOf(1, 4, 6, 8),
+                            setOf(1, 5, 6, 7),
+                            setOf(2, 3, 5, 9),
+                            setOf(2, 3, 6, 8),
+                            setOf(2, 4, 5, 8),
+                            setOf(2, 4, 6, 7),
+                            setOf(3, 4, 5, 7),
+                        )
+
+                    20 ->
+                        setOf(
+                            setOf(1, 2, 8, 9),
+                            setOf(1, 3, 7, 9),
+                            setOf(1, 4, 6, 9),
+                            setOf(1, 4, 7, 8),
+                            setOf(1, 5, 6, 8),
+                            setOf(2, 3, 6, 9),
+                            setOf(2, 3, 7, 8),
+                            setOf(2, 4, 5, 9),
+                            setOf(2, 4, 6, 8),
+                            setOf(2, 5, 6, 7),
+                            setOf(3, 4, 5, 8),
+                            setOf(3, 4, 6, 7),
+                        )
+
+                    21 ->
+                        setOf(
+                            setOf(1, 3, 8, 9),
+                            setOf(1, 4, 7, 9),
+                            setOf(1, 5, 6, 9),
+                            setOf(1, 5, 7, 8),
+                            setOf(2, 3, 7, 9),
+                            setOf(2, 4, 6, 9),
+                            setOf(2, 4, 7, 8),
+                            setOf(2, 5, 6, 8),
+                            setOf(3, 4, 5, 9),
+                            setOf(3, 4, 6, 8),
+                            setOf(3, 5, 6, 7),
+                        )
+
+                    22 ->
+                        setOf(
+                            setOf(1, 4, 8, 9),
+                            setOf(1, 5, 7, 9),
+                            setOf(1, 6, 7, 8),
+                            setOf(2, 3, 8, 9),
+                            setOf(2, 4, 7, 9),
+                            setOf(2, 5, 6, 9),
+                            setOf(2, 5, 7, 8),
+                            setOf(3, 4, 6, 9),
+                            setOf(3, 4, 7, 8),
+                            setOf(3, 5, 6, 8),
+                            setOf(4, 5, 6, 7),
+                        )
+
+                    23 ->
+                        setOf(
+                            setOf(1, 5, 8, 9),
+                            setOf(1, 6, 7, 9),
+                            setOf(2, 4, 8, 9),
+                            setOf(2, 5, 7, 9),
+                            setOf(2, 6, 7, 8),
+                            setOf(3, 4, 7, 9),
+                            setOf(3, 5, 6, 9),
+                            setOf(3, 5, 7, 8),
+                            setOf(4, 5, 6, 8),
+                        )
+
+                    24 ->
+                        setOf(
+                            setOf(1, 6, 8, 9),
+                            setOf(2, 5, 8, 9),
+                            setOf(2, 6, 7, 9),
+                            setOf(3, 4, 8, 9),
+                            setOf(3, 5, 7, 9),
+                            setOf(3, 6, 7, 8),
+                            setOf(4, 5, 6, 9),
+                            setOf(4, 5, 7, 8),
+                        )
+
+                    25 ->
+                        setOf(
+                            setOf(1, 7, 8, 9),
+                            setOf(2, 6, 8, 9),
+                            setOf(3, 5, 8, 9),
+                            setOf(3, 6, 7, 9),
+                            setOf(4, 5, 7, 9),
+                            setOf(4, 6, 7, 8),
+                        )
+
+                    26 ->
+                        setOf(
+                            setOf(2, 7, 8, 9),
+                            setOf(3, 6, 8, 9),
+                            setOf(4, 5, 8, 9),
+                            setOf(4, 6, 7, 9),
+                            setOf(5, 6, 7, 8),
+                        )
+
                     27 -> setOf(setOf(3, 7, 8, 9), setOf(4, 6, 8, 9), setOf(5, 6, 7, 9))
                     28 -> setOf(setOf(4, 7, 8, 9), setOf(5, 6, 8, 9))
                     29 -> setOf(setOf(5, 7, 8, 9))
                     30 -> setOf(setOf(6, 7, 8, 9))
                     else -> throw RuntimeException("Invalid Sum $sum for size ${cells.size}")
                 }
+
             5 ->
                 when (sum.toInt()) {
                     15 -> setOf(setOf(1, 2, 3, 4, 5))
                     16 -> setOf(setOf(1, 2, 3, 4, 6))
                     17 -> setOf(setOf(1, 2, 3, 4, 7), setOf(1, 2, 3, 5, 6))
                     18 -> setOf(setOf(1, 2, 3, 4, 8), setOf(1, 2, 3, 5, 7), setOf(1, 2, 4, 5, 6))
-                    19 -> setOf(setOf(1, 2, 3, 4, 9), setOf(1, 2, 3, 5, 8), setOf(1, 2, 3, 6, 7), setOf(1, 2, 4, 5, 7), setOf(1, 3, 4, 5, 6))
-                    20 -> setOf(setOf(1, 2, 3, 5, 9), setOf(1, 2, 3, 6, 8), setOf(1, 2, 4, 5, 8), setOf(1, 2, 4, 6, 7), setOf(1, 3, 4, 5, 7), setOf(2, 3, 4, 5, 6))
-                    21 -> setOf(setOf(1, 2, 3, 6, 9), setOf(1, 2, 3, 7, 8), setOf(1, 2, 4, 5, 9), setOf(1, 2, 4, 6, 8), setOf(1, 2, 5, 6, 7), setOf(1, 3, 4, 5, 8), setOf(1, 3, 4, 6, 7), setOf(2, 3, 4, 5, 7))
-                    22 -> setOf(setOf(1, 2, 3, 7, 9), setOf(1, 2, 4, 6, 9), setOf(1, 2, 4, 7, 8), setOf(1, 2, 5, 6, 8), setOf(1, 3, 4, 5, 9), setOf(1, 3, 4, 6, 8), setOf(1, 3, 5, 6, 7), setOf(2, 3, 4, 5, 8), setOf(2, 3, 4, 6, 7))
-                    23 -> setOf(setOf(1, 2, 3, 8, 9), setOf(1, 2, 4, 7, 9), setOf(1, 2, 5, 6, 9), setOf(1, 2, 5, 7, 8), setOf(1, 3, 4, 6, 9), setOf(1, 3, 4, 7, 8), setOf(1, 3, 5, 6, 8), setOf(1, 4, 5, 6, 7), setOf(2, 3, 4, 5, 9), setOf(2, 3, 4, 6, 8), setOf(2, 3, 5, 6, 7))
-                    24 -> setOf(setOf(1, 2, 4, 8, 9), setOf(1, 2, 5, 7, 9), setOf(1, 2, 6, 7, 8), setOf(1, 3, 4, 7, 9), setOf(1, 3, 5, 6, 9), setOf(1, 3, 5, 7, 8), setOf(1, 4, 5, 6, 8), setOf(2, 3, 4, 6, 9), setOf(2, 3, 4, 7, 8), setOf(2, 3, 5, 6, 8), setOf(2, 4, 5, 6, 7))
-                    25 -> setOf(setOf(1, 2, 5, 8, 9), setOf(1, 2, 6, 7, 9), setOf(1, 3, 4, 8, 9), setOf(1, 3, 5, 7, 9), setOf(1, 3, 6, 7, 8), setOf(1, 4, 5, 6, 9), setOf(1, 4, 5, 7, 8), setOf(2, 3, 4, 7, 9), setOf(2, 3, 5, 6, 9), setOf(2, 3, 5, 7, 8), setOf(2, 4, 5, 6, 8), setOf(3, 4, 5, 6, 7))
-                    26 -> setOf(setOf(1, 2, 6, 8, 9), setOf(1, 3, 5, 8, 9), setOf(1, 3, 6, 7, 9), setOf(1, 4, 5, 7, 9), setOf(1, 4, 6, 7, 8), setOf(2, 3, 4, 8, 9), setOf(2, 3, 5, 7, 9), setOf(2, 3, 6, 7, 8), setOf(2, 4, 5, 6, 9), setOf(2, 4, 5, 7, 8), setOf(3, 4, 5, 6, 8))
-                    27 -> setOf(setOf(1, 2, 7, 8, 9), setOf(1, 3, 6, 8, 9), setOf(1, 4, 5, 8, 9), setOf(1, 4, 6, 7, 9), setOf(1, 5, 6, 7, 8), setOf(2, 3, 5, 8, 9), setOf(2, 3, 6, 7, 9), setOf(2, 4, 5, 7, 9), setOf(2, 4, 6, 7, 8), setOf(3, 4, 5, 6, 9), setOf(3, 4, 5, 7, 8))
-                    28 -> setOf(setOf(1, 3, 7, 8, 9), setOf(1, 4, 6, 8, 9), setOf(1, 5, 6, 7, 9), setOf(2, 3, 6, 8, 9), setOf(2, 4, 5, 8, 9), setOf(2, 4, 6, 7, 9), setOf(2, 5, 6, 7, 8), setOf(3, 4, 5, 7, 9), setOf(3, 4, 6, 7, 8))
-                    29 -> setOf(setOf(1, 4, 7, 8, 9), setOf(1, 5, 6, 8, 9), setOf(2, 3, 7, 8, 9), setOf(2, 4, 6, 8, 9), setOf(2, 5, 6, 7, 9), setOf(3, 4, 5, 8, 9), setOf(3, 4, 6, 7, 9), setOf(3, 5, 6, 7, 8))
-                    30 -> setOf(setOf(1, 5, 7, 8, 9), setOf(2, 4, 7, 8, 9), setOf(2, 5, 6, 8, 9), setOf(3, 4, 6, 8, 9), setOf(3, 5, 6, 7, 9), setOf(4, 5, 6, 7, 8))
-                    31 -> setOf(setOf(1, 6, 7, 8, 9), setOf(2, 5, 7, 8, 9), setOf(3, 4, 7, 8, 9), setOf(3, 5, 6, 8, 9), setOf(4, 5, 6, 7, 9))
+                    19 ->
+                        setOf(
+                            setOf(1, 2, 3, 4, 9),
+                            setOf(1, 2, 3, 5, 8),
+                            setOf(1, 2, 3, 6, 7),
+                            setOf(1, 2, 4, 5, 7),
+                            setOf(1, 3, 4, 5, 6),
+                        )
+
+                    20 ->
+                        setOf(
+                            setOf(1, 2, 3, 5, 9),
+                            setOf(1, 2, 3, 6, 8),
+                            setOf(1, 2, 4, 5, 8),
+                            setOf(1, 2, 4, 6, 7),
+                            setOf(1, 3, 4, 5, 7),
+                            setOf(2, 3, 4, 5, 6),
+                        )
+
+                    21 ->
+                        setOf(
+                            setOf(1, 2, 3, 6, 9),
+                            setOf(1, 2, 3, 7, 8),
+                            setOf(1, 2, 4, 5, 9),
+                            setOf(1, 2, 4, 6, 8),
+                            setOf(1, 2, 5, 6, 7),
+                            setOf(1, 3, 4, 5, 8),
+                            setOf(1, 3, 4, 6, 7),
+                            setOf(2, 3, 4, 5, 7),
+                        )
+
+                    22 ->
+                        setOf(
+                            setOf(1, 2, 3, 7, 9),
+                            setOf(1, 2, 4, 6, 9),
+                            setOf(1, 2, 4, 7, 8),
+                            setOf(1, 2, 5, 6, 8),
+                            setOf(1, 3, 4, 5, 9),
+                            setOf(1, 3, 4, 6, 8),
+                            setOf(1, 3, 5, 6, 7),
+                            setOf(2, 3, 4, 5, 8),
+                            setOf(2, 3, 4, 6, 7),
+                        )
+
+                    23 ->
+                        setOf(
+                            setOf(1, 2, 3, 8, 9),
+                            setOf(1, 2, 4, 7, 9),
+                            setOf(1, 2, 5, 6, 9),
+                            setOf(1, 2, 5, 7, 8),
+                            setOf(1, 3, 4, 6, 9),
+                            setOf(1, 3, 4, 7, 8),
+                            setOf(1, 3, 5, 6, 8),
+                            setOf(1, 4, 5, 6, 7),
+                            setOf(2, 3, 4, 5, 9),
+                            setOf(2, 3, 4, 6, 8),
+                            setOf(2, 3, 5, 6, 7),
+                        )
+
+                    24 ->
+                        setOf(
+                            setOf(1, 2, 4, 8, 9),
+                            setOf(1, 2, 5, 7, 9),
+                            setOf(1, 2, 6, 7, 8),
+                            setOf(1, 3, 4, 7, 9),
+                            setOf(1, 3, 5, 6, 9),
+                            setOf(1, 3, 5, 7, 8),
+                            setOf(1, 4, 5, 6, 8),
+                            setOf(2, 3, 4, 6, 9),
+                            setOf(2, 3, 4, 7, 8),
+                            setOf(2, 3, 5, 6, 8),
+                            setOf(2, 4, 5, 6, 7),
+                        )
+
+                    25 ->
+                        setOf(
+                            setOf(1, 2, 5, 8, 9),
+                            setOf(1, 2, 6, 7, 9),
+                            setOf(1, 3, 4, 8, 9),
+                            setOf(1, 3, 5, 7, 9),
+                            setOf(1, 3, 6, 7, 8),
+                            setOf(1, 4, 5, 6, 9),
+                            setOf(1, 4, 5, 7, 8),
+                            setOf(2, 3, 4, 7, 9),
+                            setOf(2, 3, 5, 6, 9),
+                            setOf(2, 3, 5, 7, 8),
+                            setOf(2, 4, 5, 6, 8),
+                            setOf(3, 4, 5, 6, 7),
+                        )
+
+                    26 ->
+                        setOf(
+                            setOf(1, 2, 6, 8, 9),
+                            setOf(1, 3, 5, 8, 9),
+                            setOf(1, 3, 6, 7, 9),
+                            setOf(1, 4, 5, 7, 9),
+                            setOf(1, 4, 6, 7, 8),
+                            setOf(2, 3, 4, 8, 9),
+                            setOf(2, 3, 5, 7, 9),
+                            setOf(2, 3, 6, 7, 8),
+                            setOf(2, 4, 5, 6, 9),
+                            setOf(2, 4, 5, 7, 8),
+                            setOf(3, 4, 5, 6, 8),
+                        )
+
+                    27 ->
+                        setOf(
+                            setOf(1, 2, 7, 8, 9),
+                            setOf(1, 3, 6, 8, 9),
+                            setOf(1, 4, 5, 8, 9),
+                            setOf(1, 4, 6, 7, 9),
+                            setOf(1, 5, 6, 7, 8),
+                            setOf(2, 3, 5, 8, 9),
+                            setOf(2, 3, 6, 7, 9),
+                            setOf(2, 4, 5, 7, 9),
+                            setOf(2, 4, 6, 7, 8),
+                            setOf(3, 4, 5, 6, 9),
+                            setOf(3, 4, 5, 7, 8),
+                        )
+
+                    28 ->
+                        setOf(
+                            setOf(1, 3, 7, 8, 9),
+                            setOf(1, 4, 6, 8, 9),
+                            setOf(1, 5, 6, 7, 9),
+                            setOf(2, 3, 6, 8, 9),
+                            setOf(2, 4, 5, 8, 9),
+                            setOf(2, 4, 6, 7, 9),
+                            setOf(2, 5, 6, 7, 8),
+                            setOf(3, 4, 5, 7, 9),
+                            setOf(3, 4, 6, 7, 8),
+                        )
+
+                    29 ->
+                        setOf(
+                            setOf(1, 4, 7, 8, 9),
+                            setOf(1, 5, 6, 8, 9),
+                            setOf(2, 3, 7, 8, 9),
+                            setOf(2, 4, 6, 8, 9),
+                            setOf(2, 5, 6, 7, 9),
+                            setOf(3, 4, 5, 8, 9),
+                            setOf(3, 4, 6, 7, 9),
+                            setOf(3, 5, 6, 7, 8),
+                        )
+
+                    30 ->
+                        setOf(
+                            setOf(1, 5, 7, 8, 9),
+                            setOf(2, 4, 7, 8, 9),
+                            setOf(2, 5, 6, 8, 9),
+                            setOf(3, 4, 6, 8, 9),
+                            setOf(3, 5, 6, 7, 9),
+                            setOf(4, 5, 6, 7, 8),
+                        )
+
+                    31 ->
+                        setOf(
+                            setOf(1, 6, 7, 8, 9),
+                            setOf(2, 5, 7, 8, 9),
+                            setOf(3, 4, 7, 8, 9),
+                            setOf(3, 5, 6, 8, 9),
+                            setOf(4, 5, 6, 7, 9),
+                        )
+
                     32 -> setOf(setOf(2, 6, 7, 8, 9), setOf(3, 5, 7, 8, 9), setOf(4, 5, 6, 8, 9))
                     33 -> setOf(setOf(3, 6, 7, 8, 9), setOf(4, 5, 7, 8, 9))
                     34 -> setOf(setOf(4, 6, 7, 8, 9))
                     35 -> setOf(setOf(5, 6, 7, 8, 9))
                     else -> throw RuntimeException("Invalid Sum $sum for size ${cells.size}")
                 }
+
             6 ->
                 when (sum.toInt()) {
                     21 -> setOf(setOf(1, 2, 3, 4, 5, 6))
                     22 -> setOf(setOf(1, 2, 3, 4, 5, 7))
                     23 -> setOf(setOf(1, 2, 3, 4, 5, 8), setOf(1, 2, 3, 4, 6, 7))
                     24 -> setOf(setOf(1, 2, 3, 4, 5, 9), setOf(1, 2, 3, 4, 6, 8), setOf(1, 2, 3, 5, 6, 7))
-                    25 -> setOf(setOf(1, 2, 3, 4, 6, 9), setOf(1, 2, 3, 4, 7, 8), setOf(1, 2, 3, 5, 6, 8), setOf(1, 2, 4, 5, 6, 7))
-                    26 -> setOf(setOf(1, 2, 3, 4, 7, 9), setOf(1, 2, 3, 5, 6, 9), setOf(1, 2, 3, 5, 7, 8), setOf(1, 2, 4, 5, 6, 8), setOf(1, 3, 4, 5, 6, 7))
-                    27 -> setOf(setOf(1, 2, 3, 4, 8, 9), setOf(1, 2, 3, 5, 7, 9), setOf(1, 2, 3, 6, 7, 8), setOf(1, 2, 4, 5, 6, 9), setOf(1, 2, 4, 5, 7, 8), setOf(1, 3, 4, 5, 6, 8), setOf(2, 3, 4, 5, 6, 7))
-                    28 -> setOf(setOf(1, 2, 3, 5, 8, 9), setOf(1, 2, 3, 6, 7, 9), setOf(1, 2, 4, 5, 7, 9), setOf(1, 2, 4, 6, 7, 8), setOf(1, 3, 4, 5, 6, 9), setOf(1, 3, 4, 5, 7, 8), setOf(2, 3, 4, 5, 6, 8))
-                    29 -> setOf(setOf(1, 2, 3, 6, 8, 9), setOf(1, 2, 4, 5, 8, 9), setOf(1, 2, 4, 6, 7, 9), setOf(1, 2, 5, 6, 7, 8), setOf(1, 3, 4, 5, 7, 9), setOf(1, 3, 4, 6, 7, 8), setOf(2, 3, 4, 5, 6, 9), setOf(2, 3, 4, 5, 7, 8))
-                    30 -> setOf(setOf(1, 2, 3, 7, 8, 9), setOf(1, 2, 4, 6, 8, 9), setOf(1, 2, 5, 6, 7, 9), setOf(1, 3, 4, 5, 8, 9), setOf(1, 3, 4, 6, 7, 9), setOf(1, 3, 5, 6, 7, 8), setOf(2, 3, 4, 5, 7, 9), setOf(2, 3, 4, 6, 7, 8))
-                    31 -> setOf(setOf(1, 2, 4, 7, 8, 9), setOf(1, 2, 5, 6, 8, 9), setOf(1, 3, 4, 6, 8, 9), setOf(1, 3, 5, 6, 7, 9), setOf(1, 4, 5, 6, 7, 8), setOf(2, 3, 4, 5, 8, 9), setOf(2, 3, 4, 6, 7, 9), setOf(2, 3, 5, 6, 7, 8))
-                    32 -> setOf(setOf(1, 2, 5, 7, 8, 9), setOf(1, 3, 4, 7, 8, 9), setOf(1, 3, 5, 6, 8, 9), setOf(1, 4, 5, 6, 7, 9), setOf(2, 3, 4, 6, 8, 9), setOf(2, 3, 5, 6, 7, 9), setOf(2, 4, 5, 6, 7, 8))
-                    33 -> setOf(setOf(1, 2, 6, 7, 8, 9), setOf(1, 3, 5, 7, 8, 9), setOf(1, 4, 5, 6, 8, 9), setOf(2, 3, 4, 7, 8, 9), setOf(2, 3, 5, 6, 8, 9), setOf(2, 4, 5, 6, 7, 9), setOf(3, 4, 5, 6, 7, 8))
-                    34 -> setOf(setOf(1, 3, 6, 7, 8, 9), setOf(1, 4, 5, 7, 8, 9), setOf(2, 3, 5, 7, 8, 9), setOf(2, 4, 5, 6, 8, 9), setOf(3, 4, 5, 6, 7, 9))
-                    35 -> setOf(setOf(1, 4, 6, 7, 8, 9), setOf(2, 3, 6, 7, 8, 9), setOf(2, 4, 5, 7, 8, 9), setOf(3, 4, 5, 6, 8, 9))
+                    25 ->
+                        setOf(
+                            setOf(1, 2, 3, 4, 6, 9),
+                            setOf(1, 2, 3, 4, 7, 8),
+                            setOf(1, 2, 3, 5, 6, 8),
+                            setOf(1, 2, 4, 5, 6, 7),
+                        )
+
+                    26 ->
+                        setOf(
+                            setOf(1, 2, 3, 4, 7, 9),
+                            setOf(1, 2, 3, 5, 6, 9),
+                            setOf(1, 2, 3, 5, 7, 8),
+                            setOf(1, 2, 4, 5, 6, 8),
+                            setOf(1, 3, 4, 5, 6, 7),
+                        )
+
+                    27 ->
+                        setOf(
+                            setOf(1, 2, 3, 4, 8, 9),
+                            setOf(1, 2, 3, 5, 7, 9),
+                            setOf(1, 2, 3, 6, 7, 8),
+                            setOf(1, 2, 4, 5, 6, 9),
+                            setOf(1, 2, 4, 5, 7, 8),
+                            setOf(1, 3, 4, 5, 6, 8),
+                            setOf(2, 3, 4, 5, 6, 7),
+                        )
+
+                    28 ->
+                        setOf(
+                            setOf(1, 2, 3, 5, 8, 9),
+                            setOf(1, 2, 3, 6, 7, 9),
+                            setOf(1, 2, 4, 5, 7, 9),
+                            setOf(1, 2, 4, 6, 7, 8),
+                            setOf(1, 3, 4, 5, 6, 9),
+                            setOf(1, 3, 4, 5, 7, 8),
+                            setOf(2, 3, 4, 5, 6, 8),
+                        )
+
+                    29 ->
+                        setOf(
+                            setOf(1, 2, 3, 6, 8, 9),
+                            setOf(1, 2, 4, 5, 8, 9),
+                            setOf(1, 2, 4, 6, 7, 9),
+                            setOf(1, 2, 5, 6, 7, 8),
+                            setOf(1, 3, 4, 5, 7, 9),
+                            setOf(1, 3, 4, 6, 7, 8),
+                            setOf(2, 3, 4, 5, 6, 9),
+                            setOf(2, 3, 4, 5, 7, 8),
+                        )
+
+                    30 ->
+                        setOf(
+                            setOf(1, 2, 3, 7, 8, 9),
+                            setOf(1, 2, 4, 6, 8, 9),
+                            setOf(1, 2, 5, 6, 7, 9),
+                            setOf(1, 3, 4, 5, 8, 9),
+                            setOf(1, 3, 4, 6, 7, 9),
+                            setOf(1, 3, 5, 6, 7, 8),
+                            setOf(2, 3, 4, 5, 7, 9),
+                            setOf(2, 3, 4, 6, 7, 8),
+                        )
+
+                    31 ->
+                        setOf(
+                            setOf(1, 2, 4, 7, 8, 9),
+                            setOf(1, 2, 5, 6, 8, 9),
+                            setOf(1, 3, 4, 6, 8, 9),
+                            setOf(1, 3, 5, 6, 7, 9),
+                            setOf(1, 4, 5, 6, 7, 8),
+                            setOf(2, 3, 4, 5, 8, 9),
+                            setOf(2, 3, 4, 6, 7, 9),
+                            setOf(2, 3, 5, 6, 7, 8),
+                        )
+
+                    32 ->
+                        setOf(
+                            setOf(1, 2, 5, 7, 8, 9),
+                            setOf(1, 3, 4, 7, 8, 9),
+                            setOf(1, 3, 5, 6, 8, 9),
+                            setOf(1, 4, 5, 6, 7, 9),
+                            setOf(2, 3, 4, 6, 8, 9),
+                            setOf(2, 3, 5, 6, 7, 9),
+                            setOf(2, 4, 5, 6, 7, 8),
+                        )
+
+                    33 ->
+                        setOf(
+                            setOf(1, 2, 6, 7, 8, 9),
+                            setOf(1, 3, 5, 7, 8, 9),
+                            setOf(1, 4, 5, 6, 8, 9),
+                            setOf(2, 3, 4, 7, 8, 9),
+                            setOf(2, 3, 5, 6, 8, 9),
+                            setOf(2, 4, 5, 6, 7, 9),
+                            setOf(3, 4, 5, 6, 7, 8),
+                        )
+
+                    34 ->
+                        setOf(
+                            setOf(1, 3, 6, 7, 8, 9),
+                            setOf(1, 4, 5, 7, 8, 9),
+                            setOf(2, 3, 5, 7, 8, 9),
+                            setOf(2, 4, 5, 6, 8, 9),
+                            setOf(3, 4, 5, 6, 7, 9),
+                        )
+
+                    35 ->
+                        setOf(
+                            setOf(1, 4, 6, 7, 8, 9),
+                            setOf(2, 3, 6, 7, 8, 9),
+                            setOf(2, 4, 5, 7, 8, 9),
+                            setOf(3, 4, 5, 6, 8, 9),
+                        )
+
                     36 -> setOf(setOf(1, 5, 6, 7, 8, 9), setOf(2, 4, 6, 7, 8, 9), setOf(3, 4, 5, 7, 8, 9))
                     37 -> setOf(setOf(2, 5, 6, 7, 8, 9), setOf(3, 4, 6, 7, 8, 9))
                     38 -> setOf(setOf(3, 5, 6, 7, 8, 9))
                     39 -> setOf(setOf(4, 5, 6, 7, 8, 9))
                     else -> throw RuntimeException("Invalid Sum $sum for size ${cells.size}")
                 }
+
             7 ->
                 when (sum.toInt()) {
                     28 -> setOf(setOf(1, 2, 3, 4, 5, 6, 7))
@@ -137,9 +620,30 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                     31 -> setOf(setOf(1, 2, 3, 4, 5, 7, 9), setOf(1, 2, 3, 4, 6, 7, 8))
                     32 -> setOf(setOf(1, 2, 3, 4, 5, 8, 9), setOf(1, 2, 3, 4, 6, 7, 9), setOf(1, 2, 3, 5, 6, 7, 8))
                     33 -> setOf(setOf(1, 2, 3, 4, 6, 8, 9), setOf(1, 2, 3, 5, 6, 7, 9), setOf(1, 2, 4, 5, 6, 7, 8))
-                    34 -> setOf(setOf(1, 2, 3, 4, 7, 8, 9), setOf(1, 2, 3, 5, 6, 8, 9), setOf(1, 2, 4, 5, 6, 7, 9), setOf(1, 3, 4, 5, 6, 7, 8))
-                    35 -> setOf(setOf(1, 2, 3, 5, 7, 8, 9), setOf(1, 2, 4, 5, 6, 8, 9), setOf(1, 3, 4, 5, 6, 7, 9), setOf(2, 3, 4, 5, 6, 7, 8))
-                    36 -> setOf(setOf(1, 2, 3, 6, 7, 8, 9), setOf(1, 2, 4, 5, 7, 8, 9), setOf(1, 3, 4, 5, 6, 8, 9), setOf(2, 3, 4, 5, 6, 7, 9))
+                    34 ->
+                        setOf(
+                            setOf(1, 2, 3, 4, 7, 8, 9),
+                            setOf(1, 2, 3, 5, 6, 8, 9),
+                            setOf(1, 2, 4, 5, 6, 7, 9),
+                            setOf(1, 3, 4, 5, 6, 7, 8),
+                        )
+
+                    35 ->
+                        setOf(
+                            setOf(1, 2, 3, 5, 7, 8, 9),
+                            setOf(1, 2, 4, 5, 6, 8, 9),
+                            setOf(1, 3, 4, 5, 6, 7, 9),
+                            setOf(2, 3, 4, 5, 6, 7, 8),
+                        )
+
+                    36 ->
+                        setOf(
+                            setOf(1, 2, 3, 6, 7, 8, 9),
+                            setOf(1, 2, 4, 5, 7, 8, 9),
+                            setOf(1, 3, 4, 5, 6, 8, 9),
+                            setOf(2, 3, 4, 5, 6, 7, 9),
+                        )
+
                     37 -> setOf(setOf(1, 2, 4, 6, 7, 8, 9), setOf(1, 3, 4, 5, 7, 8, 9), setOf(2, 3, 4, 5, 6, 8, 9))
                     38 -> setOf(setOf(1, 2, 5, 6, 7, 8, 9), setOf(1, 3, 4, 6, 7, 8, 9), setOf(2, 3, 4, 5, 7, 8, 9))
                     39 -> setOf(setOf(1, 3, 5, 6, 7, 8, 9), setOf(2, 3, 4, 6, 7, 8, 9))
@@ -148,6 +652,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                     42 -> setOf(setOf(3, 4, 5, 6, 7, 8, 9))
                     else -> throw RuntimeException("Invalid Sum $sum for size ${cells.size}")
                 }
+
             8 ->
                 when (sum.toInt()) {
                     36 -> setOf(setOf(1, 2, 3, 4, 5, 6, 7, 8))
@@ -161,14 +666,15 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                     44 -> setOf(setOf(2, 3, 4, 5, 6, 7, 8, 9))
                     else -> throw RuntimeException("Invalid Sum $sum for size ${cells.size}")
                 }
+
             9 ->
                 when (sum.toInt()) {
                     45 -> setOf(setOf(1, 2, 3, 4, 5, 6, 7, 8, 9))
                     else -> throw RuntimeException("Invalid Sum $sum for size ${cells.size}")
                 }
+
             else -> throw RuntimeException("Invalid size ${cells.size}")
         }
-
     }
 
     private fun validateCells(cells: Set<Cell>) {
@@ -176,18 +682,18 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
             return
         }
 
-        val cellStats = cells.fold(CellStatistics()) { cellStatics, cell ->
-            cellStatics.copy(
-                minX = if (cellStatics.minX > cell.x.toInt()) cell.x.toInt() else cellStatics.minX,
-                maxX = if (cellStatics.maxX < cell.x.toInt()) cell.x.toInt() else cellStatics.maxX,
-
-                minY = if (cellStatics.minY > cell.y.toInt()) cell.y.toInt() else cellStatics.minY,
-                maxY = if (cellStatics.maxY < cell.y.toInt()) cell.y.toInt() else cellStatics.maxY,
-
-                sum = cellStatics.sum + cell.x.toInt(),
-                count = cellStatics.count.inc(),
-            )
-        }
+        val cellStats =
+            cells.fold(CellStatistics()) { cellStatics, cell ->
+                cellStatics
+                    .copy(
+                        minX = if (cellStatics.minX > cell.x.toInt()) cell.x.toInt() else cellStatics.minX,
+                        maxX = if (cellStatics.maxX < cell.x.toInt()) cell.x.toInt() else cellStatics.maxX,
+                        minY = if (cellStatics.minY > cell.y.toInt()) cell.y.toInt() else cellStatics.minY,
+                        maxY = if (cellStatics.maxY < cell.y.toInt()) cell.y.toInt() else cellStatics.maxY,
+                        sum = cellStatics.sum + cell.x.toInt(),
+                        count = cellStatics.count.inc(),
+                    )
+            }
 
         require(cells.size in cellStats.getXRange())
         require(cells.size in cellStats.getYRange())
@@ -229,16 +735,17 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
             validationFailure(e)
         }
     }
-}
 
-data class CellStatistics(
-    val minX: Int = Int.MAX_VALUE,
-    val maxX: Int = Int.MIN_VALUE,
-    val minY: Int = Int.MAX_VALUE,
-    val maxY: Int = Int.MIN_VALUE,
-    val sum: Long = 0,
-    val count: Long = 0,
-) {
-    fun getXRange(): IntRange = minX..maxX
-    fun getYRange(): IntRange = minY..maxY
+    data class CellStatistics(
+        val minX: Int = Int.MAX_VALUE,
+        val maxX: Int = Int.MIN_VALUE,
+        val minY: Int = Int.MAX_VALUE,
+        val maxY: Int = Int.MIN_VALUE,
+        val sum: Long = 0,
+        val count: Long = 0,
+    ) {
+        fun getXRange(): IntRange = minX..maxX
+
+        fun getYRange(): IntRange = minY..maxY
+    }
 }
