@@ -14,25 +14,6 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
     data class FoldingData(val cellSize: Int, val expectedSum: Int, val availableSums: MutableSet<MutableSet<Int>> = mutableSetOf())
 
     private fun generatePotentialCageValues(): Set<Set<Int>> {
-        val data =
-            (9 downTo 1)
-                .fold(FoldingData(cells.size, sum.toInt())) { data, value ->
-                    val sets =
-                        data.availableSums.toMutableSet()
-                    val updatedSets =
-                        sets.map { set ->
-                            if (set.size < data.cellSize) {
-                                if (set.sum() - value >= 0) {
-                                    set.add(value)
-                                }
-                            }
-                            set
-                        }.toMutableSet()
-
-                    data.copy(availableSums = updatedSets)
-                }
-        return data.availableSums
-/*
         return when (cells.size) {
             1 -> setOf(setOf(sum.toInt()))
             2 ->
@@ -58,34 +39,138 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                 when (sum.toInt()) {
                     6 -> setOf(setOf(1, 2, 3))
                     7 -> setOf(setOf(1, 2, 4))
-                    8 -> setOf(setOf(1, 2, 5), setOf(1, 3, 4))
-                    9 -> setOf(setOf(1, 2, 6), setOf(2, 3, 4))
-                    10 -> setOf(setOf(1, 2, 7), setOf(2, 3, 5))
-                    11 -> setOf(setOf(1, 2, 8), setOf(2, 3, 6), setOf(2, 4, 5))
-                    12 -> setOf(setOf(1, 2, 9), setOf(2, 3, 7), setOf(2, 4, 6))
-                    13 -> setOf(setOf(1, 3, 9), setOf(2, 4, 7), setOf(2, 5, 6), setOf(3, 4, 6))
-                    14 -> setOf(setOf(1, 4, 9), setOf(1, 5, 8), setOf(1, 6, 7), setOf(2, 5, 7), setOf(3, 4, 7), setOf(3, 5, 6))
-                    15 -> setOf(setOf(1, 5, 9), setOf(1, 6, 8), setOf(2, 5, 8), setOf(2, 6, 7), setOf(3, 4, 8), setOf(3, 5, 7))
-                    16 -> setOf(setOf(1, 6, 9), setOf(1, 7, 8), setOf(2, 6, 8), setOf(2, 6, 8), setOf(3, 4, 9), setOf(3, 5, 8), setOf(3, 6, 7))
-                    17 -> setOf(setOf(1, 7, 9), setOf(2, 7, 8), setOf(2, 6, 9), setOf(2, 7, 8), setOf(3, 5, 9), setOf(3, 6, 8), setOf(4, 6, 7))
-                    18 -> setOf(setOf(1, 8, 9), setOf(2, 7, 9), setOf(3, 6, 9), setOf(3, 7, 8), setOf(3, 6, 9), setOf(4, 6, 8), setOf(5, 6, 7))
-                    19 -> setOf(setOf(2, 8, 9), setOf(3, 7, 9), setOf(4, 6, 9), setOf(4, 7, 8), setOf(4, 6, 9))
-                    20 -> setOf(setOf(3, 8, 9), setOf(4, 7, 9), setOf(5, 7, 8))
+                    8 -> setOf(setOf(1, 2, 5), setOf(134))
+                    9 -> setOf(setOf(1, 2, 6), setOf(1, 3, 5), setOf(2, 3, 4))
+                    10 -> setOf(setOf(1, 2, 7), setOf(1, 3, 6), setOf(1, 4, 5), setOf(2, 3, 5))
+                    11 -> setOf(setOf(1, 2, 8), setOf(1, 3, 7), setOf(1, 4, 6), setOf(2, 3, 6), setOf(2, 4, 5))
+                    12 -> setOf(setOf(1, 2, 9), setOf(1, 3, 8), setOf(1, 4, 7), setOf(1, 5, 6), setOf(2, 3, 7), setOf(2, 4, 6), setOf(3, 4, 5))
+                    13 -> setOf(setOf(1, 3, 9), setOf(1, 4, 8), setOf(1, 5, 7), setOf(2, 3, 8), setOf(2, 4, 7), setOf(2, 5, 6), setOf(3, 4, 6))
+                    14 -> setOf(setOf(1, 4, 9), setOf(1, 5, 8), setOf(1, 6, 7), setOf(2, 3, 9), setOf(2, 4, 8), setOf(2, 5, 7), setOf(3, 4, 7), setOf(3, 5, 6))
+                    15 -> setOf(setOf(1, 5, 9), setOf(1, 6, 8), setOf(2, 4, 9), setOf(2, 5, 8), setOf(2, 6, 7), setOf(3, 4, 8), setOf(3, 5, 7), setOf(4, 5, 6))
+                    16 -> setOf(setOf(1, 6, 9), setOf(1, 7, 8), setOf(2, 5, 9), setOf(2, 6, 8), setOf(3, 4, 9), setOf(3, 5, 8), setOf(3, 6, 7), setOf(4, 5, 7))
+                    17 -> setOf(setOf(1, 7, 9), setOf(2, 6, 9), setOf(2, 7, 8), setOf(3, 5, 9), setOf(3, 6, 8), setOf(4, 5, 8), setOf(4, 6, 7))
+                    18 -> setOf(setOf(1, 8, 9), setOf(2, 7, 9), setOf(3, 6, 9), setOf(3, 7, 8), setOf(4, 5, 9), setOf(4, 6, 8), setOf(5, 6, 7))
+                    19 -> setOf(setOf(2, 8, 9), setOf(3, 7, 9), setOf(4, 6, 9), setOf(4, 7, 8), setOf(5, 6, 8))
+                    20 -> setOf(setOf(3, 8, 9), setOf(4, 7, 9), setOf(5, 6, 9), setOf(5, 7, 8))
                     21 -> setOf(setOf(4, 8, 9), setOf(5, 7, 9), setOf(6, 7, 8))
                     22 -> setOf(setOf(5, 8, 9), setOf(6, 7, 9))
                     23 -> setOf(setOf(6, 8, 9))
                     24 -> setOf(setOf(7, 8, 9))
                     else -> throw RuntimeException("Invalid Sum $sum for size ${cells.size}")
                 }
-            4 -> TODO()
-            5 -> TODO()
-            6 -> TODO()
-            7 -> TODO()
-            8 -> TODO()
-            9 -> TODO()
+            4 ->
+                when (sum.toInt()) {
+                    10 -> setOf(setOf(1, 2, 3, 4))
+                    11 -> setOf(setOf(1, 2, 3, 5))
+                    12 -> setOf(setOf(1, 2, 3, 6), setOf(1, 2, 4, 5))
+                    13 -> setOf(setOf(1, 2, 3, 7), setOf(1, 2, 4, 6), setOf(1, 3, 4, 5))
+                    14 -> setOf(setOf(1, 2, 3, 8), setOf(1, 2, 4, 7), setOf(1, 2, 5, 6), setOf(1, 3, 4, 6), setOf(2, 3, 4, 5))
+                    15 -> setOf(setOf(1, 2, 3, 9), setOf(1, 2, 4, 8), setOf(1, 2, 5, 7), setOf(1, 3, 4, 7), setOf(1, 3, 5, 6), setOf(2, 3, 4, 6))
+                    16 -> setOf(setOf(1, 2, 4, 9), setOf(1, 2, 5, 8), setOf(1, 2, 6, 7), setOf(1, 3, 4, 8), setOf(1, 3, 5, 7), setOf(1, 4, 5, 6), setOf(2, 3, 4, 7), setOf(2, 3, 5, 6))
+                    17 -> setOf(setOf(1, 2, 5, 9), setOf(1, 2, 6, 8), setOf(1, 3, 4, 9), setOf(1, 3, 5, 8), setOf(1, 3, 6, 7), setOf(1, 4, 5, 7), setOf(2, 3, 4, 8), setOf(2, 3, 5, 7), setOf(2, 4, 5, 6))
+                    18 -> setOf(setOf(1, 2, 6, 9), setOf(1, 2, 7, 8), setOf(1, 3, 5, 9), setOf(1, 3, 6, 8), setOf(1, 4, 5, 8), setOf(1, 4, 6, 7), setOf(2, 3, 4, 9), setOf(2, 3, 5, 8), setOf(2, 3, 6, 7), setOf(2, 4, 5, 7), setOf(3, 4, 5, 6))
+                    19 -> setOf(setOf(1, 2, 7, 9), setOf(1, 3, 6, 9), setOf(1, 3, 7, 8), setOf(1, 4, 5, 9), setOf(1, 4, 6, 8), setOf(1, 5, 6, 7), setOf(2, 3, 5, 9), setOf(2, 3, 6, 8), setOf(2, 4, 5, 8), setOf(2, 4, 6, 7), setOf(3, 4, 5, 7))
+                    20 -> setOf(setOf(1, 2, 8, 9), setOf(1, 3, 7, 9), setOf(1, 4, 6, 9), setOf(1, 4, 7, 8), setOf(1, 5, 6, 8), setOf(2, 3, 6, 9), setOf(2, 3, 7, 8), setOf(2, 4, 5, 9), setOf(2, 4, 6, 8), setOf(2, 5, 6, 7), setOf(3, 4, 5, 8), setOf(3, 4, 6, 7))
+                    21 -> setOf(setOf(1, 3, 8, 9), setOf(1, 4, 7, 9), setOf(1, 5, 6, 9), setOf(1, 5, 7, 8), setOf(2, 3, 7, 9), setOf(2, 4, 6, 9), setOf(2, 4, 7, 8), setOf(2, 5, 6, 8), setOf(3, 4, 5, 9), setOf(3, 4, 6, 8), setOf(3, 5, 6, 7))
+                    22 -> setOf(setOf(1, 4, 8, 9), setOf(1, 5, 7, 9), setOf(1, 6, 7, 8), setOf(2, 3, 8, 9), setOf(2, 4, 7, 9), setOf(2, 5, 6, 9), setOf(2, 5, 7, 8), setOf(3, 4, 6, 9), setOf(3, 4, 7, 8), setOf(3, 5, 6, 8), setOf(4, 5, 6, 7))
+                    23 -> setOf(setOf(1, 5, 8, 9), setOf(1, 6, 7, 9), setOf(2, 4, 8, 9), setOf(2, 5, 7, 9), setOf(2, 6, 7, 8), setOf(3, 4, 7, 9), setOf(3, 5, 6, 9), setOf(3, 5, 7, 8), setOf(4, 5, 6, 8))
+                    24 -> setOf(setOf(1, 6, 8, 9), setOf(2, 5, 8, 9), setOf(2, 6, 7, 9), setOf(3, 4, 8, 9), setOf(3, 5, 7, 9), setOf(3, 6, 7, 8), setOf(4, 5, 6, 9), setOf(4, 5, 7, 8))
+                    25 -> setOf(setOf(1, 7, 8, 9), setOf(2, 6, 8, 9), setOf(3, 5, 8, 9), setOf(3, 6, 7, 9), setOf(4, 5, 7, 9), setOf(4, 6, 7, 8))
+                    26 -> setOf(setOf(2, 7, 8, 9), setOf(3, 6, 8, 9), setOf(4, 5, 8, 9), setOf(4, 6, 7, 9), setOf(5, 6, 7, 8))
+                    27 -> setOf(setOf(3, 7, 8, 9), setOf(4, 6, 8, 9), setOf(5, 6, 7, 9))
+                    28 -> setOf(setOf(4, 7, 8, 9), setOf(5, 6, 8, 9))
+                    29 -> setOf(setOf(5, 7, 8, 9))
+                    30 -> setOf(setOf(6, 7, 8, 9))
+                    else -> throw RuntimeException("Invalid Sum $sum for size ${cells.size}")
+                }
+            5 ->
+                when (sum.toInt()) {
+                    15 -> setOf(setOf(1, 2, 3, 4, 5))
+                    16 -> setOf(setOf(1, 2, 3, 4, 6))
+                    17 -> setOf(setOf(1, 2, 3, 4, 7), setOf(1, 2, 3, 5, 6))
+                    18 -> setOf(setOf(1, 2, 3, 4, 8), setOf(1, 2, 3, 5, 7), setOf(1, 2, 4, 5, 6))
+                    19 -> setOf(setOf(1, 2, 3, 4, 9), setOf(1, 2, 3, 5, 8), setOf(1, 2, 3, 6, 7), setOf(1, 2, 4, 5, 7), setOf(1, 3, 4, 5, 6))
+                    20 -> setOf(setOf(1, 2, 3, 5, 9), setOf(1, 2, 3, 6, 8), setOf(1, 2, 4, 5, 8), setOf(1, 2, 4, 6, 7), setOf(1, 3, 4, 5, 7), setOf(2, 3, 4, 5, 6))
+                    21 -> setOf(setOf(1, 2, 3, 6, 9), setOf(1, 2, 3, 7, 8), setOf(1, 2, 4, 5, 9), setOf(1, 2, 4, 6, 8), setOf(1, 2, 5, 6, 7), setOf(1, 3, 4, 5, 8), setOf(1, 3, 4, 6, 7), setOf(2, 3, 4, 5, 7))
+                    22 -> setOf(setOf(1, 2, 3, 7, 9), setOf(1, 2, 4, 6, 9), setOf(1, 2, 4, 7, 8), setOf(1, 2, 5, 6, 8), setOf(1, 3, 4, 5, 9), setOf(1, 3, 4, 6, 8), setOf(1, 3, 5, 6, 7), setOf(2, 3, 4, 5, 8), setOf(2, 3, 4, 6, 7))
+                    23 -> setOf(setOf(1, 2, 3, 8, 9), setOf(1, 2, 4, 7, 9), setOf(1, 2, 5, 6, 9), setOf(1, 2, 5, 7, 8), setOf(1, 3, 4, 6, 9), setOf(1, 3, 4, 7, 8), setOf(1, 3, 5, 6, 8), setOf(1, 4, 5, 6, 7), setOf(2, 3, 4, 5, 9), setOf(2, 3, 4, 6, 8), setOf(2, 3, 5, 6, 7))
+                    24 -> setOf(setOf(1, 2, 4, 8, 9), setOf(1, 2, 5, 7, 9), setOf(1, 2, 6, 7, 8), setOf(1, 3, 4, 7, 9), setOf(1, 3, 5, 6, 9), setOf(1, 3, 5, 7, 8), setOf(1, 4, 5, 6, 8), setOf(2, 3, 4, 6, 9), setOf(2, 3, 4, 7, 8), setOf(2, 3, 5, 6, 8), setOf(2, 4, 5, 6, 7))
+                    25 -> setOf(setOf(1, 2, 5, 8, 9), setOf(1, 2, 6, 7, 9), setOf(1, 3, 4, 8, 9), setOf(1, 3, 5, 7, 9), setOf(1, 3, 6, 7, 8), setOf(1, 4, 5, 6, 9), setOf(1, 4, 5, 7, 8), setOf(2, 3, 4, 7, 9), setOf(2, 3, 5, 6, 9), setOf(2, 3, 5, 7, 8), setOf(2, 4, 5, 6, 8), setOf(3, 4, 5, 6, 7))
+                    26 -> setOf(setOf(1, 2, 6, 8, 9), setOf(1, 3, 5, 8, 9), setOf(1, 3, 6, 7, 9), setOf(1, 4, 5, 7, 9), setOf(1, 4, 6, 7, 8), setOf(2, 3, 4, 8, 9), setOf(2, 3, 5, 7, 9), setOf(2, 3, 6, 7, 8), setOf(2, 4, 5, 6, 9), setOf(2, 4, 5, 7, 8), setOf(3, 4, 5, 6, 8))
+                    27 -> setOf(setOf(1, 2, 7, 8, 9), setOf(1, 3, 6, 8, 9), setOf(1, 4, 5, 8, 9), setOf(1, 4, 6, 7, 9), setOf(1, 5, 6, 7, 8), setOf(2, 3, 5, 8, 9), setOf(2, 3, 6, 7, 9), setOf(2, 4, 5, 7, 9), setOf(2, 4, 6, 7, 8), setOf(3, 4, 5, 6, 9), setOf(3, 4, 5, 7, 8))
+                    28 -> setOf(setOf(1, 3, 7, 8, 9), setOf(1, 4, 6, 8, 9), setOf(1, 5, 6, 7, 9), setOf(2, 3, 6, 8, 9), setOf(2, 4, 5, 8, 9), setOf(2, 4, 6, 7, 9), setOf(2, 5, 6, 7, 8), setOf(3, 4, 5, 7, 9), setOf(3, 4, 6, 7, 8))
+                    29 -> setOf(setOf(1, 4, 7, 8, 9), setOf(1, 5, 6, 8, 9), setOf(2, 3, 7, 8, 9), setOf(2, 4, 6, 8, 9), setOf(2, 5, 6, 7, 9), setOf(3, 4, 5, 8, 9), setOf(3, 4, 6, 7, 9), setOf(3, 5, 6, 7, 8))
+                    30 -> setOf(setOf(1, 5, 7, 8, 9), setOf(2, 4, 7, 8, 9), setOf(2, 5, 6, 8, 9), setOf(3, 4, 6, 8, 9), setOf(3, 5, 6, 7, 9), setOf(4, 5, 6, 7, 8))
+                    31 -> setOf(setOf(1, 6, 7, 8, 9), setOf(2, 5, 7, 8, 9), setOf(3, 4, 7, 8, 9), setOf(3, 5, 6, 8, 9), setOf(4, 5, 6, 7, 9))
+                    32 -> setOf(setOf(2, 6, 7, 8, 9), setOf(3, 5, 7, 8, 9), setOf(4, 5, 6, 8, 9))
+                    33 -> setOf(setOf(3, 6, 7, 8, 9), setOf(4, 5, 7, 8, 9))
+                    34 -> setOf(setOf(4, 6, 7, 8, 9))
+                    35 -> setOf(setOf(5, 6, 7, 8, 9))
+                    else -> throw RuntimeException("Invalid Sum $sum for size ${cells.size}")
+                }
+            6 ->
+                when (sum.toInt()) {
+                    21 -> setOf(setOf(1, 2, 3, 4, 5, 6))
+                    22 -> setOf(setOf(1, 2, 3, 4, 5, 7))
+                    23 -> setOf(setOf(1, 2, 3, 4, 5, 8), setOf(1, 2, 3, 4, 6, 7))
+                    24 -> setOf(setOf(1, 2, 3, 4, 5, 9), setOf(1, 2, 3, 4, 6, 8), setOf(1, 2, 3, 5, 6, 7))
+                    25 -> setOf(setOf(1, 2, 3, 4, 6, 9), setOf(1, 2, 3, 4, 7, 8), setOf(1, 2, 3, 5, 6, 8), setOf(1, 2, 4, 5, 6, 7))
+                    26 -> setOf(setOf(1, 2, 3, 4, 7, 9), setOf(1, 2, 3, 5, 6, 9), setOf(1, 2, 3, 5, 7, 8), setOf(1, 2, 4, 5, 6, 8), setOf(1, 3, 4, 5, 6, 7))
+                    27 -> setOf(setOf(1, 2, 3, 4, 8, 9), setOf(1, 2, 3, 5, 7, 9), setOf(1, 2, 3, 6, 7, 8), setOf(1, 2, 4, 5, 6, 9), setOf(1, 2, 4, 5, 7, 8), setOf(1, 3, 4, 5, 6, 8), setOf(2, 3, 4, 5, 6, 7))
+                    28 -> setOf(setOf(1, 2, 3, 5, 8, 9), setOf(1, 2, 3, 6, 7, 9), setOf(1, 2, 4, 5, 7, 9), setOf(1, 2, 4, 6, 7, 8), setOf(1, 3, 4, 5, 6, 9), setOf(1, 3, 4, 5, 7, 8), setOf(2, 3, 4, 5, 6, 8))
+                    29 -> setOf(setOf(1, 2, 3, 6, 8, 9), setOf(1, 2, 4, 5, 8, 9), setOf(1, 2, 4, 6, 7, 9), setOf(1, 2, 5, 6, 7, 8), setOf(1, 3, 4, 5, 7, 9), setOf(1, 3, 4, 6, 7, 8), setOf(2, 3, 4, 5, 6, 9), setOf(2, 3, 4, 5, 7, 8))
+                    30 -> setOf(setOf(1, 2, 3, 7, 8, 9), setOf(1, 2, 4, 6, 8, 9), setOf(1, 2, 5, 6, 7, 9), setOf(1, 3, 4, 5, 8, 9), setOf(1, 3, 4, 6, 7, 9), setOf(1, 3, 5, 6, 7, 8), setOf(2, 3, 4, 5, 7, 9), setOf(2, 3, 4, 6, 7, 8))
+                    31 -> setOf(setOf(1, 2, 4, 7, 8, 9), setOf(1, 2, 5, 6, 8, 9), setOf(1, 3, 4, 6, 8, 9), setOf(1, 3, 5, 6, 7, 9), setOf(1, 4, 5, 6, 7, 8), setOf(2, 3, 4, 5, 8, 9), setOf(2, 3, 4, 6, 7, 9), setOf(2, 3, 5, 6, 7, 8))
+                    32 -> setOf(setOf(1, 2, 5, 7, 8, 9), setOf(1, 3, 4, 7, 8, 9), setOf(1, 3, 5, 6, 8, 9), setOf(1, 4, 5, 6, 7, 9), setOf(2, 3, 4, 6, 8, 9), setOf(2, 3, 5, 6, 7, 9), setOf(2, 4, 5, 6, 7, 8))
+                    33 -> setOf(setOf(1, 2, 6, 7, 8, 9), setOf(1, 3, 5, 7, 8, 9), setOf(1, 4, 5, 6, 8, 9), setOf(2, 3, 4, 7, 8, 9), setOf(2, 3, 5, 6, 8, 9), setOf(2, 4, 5, 6, 7, 9), setOf(3, 4, 5, 6, 7, 8))
+                    34 -> setOf(setOf(1, 3, 6, 7, 8, 9), setOf(1, 4, 5, 7, 8, 9), setOf(2, 3, 5, 7, 8, 9), setOf(2, 4, 5, 6, 8, 9), setOf(3, 4, 5, 6, 7, 9))
+                    35 -> setOf(setOf(1, 4, 6, 7, 8, 9), setOf(2, 3, 6, 7, 8, 9), setOf(2, 4, 5, 7, 8, 9), setOf(3, 4, 5, 6, 8, 9))
+                    36 -> setOf(setOf(1, 5, 6, 7, 8, 9), setOf(2, 4, 6, 7, 8, 9), setOf(3, 4, 5, 7, 8, 9))
+                    37 -> setOf(setOf(2, 5, 6, 7, 8, 9), setOf(3, 4, 6, 7, 8, 9))
+                    38 -> setOf(setOf(3, 5, 6, 7, 8, 9))
+                    39 -> setOf(setOf(4, 5, 6, 7, 8, 9))
+                    else -> throw RuntimeException("Invalid Sum $sum for size ${cells.size}")
+                }
+            7 ->
+                when (sum.toInt()) {
+                    28 -> setOf(setOf(1, 2, 3, 4, 5, 6, 7))
+                    29 -> setOf(setOf(1, 2, 3, 4, 5, 6, 8))
+                    30 -> setOf(setOf(1, 2, 3, 4, 5, 6, 9), setOf(1, 2, 3, 4, 5, 7, 8))
+                    31 -> setOf(setOf(1, 2, 3, 4, 5, 7, 9), setOf(1, 2, 3, 4, 6, 7, 8))
+                    32 -> setOf(setOf(1, 2, 3, 4, 5, 8, 9), setOf(1, 2, 3, 4, 6, 7, 9), setOf(1, 2, 3, 5, 6, 7, 8))
+                    33 -> setOf(setOf(1, 2, 3, 4, 6, 8, 9), setOf(1, 2, 3, 5, 6, 7, 9), setOf(1, 2, 4, 5, 6, 7, 8))
+                    34 -> setOf(setOf(1, 2, 3, 4, 7, 8, 9), setOf(1, 2, 3, 5, 6, 8, 9), setOf(1, 2, 4, 5, 6, 7, 9), setOf(1, 3, 4, 5, 6, 7, 8))
+                    35 -> setOf(setOf(1, 2, 3, 5, 7, 8, 9), setOf(1, 2, 4, 5, 6, 8, 9), setOf(1, 3, 4, 5, 6, 7, 9), setOf(2, 3, 4, 5, 6, 7, 8))
+                    36 -> setOf(setOf(1, 2, 3, 6, 7, 8, 9), setOf(1, 2, 4, 5, 7, 8, 9), setOf(1, 3, 4, 5, 6, 8, 9), setOf(2, 3, 4, 5, 6, 7, 9))
+                    37 -> setOf(setOf(1, 2, 4, 6, 7, 8, 9), setOf(1, 3, 4, 5, 7, 8, 9), setOf(2, 3, 4, 5, 6, 8, 9))
+                    38 -> setOf(setOf(1, 2, 5, 6, 7, 8, 9), setOf(1, 3, 4, 6, 7, 8, 9), setOf(2, 3, 4, 5, 7, 8, 9))
+                    39 -> setOf(setOf(1, 3, 5, 6, 7, 8, 9), setOf(2, 3, 4, 6, 7, 8, 9))
+                    40 -> setOf(setOf(1, 4, 5, 6, 7, 8, 9), setOf(2, 3, 5, 6, 7, 8, 9))
+                    41 -> setOf(setOf(2, 4, 5, 6, 7, 8, 9))
+                    42 -> setOf(setOf(3, 4, 5, 6, 7, 8, 9))
+                    else -> throw RuntimeException("Invalid Sum $sum for size ${cells.size}")
+                }
+            8 ->
+                when (sum.toInt()) {
+                    36 -> setOf(setOf(1, 2, 3, 4, 5, 6, 7, 8))
+                    37 -> setOf(setOf(1, 2, 3, 4, 5, 6, 7, 9))
+                    38 -> setOf(setOf(1, 2, 3, 4, 5, 6, 8, 9))
+                    39 -> setOf(setOf(1, 2, 3, 4, 5, 7, 8, 9))
+                    40 -> setOf(setOf(1, 2, 3, 4, 6, 7, 8, 9))
+                    41 -> setOf(setOf(1, 2, 3, 5, 6, 7, 8, 9))
+                    42 -> setOf(setOf(1, 2, 4, 5, 6, 7, 8, 9))
+                    43 -> setOf(setOf(1, 3, 4, 5, 6, 7, 8, 9))
+                    44 -> setOf(setOf(2, 3, 4, 5, 6, 7, 8, 9))
+                    else -> throw RuntimeException("Invalid Sum $sum for size ${cells.size}")
+                }
+            9 ->
+                when (sum.toInt()) {
+                    45 -> setOf(setOf(1, 2, 3, 4, 5, 6, 7, 8, 9))
+                    else -> throw RuntimeException("Invalid Sum $sum for size ${cells.size}")
+                }
             else -> throw RuntimeException("Invalid size ${cells.size}")
         }
- */
+
     }
 
     private fun validateCells(cells: Set<Cell>) {
