@@ -11,8 +11,6 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
         potentialCageValues = generatePotentialCageValues()
     }
 
-    data class FoldingData(val cellSize: Int, val expectedSum: Int, val availableSums: MutableSet<MutableSet<Int>> = mutableSetOf())
-
     private fun generatePotentialCageValues(): Set<Set<Int>> {
         return when (cells.size) {
             1 -> setOf(setOf(sum.toInt()))
@@ -178,30 +176,21 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
             return
         }
 
-        val cellRows = cells.associateBy { it.x.toInt() }
-        val cellCols = cells.associateBy { it.y.toInt() }
-
-        val rowKeys = cellRows.keys.sorted()
-        val colKeys = cellCols.keys.sorted()
-
-        val rowSummaryStatistics = rowKeys.stream().mapToInt { it }.summaryStatistics()
-        val colSummaryStatistics = colKeys.stream().mapToInt { it }.summaryStatistics()
-
-        val rowRange = rowSummaryStatistics.min..rowSummaryStatistics.min
-        val colRange = colSummaryStatistics.min..colSummaryStatistics.min
-
-        cells.fold(CellStatistics()) { cellStatics, cell ->
+        val cellStats = cells.fold(CellStatistics()) { cellStatics, cell ->
             cellStatics.copy(
-                min = if (cellStatics.min > cell.x.toInt()) cell.x.toInt() else cellStatics.min,
-                max = if (cellStatics.max < cell.x.toInt()) cell.x.toInt() else cellStatics.max,
+                minX = if (cellStatics.minX > cell.x.toInt()) cell.x.toInt() else cellStatics.minX,
+                maxX = if (cellStatics.maxX < cell.x.toInt()) cell.x.toInt() else cellStatics.maxX,
+
+                minY = if (cellStatics.minY > cell.y.toInt()) cell.y.toInt() else cellStatics.minY,
+                maxY = if (cellStatics.maxY < cell.y.toInt()) cell.y.toInt() else cellStatics.maxY,
+
                 sum = cellStatics.sum + cell.x.toInt(),
                 count = cellStatics.count.inc(),
             )
         }
 
-        require(rowRange.count() <= cells.size)
-        require(colRange.count() <= cells.size)
-        require(rowRange.count() + colRange.count() <= cells.size)
+        require(cells.size in cellStats.getXRange())
+        require(cells.size in cellStats.getYRange())
     }
 
     private fun validateCageSum(
@@ -243,10 +232,13 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
 }
 
 data class CellStatistics(
-    val min: Int = Int.MAX_VALUE,
-    val max: Int = Int.MIN_VALUE,
+    val minX: Int = Int.MAX_VALUE,
+    val maxX: Int = Int.MIN_VALUE,
+    val minY: Int = Int.MAX_VALUE,
+    val maxY: Int = Int.MIN_VALUE,
     val sum: Long = 0,
     val count: Long = 0,
 ) {
-    fun getRange(): IntRange = min..max
+    fun getXRange(): IntRange = minX..maxX
+    fun getYRange(): IntRange = minY..maxY
 }
