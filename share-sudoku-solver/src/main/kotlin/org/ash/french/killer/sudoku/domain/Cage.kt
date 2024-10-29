@@ -4,7 +4,9 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region {
-    private val potentialCageValues: Set<Set<Int>>
+    constructor(sum: Int, cells: Collection<Cell>) : this(sum.toUByte(), cells.toSet())
+
+    val potentialCageValues: Set<Set<Int>>
 
     init {
         this.validate().getOrThrow()
@@ -38,7 +40,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                 when (sum.toInt()) {
                     6 -> setOf(setOf(1, 2, 3))
                     7 -> setOf(setOf(1, 2, 4))
-                    8 -> setOf(setOf(1, 2, 5), setOf(134))
+                    8 -> setOf(setOf(1, 2, 5), setOf(1, 3, 4))
                     9 -> setOf(setOf(1, 2, 6), setOf(1, 3, 5), setOf(2, 3, 4))
                     10 -> setOf(setOf(1, 2, 7), setOf(1, 3, 6), setOf(1, 4, 5), setOf(2, 3, 5))
                     11 -> setOf(setOf(1, 2, 8), setOf(1, 3, 7), setOf(1, 4, 6), setOf(2, 3, 6), setOf(2, 4, 5))
@@ -678,25 +680,11 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
     }
 
     private fun validateCells(cells: Set<Cell>) {
-        if (cells.size == 1) {
-            return
+        require(cells.size in 1..9) {
+            "Invalid cells count must be between 1 and 9"
         }
 
-        val cellStats =
-            cells.fold(CellStatistics()) { cellStatics, cell ->
-                cellStatics
-                    .copy(
-                        minX = if (cellStatics.minX > cell.x.toInt()) cell.x.toInt() else cellStatics.minX,
-                        maxX = if (cellStatics.maxX < cell.x.toInt()) cell.x.toInt() else cellStatics.maxX,
-                        minY = if (cellStatics.minY > cell.y.toInt()) cell.y.toInt() else cellStatics.minY,
-                        maxY = if (cellStatics.maxY < cell.y.toInt()) cell.y.toInt() else cellStatics.maxY,
-                        sum = cellStatics.sum + cell.x.toInt(),
-                        count = cellStatics.count.inc(),
-                    )
-            }
-
-        require(cells.size in cellStats.getXRange())
-        require(cells.size in cellStats.getYRange())
+        // TODO check cells next to each other
     }
 
     private fun validateCageSum(
@@ -734,18 +722,5 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
         } catch (e: Throwable) {
             validationFailure(e)
         }
-    }
-
-    data class CellStatistics(
-        val minX: Int = Int.MAX_VALUE,
-        val maxX: Int = Int.MIN_VALUE,
-        val minY: Int = Int.MAX_VALUE,
-        val maxY: Int = Int.MIN_VALUE,
-        val sum: Long = 0,
-        val count: Long = 0,
-    ) {
-        fun getXRange(): IntRange = minX..maxX
-
-        fun getYRange(): IntRange = minY..maxY
     }
 }
