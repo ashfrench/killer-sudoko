@@ -210,410 +210,686 @@ internal object TestConstants {
 """{
     "cellValues": [
         {
-            "x": 1,
-            "y": 1
+            "position": {
+                "x": 1,
+                "y": 1
+            }
         },
-        2,
         {
-            "x": 1,
-            "y": 2
+            "value": 2,
+            "locked": true
         },
-        null,
         {
-            "x": 1,
-            "y": 3
+            "position": {
+                "x": 1,
+                "y": 2
+            }
         },
-        7,
+        {},
         {
-            "x": 1,
-            "y": 4
+            "position": {
+                "x": 1,
+                "y": 3
+            }
         },
-        null,
         {
-            "x": 1,
-            "y": 5
+            "value": 7,
+            "locked": true
         },
-        3,
         {
-            "x": 1,
-            "y": 6
+            "position": {
+                "x": 1,
+                "y": 4
+            }
         },
-        null,
+        {},
         {
-            "x": 1,
-            "y": 7
+            "position": {
+                "x": 1,
+                "y": 5
+            }
         },
-        5,
         {
-            "x": 1,
-            "y": 8
+            "value": 3,
+            "locked": true
         },
-        null,
         {
-            "x": 1,
-            "y": 9
+            "position": {
+                "x": 1,
+                "y": 6
+            }
         },
-        8,
+        {},
         {
-            "x": 2,
-            "y": 1
+            "position": {
+                "x": 1,
+                "y": 7
+            }
         },
-        null,
         {
-            "x": 2,
-            "y": 2
+            "value": 5,
+            "locked": true
         },
-        null,
         {
-            "x": 2,
-            "y": 3
+            "position": {
+                "x": 1,
+                "y": 8
+            }
         },
-        5,
+        {},
         {
-            "x": 2,
-            "y": 4
+            "position": {
+                "x": 1,
+                "y": 9
+            }
         },
-        null,
         {
-            "x": 2,
-            "y": 5
+            "value": 8,
+            "locked": true
         },
-        null,
         {
-            "x": 2,
-            "y": 6
+            "position": {
+                "x": 2,
+                "y": 1
+            }
         },
-        8,
+        {},
         {
-            "x": 2,
-            "y": 7
+            "position": {
+                "x": 2,
+                "y": 2
+            }
         },
-        null,
+        {},
         {
-            "x": 2,
-            "y": 8
+            "position": {
+                "x": 2,
+                "y": 3
+            }
         },
-        4,
         {
-            "x": 2,
-            "y": 9
+            "value": 5,
+            "locked": true
         },
-        2,
         {
-            "x": 3,
-            "y": 1
+            "position": {
+                "x": 2,
+                "y": 4
+            }
         },
-        null,
+        {},
         {
-            "x": 3,
-            "y": 2
+            "position": {
+                "x": 2,
+                "y": 5
+            }
         },
-        6,
+        {},
         {
-            "x": 3,
-            "y": 3
+            "position": {
+                "x": 2,
+                "y": 6
+            }
         },
-        3,
         {
-            "x": 3,
-            "y": 4
+            "value": 8,
+            "locked": true
         },
-        null,
         {
-            "x": 3,
-            "y": 5
+            "position": {
+                "x": 2,
+                "y": 7
+            }
         },
-        null,
+        {},
         {
-            "x": 3,
-            "y": 6
+            "position": {
+                "x": 2,
+                "y": 8
+            }
         },
-        5,
         {
-            "x": 3,
-            "y": 7
+            "value": 4,
+            "locked": true
         },
-        1,
         {
-            "x": 3,
-            "y": 8
+            "position": {
+                "x": 2,
+                "y": 9
+            }
         },
-        9,
         {
-            "x": 3,
-            "y": 9
+            "value": 2,
+            "locked": true
         },
-        7,
         {
-            "x": 4,
-            "y": 1
+            "position": {
+                "x": 3,
+                "y": 1
+            }
         },
-        5,
+        {},
         {
-            "x": 4,
-            "y": 2
+            "position": {
+                "x": 3,
+                "y": 2
+            }
         },
-        4,
         {
-            "x": 4,
-            "y": 3
+            "value": 6,
+            "locked": true
         },
-        6,
         {
-            "x": 4,
-            "y": 4
+            "position": {
+                "x": 3,
+                "y": 3
+            }
         },
-        8,
         {
-            "x": 4,
-            "y": 5
+            "value": 3,
+            "locked": true
         },
-        null,
         {
-            "x": 4,
-            "y": 6
+            "position": {
+                "x": 3,
+                "y": 4
+            }
         },
-        null,
+        {},
         {
-            "x": 4,
-            "y": 7
+            "position": {
+                "x": 3,
+                "y": 5
+            }
         },
-        null,
+        {},
         {
-            "x": 4,
-            "y": 8
+            "position": {
+                "x": 3,
+                "y": 6
+            }
         },
-        7,
         {
-            "x": 4,
-            "y": 9
+            "value": 5,
+            "locked": true
         },
-        null,
         {
-            "x": 5,
-            "y": 1
+            "position": {
+                "x": 3,
+                "y": 7
+            }
         },
-        null,
         {
-            "x": 5,
-            "y": 2
+            "value": 1,
+            "locked": true
         },
-        3,
         {
-            "x": 5,
-            "y": 3
+            "position": {
+                "x": 3,
+                "y": 8
+            }
         },
-        null,
         {
-            "x": 5,
-            "y": 4
+            "value": 9,
+            "locked": true
         },
-        null,
         {
-            "x": 5,
-            "y": 5
+            "position": {
+                "x": 3,
+                "y": 9
+            }
         },
-        6,
         {
-            "x": 5,
-            "y": 6
+            "value": 7,
+            "locked": true
         },
-        2,
         {
-            "x": 5,
-            "y": 7
+            "position": {
+                "x": 4,
+                "y": 1
+            }
         },
-        null,
         {
-            "x": 5,
-            "y": 8
+            "value": 5,
+            "locked": true
         },
-        null,
         {
-            "x": 5,
-            "y": 9
+            "position": {
+                "x": 4,
+                "y": 2
+            }
         },
-        null,
         {
-            "x": 6,
-            "y": 1
+            "value": 4,
+            "locked": true
         },
-        7,
         {
-            "x": 6,
-            "y": 2
+            "position": {
+                "x": 4,
+                "y": 3
+            }
         },
-        null,
         {
-            "x": 6,
-            "y": 3
+            "value": 6,
+            "locked": true
         },
-        null,
         {
-            "x": 6,
-            "y": 4
+            "position": {
+                "x": 4,
+                "y": 4
+            }
         },
-        null,
         {
-            "x": 6,
-            "y": 5
+            "value": 8,
+            "locked": true
         },
-        null,
         {
-            "x": 6,
-            "y": 6
+            "position": {
+                "x": 4,
+                "y": 5
+            }
         },
-        null,
+        {},
         {
-            "x": 6,
-            "y": 7
+            "position": {
+                "x": 4,
+                "y": 6
+            }
         },
-        9,
+        {},
         {
-            "x": 6,
-            "y": 8
+            "position": {
+                "x": 4,
+                "y": 7
+            }
         },
-        null,
+        {},
         {
-            "x": 6,
-            "y": 9
+            "position": {
+                "x": 4,
+                "y": 8
+            }
         },
-        6,
         {
-            "x": 7,
-            "y": 1
+            "value": 7,
+            "locked": true
         },
-        null,
         {
-            "x": 7,
-            "y": 2
+            "position": {
+                "x": 4,
+                "y": 9
+            }
         },
-        1,
+        {},
         {
-            "x": 7,
-            "y": 3
+            "position": {
+                "x": 5,
+                "y": 1
+            }
         },
-        null,
+        {},
         {
-            "x": 7,
-            "y": 4
+            "position": {
+                "x": 5,
+                "y": 2
+            }
         },
-        4,
         {
-            "x": 7,
-            "y": 5
+            "value": 3,
+            "locked": true
         },
-        9,
         {
-            "x": 7,
-            "y": 6
+            "position": {
+                "x": 5,
+                "y": 3
+            }
         },
-        null,
+        {},
         {
-            "x": 7,
-            "y": 7
+            "position": {
+                "x": 5,
+                "y": 4
+            }
         },
-        6,
+        {},
         {
-            "x": 7,
-            "y": 8
+            "position": {
+                "x": 5,
+                "y": 5
+            }
         },
-        null,
         {
-            "x": 7,
-            "y": 9
+            "value": 6,
+            "locked": true
         },
-        null,
         {
-            "x": 8,
-            "y": 1
+            "position": {
+                "x": 5,
+                "y": 6
+            }
         },
-        null,
         {
-            "x": 8,
-            "y": 2
+            "value": 2,
+            "locked": true
         },
-        null,
         {
-            "x": 8,
-            "y": 3
+            "position": {
+                "x": 5,
+                "y": 7
+            }
         },
-        4,
+        {},
         {
-            "x": 8,
-            "y": 4
+            "position": {
+                "x": 5,
+                "y": 8
+            }
         },
-        5,
+        {},
         {
-            "x": 8,
-            "y": 5
+            "position": {
+                "x": 5,
+                "y": 9
+            }
         },
-        null,
+        {},
         {
-            "x": 8,
-            "y": 6
+            "position": {
+                "x": 6,
+                "y": 1
+            }
         },
-        3,
         {
-            "x": 8,
-            "y": 7
+            "value": 7,
+            "locked": true
         },
-        null,
         {
-            "x": 8,
-            "y": 8
+            "position": {
+                "x": 6,
+                "y": 2
+            }
         },
-        null,
+        {},
         {
-            "x": 8,
-            "y": 9
+            "position": {
+                "x": 6,
+                "y": 3
+            }
         },
-        9,
+        {},
         {
-            "x": 9,
-            "y": 1
+            "position": {
+                "x": 6,
+                "y": 4
+            }
         },
-        null,
+        {},
         {
-            "x": 9,
-            "y": 2
+            "position": {
+                "x": 6,
+                "y": 5
+            }
         },
-        null,
+        {},
         {
-            "x": 9,
-            "y": 3
+            "position": {
+                "x": 6,
+                "y": 6
+            }
         },
-        8,
+        {},
         {
-            "x": 9,
-            "y": 4
+            "position": {
+                "x": 6,
+                "y": 7
+            }
         },
-        1,
         {
-            "x": 9,
-            "y": 5
+            "value": 9,
+            "locked": true
         },
-        2,
         {
-            "x": 9,
-            "y": 6
+            "position": {
+                "x": 6,
+                "y": 8
+            }
         },
-        null,
+        {},
         {
-            "x": 9,
-            "y": 7
+            "position": {
+                "x": 6,
+                "y": 9
+            }
         },
-        null,
         {
-            "x": 9,
-            "y": 8
+            "value": 6,
+            "locked": true
         },
-        3,
         {
-            "x": 9,
-            "y": 9
+            "position": {
+                "x": 7,
+                "y": 1
+            }
         },
-        null
+        {},
+        {
+            "position": {
+                "x": 7,
+                "y": 2
+            }
+        },
+        {
+            "value": 1,
+            "locked": true
+        },
+        {
+            "position": {
+                "x": 7,
+                "y": 3
+            }
+        },
+        {},
+        {
+            "position": {
+                "x": 7,
+                "y": 4
+            }
+        },
+        {
+            "value": 4,
+            "locked": true
+        },
+        {
+            "position": {
+                "x": 7,
+                "y": 5
+            }
+        },
+        {
+            "value": 9,
+            "locked": true
+        },
+        {
+            "position": {
+                "x": 7,
+                "y": 6
+            }
+        },
+        {},
+        {
+            "position": {
+                "x": 7,
+                "y": 7
+            }
+        },
+        {
+            "value": 6,
+            "locked": true
+        },
+        {
+            "position": {
+                "x": 7,
+                "y": 8
+            }
+        },
+        {},
+        {
+            "position": {
+                "x": 7,
+                "y": 9
+            }
+        },
+        {},
+        {
+            "position": {
+                "x": 8,
+                "y": 1
+            }
+        },
+        {},
+        {
+            "position": {
+                "x": 8,
+                "y": 2
+            }
+        },
+        {},
+        {
+            "position": {
+                "x": 8,
+                "y": 3
+            }
+        },
+        {
+            "value": 4,
+            "locked": true
+        },
+        {
+            "position": {
+                "x": 8,
+                "y": 4
+            }
+        },
+        {
+            "value": 5,
+            "locked": true
+        },
+        {
+            "position": {
+                "x": 8,
+                "y": 5
+            }
+        },
+        {},
+        {
+            "position": {
+                "x": 8,
+                "y": 6
+            }
+        },
+        {
+            "value": 3,
+            "locked": true
+        },
+        {
+            "position": {
+                "x": 8,
+                "y": 7
+            }
+        },
+        {},
+        {
+            "position": {
+                "x": 8,
+                "y": 8
+            }
+        },
+        {},
+        {
+            "position": {
+                "x": 8,
+                "y": 9
+            }
+        },
+        {
+            "value": 9,
+            "locked": true
+        },
+        {
+            "position": {
+                "x": 9,
+                "y": 1
+            }
+        },
+        {},
+        {
+            "position": {
+                "x": 9,
+                "y": 2
+            }
+        },
+        {},
+        {
+            "position": {
+                "x": 9,
+                "y": 3
+            }
+        },
+        {
+            "value": 8,
+            "locked": true
+        },
+        {
+            "position": {
+                "x": 9,
+                "y": 4
+            }
+        },
+        {
+            "value": 1,
+            "locked": true
+        },
+        {
+            "position": {
+                "x": 9,
+                "y": 5
+            }
+        },
+        {
+            "value": 2,
+            "locked": true
+        },
+        {
+            "position": {
+                "x": 9,
+                "y": 6
+            }
+        },
+        {},
+        {
+            "position": {
+                "x": 9,
+                "y": 7
+            }
+        },
+        {},
+        {
+            "position": {
+                "x": 9,
+                "y": 8
+            }
+        },
+        {
+            "value": 3,
+            "locked": true
+        },
+        {
+            "position": {
+                "x": 9,
+                "y": 9
+            }
+        },
+        {}
     ]
 }"""
 }

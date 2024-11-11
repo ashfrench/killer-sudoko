@@ -1,13 +1,13 @@
 package org.ash.french.killer.sudoku.builders
 
-import kotlinx.serialization.PolymorphicSerializer
+import kotlinx.serialization.encodeToString
 import org.ash.french.killer.sudoku.domain.SudokuGrid
 import org.ash.french.killer.sudoku.domain.TestConstants
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import java.nio.file.Files
 import java.util.StringJoiner
 import kotlin.io.path.Path
+import kotlin.io.path.exists
 import kotlin.test.assertEquals
 
 class SudokuBuildersTest {
@@ -45,29 +45,28 @@ class SudokuBuildersTest {
         assertEquals(gridStringPrint, grid.toString())
     }
 
-    @Disabled("Fix up Serialisation")
     @Test
     fun `test kotlin json serialisation`() {
         val grid = TestConstants.grid
-        val jsonString = JSON.encodeToString(PolymorphicSerializer(SudokuGrid::class), grid)
+        val jsonString = JSON.encodeToString(grid)
 
         val expectedJsonString = TestConstants.jsonString
         assertEquals(expectedJsonString, jsonString)
     }
 
-    @Disabled("Fix up Serialisation")
     @Test
     fun `test load json from file and compare`() {
         val grid = TestConstants.grid
-        val jsonString = JSON.encodeToString(PolymorphicSerializer(SudokuGrid::class), grid)
 
-        val jsonFilePath = Path("src/test/resources/sudoku.grid")
+        val jsonFilePath = Path("src/test/resources/sudoku/json/sudoku-926ee37a-b1d7-4412-afcc-f04de207087d.json")
         val stringJoiner = StringJoiner("\n")
 
+        println("Does Exist: " + jsonFilePath.exists())
         Files.lines(jsonFilePath).forEach { stringJoiner.add(it) }
         val expectedJsonString = stringJoiner.toString()
 
-        assertEquals(expectedJsonString, jsonString)
+        val newGrid = JSON.decodeFromString<SudokuGrid>(expectedJsonString)
+        assertEquals(newGrid, grid)
     }
 
     @Test
