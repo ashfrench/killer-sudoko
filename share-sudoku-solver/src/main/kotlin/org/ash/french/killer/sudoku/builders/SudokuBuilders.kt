@@ -14,6 +14,12 @@ fun sudokuGrid(init: SudokuGrid.() -> Unit): SudokuGridBuilder {
     return SudokuGridBuilder(sudokuGrid)
 }
 
+fun killerSudokuGrid(init: KillerSudokuGrid.() -> Unit): KillerSudokuGridBuilder {
+    val killerSudokuGrid = KillerSudokuGrid()
+    killerSudokuGrid.init()
+    return KillerSudokuGridBuilder(killerSudokuGrid)
+}
+
 fun SudokuGrid.cellValue(
     cell: Cell,
     value: UByte?,
