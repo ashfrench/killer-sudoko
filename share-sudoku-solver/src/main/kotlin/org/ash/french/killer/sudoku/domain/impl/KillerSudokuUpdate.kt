@@ -1,6 +1,7 @@
-package org.ash.french.killer.sudoku.domain
+package org.ash.french.killer.sudoku.domain.impl
 
 import kotlinx.serialization.Serializable
+import org.ash.french.killer.sudoku.domain.UpdateID
 
 @Serializable
 sealed interface KillerSudokuUpdate : UpdateID

@@ -1,4 +1,4 @@
-package org.ash.french.killer.sudoku.domain
+package org.ash.french.killer.sudoku.domain.impl
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

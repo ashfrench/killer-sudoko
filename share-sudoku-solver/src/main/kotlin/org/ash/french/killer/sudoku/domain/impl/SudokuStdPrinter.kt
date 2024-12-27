@@ -1,5 +1,8 @@
-package org.ash.french.killer.sudoku.domain
+package org.ash.french.killer.sudoku.domain.impl
 
+import org.ash.french.killer.sudoku.domain.KillerSudokuGridInterface
+import org.ash.french.killer.sudoku.domain.SudokuGrid
+import org.ash.french.killer.sudoku.domain.SudokuGridInterface
 import java.util.StringJoiner
 
 object SudokuStdPrinter {

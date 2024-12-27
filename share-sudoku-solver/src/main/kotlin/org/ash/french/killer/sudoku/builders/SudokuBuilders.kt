@@ -1,10 +1,10 @@
 package org.ash.french.killer.sudoku.builders
 
-import org.ash.french.killer.sudoku.domain.Cage
-import org.ash.french.killer.sudoku.domain.Cell
-import org.ash.french.killer.sudoku.domain.CellState
-import org.ash.french.killer.sudoku.domain.CellUpdateValueOriginalValue
-import org.ash.french.killer.sudoku.domain.KillerSudokuGrid
+import org.ash.french.killer.sudoku.domain.impl.Cage
+import org.ash.french.killer.sudoku.domain.impl.Cell
+import org.ash.french.killer.sudoku.domain.impl.CellState
+import org.ash.french.killer.sudoku.domain.impl.CellUpdateValueOriginalValue
+import org.ash.french.killer.sudoku.domain.impl.KillerSudokuGrid
 import org.ash.french.killer.sudoku.domain.SudokuGrid
 import java.util.UUID
 
@@ -61,6 +61,10 @@ internal fun KillerSudokuGrid.cellValueBuilder(cellValueMap: Map<Cell, UByte?>) 
         .forEach { (cell, value) ->
             setCellValue(cell, CellState(value))
         }
+}
+
+internal fun KillerSudokuGridBuilder.cage(init: SudokuCellValueBuilder.() -> Unit) {
+
 }
 
 internal fun KillerSudokuGrid.cageBuilder(cageValueMap: Map<Cage, UByte>): CageBuilder {

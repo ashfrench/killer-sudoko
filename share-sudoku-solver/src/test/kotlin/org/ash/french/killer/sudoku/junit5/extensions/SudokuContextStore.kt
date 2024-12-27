@@ -1,6 +1,6 @@
 package org.ash.french.killer.sudoku.junit5.extensions
 
-import org.ash.french.killer.sudoku.domain.KillerSudokuGrid
+import org.ash.french.killer.sudoku.domain.impl.KillerSudokuGrid
 import org.junit.jupiter.api.extension.ExtensionContext
 import java.util.function.Function
 

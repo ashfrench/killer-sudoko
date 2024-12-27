@@ -1,6 +1,7 @@
-package org.ash.french.killer.sudoku.domain
+package org.ash.french.killer.sudoku.domain.impl
 
 import kotlinx.serialization.Serializable
+import org.ash.french.killer.sudoku.domain.Position
 
 @Serializable
 data class Cell(val position: GridPosition) : Position by position, Comparable<Cell> {

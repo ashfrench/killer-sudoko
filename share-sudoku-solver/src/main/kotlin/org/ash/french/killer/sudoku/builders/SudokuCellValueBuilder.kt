@@ -1,8 +1,8 @@
 package org.ash.french.killer.sudoku.builders
 
-import org.ash.french.killer.sudoku.domain.Cell
-import org.ash.french.killer.sudoku.domain.CellState
-import org.ash.french.killer.sudoku.domain.CellUpdateValueOriginalValue
+import org.ash.french.killer.sudoku.domain.impl.Cell
+import org.ash.french.killer.sudoku.domain.impl.CellState
+import org.ash.french.killer.sudoku.domain.impl.CellUpdateValueOriginalValue
 import org.ash.french.killer.sudoku.domain.SudokuGrid
 
 class SudokuCellValueBuilder(private var sudokuGrid: SudokuGrid) : SudokuBuilder<CellUpdateValueOriginalValue> {

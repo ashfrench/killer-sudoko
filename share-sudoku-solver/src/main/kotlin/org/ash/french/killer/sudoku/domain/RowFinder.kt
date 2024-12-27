@@ -1,5 +1,8 @@
 package org.ash.french.killer.sudoku.domain
 
+import org.ash.french.killer.sudoku.domain.impl.Cell
+import org.ash.french.killer.sudoku.domain.impl.Row
+
 interface RowFinder {
     fun getRow(cell: Cell): Row
 

@@ -1,6 +1,8 @@
-package org.ash.french.killer.sudoku.domain
+package org.ash.french.killer.sudoku.domain.impl
 
 import kotlinx.serialization.Serializable
+import org.ash.french.killer.sudoku.domain.CellValueFinder
+import org.ash.french.killer.sudoku.domain.CellValueSetter
 
 @Serializable
 data class CellValueUpdater(private val cellValues: MutableMap<Cell, CellState>) : CellValueFinder, CellValueSetter {

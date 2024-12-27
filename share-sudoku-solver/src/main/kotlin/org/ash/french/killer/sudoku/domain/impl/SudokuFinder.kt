@@ -1,4 +1,8 @@
-package org.ash.french.killer.sudoku.domain
+package org.ash.french.killer.sudoku.domain.impl
+
+import org.ash.french.killer.sudoku.domain.ColumnFinder
+import org.ash.french.killer.sudoku.domain.NonetFinder
+import org.ash.french.killer.sudoku.domain.RowFinder
 
 object SudokuFinder : RowFinder, ColumnFinder, NonetFinder {
     private val rows = cells.groupBy { it.y }.mapValues { Row(it.key, it.value.toSet()) }

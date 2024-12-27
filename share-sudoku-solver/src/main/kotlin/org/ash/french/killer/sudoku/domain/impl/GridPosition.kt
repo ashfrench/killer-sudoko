@@ -1,6 +1,8 @@
-package org.ash.french.killer.sudoku.domain
+package org.ash.french.killer.sudoku.domain.impl
 
 import kotlinx.serialization.Serializable
+import org.ash.french.killer.sudoku.domain.Position
+import org.ash.french.killer.sudoku.domain.inRange1to9
 
 @Serializable
 data class GridPosition(
@@ -13,7 +15,3 @@ data class GridPosition(
     }
 }
 
-interface Position {
-    val x: UByte
-    val y: UByte
-}

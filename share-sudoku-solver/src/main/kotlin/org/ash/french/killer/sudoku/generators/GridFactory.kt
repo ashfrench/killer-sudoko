@@ -1,7 +1,7 @@
 package org.ash.french.killer.sudoku.generators
 
-import org.ash.french.killer.sudoku.domain.Cell
-import org.ash.french.killer.sudoku.domain.KillerSudokuGrid
+import org.ash.french.killer.sudoku.domain.impl.Cell
+import org.ash.french.killer.sudoku.domain.impl.KillerSudokuGrid
 
 internal object GridFactory {
     val xRange = 1..9

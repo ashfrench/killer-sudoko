@@ -1,7 +1,7 @@
 package org.ash.french.killer.sudoku.solvers
 
-import org.ash.french.killer.sudoku.domain.CellUpdate
-import org.ash.french.killer.sudoku.domain.KillerSudokuGrid
+import org.ash.french.killer.sudoku.domain.impl.CellUpdate
+import org.ash.french.killer.sudoku.domain.impl.KillerSudokuGrid
 
 sealed class SolvedSudokuGridStatus
 

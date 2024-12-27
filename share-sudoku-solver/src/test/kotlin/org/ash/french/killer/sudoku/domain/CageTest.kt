@@ -1,5 +1,7 @@
 package org.ash.french.killer.sudoku.domain
 
+import org.ash.french.killer.sudoku.domain.impl.Cage
+import org.ash.french.killer.sudoku.domain.impl.Cell
 import org.junit.jupiter.api.DynamicTest
 import org.junit.jupiter.api.DynamicTest.dynamicTest
 import org.junit.jupiter.api.TestFactory

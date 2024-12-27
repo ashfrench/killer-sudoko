@@ -2,6 +2,7 @@ package org.ash.french.killer.sudoku.domain
 
 import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
+import org.ash.french.killer.sudoku.domain.impl.*
 import java.util.UUID
 
 @Serializable

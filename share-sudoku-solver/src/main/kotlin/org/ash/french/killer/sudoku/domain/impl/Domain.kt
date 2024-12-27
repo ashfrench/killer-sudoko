@@ -1,4 +1,4 @@
-package org.ash.french.killer.sudoku.domain
+package org.ash.french.killer.sudoku.domain.impl
 
 typealias SudokuValidation = Result<Boolean>
 

@@ -2,7 +2,7 @@ package org.ash.french.killer.sudoku.solvers.implementation
 
 import org.ash.french.killer.sudoku.builders.cellValues
 import org.ash.french.killer.sudoku.builders.sudokuGrid
-import org.ash.french.killer.sudoku.domain.CellRemovePotentialValueUpdate
+import org.ash.french.killer.sudoku.domain.impl.CellRemovePotentialValueUpdate
 import org.junit.jupiter.api.Test
 
 class XYWingTest {

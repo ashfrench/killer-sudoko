@@ -1,6 +1,6 @@
 package org.ash.french.killer.sudoku.solvers
 
-import org.ash.french.killer.sudoku.domain.KillerSudokuGrid
+import org.ash.french.killer.sudoku.domain.impl.KillerSudokuGrid
 import org.ash.french.killer.sudoku.solvers.implementation.CellUpdateType
 
 /**

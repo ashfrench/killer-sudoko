@@ -1,5 +1,9 @@
 package org.ash.french.killer.sudoku.domain
 
+import org.ash.french.killer.sudoku.domain.impl.Cell
+import org.ash.french.killer.sudoku.domain.impl.CellState
+import org.ash.french.killer.sudoku.domain.impl.CellUpdate
+
 interface CellValueFinder {
     fun getCell(
         x: Int,
