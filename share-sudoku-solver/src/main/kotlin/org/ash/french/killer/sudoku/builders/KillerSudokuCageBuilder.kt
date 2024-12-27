@@ -4,6 +4,8 @@ import org.ash.french.killer.sudoku.domain.impl.Cage
 
 class KillerSudokuCageBuilder : SudokuBuilder<Cage> {
 
+    var cageSum: Int = 0
+
     fun cell(init: SudokuCellBuilder.() -> Unit) {
 
     }

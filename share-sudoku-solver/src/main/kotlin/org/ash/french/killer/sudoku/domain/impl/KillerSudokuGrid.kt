@@ -34,4 +34,8 @@ data class KillerSudokuGrid(
         }
         return this
     }
+
+    fun withCage(build: Cage) {
+        TODO("Not yet implemented")
+    }
 }

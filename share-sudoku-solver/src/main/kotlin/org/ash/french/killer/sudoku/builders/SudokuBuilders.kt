@@ -63,8 +63,10 @@ internal fun KillerSudokuGrid.cellValueBuilder(cellValueMap: Map<Cell, UByte?>) 
         }
 }
 
-internal fun KillerSudokuGridBuilder.cage(init: SudokuCellValueBuilder.() -> Unit) {
-
+internal fun KillerSudokuGrid.cage(init: KillerSudokuCageBuilder.() -> Unit) {
+    val builder = KillerSudokuCageBuilder()
+    builder.init()
+    this.withCage(builder.build())
 }
 
 internal fun KillerSudokuGrid.cageBuilder(cageValueMap: Map<Cage, UByte>): CageBuilder {
