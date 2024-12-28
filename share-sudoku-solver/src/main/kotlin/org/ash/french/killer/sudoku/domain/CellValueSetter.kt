@@ -1,6 +1,13 @@
 package org.ash.french.killer.sudoku.domain
 
-import org.ash.french.killer.sudoku.domain.impl.*
+import org.ash.french.killer.sudoku.domain.impl.Cell
+import org.ash.french.killer.sudoku.domain.impl.CellRemovePotentialValueUpdate
+import org.ash.french.killer.sudoku.domain.impl.CellRemovePotentialValueFromRegionUpdate
+import org.ash.french.killer.sudoku.domain.impl.CellState
+import org.ash.french.killer.sudoku.domain.impl.CellUpdate
+import org.ash.french.killer.sudoku.domain.impl.CellUpdateValue
+import org.ash.french.killer.sudoku.domain.impl.CellUpdateValueOriginalValue
+
 
 interface CellValueSetter {
     fun setCellValue(

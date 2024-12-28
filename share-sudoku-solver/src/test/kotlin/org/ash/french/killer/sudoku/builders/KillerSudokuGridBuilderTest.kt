@@ -1,6 +1,5 @@
 package org.ash.french.killer.sudoku.builders
 
-import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
 class KillerSudokuGridBuilderTest {
@@ -32,5 +31,4 @@ class KillerSudokuGridBuilderTest {
         }.build()
 
     }
-
 }
