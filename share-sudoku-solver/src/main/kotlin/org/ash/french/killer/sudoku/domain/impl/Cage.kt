@@ -693,7 +693,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
     ) {
         val intSum = sum.toInt()
         val valid = cells.size.isValidCageSum(intSum)
-        require(valid) { "Invalid cage sum $sum for size ${cells.size}" }
+        require(valid) { "Invalid cage sum $sum for size ${cells.size} - $cells" }
     }
 
     private fun Int.isValidCageSum(sum: Int): Boolean {

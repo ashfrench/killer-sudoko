@@ -1,9 +1,9 @@
 package org.ash.french.killer.sudoku.solvers.implementation
 
+import org.ash.french.killer.sudoku.domain.SudokuGridInterface
 import org.ash.french.killer.sudoku.domain.impl.Column
 import org.ash.french.killer.sudoku.domain.impl.Nonet
 import org.ash.french.killer.sudoku.domain.impl.Row
-import org.ash.french.killer.sudoku.domain.SudokuGridInterface
 
 internal data object HiddenSingle : SudokuGridCellUpdate {
     override fun getCellUpdates(grid: SudokuGridInterface): List<CellUpdateType> {

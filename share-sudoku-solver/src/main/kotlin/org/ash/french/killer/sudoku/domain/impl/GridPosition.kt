@@ -14,4 +14,3 @@ data class GridPosition(
         require(y.inRange1to9()) { "Y must be a positive Integer between 1 and 9" }
     }
 }
-

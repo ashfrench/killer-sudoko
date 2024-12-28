@@ -2,23 +2,28 @@ package org.ash.french.killer.sudoku.domain.impl
 
 import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
-import org.ash.french.killer.sudoku.domain.*
+import org.ash.french.killer.sudoku.domain.CellValueFinder
+import org.ash.french.killer.sudoku.domain.CellValueSetter
+import org.ash.french.killer.sudoku.domain.ColumnFinder
+import org.ash.french.killer.sudoku.domain.KillerSudokuGridInterface
+import org.ash.french.killer.sudoku.domain.NonetFinder
+import org.ash.french.killer.sudoku.domain.RowFinder
 import java.util.UUID
 
 @Serializable
 data class KillerSudokuGrid(
     @Contextual var id: UUID? = null,
     private val cellValues: MutableMap<Cell, CellState> = cells.associateWith { CellState() }.toMutableMap(),
-    private val cageValues: MutableMap<Cage, CellState> = mutableMapOf(),
+    private val cages: MutableSet<Cage> = mutableSetOf(),
 ) : KillerSudokuGridInterface,
     CellValueFinder by CellValueUpdater(cellValues),
     CellValueSetter by CellValueUpdater(cellValues),
     RowFinder by SudokuFinder,
     ColumnFinder by SudokuFinder,
     NonetFinder by SudokuFinder {
-    override fun getCages() = cageValues.keys.toSet()
+    override fun getCages() = cages.toSet()
 
-    override fun getCage(cell: Cell): Cage = getCages().first { cell in it }
+    override fun getCage(cell: Cell): Cage = getCages().firstOrNull { cell in it } ?: throw NoSuchElementException("No Cage for $cell")
 
     override operator fun contains(cell: Cell) = cells.contains(cell)
 
@@ -35,7 +40,7 @@ data class KillerSudokuGrid(
         return this
     }
 
-    fun withCage(build: Cage) {
-        TODO("Not yet implemented")
+    fun withCage(cage: Cage) {
+        cages.add(cage)
     }
 }
