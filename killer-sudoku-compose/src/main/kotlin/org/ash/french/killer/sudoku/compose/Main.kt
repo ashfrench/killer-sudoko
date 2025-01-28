@@ -1,10 +1,9 @@
 package org.ash.french.killer.sudoku.compose
 
+import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.BottomAppBar
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.material.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.window.Window
@@ -36,7 +35,25 @@ fun main() =
                     }
                 },
             ) { _ ->
-                sudokuGridCard.composableCard()
+                DefaultPreview()
             }
         }
     }
+
+
+@Composable
+fun MainScreen() {
+    SudokuApp()
+}
+
+@Composable
+fun App() {
+    MaterialTheme {
+        MainScreen()
+    }
+}
+
+@Composable
+fun DefaultPreview() {
+    App()
+}
