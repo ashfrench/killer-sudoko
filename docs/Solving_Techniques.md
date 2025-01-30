@@ -59,7 +59,11 @@
 > [Code is based here](../sudoku-solver/src/main/kotlin/org/ash/french/killer/sudoku/solvers/implementation/Nishio.kt)
 
 ## Killer Sudoku Techniques
-> Stuff Here
+### [Fewest Possible Combinations][17]
+> Add Code Link
+
+### [The Rule of 45][18]
+
 
 ### No Idea
 > Write Stuff
@@ -88,3 +92,5 @@
 [14]: https://sudoku9x9.com/techniques/nakedquad/
 [15]: https://sudoku9x9.com/techniques/hiddentriplet/
 [16]: https://sudoku9x9.com/techniques/hiddenquad/
+[17]: https://en.wikipedia.org/wiki/Killer_sudoku#Fewest_possible_combinations
+[18]:https://en.wikipedia.org/wiki/Killer_sudoku#The_Rule_of_45
