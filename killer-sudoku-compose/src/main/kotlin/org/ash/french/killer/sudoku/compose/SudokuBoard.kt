@@ -1,9 +1,14 @@
 package org.ash.french.killer.sudoku.compose
 
-data class SudokuBoard(
-    val grid: List<List<Int?>> = List(9) { List(9) { null } }
-) {
-//    fun setCellValue(row: Int, col: Int, value: Int?) {
-//        grid[row][col] = value
-//    }
+import org.ash.french.killer.sudoku.domain.impl.Cell
+
+data class SudokuBoard(val grid: MutableMap<Cell, Int?>) {
+    fun setCellValue(
+        row: Int,
+        col: Int,
+        value: Int?,
+    ) {
+        val cell = Cell(row, col)
+        grid[cell] = value
+    }
 }

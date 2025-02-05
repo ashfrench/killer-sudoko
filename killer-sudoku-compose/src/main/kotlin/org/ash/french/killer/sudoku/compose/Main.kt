@@ -1,8 +1,11 @@
 package org.ash.french.killer.sudoku.compose
 
-import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.*
+import androidx.compose.material.BottomAppBar
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
@@ -10,6 +13,7 @@ import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import org.ash.french.killer.sudoku.builders.randomDefaultGrid
 import org.ash.french.killer.sudoku.compose.cards.SudokuGridCard
+import org.ash.french.killer.sudoku.compose.cards.sudokuApp
 
 fun main() =
     application {
@@ -35,25 +39,24 @@ fun main() =
                     }
                 },
             ) { _ ->
-                DefaultPreview()
+                defaultPreview()
             }
         }
     }
 
-
 @Composable
-fun MainScreen() {
-    SudokuApp()
+fun mainScreen() {
+    sudokuApp()
 }
 
 @Composable
-fun App() {
+fun app() {
     MaterialTheme {
-        MainScreen()
+        mainScreen()
     }
 }
 
 @Composable
-fun DefaultPreview() {
-    App()
+fun defaultPreview() {
+    app()
 }
