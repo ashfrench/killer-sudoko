@@ -2,13 +2,16 @@ plugins {
     kotlin("jvm") version "2.0.20"
     kotlin("plugin.serialization") version "2.0.20"
 
-    // Get the current version from https://github.com/JLLeitschuh/ktlint-gradle
+//    // Get the current version from https://github.com/JLLeitschuh/ktlint-gradle
     id("org.jlleitschuh.gradle.ktlint") version "12.1.1" apply false
 
     id("org.sonarqube") version "5.1.0.4882"
 
-    id("org.jetbrains.compose") apply false
-    id("org.jetbrains.kotlin.plugin.compose") apply false
+    alias(libs.plugins.androidApplication) apply false
+    alias(libs.plugins.androidLibrary) apply false
+    alias(libs.plugins.composeMultiplatform) apply false
+    alias(libs.plugins.composeCompiler) apply false
+    alias(libs.plugins.kotlinMultiplatform) apply false
 }
 
 group = "org.ash.french"
