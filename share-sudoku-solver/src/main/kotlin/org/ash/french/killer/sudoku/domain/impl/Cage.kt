@@ -6,46 +6,69 @@ import kotlinx.serialization.Serializable
 data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region {
     constructor(sum: Int, cells: Collection<Cell>) : this(sum.toUByte(), cells.toSet())
 
-    val potentialCageValues: Set<Set<Int>>
+    private val potentialCageValues: MutableSet<Set<Int>>
+
+    fun getPotentialCageValues() = potentialCageValues.toSet()
 
     init {
         this.validate().getOrThrow()
         potentialCageValues = generatePotentialCageValues()
+        updateCellValues()
     }
 
-    private fun generatePotentialCageValues(): Set<Set<Int>> {
+    fun mustContainValue(value: Int) {
+        potentialCageValues.removeIf { value !in it }
+        updateCellValues()
+    }
+
+    fun notContainValue(value: Int) {
+        potentialCageValues.removeIf { value in it }
+        updateCellValues()
+    }
+
+    fun potentialCageValuesFromCellPotentials() {
+        val unusedVals = (1..9).filter { value -> cells.none { cell -> value in cell.getPotentialCellValues() } }
+        unusedVals.forEach { notContainValue(it) }
+    }
+
+    private fun updateCellValues() {
+        val unusedVals = (1..9).filter { potentialValue -> potentialCageValues.none { potentialValue in it } }
+        unusedVals.forEach { unusedValue -> cells.forEach { cell -> cell.removePotentialValue(unusedValue) } }
+    }
+
+    private fun generatePotentialCageValues(): MutableSet<Set<Int>> {
         return when (cells.size) {
-            1 -> setOf(setOf(sum.toInt()))
+            1 -> mutableSetOf(setOf(sum.toInt()))
             2 ->
                 when (sum.toInt()) {
-                    3 -> setOf(setOf(1, 2))
-                    4 -> setOf(setOf(1, 3))
-                    5 -> setOf(setOf(1, 4), setOf(2, 3))
-                    6 -> setOf(setOf(1, 5), setOf(2, 4))
-                    7 -> setOf(setOf(1, 6), setOf(2, 5), setOf(3, 4))
-                    8 -> setOf(setOf(1, 7), setOf(2, 6), setOf(3, 5))
-                    9 -> setOf(setOf(1, 8), setOf(2, 7), setOf(3, 6), setOf(4, 5))
-                    10 -> setOf(setOf(1, 9), setOf(2, 8), setOf(3, 7), setOf(4, 6))
-                    11 -> setOf(setOf(2, 9), setOf(3, 8), setOf(4, 7), setOf(5, 6))
-                    12 -> setOf(setOf(3, 9), setOf(4, 8), setOf(5, 7))
-                    13 -> setOf(setOf(4, 9), setOf(5, 8), setOf(6, 7))
-                    14 -> setOf(setOf(5, 9), setOf(6, 8))
-                    15 -> setOf(setOf(6, 9), setOf(7, 8))
-                    16 -> setOf(setOf(7, 9))
-                    17 -> setOf(setOf(8, 9))
+                    3 -> mutableSetOf(setOf(1, 2))
+                    4 -> mutableSetOf(setOf(1, 3))
+                    5 -> mutableSetOf(setOf(1, 4), setOf(2, 3))
+                    6 -> mutableSetOf(setOf(1, 5), setOf(2, 4))
+                    7 -> mutableSetOf(setOf(1, 6), setOf(2, 5), setOf(3, 4))
+                    8 -> mutableSetOf(setOf(1, 7), setOf(2, 6), setOf(3, 5))
+                    9 -> mutableSetOf(setOf(1, 8), setOf(2, 7), setOf(3, 6), setOf(4, 5))
+                    10 -> mutableSetOf(setOf(1, 9), setOf(2, 8), setOf(3, 7), setOf(4, 6))
+                    11 -> mutableSetOf(setOf(2, 9), setOf(3, 8), setOf(4, 7), setOf(5, 6))
+                    12 -> mutableSetOf(setOf(3, 9), setOf(4, 8), setOf(5, 7))
+                    13 -> mutableSetOf(setOf(4, 9), setOf(5, 8), setOf(6, 7))
+                    14 -> mutableSetOf(setOf(5, 9), setOf(6, 8))
+                    15 -> mutableSetOf(setOf(6, 9), setOf(7, 8))
+                    16 -> mutableSetOf(setOf(7, 9))
+                    17 -> mutableSetOf(setOf(8, 9))
                     else -> throw RuntimeException("Invalid Sum $sum for size ${cells.size}")
                 }
 
             3 ->
                 when (sum.toInt()) {
-                    6 -> setOf(setOf(1, 2, 3))
-                    7 -> setOf(setOf(1, 2, 4))
-                    8 -> setOf(setOf(1, 2, 5), setOf(1, 3, 4))
-                    9 -> setOf(setOf(1, 2, 6), setOf(1, 3, 5), setOf(2, 3, 4))
-                    10 -> setOf(setOf(1, 2, 7), setOf(1, 3, 6), setOf(1, 4, 5), setOf(2, 3, 5))
-                    11 -> setOf(setOf(1, 2, 8), setOf(1, 3, 7), setOf(1, 4, 6), setOf(2, 3, 6), setOf(2, 4, 5))
+                    6 -> mutableSetOf(setOf(1, 2, 3))
+                    7 -> mutableSetOf(setOf(1, 2, 4))
+                    8 -> mutableSetOf(setOf(1, 2, 5), setOf(1, 3, 4))
+                    9 -> mutableSetOf(setOf(1, 2, 6), setOf(1, 3, 5), setOf(2, 3, 4))
+                    10 -> mutableSetOf(setOf(1, 2, 7), setOf(1, 3, 6), setOf(1, 4, 5), setOf(2, 3, 5))
+                    11 -> mutableSetOf(setOf(1, 2, 8), setOf(1, 3, 7), setOf(1, 4, 6), setOf(2, 3, 6), setOf(2, 4, 5))
                     12 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 2, 9),
                             setOf(1, 3, 8),
                             setOf(1, 4, 7),
@@ -56,7 +79,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     13 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 3, 9),
                             setOf(1, 4, 8),
                             setOf(1, 5, 7),
@@ -67,7 +90,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     14 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 4, 9),
                             setOf(1, 5, 8),
                             setOf(1, 6, 7),
@@ -79,7 +102,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     15 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 5, 9),
                             setOf(1, 6, 8),
                             setOf(2, 4, 9),
@@ -91,7 +114,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     16 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 6, 9),
                             setOf(1, 7, 8),
                             setOf(2, 5, 9),
@@ -103,7 +126,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     17 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 7, 9),
                             setOf(2, 6, 9),
                             setOf(2, 7, 8),
@@ -114,7 +137,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     18 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 8, 9),
                             setOf(2, 7, 9),
                             setOf(3, 6, 9),
@@ -124,23 +147,23 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                             setOf(5, 6, 7),
                         )
 
-                    19 -> setOf(setOf(2, 8, 9), setOf(3, 7, 9), setOf(4, 6, 9), setOf(4, 7, 8), setOf(5, 6, 8))
-                    20 -> setOf(setOf(3, 8, 9), setOf(4, 7, 9), setOf(5, 6, 9), setOf(5, 7, 8))
-                    21 -> setOf(setOf(4, 8, 9), setOf(5, 7, 9), setOf(6, 7, 8))
-                    22 -> setOf(setOf(5, 8, 9), setOf(6, 7, 9))
-                    23 -> setOf(setOf(6, 8, 9))
-                    24 -> setOf(setOf(7, 8, 9))
+                    19 -> mutableSetOf(setOf(2, 8, 9), setOf(3, 7, 9), setOf(4, 6, 9), setOf(4, 7, 8), setOf(5, 6, 8))
+                    20 -> mutableSetOf(setOf(3, 8, 9), setOf(4, 7, 9), setOf(5, 6, 9), setOf(5, 7, 8))
+                    21 -> mutableSetOf(setOf(4, 8, 9), setOf(5, 7, 9), setOf(6, 7, 8))
+                    22 -> mutableSetOf(setOf(5, 8, 9), setOf(6, 7, 9))
+                    23 -> mutableSetOf(setOf(6, 8, 9))
+                    24 -> mutableSetOf(setOf(7, 8, 9))
                     else -> throw RuntimeException("Invalid Sum $sum for size ${cells.size}")
                 }
 
             4 ->
                 when (sum.toInt()) {
-                    10 -> setOf(setOf(1, 2, 3, 4))
-                    11 -> setOf(setOf(1, 2, 3, 5))
-                    12 -> setOf(setOf(1, 2, 3, 6), setOf(1, 2, 4, 5))
-                    13 -> setOf(setOf(1, 2, 3, 7), setOf(1, 2, 4, 6), setOf(1, 3, 4, 5))
+                    10 -> mutableSetOf(setOf(1, 2, 3, 4))
+                    11 -> mutableSetOf(setOf(1, 2, 3, 5))
+                    12 -> mutableSetOf(setOf(1, 2, 3, 6), setOf(1, 2, 4, 5))
+                    13 -> mutableSetOf(setOf(1, 2, 3, 7), setOf(1, 2, 4, 6), setOf(1, 3, 4, 5))
                     14 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 2, 3, 8),
                             setOf(1, 2, 4, 7),
                             setOf(1, 2, 5, 6),
@@ -149,7 +172,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     15 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 2, 3, 9),
                             setOf(1, 2, 4, 8),
                             setOf(1, 2, 5, 7),
@@ -159,7 +182,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     16 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 2, 4, 9),
                             setOf(1, 2, 5, 8),
                             setOf(1, 2, 6, 7),
@@ -171,7 +194,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     17 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 2, 5, 9),
                             setOf(1, 2, 6, 8),
                             setOf(1, 3, 4, 9),
@@ -184,7 +207,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     18 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 2, 6, 9),
                             setOf(1, 2, 7, 8),
                             setOf(1, 3, 5, 9),
@@ -199,7 +222,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     19 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 2, 7, 9),
                             setOf(1, 3, 6, 9),
                             setOf(1, 3, 7, 8),
@@ -214,7 +237,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     20 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 2, 8, 9),
                             setOf(1, 3, 7, 9),
                             setOf(1, 4, 6, 9),
@@ -230,7 +253,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     21 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 3, 8, 9),
                             setOf(1, 4, 7, 9),
                             setOf(1, 5, 6, 9),
@@ -245,7 +268,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     22 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 4, 8, 9),
                             setOf(1, 5, 7, 9),
                             setOf(1, 6, 7, 8),
@@ -260,7 +283,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     23 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 5, 8, 9),
                             setOf(1, 6, 7, 9),
                             setOf(2, 4, 8, 9),
@@ -273,7 +296,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     24 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 6, 8, 9),
                             setOf(2, 5, 8, 9),
                             setOf(2, 6, 7, 9),
@@ -285,7 +308,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     25 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 7, 8, 9),
                             setOf(2, 6, 8, 9),
                             setOf(3, 5, 8, 9),
@@ -295,7 +318,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     26 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(2, 7, 8, 9),
                             setOf(3, 6, 8, 9),
                             setOf(4, 5, 8, 9),
@@ -303,21 +326,21 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                             setOf(5, 6, 7, 8),
                         )
 
-                    27 -> setOf(setOf(3, 7, 8, 9), setOf(4, 6, 8, 9), setOf(5, 6, 7, 9))
-                    28 -> setOf(setOf(4, 7, 8, 9), setOf(5, 6, 8, 9))
-                    29 -> setOf(setOf(5, 7, 8, 9))
-                    30 -> setOf(setOf(6, 7, 8, 9))
+                    27 -> mutableSetOf(setOf(3, 7, 8, 9), setOf(4, 6, 8, 9), setOf(5, 6, 7, 9))
+                    28 -> mutableSetOf(setOf(4, 7, 8, 9), setOf(5, 6, 8, 9))
+                    29 -> mutableSetOf(setOf(5, 7, 8, 9))
+                    30 -> mutableSetOf(setOf(6, 7, 8, 9))
                     else -> throw RuntimeException("Invalid Sum $sum for size ${cells.size}")
                 }
 
             5 ->
                 when (sum.toInt()) {
-                    15 -> setOf(setOf(1, 2, 3, 4, 5))
-                    16 -> setOf(setOf(1, 2, 3, 4, 6))
-                    17 -> setOf(setOf(1, 2, 3, 4, 7), setOf(1, 2, 3, 5, 6))
-                    18 -> setOf(setOf(1, 2, 3, 4, 8), setOf(1, 2, 3, 5, 7), setOf(1, 2, 4, 5, 6))
+                    15 -> mutableSetOf(setOf(1, 2, 3, 4, 5))
+                    16 -> mutableSetOf(setOf(1, 2, 3, 4, 6))
+                    17 -> mutableSetOf(setOf(1, 2, 3, 4, 7), setOf(1, 2, 3, 5, 6))
+                    18 -> mutableSetOf(setOf(1, 2, 3, 4, 8), setOf(1, 2, 3, 5, 7), setOf(1, 2, 4, 5, 6))
                     19 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 2, 3, 4, 9),
                             setOf(1, 2, 3, 5, 8),
                             setOf(1, 2, 3, 6, 7),
@@ -326,7 +349,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     20 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 2, 3, 5, 9),
                             setOf(1, 2, 3, 6, 8),
                             setOf(1, 2, 4, 5, 8),
@@ -336,7 +359,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     21 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 2, 3, 6, 9),
                             setOf(1, 2, 3, 7, 8),
                             setOf(1, 2, 4, 5, 9),
@@ -348,7 +371,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     22 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 2, 3, 7, 9),
                             setOf(1, 2, 4, 6, 9),
                             setOf(1, 2, 4, 7, 8),
@@ -361,7 +384,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     23 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 2, 3, 8, 9),
                             setOf(1, 2, 4, 7, 9),
                             setOf(1, 2, 5, 6, 9),
@@ -376,7 +399,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     24 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 2, 4, 8, 9),
                             setOf(1, 2, 5, 7, 9),
                             setOf(1, 2, 6, 7, 8),
@@ -391,7 +414,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     25 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 2, 5, 8, 9),
                             setOf(1, 2, 6, 7, 9),
                             setOf(1, 3, 4, 8, 9),
@@ -407,7 +430,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     26 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 2, 6, 8, 9),
                             setOf(1, 3, 5, 8, 9),
                             setOf(1, 3, 6, 7, 9),
@@ -422,7 +445,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     27 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 2, 7, 8, 9),
                             setOf(1, 3, 6, 8, 9),
                             setOf(1, 4, 5, 8, 9),
@@ -437,7 +460,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     28 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 3, 7, 8, 9),
                             setOf(1, 4, 6, 8, 9),
                             setOf(1, 5, 6, 7, 9),
@@ -450,7 +473,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     29 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 4, 7, 8, 9),
                             setOf(1, 5, 6, 8, 9),
                             setOf(2, 3, 7, 8, 9),
@@ -462,7 +485,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     30 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 5, 7, 8, 9),
                             setOf(2, 4, 7, 8, 9),
                             setOf(2, 5, 6, 8, 9),
@@ -472,7 +495,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     31 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 6, 7, 8, 9),
                             setOf(2, 5, 7, 8, 9),
                             setOf(3, 4, 7, 8, 9),
@@ -480,21 +503,21 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                             setOf(4, 5, 6, 7, 9),
                         )
 
-                    32 -> setOf(setOf(2, 6, 7, 8, 9), setOf(3, 5, 7, 8, 9), setOf(4, 5, 6, 8, 9))
-                    33 -> setOf(setOf(3, 6, 7, 8, 9), setOf(4, 5, 7, 8, 9))
-                    34 -> setOf(setOf(4, 6, 7, 8, 9))
-                    35 -> setOf(setOf(5, 6, 7, 8, 9))
+                    32 -> mutableSetOf(setOf(2, 6, 7, 8, 9), setOf(3, 5, 7, 8, 9), setOf(4, 5, 6, 8, 9))
+                    33 -> mutableSetOf(setOf(3, 6, 7, 8, 9), setOf(4, 5, 7, 8, 9))
+                    34 -> mutableSetOf(setOf(4, 6, 7, 8, 9))
+                    35 -> mutableSetOf(setOf(5, 6, 7, 8, 9))
                     else -> throw RuntimeException("Invalid Sum $sum for size ${cells.size}")
                 }
 
             6 ->
                 when (sum.toInt()) {
-                    21 -> setOf(setOf(1, 2, 3, 4, 5, 6))
-                    22 -> setOf(setOf(1, 2, 3, 4, 5, 7))
-                    23 -> setOf(setOf(1, 2, 3, 4, 5, 8), setOf(1, 2, 3, 4, 6, 7))
-                    24 -> setOf(setOf(1, 2, 3, 4, 5, 9), setOf(1, 2, 3, 4, 6, 8), setOf(1, 2, 3, 5, 6, 7))
+                    21 -> mutableSetOf(setOf(1, 2, 3, 4, 5, 6))
+                    22 -> mutableSetOf(setOf(1, 2, 3, 4, 5, 7))
+                    23 -> mutableSetOf(setOf(1, 2, 3, 4, 5, 8), setOf(1, 2, 3, 4, 6, 7))
+                    24 -> mutableSetOf(setOf(1, 2, 3, 4, 5, 9), setOf(1, 2, 3, 4, 6, 8), setOf(1, 2, 3, 5, 6, 7))
                     25 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 2, 3, 4, 6, 9),
                             setOf(1, 2, 3, 4, 7, 8),
                             setOf(1, 2, 3, 5, 6, 8),
@@ -502,7 +525,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     26 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 2, 3, 4, 7, 9),
                             setOf(1, 2, 3, 5, 6, 9),
                             setOf(1, 2, 3, 5, 7, 8),
@@ -511,7 +534,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     27 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 2, 3, 4, 8, 9),
                             setOf(1, 2, 3, 5, 7, 9),
                             setOf(1, 2, 3, 6, 7, 8),
@@ -522,7 +545,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     28 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 2, 3, 5, 8, 9),
                             setOf(1, 2, 3, 6, 7, 9),
                             setOf(1, 2, 4, 5, 7, 9),
@@ -533,7 +556,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     29 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 2, 3, 6, 8, 9),
                             setOf(1, 2, 4, 5, 8, 9),
                             setOf(1, 2, 4, 6, 7, 9),
@@ -545,7 +568,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     30 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 2, 3, 7, 8, 9),
                             setOf(1, 2, 4, 6, 8, 9),
                             setOf(1, 2, 5, 6, 7, 9),
@@ -557,7 +580,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     31 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 2, 4, 7, 8, 9),
                             setOf(1, 2, 5, 6, 8, 9),
                             setOf(1, 3, 4, 6, 8, 9),
@@ -569,7 +592,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     32 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 2, 5, 7, 8, 9),
                             setOf(1, 3, 4, 7, 8, 9),
                             setOf(1, 3, 5, 6, 8, 9),
@@ -580,7 +603,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     33 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 2, 6, 7, 8, 9),
                             setOf(1, 3, 5, 7, 8, 9),
                             setOf(1, 4, 5, 6, 8, 9),
@@ -591,7 +614,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     34 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 3, 6, 7, 8, 9),
                             setOf(1, 4, 5, 7, 8, 9),
                             setOf(2, 3, 5, 7, 8, 9),
@@ -600,30 +623,30 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     35 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 4, 6, 7, 8, 9),
                             setOf(2, 3, 6, 7, 8, 9),
                             setOf(2, 4, 5, 7, 8, 9),
                             setOf(3, 4, 5, 6, 8, 9),
                         )
 
-                    36 -> setOf(setOf(1, 5, 6, 7, 8, 9), setOf(2, 4, 6, 7, 8, 9), setOf(3, 4, 5, 7, 8, 9))
-                    37 -> setOf(setOf(2, 5, 6, 7, 8, 9), setOf(3, 4, 6, 7, 8, 9))
-                    38 -> setOf(setOf(3, 5, 6, 7, 8, 9))
-                    39 -> setOf(setOf(4, 5, 6, 7, 8, 9))
+                    36 -> mutableSetOf(setOf(1, 5, 6, 7, 8, 9), setOf(2, 4, 6, 7, 8, 9), setOf(3, 4, 5, 7, 8, 9))
+                    37 -> mutableSetOf(setOf(2, 5, 6, 7, 8, 9), setOf(3, 4, 6, 7, 8, 9))
+                    38 -> mutableSetOf(setOf(3, 5, 6, 7, 8, 9))
+                    39 -> mutableSetOf(setOf(4, 5, 6, 7, 8, 9))
                     else -> throw RuntimeException("Invalid Sum $sum for size ${cells.size}")
                 }
 
             7 ->
                 when (sum.toInt()) {
-                    28 -> setOf(setOf(1, 2, 3, 4, 5, 6, 7))
-                    29 -> setOf(setOf(1, 2, 3, 4, 5, 6, 8))
-                    30 -> setOf(setOf(1, 2, 3, 4, 5, 6, 9), setOf(1, 2, 3, 4, 5, 7, 8))
-                    31 -> setOf(setOf(1, 2, 3, 4, 5, 7, 9), setOf(1, 2, 3, 4, 6, 7, 8))
-                    32 -> setOf(setOf(1, 2, 3, 4, 5, 8, 9), setOf(1, 2, 3, 4, 6, 7, 9), setOf(1, 2, 3, 5, 6, 7, 8))
-                    33 -> setOf(setOf(1, 2, 3, 4, 6, 8, 9), setOf(1, 2, 3, 5, 6, 7, 9), setOf(1, 2, 4, 5, 6, 7, 8))
+                    28 -> mutableSetOf(setOf(1, 2, 3, 4, 5, 6, 7))
+                    29 -> mutableSetOf(setOf(1, 2, 3, 4, 5, 6, 8))
+                    30 -> mutableSetOf(setOf(1, 2, 3, 4, 5, 6, 9), setOf(1, 2, 3, 4, 5, 7, 8))
+                    31 -> mutableSetOf(setOf(1, 2, 3, 4, 5, 7, 9), setOf(1, 2, 3, 4, 6, 7, 8))
+                    32 -> mutableSetOf(setOf(1, 2, 3, 4, 5, 8, 9), setOf(1, 2, 3, 4, 6, 7, 9), setOf(1, 2, 3, 5, 6, 7, 8))
+                    33 -> mutableSetOf(setOf(1, 2, 3, 4, 6, 8, 9), setOf(1, 2, 3, 5, 6, 7, 9), setOf(1, 2, 4, 5, 6, 7, 8))
                     34 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 2, 3, 4, 7, 8, 9),
                             setOf(1, 2, 3, 5, 6, 8, 9),
                             setOf(1, 2, 4, 5, 6, 7, 9),
@@ -631,7 +654,7 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     35 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 2, 3, 5, 7, 8, 9),
                             setOf(1, 2, 4, 5, 6, 8, 9),
                             setOf(1, 3, 4, 5, 6, 7, 9),
@@ -639,39 +662,39 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
                         )
 
                     36 ->
-                        setOf(
+                        mutableSetOf(
                             setOf(1, 2, 3, 6, 7, 8, 9),
                             setOf(1, 2, 4, 5, 7, 8, 9),
                             setOf(1, 3, 4, 5, 6, 8, 9),
                             setOf(2, 3, 4, 5, 6, 7, 9),
                         )
 
-                    37 -> setOf(setOf(1, 2, 4, 6, 7, 8, 9), setOf(1, 3, 4, 5, 7, 8, 9), setOf(2, 3, 4, 5, 6, 8, 9))
-                    38 -> setOf(setOf(1, 2, 5, 6, 7, 8, 9), setOf(1, 3, 4, 6, 7, 8, 9), setOf(2, 3, 4, 5, 7, 8, 9))
-                    39 -> setOf(setOf(1, 3, 5, 6, 7, 8, 9), setOf(2, 3, 4, 6, 7, 8, 9))
-                    40 -> setOf(setOf(1, 4, 5, 6, 7, 8, 9), setOf(2, 3, 5, 6, 7, 8, 9))
-                    41 -> setOf(setOf(2, 4, 5, 6, 7, 8, 9))
-                    42 -> setOf(setOf(3, 4, 5, 6, 7, 8, 9))
+                    37 -> mutableSetOf(setOf(1, 2, 4, 6, 7, 8, 9), setOf(1, 3, 4, 5, 7, 8, 9), setOf(2, 3, 4, 5, 6, 8, 9))
+                    38 -> mutableSetOf(setOf(1, 2, 5, 6, 7, 8, 9), setOf(1, 3, 4, 6, 7, 8, 9), setOf(2, 3, 4, 5, 7, 8, 9))
+                    39 -> mutableSetOf(setOf(1, 3, 5, 6, 7, 8, 9), setOf(2, 3, 4, 6, 7, 8, 9))
+                    40 -> mutableSetOf(setOf(1, 4, 5, 6, 7, 8, 9), setOf(2, 3, 5, 6, 7, 8, 9))
+                    41 -> mutableSetOf(setOf(2, 4, 5, 6, 7, 8, 9))
+                    42 -> mutableSetOf(setOf(3, 4, 5, 6, 7, 8, 9))
                     else -> throw RuntimeException("Invalid Sum $sum for size ${cells.size}")
                 }
 
             8 ->
                 when (sum.toInt()) {
-                    36 -> setOf(setOf(1, 2, 3, 4, 5, 6, 7, 8))
-                    37 -> setOf(setOf(1, 2, 3, 4, 5, 6, 7, 9))
-                    38 -> setOf(setOf(1, 2, 3, 4, 5, 6, 8, 9))
-                    39 -> setOf(setOf(1, 2, 3, 4, 5, 7, 8, 9))
-                    40 -> setOf(setOf(1, 2, 3, 4, 6, 7, 8, 9))
-                    41 -> setOf(setOf(1, 2, 3, 5, 6, 7, 8, 9))
-                    42 -> setOf(setOf(1, 2, 4, 5, 6, 7, 8, 9))
-                    43 -> setOf(setOf(1, 3, 4, 5, 6, 7, 8, 9))
-                    44 -> setOf(setOf(2, 3, 4, 5, 6, 7, 8, 9))
+                    36 -> mutableSetOf(setOf(1, 2, 3, 4, 5, 6, 7, 8))
+                    37 -> mutableSetOf(setOf(1, 2, 3, 4, 5, 6, 7, 9))
+                    38 -> mutableSetOf(setOf(1, 2, 3, 4, 5, 6, 8, 9))
+                    39 -> mutableSetOf(setOf(1, 2, 3, 4, 5, 7, 8, 9))
+                    40 -> mutableSetOf(setOf(1, 2, 3, 4, 6, 7, 8, 9))
+                    41 -> mutableSetOf(setOf(1, 2, 3, 5, 6, 7, 8, 9))
+                    42 -> mutableSetOf(setOf(1, 2, 4, 5, 6, 7, 8, 9))
+                    43 -> mutableSetOf(setOf(1, 3, 4, 5, 6, 7, 8, 9))
+                    44 -> mutableSetOf(setOf(2, 3, 4, 5, 6, 7, 8, 9))
                     else -> throw RuntimeException("Invalid Sum $sum for size ${cells.size}")
                 }
 
             9 ->
                 when (sum.toInt()) {
-                    45 -> setOf(setOf(1, 2, 3, 4, 5, 6, 7, 8, 9))
+                    45 -> mutableSetOf(setOf(1, 2, 3, 4, 5, 6, 7, 8, 9))
                     else -> throw RuntimeException("Invalid Sum $sum for size ${cells.size}")
                 }
 

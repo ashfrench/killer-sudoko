@@ -1,9 +1,9 @@
 package org.ash.french.killer.sudoku.solvers.implementation
 
 import org.ash.french.killer.sudoku.domain.SudokuGridInterface
-import org.ash.french.killer.sudoku.domain.impl.Column
-import org.ash.french.killer.sudoku.domain.impl.Nonet
-import org.ash.french.killer.sudoku.domain.impl.Row
+import org.ash.french.killer.sudoku.domain.impl.CellUpdateValue
+import org.ash.french.killer.sudoku.domain.impl.Region
+import org.ash.french.killer.sudoku.solvers.SudokuSolvingUpdateType
 
 internal data object HiddenSingle : SudokuGridCellUpdate {
     override fun getCellUpdates(grid: SudokuGridInterface): List<CellUpdateType> {
@@ -27,23 +27,21 @@ internal data object HiddenSingle : SudokuGridCellUpdate {
     }
 }
 
-private fun Nonet.findHiddenSingle(
+private fun Region.findHiddenSingle(
     grid: SudokuGridInterface,
     hiddenSingleCheck: Int,
 ): CellUpdateType? {
-    return null
-}
-
-private fun Row.findHiddenSingle(
-    grid: SudokuGridInterface,
-    hiddenSingleCheck: Int,
-): CellUpdateType? {
-    return null
-}
-
-private fun Column.findHiddenSingle(
-    grid: SudokuGridInterface,
-    hiddenSingleCheck: Int,
-): CellUpdateType? {
+    val hiddenSingleCellsCheck = cells.filter { hiddenSingleCheck in it.getPotentialCellValues() }
+    if (hiddenSingleCellsCheck.size == 1) {
+        val cell = hiddenSingleCellsCheck[0]
+        val cellState = grid.getCellValue(cell)
+        if (cellState.value == null) {
+            return CellUpdateType(
+                CellUpdateValue(cell, hiddenSingleCheck),
+                SudokuSolvingUpdateType.HIDDEN_SINGLE,
+                "$cell has hidden single $hiddenSingleCheck",
+            )
+        }
+    }
     return null
 }

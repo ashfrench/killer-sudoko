@@ -20,5 +20,3 @@ plugins {
 }
 
 include("share-sudoku-solver")
-include("killer-sudoku-compose")
-include("spring-boot")
