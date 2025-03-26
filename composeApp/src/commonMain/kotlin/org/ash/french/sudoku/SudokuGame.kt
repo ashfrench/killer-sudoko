@@ -1,6 +1,5 @@
 package org.ash.french.sudoku
 
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -10,28 +9,24 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.min
 
-private const val CELL_COUNT = 3
+private const val BOX_COUNT = 3
 
 @Composable
-fun sudokuBox(
-    showNotes: Boolean,
-    size: Dp,
-) {
+fun sudokuGame(showNotes: Boolean) {
     BoxWithConstraints(
-        modifier = Modifier.size(size).border(2.dp, Color.Black),
+        modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center,
     ) {
-        val boxSize = min(maxHeight / CELL_COUNT, maxWidth / CELL_COUNT)
-        Column(Modifier.fillMaxSize()) {
-            repeat(CELL_COUNT) { row ->
+        val size = min(maxWidth, maxHeight)
+
+        Column(Modifier.size(size = size)) {
+            repeat(BOX_COUNT) { row ->
                 Row(Modifier.fillMaxWidth()) {
-                    repeat(CELL_COUNT) { col ->
-                        cellNotesGrid(boxSize, showNotes, (1..9).toSet())
+                    repeat(BOX_COUNT) { col ->
+                        sudokuBox(showNotes, Dp(size.value / BOX_COUNT))
                     }
                 }
             }
