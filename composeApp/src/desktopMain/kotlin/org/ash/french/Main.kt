@@ -11,7 +11,7 @@ fun main() =
         Window(
             onCloseRequest = ::exitApplication,
             title = "Killer Sudoku Solver",
-            state = WindowState(size = DpSize(900.dp, 950.dp))
+            state = WindowState(size = DpSize(900.dp, 950.dp)),
         ) {
             app()
         }
