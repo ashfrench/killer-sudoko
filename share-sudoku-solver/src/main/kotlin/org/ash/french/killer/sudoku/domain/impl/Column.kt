@@ -11,8 +11,8 @@ data class Column(
         validate().getOrThrow()
     }
 
-    override fun validate(): Result<Boolean> {
-        return try {
+    override fun validate(): Result<Boolean> =
+        try {
             require(x in (1u..9u)) { "X must be a positive Integer between 1 and 9" }
             require(cells.any { it.x == x }) { "All Cells must be in the Row $x" }
             require(cells.distinct().count() == 9) { "All Cells must be in the Row $x" }
@@ -21,5 +21,4 @@ data class Column(
         } catch (e: Throwable) {
             validationFailure(e)
         }
-    }
 }

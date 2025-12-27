@@ -18,12 +18,11 @@ val nonets =
                         }
                     }
                 }
-        }
-        .map { Nonet(it.toSet()) }
+        }.map { Nonet(it.toSet()) }
 
 @Serializable
 data class Nonet(
-    override val cells: Set<Cell>
+    override val cells: Set<Cell>,
 ) : Region {
     init {
         this.validate().getOrThrow()

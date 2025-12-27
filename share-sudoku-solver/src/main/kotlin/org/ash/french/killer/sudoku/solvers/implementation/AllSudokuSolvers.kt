@@ -23,7 +23,7 @@ private val allSudokuSolvers: List<SudokuGridCellUpdate> =
     )
 
 class AllSudokuSolvers(
-    private val solvers: List<SudokuGridCellUpdate> = allSudokuSolvers
+    private val solvers: List<SudokuGridCellUpdate> = allSudokuSolvers,
 ) : SudokuGridCellUpdate {
     override fun getCellUpdates(grid: SudokuGridInterface) = solvers.flatMap { it.getCellUpdates(grid) }
 }

@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Row(
     val y: UByte,
-    override val cells: Set<Cell>
+    override val cells: Set<Cell>,
 ) : Region {
     init {
         this.validate().getOrThrow()

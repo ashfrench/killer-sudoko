@@ -19,13 +19,12 @@ import java.util.UUID
 data class SudokuGrid(
     @Contextual var id: UUID? = null,
     private val cellValues: MutableMap<Cell, CellState> = cells.associateWith { CellState() }.toMutableMap(),
-) :
-        SudokuGridInterface,
-        CellValueFinder by CellValueUpdater(cellValues),
-        CellValueSetter by CellValueUpdater(cellValues),
-        RowFinder by SudokuFinder,
-        ColumnFinder by SudokuFinder,
-        NonetFinder by SudokuFinder {
+) : SudokuGridInterface,
+    CellValueFinder by CellValueUpdater(cellValues),
+    CellValueSetter by CellValueUpdater(cellValues),
+    RowFinder by SudokuFinder,
+    ColumnFinder by SudokuFinder,
+    NonetFinder by SudokuFinder {
     init {
         require(cellValues.values.all { it.value.inRange1to9() || it.value == null })
     }

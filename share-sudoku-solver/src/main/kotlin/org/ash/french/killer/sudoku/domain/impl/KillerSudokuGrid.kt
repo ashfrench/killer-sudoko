@@ -24,7 +24,9 @@ data class KillerSudokuGrid(
     override fun getCages() = cages.toSet()
 
     override fun getCage(cell: Cell): Cage =
-        getCages().firstOrNull { cell in it } ?: throw NoSuchElementException("No Cage for $cell")
+        getCages()
+            .firstOrNull { cell in it }
+            ?: throw NoSuchElementException("No Cage for $cell")
 
     override operator fun contains(cell: Cell) = cells.contains(cell)
 

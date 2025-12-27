@@ -7,4 +7,6 @@ sealed interface SudokuGridInterface :
     RowFinder,
     NonetFinder
 
-interface KillerSudokuGridInterface : SudokuGridInterface, CageFinder
+interface KillerSudokuGridInterface :
+    SudokuGridInterface,
+    CageFinder
