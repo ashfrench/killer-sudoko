@@ -49,6 +49,15 @@ tasks.withType<Test> {
     useJUnitPlatform()
 }
 
+// Ensure all Kotlin compilation tasks target JVM 21 across the project
+subprojects {
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+        kotlinOptions {
+            jvmTarget = "21"
+        }
+    }
+}
+
 sonar {
     properties {
         property("sonar.projectKey", "ashfrench_killer-sudoko")
