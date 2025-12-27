@@ -1,3 +1,6 @@
+// Add JavaLanguageVersion import for toolchain configuration
+import org.gradle.jvm.toolchain.JavaLanguageVersion
+
 plugins {
     kotlin("jvm") version "2.0.20"
     kotlin("plugin.serialization") version "2.0.20"
@@ -19,6 +22,9 @@ version = "0.0.1-SNAPSHOT"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_21
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
 }
 
 repositories {
@@ -43,6 +49,9 @@ kotlin {
     compilerOptions {
         freeCompilerArgs.addAll("-Xjsr305=strict")
     }
+
+    // Request JDK 21 for Kotlin compilation project-wide
+    jvmToolchain(21)
 }
 
 tasks.withType<Test> {
