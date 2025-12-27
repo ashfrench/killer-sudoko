@@ -4,4 +4,6 @@ import kotlinx.serialization.Serializable
 import org.ash.french.killer.sudoku.domain.UpdateID
 
 @Serializable
-data class SudokuGridUpdate(val updates: Collection<CellUpdate>) : UpdateID
+data class SudokuGridUpdate(
+    val updates: Collection<CellUpdate>
+) : UpdateID

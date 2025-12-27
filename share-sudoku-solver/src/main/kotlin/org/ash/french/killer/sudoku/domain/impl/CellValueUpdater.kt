@@ -5,15 +5,16 @@ import org.ash.french.killer.sudoku.domain.CellValueFinder
 import org.ash.french.killer.sudoku.domain.CellValueSetter
 
 @Serializable
-data class CellValueUpdater(private val cellValues: MutableMap<Cell, CellState>) : CellValueFinder, CellValueSetter {
+data class CellValueUpdater(
+    private val cellValues: MutableMap<Cell, CellState>,
+) : CellValueFinder,
+    CellValueSetter {
     private val updates = mutableListOf<CellUpdate>()
 
     override fun getCell(
         x: UByte,
         y: UByte,
-    ): Cell {
-        return cells.firstOrNull { cell -> cell.x == x && cell.y == y } ?: throw RuntimeException("Cell Not Found")
-    }
+    ): Cell = cells.firstOrNull { cell -> cell.x == x && cell.y == y } ?: throw RuntimeException("Cell Not Found")
 
     override fun getCellValue(cell: Cell): CellState = cellValues[cell] ?: throw RuntimeException("Cell Not Found")
 
@@ -47,7 +48,5 @@ data class CellValueUpdater(private val cellValues: MutableMap<Cell, CellState>)
         return allCellValues
     }
 
-    override fun getSetCellValues(): List<CellUpdate> {
-        return updates.toList()
-    }
+    override fun getSetCellValues(): List<CellUpdate> = updates.toList()
 }

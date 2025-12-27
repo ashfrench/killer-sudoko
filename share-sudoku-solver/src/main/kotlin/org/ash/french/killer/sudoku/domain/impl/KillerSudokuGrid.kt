@@ -23,7 +23,8 @@ data class KillerSudokuGrid(
     NonetFinder by SudokuFinder {
     override fun getCages() = cages.toSet()
 
-    override fun getCage(cell: Cell): Cage = getCages().firstOrNull { cell in it } ?: throw NoSuchElementException("No Cage for $cell")
+    override fun getCage(cell: Cell): Cage =
+        getCages().firstOrNull { cell in it } ?: throw NoSuchElementException("No Cage for $cell")
 
     override operator fun contains(cell: Cell) = cells.contains(cell)
 

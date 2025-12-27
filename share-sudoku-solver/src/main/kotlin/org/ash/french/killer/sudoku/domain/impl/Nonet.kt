@@ -22,13 +22,15 @@ val nonets =
         .map { Nonet(it.toSet()) }
 
 @Serializable
-data class Nonet(override val cells: Set<Cell>) : Region {
+data class Nonet(
+    override val cells: Set<Cell>
+) : Region {
     init {
         this.validate().getOrThrow()
     }
 
-    override fun validate(): Result<Boolean> {
-        return try {
+    override fun validate(): Result<Boolean> =
+        try {
             val groupByX = cells.groupBy { it.x }
             val groupByY = cells.groupBy { it.y }
 
@@ -39,5 +41,4 @@ data class Nonet(override val cells: Set<Cell>) : Region {
         } catch (e: Throwable) {
             validationFailure(e)
         }
-    }
 }

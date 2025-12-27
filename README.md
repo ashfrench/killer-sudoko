@@ -2,7 +2,7 @@
 
 ---
 
-[![https://ashfrench.co.uk/](docs/images/favicon/favicon.ico "https://ashfrench.co.uk/")][0] 
+[![https://ashfrench.co.uk/](docs/images/favicon/favicon.ico "https://ashfrench.co.uk/")][0]
 
 [https://ashfrench.co.uk/][0]
 
@@ -26,35 +26,40 @@
 ## Table Of Contents
 
 - [Docs](./docs/README.md)
-  - [Solving Techniques](docs/Solving_Techniques.md)
+    - [Solving Techniques](docs/Solving_Techniques.md)
 - [Classic Sudoku](#classic-sudoku)
 - [Killer Sudoku](#killer-sudoku-grid)
 - [Tooling](#tooling)
-  - [How to Build](#how-to-build-and-run)
-    - [Spring Boot](#spring-boot) 
+    - [How to Build](#how-to-build-and-run)
+        - [Spring Boot](#spring-boot)
 - [How to Build](#how-to-build)
 - [References](#references)
 - [Miscellaneous](#miscellaneous)
 - [Links](#links)
 - [Security Policy](#security-policy)
 
-> This is a rewrite in kotlin of my Computer Science dissertation project. I Studied `Computer Science with a Year in Industry (2006-2010)` with [IBM][1] `(2008-2009)` at [Manchester University][2]. I achieved a 1st class honours for this project and was in the top 10 of the year.
+> This is a rewrite in kotlin of my Computer Science dissertation project. I Studied
+`Computer Science with a Year in Industry (2006-2010)` with [IBM][1] `(2008-2009)` at [Manchester University][2]. I
+> achieved a 1st class honours for this project and was in the top 10 of the year.
 >
 > The goals of this project is to be able to take any Killer Sudoku Grid and then be able to solve them from said grid.
 >
 > I should be able to demonstrate solving by [brute force][3], but also be able to solve using [human techniques][4].
 >
-> The human provided techniques should also be able to graphically display or verbally describe how to solve said Sudoku Grid
-> 
+> The human provided techniques should also be able to graphically display or verbally describe how to solve said Sudoku
+> Grid
+>
 > I will be using https://sudoku.com/ as a source of data to test my algorithms
 
 ## [Classic Sudoku](docs/Classic_Sudoku.md)
 
-> Classic sudoku has been around for years and can easily be solved through brute force. The aim of this project is to show and demonstrate how to solve example puzzles. Show techniques and provide solutions.
+> Classic sudoku has been around for years and can easily be solved through brute force. The aim of this project is to
+> show and demonstrate how to solve example puzzles. Show techniques and provide solutions.
 >
 > A simple brute force algorithm will be provided to show how to solve a [well-posed puzzle][15]
 >
-> Further algorithms will be provided with a [human style UX](#solving-techniques) to help the user learn how to solve the puzzles
+> Further algorithms will be provided with a [human style UX](#solving-techniques) to help the user learn how to solve
+> the puzzles
 
 <img src="./docs/images/sudoko/example-sudoku-grid.png" alt="Example Sudoku Grid" width="400px" height="400px" >
 
@@ -62,15 +67,19 @@
 
 > The objective is to fill the grid with numbers from 1 to 9 in a way that the following conditions are met:
 >
-> * Each [row](docs/Terminology.md#Row), [column](docs/Terminology.md#Column), and [nonet](docs/Terminology.md#Nonet) contains each number exactly once.
+> * Each [row](docs/Terminology.md#Row), [column](docs/Terminology.md#Column), and [nonet](docs/Terminology.md#Nonet)
+    contains each number exactly once.
 > * The sum of all numbers in a [cage](docs/Terminology.md#Cage) must match the small number printed in its corner.
-> * No number appears more than once in a [cage](docs/Terminology.md#Cage). (This is the standard rule for killer sudokus, and implies that no [cage](docs/Terminology.md#Cage) can include more than 9 [cells](docs/Terminology.md#Cell).
+> * No number appears more than once in a [cage](docs/Terminology.md#Cage). (This is the standard rule for killer
+    sudokus, and implies that no [cage](docs/Terminology.md#Cage) can include more than
+    9 [cells](docs/Terminology.md#Cell).
 
 <img src="./docs/images/killer-sudoko/Killersudoku_bw_with_bg.png" alt="Example Sudoku Grid" width="400px" height="400px" >
 
-## 
+##  
 
 ## Tooling
+
 [![Kotlin](https://img.shields.io/badge/kotlin-%237F52FF.svg?style=for-the-badge&logo=kotlin&logoColor=white)][6]
 [![Gradle](https://img.shields.io/badge/Gradle-02303A.svg?style=for-the-badge&logo=Gradle&logoColor=white)][7]
 [![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)][12]
@@ -79,8 +88,8 @@
 [![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)][13]
 [![SonarQube](https://img.shields.io/badge/SonarQube-black?style=for-the-badge&logo=sonarqube&logoColor=4E9BCD)][5]
 
-* [Kotlin][6] 
-* [Gradle][7] 
+* [Kotlin][6]
+* [Gradle][7]
 * [JVM][8]
 * [Compose Multi Platform][9]
 * [JUnit 5 Extension Model][10]
@@ -93,7 +102,8 @@
 
 ### Internal Code
 
-The way you can listen to any updates for a grid will return any CellUpdates which all have a unique ID, so you can check which have been processed already.
+The way you can listen to any updates for a grid will return any CellUpdates which all have a unique ID, so you can
+check which have been processed already.
 
 I will try to make optimisations that I think can be added from [LibreSudoku][18]
 
@@ -107,7 +117,7 @@ sealed class CellUpdate : UpdateID
 ## References
 
 > Useful links for the project status and tracking
-> 
+>
 > * [Project Kanban Board][11]
 > * [Qodana Link][16]
 
@@ -116,6 +126,7 @@ sealed class CellUpdate : UpdateID
 [![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 ### Links
+
 > 1. https://www.ibm.com
 > 1. https://www.cs.manchester.ac.uk/
 > 1. https://en.wikipedia.org/wiki/Brute-force_search
@@ -136,26 +147,45 @@ sealed class CellUpdate : UpdateID
 > 1. https://github.com/kaajjo/LibreSudoku
 
 [0]: https://ashfrench.co.uk/
+
 [1]: https://www.ibm.com
+
 [2]: https://www.cs.manchester.ac.uk/
+
 [3]: https://en.wikipedia.org/wiki/Brute-force_search
+
 [4]: https://en.wikipedia.org/wiki/Killer_sudoku#Solving_strategies
+
 [5]: https://sonarcloud.io/summary/overall?id=ashfrench_killer-sudoko
+
 [6]: https://kotlinlang.org/
+
 [7]: https://gradle.org/
+
 [8]: https://www.oracle.com/java/technologies/downloads/
+
 [9]: https://www.jetbrains.com/lp/compose-multiplatform/
+
 [10]: https://junit.org/junit5/docs/current/user-guide/#extensions
+
 [11]: https://github.com/users/ashfrench/projects/1/views/1
+
 [12]: https://html.com/html5/
+
 [13]: https://www.markdownguide.org/cheat-sheet/
+
 [14]: https://junit.org/junit5/docs/current/user-guide/
+
 [15]: https://en.wikipedia.org/wiki/Well-posed_problem
+
 [16]: https://qodana.cloud/projects/3dBJ8/reports/RwegE
+
 [17]: https://gitlab.com/opensudoku/opensudoku
+
 [18]: https://github.com/kaajjo/LibreSudoku
 
 [Return to Top](#table-of-contents)
 
 ### [Security Policy](SECURITY.md)
+
 ![Security Policy](docs/images/skull-and-cross-bones.jpg)

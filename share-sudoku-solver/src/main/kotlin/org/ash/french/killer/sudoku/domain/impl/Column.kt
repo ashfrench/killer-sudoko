@@ -3,7 +3,10 @@ package org.ash.french.killer.sudoku.domain.impl
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Column(val x: UByte, override val cells: Set<Cell>) : Region {
+data class Column(
+    val x: UByte,
+    override val cells: Set<Cell>,
+) : Region {
     init {
         validate().getOrThrow()
     }

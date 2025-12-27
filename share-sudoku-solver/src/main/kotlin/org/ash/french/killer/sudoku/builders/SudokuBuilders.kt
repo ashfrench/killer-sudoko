@@ -78,7 +78,10 @@ internal fun KillerSudokuGrid.cageBuilder(cageValueMap: Map<Cage, UByte>): CageB
     return CageBuilder(this, cages)
 }
 
-internal class CageBuilder(val sudokuGrid: KillerSudokuGrid, val cages: Map<Cage, UByte> = emptyMap())
+internal class CageBuilder(
+    val sudokuGrid: KillerSudokuGrid,
+    val cages: Map<Cage, UByte> = emptyMap(),
+)
 
 fun randomDefaultGrid(uuid: UUID? = UUID.randomUUID()): SudokuGrid {
     val grid =

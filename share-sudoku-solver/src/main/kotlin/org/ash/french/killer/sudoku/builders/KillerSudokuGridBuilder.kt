@@ -4,7 +4,9 @@ import org.ash.french.killer.sudoku.domain.impl.Cage
 import org.ash.french.killer.sudoku.domain.impl.KillerSudokuGrid
 import org.ash.french.killer.sudoku.domain.impl.cells
 
-data class KillerSudokuGridBuilder(private var sudokuGrid: KillerSudokuGrid = KillerSudokuGrid()) : SudokuBuilder<KillerSudokuGrid> {
+data class KillerSudokuGridBuilder(
+    private var sudokuGrid: KillerSudokuGrid = KillerSudokuGrid(),
+) : SudokuBuilder<KillerSudokuGrid> {
     private val cages = mutableListOf<Cage>()
 
     override fun build(): KillerSudokuGrid = sudokuGrid.also { sudokuGrid.validateCages() }

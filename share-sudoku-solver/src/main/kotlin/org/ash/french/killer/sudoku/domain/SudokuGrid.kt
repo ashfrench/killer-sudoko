@@ -20,7 +20,7 @@ data class SudokuGrid(
     @Contextual var id: UUID? = null,
     private val cellValues: MutableMap<Cell, CellState> = cells.associateWith { CellState() }.toMutableMap(),
 ) :
-    SudokuGridInterface,
+        SudokuGridInterface,
         CellValueFinder by CellValueUpdater(cellValues),
         CellValueSetter by CellValueUpdater(cellValues),
         RowFinder by SudokuFinder,

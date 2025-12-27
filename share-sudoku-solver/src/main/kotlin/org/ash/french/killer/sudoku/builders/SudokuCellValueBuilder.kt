@@ -5,7 +5,9 @@ import org.ash.french.killer.sudoku.domain.impl.Cell
 import org.ash.french.killer.sudoku.domain.impl.CellState
 import org.ash.french.killer.sudoku.domain.impl.CellUpdateValueOriginalValue
 
-class SudokuCellValueBuilder(private var sudokuGrid: SudokuGrid) : SudokuBuilder<CellUpdateValueOriginalValue> {
+class SudokuCellValueBuilder(
+    private var sudokuGrid: SudokuGrid,
+) : SudokuBuilder<CellUpdateValueOriginalValue> {
     var x: Int = 1
     var y: Int = 1
     var value: Int? = null

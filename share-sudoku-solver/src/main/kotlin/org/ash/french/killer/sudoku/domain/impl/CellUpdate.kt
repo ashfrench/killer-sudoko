@@ -10,7 +10,8 @@ sealed class CellUpdate : UpdateID
 data class CellUpdateValueOriginalValue(
     val cell: Cell,
     val value: UByte,
-) : CellUpdate(), UpdateID {
+) : CellUpdate(),
+    UpdateID {
     constructor(cell: Cell, value: Int) : this(cell = cell, value = value.toUByte())
     constructor(x: Int, y: Int, value: Int) : this(Cell(x, y), value)
 }
@@ -19,7 +20,8 @@ data class CellUpdateValueOriginalValue(
 data class CellUpdateValue(
     val cell: Cell,
     val value: UByte,
-) : CellUpdate(), UpdateID {
+) : CellUpdate(),
+    UpdateID {
     constructor(cell: Cell, value: Int) : this(cell = cell, value = value.toUByte())
     constructor(x: Int, y: Int, value: Int) : this(Cell(x, y), value)
 }
@@ -28,7 +30,8 @@ data class CellUpdateValue(
 data class CellRemovePotentialValueUpdate(
     val cell: Cell,
     val value: UByte,
-) : CellUpdate(), UpdateID {
+) : CellUpdate(),
+    UpdateID {
     constructor(cell: Cell, value: Int) : this(cell = cell, value = value.toUByte())
     constructor(x: Int, y: Int, value: Int) : this(Cell(x, y), value)
 }
@@ -37,7 +40,8 @@ data class CellRemovePotentialValueUpdate(
 data class CellRemovePotentialValueFromRegionUpdate(
     val cell: Cell,
     val value: UByte,
-) : CellUpdate(), UpdateID {
+) : CellUpdate(),
+    UpdateID {
     constructor(cell: Cell, value: Int) : this(cell, value.toUByte())
     constructor(x: Int, y: Int, value: Int) : this(Cell(x, y), value)
 }

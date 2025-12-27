@@ -4,7 +4,9 @@ import org.ash.french.killer.sudoku.domain.SudokuGrid
 import org.ash.french.killer.sudoku.domain.impl.CellUpdate
 import org.ash.french.killer.sudoku.domain.impl.CellUpdateValueOriginalValue
 
-data class SudokuGridBuilder(private var sudokuGrid: SudokuGrid) : SudokuBuilder<SudokuGrid> {
+data class SudokuGridBuilder(
+    private var sudokuGrid: SudokuGrid,
+) : SudokuBuilder<SudokuGrid> {
     private val cellUpdates = mutableListOf<CellUpdateValueOriginalValue>()
 
     override fun build(): SudokuGrid =

@@ -13,7 +13,9 @@ object SudokuFinder : RowFinder, ColumnFinder, NonetFinder {
 
     override fun getRows() = rows.values.toList()
 
-    override fun getColumn(cell: Cell) = columns[cell.x] ?: throw RuntimeException("Unexpected Cell: $cell - No Column found")
+    override fun getColumn(cell: Cell) =
+        columns[cell.x]
+            ?: throw RuntimeException("Unexpected Cell: $cell - No Column found")
 
     override fun getColumns() = columns.values.toList()
 

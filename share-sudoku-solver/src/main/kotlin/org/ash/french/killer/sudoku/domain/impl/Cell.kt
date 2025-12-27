@@ -4,7 +4,10 @@ import kotlinx.serialization.Serializable
 import org.ash.french.killer.sudoku.domain.Position
 
 @Serializable
-data class Cell(val position: GridPosition) : Position by position, Comparable<Cell> {
+data class Cell(
+    val position: GridPosition,
+) : Position by position,
+    Comparable<Cell> {
     constructor(x: UByte, y: UByte) : this(GridPosition(x, y))
     constructor(x: Int, y: Int) : this(GridPosition(x.toUByte(), y.toUByte()))
 

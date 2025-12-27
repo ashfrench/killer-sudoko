@@ -3,7 +3,10 @@ package org.ash.french.killer.sudoku.domain.impl
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region {
+data class Cage(
+    override val sum: UByte,
+    override val cells: Set<Cell>,
+) : Region {
     constructor(sum: Int, cells: Collection<Cell>) : this(sum.toUByte(), cells.toSet())
 
     private val potentialCageValues: MutableSet<Set<Int>>
@@ -36,8 +39,8 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
         unusedVals.forEach { unusedValue -> cells.forEach { cell -> cell.removePotentialValue(unusedValue) } }
     }
 
-    private fun generatePotentialCageValues(): MutableSet<Set<Int>> {
-        return when (cells.size) {
+    private fun generatePotentialCageValues(): MutableSet<Set<Int>> =
+        when (cells.size) {
             1 -> mutableSetOf(setOf(sum.toInt()))
             2 ->
                 when (sum.toInt()) {
@@ -700,7 +703,6 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
 
             else -> throw RuntimeException("Invalid size ${cells.size}")
         }
-    }
 
     private fun validateCells(cells: Set<Cell>) {
         require(cells.size in 1..9) {
@@ -719,8 +721,8 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
         require(valid) { "Invalid cage sum $sum for size ${cells.size} - $cells" }
     }
 
-    private fun Int.isValidCageSum(sum: Int): Boolean {
-        return when (this) {
+    private fun Int.isValidCageSum(sum: Int): Boolean =
+        when (this) {
             1 -> sum in 1..9
             2 -> sum in 2..17
             3 -> sum in 6..24
@@ -732,10 +734,9 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
             9 -> sum in 45..45
             else -> false
         }
-    }
 
-    override fun validate(): Result<Boolean> {
-        return try {
+    override fun validate(): Result<Boolean> =
+        try {
             require(sum in 1u..45u) { "Invalid Sum for Cage of size ${cells.size}" }
             require(cells.size in 1..9) { "A cage must contain between 1 and 9 cells" }
             validateCageSum(sum, cells)
@@ -745,5 +746,4 @@ data class Cage(override val sum: UByte, override val cells: Set<Cell>) : Region
         } catch (e: Throwable) {
             validationFailure(e)
         }
-    }
 }

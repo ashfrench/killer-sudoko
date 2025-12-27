@@ -207,7 +207,7 @@ internal object TestConstants {
         }.build()
 
     val jsonString =
-"""{
+        """{
     "cellValues": [
         {
             "position": {

@@ -1,4 +1,5 @@
 # Documentation Index
+
 ![Ash French](./images/favicon/favicon.ico)
 
 [Back to README.md](../README.md)
@@ -12,7 +13,8 @@ This is the documentation index. It contains a list of all the documentation pag
 
 ## Code
 
-The way you can listen to any updates for a grid will return any CellUpdates which all have a unique ID, so you can check which have been processed already.
+The way you can listen to any updates for a grid will return any CellUpdates which all have a unique ID, so you can
+check which have been processed already.
 
 ```kotlin
 @Serializable

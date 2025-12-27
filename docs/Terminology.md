@@ -34,7 +34,6 @@
 
 </table>
 
-
 ## Row
 
 > A horizontal line of 9 cells
@@ -53,4 +52,5 @@
 
 ## House
 
-> Any non-repeating set of 9 cells: can be used as a general term for "row, column, or nonet" (or, in Killer X variants, "long diagonal")
+> Any non-repeating set of 9 cells: can be used as a general term for "row, column, or nonet" (or, in Killer X
+> variants, "long diagonal")

@@ -22,6 +22,8 @@ private val allSudokuSolvers: List<SudokuGridCellUpdate> =
         XYZWing,
     )
 
-class AllSudokuSolvers(private val solvers: List<SudokuGridCellUpdate> = allSudokuSolvers) : SudokuGridCellUpdate {
+class AllSudokuSolvers(
+    private val solvers: List<SudokuGridCellUpdate> = allSudokuSolvers
+) : SudokuGridCellUpdate {
     override fun getCellUpdates(grid: SudokuGridInterface) = solvers.flatMap { it.getCellUpdates(grid) }
 }

@@ -13,7 +13,5 @@ class KillerSudokuCageBuilder : SudokuBuilder<Cage> {
         cells.add(builder.build())
     }
 
-    override fun build(): Cage {
-        return Cage(cageSum, cells)
-    }
+    override fun build(): Cage = Cage(cageSum, cells)
 }

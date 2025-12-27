@@ -15,4 +15,6 @@ internal data class SolvingSudokuGrid(
     val cellUpdates: Collection<CellUpdate>,
 ) : SolvedSudokuGridStatus()
 
-internal data class UnsolvableSudokuGrid(val sudokuGrid: KillerSudokuGrid) : SolvedSudokuGridStatus()
+internal data class UnsolvableSudokuGrid(
+    val sudokuGrid: KillerSudokuGrid,
+) : SolvedSudokuGridStatus()

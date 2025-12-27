@@ -10,9 +10,11 @@
 
 > The objective is to fill the grid with numbers from 1 to 9 in a way that the following conditions are met:
 >
-> * Each [row](./Terminology.md#Row), [column](./Terminology.md#Column), and [nonet](./Terminology.md#Nonet) contains each number exactly once.
+> * Each [row](./Terminology.md#Row), [column](./Terminology.md#Column), and [nonet](./Terminology.md#Nonet) contains
+    each number exactly once.
 > * The sum of all numbers in a [cage](./Terminology.md#Cage) must match the small number printed in its corner.
-> * No number appears more than once in a [cage](./Terminology.md#Cage). (This is the standard rule for killer sudokus, and implies that no [cage](./Terminology.md#Cage) can include more than 9 [cells](./Terminology.md#Cell).
+> * No number appears more than once in a [cage](./Terminology.md#Cage). (This is the standard rule for killer sudokus,
+    and implies that no [cage](./Terminology.md#Cage) can include more than 9 [cells](./Terminology.md#Cell).
 
 ## Examples of Killer Sudoku Grids
 

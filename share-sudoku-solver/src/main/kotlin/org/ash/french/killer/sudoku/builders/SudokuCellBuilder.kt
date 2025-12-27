@@ -7,7 +7,5 @@ class SudokuCellBuilder : SudokuBuilder<Cell> {
     var y: Int = 1
     var value: Int? = null
 
-    override fun build(): Cell {
-        return Cell(x, y)
-    }
+    override fun build(): Cell = Cell(x, y)
 }
